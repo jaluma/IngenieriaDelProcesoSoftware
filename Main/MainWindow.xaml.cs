@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfApp1 {
+namespace Main {
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
