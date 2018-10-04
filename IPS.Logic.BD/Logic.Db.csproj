@@ -6,10 +6,14 @@
 
   <ItemGroup>
     <PackageReference Include="sqlite" Version="3.13.0" />
+    <PackageReference Include="SQLite.Native" Version="3.12.3" />
     <PackageReference Include="sqlite.redist" Version="3.8.4.2" />
     <PackageReference Include="sqlite.symbols" Version="3.8.4.2" />
     <PackageReference Include="System.Data.SQLite" Version="1.0.109.2" />
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.109.2" />
+    <PackageReference Include="System.Data.SQLite.Linq" Version="1.0.109" />
+    <PackageReference Include="System.Data.SQLite.x64" Version="1.0.109" />
+    <PackageReference Include="System.Data.SQLite.x86" Version="1.0.109" />
   </ItemGroup>
 
   <ItemGroup>

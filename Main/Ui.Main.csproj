@@ -94,5 +94,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Logic.Db2\Logic.Db.csproj">
+      <Project>{e8159fd0-eea2-484a-a57e-00cec1af4157}</Project>
+      <Name>Logic.Db</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

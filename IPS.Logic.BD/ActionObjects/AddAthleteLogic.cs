@@ -14,7 +14,7 @@ namespace Logic.Db.ActionObjects {
             _conn = conn;
         }
         public void Execute() {
-            AthletesUtil.InsertAthletesTable(ref _conn, _athleteAdd);
+            AthletesService.InsertAthletesTable(ref _conn, _athleteAdd);
         }
 
     }
