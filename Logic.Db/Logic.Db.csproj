@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionObjects\AthleteLogic\AddAthleteLogic.cs" />
+    <Compile Include="ActionObjects\AthleteLogic\DeleteAthleteLogic.cs" />
     <Compile Include="ActionObjects\IActionObject.cs" />
     <Compile Include="ActionObjects\AthleteLogic\SelectAthleteLogic.cs" />
     <Compile Include="Connection\DBConnection.cs" />
@@ -71,7 +72,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\ResourcesStyler.cs" />
     <Compile Include="Util\AthletesService.cs" />
   </ItemGroup>
   <ItemGroup>

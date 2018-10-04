@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Logic.Db2.Properties {
+namespace Logic.Db.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Logic.Db2.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Logic.Db2.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Logic.Db.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,6 +57,61 @@ namespace Logic.Db2.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] Database {
+            get {
+                object obj = ResourceManager.GetObject("Database", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a database.db.
+        /// </summary>
+        internal static string DbFileName {
+            get {
+                return ResourceManager.GetString("DbFileName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a IPS.Logic.BD\Connection\.
+        /// </summary>
+        internal static string DbPath {
+            get {
+                return ResourceManager.GetString("DbPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a DELETE FROM Athlete WHERE DNI=@DNI.
+        /// </summary>
+        internal static string SQL_DELETE_ATHLETE {
+            get {
+                return ResourceManager.GetString("SQL_DELETE_ATHLETE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a INSERT INTO Athlete VALUES(@DNI, @NAME, @SURNAME, @BIRTH_DATE, @GENDER).
+        /// </summary>
+        internal static string SQL_INSERT_ATHLETE {
+            get {
+                return ResourceManager.GetString("SQL_INSERT_ATHLETE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT DNI, NAME, SURNAME, BIRTH_DATE, GENDER FROM Athlete.
+        /// </summary>
+        internal static string SQL_SELECT_ATHLETE {
+            get {
+                return ResourceManager.GetString("SQL_SELECT_ATHLETE", resourceCulture);
             }
         }
     }

@@ -129,6 +129,10 @@
     <value>IPS.Logic.BD\Connection\</value>
     <comment>path from database file</comment>
   </data>
+  <data name="SQL_DELETE_ATHLETE" xml:space="preserve">
+    <value>DELETE FROM Athlete WHERE DNI=@DNI</value>
+    <comment>sql command for delete Athletes</comment>
+  </data>
   <data name="SQL_INSERT_ATHLETE" xml:space="preserve">
     <value>INSERT INTO Athlete VALUES(@DNI, @NAME, @SURNAME, @BIRTH_DATE, @GENDER)</value>
     <comment>sql command for insert values into table Athletes</comment>

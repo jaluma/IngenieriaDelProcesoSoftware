@@ -26,6 +26,11 @@ namespace Logic.Db.Util {
             return select.List;
         }
 
+        public void DeleteAthleteTable(AthleteDto athleteP) {
+            DeleteAthleteLogic delete = new DeleteAthleteLogic(ref _conn, athleteP);
+            delete.Execute();
+        }
+
         public static void PrintAthletes(IEnumerable<AthleteDto> list) {
             Console.WriteLine(string.Join("\n", list));
         }

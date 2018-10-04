@@ -7,7 +7,7 @@ namespace Logic.Db.ActionObjects.AthleteLogic {
     public class AddAthleteLogic : IActionObject {
 
         //public Athlete AthleteAdd { get; private set; }
-        private DBConnection _conn;
+        private readonly DBConnection _conn;
         private readonly AthleteDto _athleteAdd;
 
         public AddAthleteLogic(ref DBConnection conn, AthleteDto athleteP) {

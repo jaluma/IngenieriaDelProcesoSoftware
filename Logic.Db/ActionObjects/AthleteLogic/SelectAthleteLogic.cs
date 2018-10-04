@@ -7,8 +7,8 @@ using Logic.Db.Util;
 
 namespace Logic.Db.ActionObjects.AthleteLogic {
     public class SelectAthleteLogic : IActionObject {
-        private DBConnection _conn;
-        public List<AthleteDto> List;
+        private readonly DBConnection _conn;
+        public readonly List<AthleteDto> List;
 
         public SelectAthleteLogic(ref DBConnection conn) {
             _conn = conn;
