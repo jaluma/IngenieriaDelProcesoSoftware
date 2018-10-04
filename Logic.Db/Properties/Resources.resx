@@ -133,12 +133,21 @@
     <value>DELETE FROM Athlete WHERE DNI=@DNI</value>
     <comment>sql command for delete Athletes</comment>
   </data>
+  <data name="SQL_DELETE_COMPETITION" xml:space="preserve">
+    <value />
+  </data>
   <data name="SQL_INSERT_ATHLETE" xml:space="preserve">
     <value>INSERT INTO Athlete VALUES(@DNI, @NAME, @SURNAME, @BIRTH_DATE, @GENDER)</value>
     <comment>sql command for insert values into table Athletes</comment>
   </data>
+  <data name="SQL_INSERT_COMPETITION" xml:space="preserve">
+    <value />
+  </data>
   <data name="SQL_SELECT_ATHLETE" xml:space="preserve">
     <value>SELECT DNI, NAME, SURNAME, BIRTH_DATE, GENDER FROM Athlete</value>
     <comment>query sql for return athletes</comment>
+  </data>
+  <data name="SQL_SELECT_COMPETITION" xml:space="preserve">
+    <value />
   </data>
 </root>

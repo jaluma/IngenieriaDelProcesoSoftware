@@ -98,6 +98,15 @@ namespace Logic.Db.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a .
+        /// </summary>
+        internal static string SQL_DELETE_COMPETITION {
+            get {
+                return ResourceManager.GetString("SQL_DELETE_COMPETITION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a INSERT INTO Athlete VALUES(@DNI, @NAME, @SURNAME, @BIRTH_DATE, @GENDER).
         /// </summary>
         internal static string SQL_INSERT_ATHLETE {
@@ -107,11 +116,29 @@ namespace Logic.Db.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a .
+        /// </summary>
+        internal static string SQL_INSERT_COMPETITION {
+            get {
+                return ResourceManager.GetString("SQL_INSERT_COMPETITION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a SELECT DNI, NAME, SURNAME, BIRTH_DATE, GENDER FROM Athlete.
         /// </summary>
         internal static string SQL_SELECT_ATHLETE {
             get {
                 return ResourceManager.GetString("SQL_SELECT_ATHLETE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a .
+        /// </summary>
+        internal static string SQL_SELECT_COMPETITION {
+            get {
+                return ResourceManager.GetString("SQL_SELECT_COMPETITION", resourceCulture);
             }
         }
     }
