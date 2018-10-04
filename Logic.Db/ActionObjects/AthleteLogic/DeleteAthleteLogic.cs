@@ -8,7 +8,7 @@ using Logic.Db.Connection;
 using Logic.Db.Dto;
 
 namespace Logic.Db.ActionObjects.AthleteLogic {
-    class DeleteAthleteLogic : IActionObject {
+    public class DeleteAthleteLogic : IActionObject {
         private readonly DBConnection _conn;
         private readonly AthleteDto _athlete;
         public DeleteAthleteLogic(ref DBConnection conn, AthleteDto athleteP) {
@@ -19,7 +19,8 @@ namespace Logic.Db.ActionObjects.AthleteLogic {
         public void Execute() {
             try {
                 using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_DELETE_ATHLETE, _conn.DbConnection)) {
-                    
+                    command.Parameters.AddWithValue("@DNI", _athlete.Dni);
+                    command.ExecuteNonQuery();
                 }
             } catch (SQLiteException) {
                 _conn.DbConnection?.Close();
