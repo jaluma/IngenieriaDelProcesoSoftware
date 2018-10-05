@@ -4,9 +4,16 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Ui.Main.Pages.Competition.Times"
+      xmlns:properties="clr-namespace:Ui.Main.Properties"
       mc:Ignorable="d" d:DesignWidth="1250"
       Title="SelectionCompetition" Height="545">
-    <DataGrid Name="DataGridCompetition" MinWidth="800" MinHeight="450" SelectionChanged="DataGrid_SelectionChanged" Height="545" VerticalAlignment="Top"/>
+    <DockPanel  Height="545" VerticalAlignment="Bottom">
+        <Label FontSize="18"
+               FontWeight="Bold"
+               HorizontalAlignment="Center"
+               Content="{x:Static properties:Resources.TileCompetitionFinish}" DockPanel.Dock="Top"/>
+        <DataGrid x:Name="DataGridCompetition" MinWidth="800" MinHeight="450" SelectionChanged="DataGrid_SelectionChanged" VerticalAlignment="Top" ColumnWidth="*" Height="419" DockPanel.Dock="Bottom" IsReadOnly="True"/>
+    </DockPanel>
 
 
 </Page>

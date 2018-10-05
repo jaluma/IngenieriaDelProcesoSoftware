@@ -63,47 +63,32 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap competitionIcon {
+        public static System.Drawing.Bitmap athleticIco {
             get {
-                object obj = ResourceManager.GetObject("competitionIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("athleticIco", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Atletas inscritos.
+        ///   Busca una cadena traducida similar a CATEGORIA.
         /// </summary>
-        public static string TileAthletes {
+        public static string Category {
             get {
-                return ResourceManager.GetString("TileAthletes", resourceCulture);
+                return ResourceManager.GetString("Category", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Competiciones activas.
+        ///   Busca una cadena traducida similar a Fecha.
         /// </summary>
-        public static string TileCompetition {
+        public static string Competition_Date {
             get {
-                return ResourceManager.GetString("TileCompetition", resourceCulture);
+                return ResourceManager.GetString("Competition_Date", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a .
-        /// </summary>
-        public static string TileTimes {
-            get {
-                return ResourceManager.GetString("TileTimes", resourceCulture);
-            }
-        }
-
-        public static string TileCompetitionFinish {
-            get {
-                return ResourceManager.GetString("TileCompetitionFinish", resourceCulture);
-            }
-        }
-
-         /// <summary>
         ///   Busca una cadena traducida similar a Id.
         /// </summary>
         public static string Competition_Id {
@@ -156,15 +141,6 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("Competition_Status", resourceCulture);
             }
         }
-
-        /// <summary>
-        ///   Busca una cadena traducida similar a Fecha.
-        /// </summary>
-        public static string Competition_Date {
-            get {
-                return ResourceManager.GetString("Competition_Date", resourceCulture);
-            }
-        }
         
         /// <summary>
         ///   Busca una cadena traducida similar a Tipo.
@@ -172,6 +148,80 @@ namespace Ui.Main.Properties {
         public static string Competition_Type {
             get {
                 return ResourceManager.GetString("Competition_Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap competitionFinishIco {
+            get {
+                object obj = ResourceManager.GetObject("competitionFinishIco", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap competitionIcon {
+            get {
+                object obj = ResourceManager.GetObject("competitionIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Femenina.
+        /// </summary>
+        public static string FemaleText {
+            get {
+                return ResourceManager.GetString("FemaleText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Masculina.
+        /// </summary>
+        public static string MaleText {
+            get {
+                return ResourceManager.GetString("MaleText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Atletas inscritos.
+        /// </summary>
+        public static string TileAthletes {
+            get {
+                return ResourceManager.GetString("TileAthletes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Competiciones activas.
+        /// </summary>
+        public static string TileCompetition {
+            get {
+                return ResourceManager.GetString("TileCompetition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Competiciones finalizadas.
+        /// </summary>
+        public static string TileCompetitionFinish {
+            get {
+                return ResourceManager.GetString("TileCompetitionFinish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tiempo de la competición: .
+        /// </summary>
+        public static string TitleTimesCompetition {
+            get {
+                return ResourceManager.GetString("TitleTimesCompetition", resourceCulture);
             }
         }
     }

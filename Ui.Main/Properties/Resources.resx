@@ -160,4 +160,16 @@
   <data name="Competition_Type" xml:space="preserve">
     <value>Tipo</value>
   </data>
+  <data name="TitleTimesCompetition" xml:space="preserve">
+    <value>Tiempo de la competición: </value>
+  </data>
+  <data name="FemaleText" xml:space="preserve">
+    <value>Femenina</value>
+  </data>
+  <data name="MaleText" xml:space="preserve">
+    <value>Masculina</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>CATEGORIA</value>
+  </data>
 </root>

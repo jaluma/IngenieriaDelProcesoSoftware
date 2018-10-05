@@ -102,6 +102,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Competition.Times\TimesAthletes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MenuInitial\MainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -117,6 +121,9 @@
     <Compile Include="Pages\Competition.Times\SelectionCompetition.xaml.cs">
       <DependentUpon>SelectionCompetition.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Competition.Times\TimesAthletes.xaml.cs">
+      <DependentUpon>TimesAthletes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MenuInitial\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
@@ -130,7 +137,7 @@
       <SubType>Code</SubType>
       <CustomToolNamespace>Ui.Main.Properties</CustomToolNamespace>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
+    <Compile Include="Properties\Resources1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>

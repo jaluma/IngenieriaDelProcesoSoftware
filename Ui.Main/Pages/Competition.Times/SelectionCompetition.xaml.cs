@@ -44,7 +44,9 @@ namespace Ui.Main.Pages.Competition.Times
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-
+            Content = new Frame() {
+                //Content = new SelectionCompetition()
+            };
         }
     }
 }

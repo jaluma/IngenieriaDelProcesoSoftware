@@ -20,7 +20,6 @@ namespace Ui.Main.Pages.MenuInitial {
 
         private void TileCompetitionFinish_Click(object sender, System.Windows.RoutedEventArgs e) {
             Content = new Frame() {
-                
                 Content = new SelectionCompetition()
             };
 
