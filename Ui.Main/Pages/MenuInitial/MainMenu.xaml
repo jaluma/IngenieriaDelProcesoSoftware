@@ -1,0 +1,35 @@
+﻿<Page x:Class="Ui.Main.Pages.MenuInitial.MainMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:properties="clr-namespace:Ui.Main.Properties"
+      xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+      xmlns:local="clr-namespace:Ui.Main"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainMenu">
+    <Page.Resources>
+        <Style TargetType="mah:Tile" x:Key="Tile">
+            <Setter Property="Background" Value="DarkSlateBlue"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="200"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Height" Value="200"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+    </Page.Resources>
+
+    <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center" >
+        <mah:Tile x:Name="TileAthletes" Style="{StaticResource Tile}"
+                  Title="{x:Static properties:Resources.TileAthletes}"
+                  Background="SlateBlue">
+            <Image Height="100" Width="100" Source="../../Resources/athleticIco.png"/>
+        </mah:Tile>
+        <mah:Tile x:Name="TileCompetition" Style="{StaticResource Tile}"
+                  Title="{x:Static properties:Resources.TileCompetition}"
+                  Background="AntiqueWhite">
+            <Image Height="100" Width="100" Source="../../Resources/competitionIcon.png"/>
+        </mah:Tile>
+    </WrapPanel>
+</Page>
