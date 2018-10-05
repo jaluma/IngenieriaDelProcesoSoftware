@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SQLite;
-using Logic.Db.ActionObjects.AthleteLogic;
-using Logic.Db.ActionObjects.CompetitionLogic;
-using Logic.Db.Connection;
-using Logic.Db.Dto;
+﻿using System.Data;
+using Logic.Db.ActionObjects.TimesLogic;
 
-namespace Logic.Db.Util {
-    public class CompetitionService {
+namespace Logic.Db.Util.Services {
+    public class CompetitionService : ServiceAdapter {
 
-        private DBConnection _conn;
-
-        public CompetitionService(ref DBConnection conn) {
-            _conn = conn;
+        public DataTable SelectCompetitionFinish() {
+            SelectCompetitionTimeLogic selectCompetition = new SelectCompetitionTimeLogic(ref _conn);
+            selectCompetition.Execute();
+            return selectCompetition.Table;
         }
 
         //public void InsertAthletesTable(AthleteDto athleteP) {

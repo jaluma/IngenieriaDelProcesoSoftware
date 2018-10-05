@@ -148,6 +148,10 @@
     <comment>query sql for return athletes</comment>
   </data>
   <data name="SQL_SELECT_COMPETITION" xml:space="preserve">
-    <value />
+    <value>SELECT * FROM Competition</value>
+  </data>
+  <data name="SQL_SELECT_COMPETITION_STATUS" xml:space="preserve">
+    <value>SELECT * FROM Competition
+WHERE COMPETITION_STATUS=@STATUS</value>
   </data>
 </root>

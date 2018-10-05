@@ -1,19 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SQLite;
 using Logic.Db.ActionObjects.AthleteLogic;
 using Logic.Db.Connection;
 using Logic.Db.Dto;
 
-namespace Logic.Db.Util {
-    public class AthletesService {
-
-        private DBConnection _conn;
-
-        public AthletesService(ref DBConnection conn) {
-            _conn = conn;
-        }
+namespace Logic.Db.Util.Services {
+    public class AthletesService : ServiceAdapter {
 
         public void InsertAthletesTable(AthleteDto athleteP) {
             AddAthleteLogic add = new AddAthleteLogic(ref _conn, athleteP);

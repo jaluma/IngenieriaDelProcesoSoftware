@@ -96,5 +96,83 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("TileTimes", resourceCulture);
             }
         }
+
+        public static string TileCompetitionFinish {
+            get {
+                return ResourceManager.GetString("TileCompetitionFinish", resourceCulture);
+            }
+        }
+
+         /// <summary>
+        ///   Busca una cadena traducida similar a Id.
+        /// </summary>
+        public static string Competition_Id {
+            get {
+                return ResourceManager.GetString("Competition_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a KM.
+        /// </summary>
+        public static string Competition_Km {
+            get {
+                return ResourceManager.GetString("Competition_Km", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre.
+        /// </summary>
+        public static string Competition_Name {
+            get {
+                return ResourceManager.GetString("Competition_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Número de plazas.
+        /// </summary>
+        public static string Competition_Number {
+            get {
+                return ResourceManager.GetString("Competition_Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Precio inscripción.
+        /// </summary>
+        public static string Competition_Price {
+            get {
+                return ResourceManager.GetString("Competition_Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Estado.
+        /// </summary>
+        public static string Competition_Status {
+            get {
+                return ResourceManager.GetString("Competition_Status", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fecha.
+        /// </summary>
+        public static string Competition_Date {
+            get {
+                return ResourceManager.GetString("Competition_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tipo.
+        /// </summary>
+        public static string Competition_Type {
+            get {
+                return ResourceManager.GetString("Competition_Type", resourceCulture);
+            }
+        }
     }
 }

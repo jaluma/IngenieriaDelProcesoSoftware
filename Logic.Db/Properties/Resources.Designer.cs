@@ -134,11 +134,21 @@ namespace Logic.Db.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a .
+        ///   Busca una cadena traducida similar a SELECT * FROM Competition.
         /// </summary>
         internal static string SQL_SELECT_COMPETITION {
             get {
                 return ResourceManager.GetString("SQL_SELECT_COMPETITION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT * FROM Competition
+        ///WHERE COMPETITION_STATUS=@STATUS.
+        /// </summary>
+        internal static string SQL_SELECT_COMPETITION_STATUS {
+            get {
+                return ResourceManager.GetString("SQL_SELECT_COMPETITION_STATUS", resourceCulture);
             }
         }
     }

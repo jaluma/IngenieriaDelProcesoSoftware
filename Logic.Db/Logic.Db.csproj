@@ -67,6 +67,7 @@
     <Compile Include="ActionObjects\CompetitionLogic\SelectCompetitionLogic.cs" />
     <Compile Include="ActionObjects\IActionObject.cs" />
     <Compile Include="ActionObjects\AthleteLogic\SelectAthleteLogic.cs" />
+    <Compile Include="ActionObjects\TimesLogic\SelectCompetitionTimeLogic.cs" />
     <Compile Include="Connection\DBConnection.cs" />
     <Compile Include="Dto\AthleteDto.cs" />
     <Compile Include="Dto\CompetitionDto.cs" />
@@ -76,7 +77,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Util\AthletesService.cs" />
+    <Compile Include="Util\IService.cs" />
+    <Compile Include="Util\ServiceAdapter.cs" />
+    <Compile Include="Util\Services\AthletesService.cs" />
+    <Compile Include="Util\Services\CompetitionService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

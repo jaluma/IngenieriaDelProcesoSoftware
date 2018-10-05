@@ -3,6 +3,7 @@ using Logic.Db.ActionObjects;
 using Logic.Db.Connection;
 using Logic.Db.Dto;
 using Logic.Db.Util;
+using Logic.Db.Util.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Unit.Logic.Db {
@@ -18,10 +19,8 @@ namespace Unit.Logic.Db {
                 BirthDate = new DateTime(2010, 09, 11),
                 Gender = Gender.Male
             };
-
-            DBConnection db = new DBConnection();
             
-            AthletesService service = new AthletesService(ref db);
+            AthletesService service = new AthletesService();
             AthletesService.PrintAthletes(service.SelectAthleteTable());
         }
     }
