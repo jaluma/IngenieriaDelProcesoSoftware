@@ -161,4 +161,12 @@ WHERE COMPETITION_ID=@COMPETITION_ID</value>
     <value>SELECT * FROM Competition
 WHERE COMPETITION_STATUS=@STATUS</value>
   </data>
+  <data name="SQL_INSERT_HAS_PARTICIPATED" xml:space="preserve">
+    <value>insert into HasParticipated values (@COMPETITION_ID, @ATHLETE_DNI, @INITIAL_TIME, @FINISH_TIME)</value>
+  </data>
+  <data name="SQL_SELECT_ATHLETES_STATUS" xml:space="preserve">
+    <value>SELECT * FROM ENROLL
+WHERE STATUS = @STATUS AND COMPETITION_ID=@COMPETITION_ID
+ORDER BY DATE_INSCRIPTION</value>
+  </data>
 </root>

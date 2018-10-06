@@ -193,4 +193,22 @@
   <data name="InitialTime" xml:space="preserve">
     <value>Tiempo inicial (s)</value>
   </data>
+  <data name="TileJoinCompetition" xml:space="preserve">
+    <value>Listar corredores inscritos</value>
+  </data>
+  <data name="BtSearch" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="LbCompetitionID" xml:space="preserve">
+    <value>Introduzca ID de la competición: </value>
+  </data>
+  <data name="BtInsertDorsals" xml:space="preserve">
+    <value>Colocar dorsales a jugadores inscritos</value>
+  </data>
+  <data name="dorsalsIco" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dorsalsIco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TileInscriptionDorsal" xml:space="preserve">
+    <value>Listar corredores y asignación de dorsales</value>
+  </data>
 </root>

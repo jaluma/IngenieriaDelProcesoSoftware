@@ -287,5 +287,61 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("FinishTime", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Añadir competidores a la carrera.
+        /// </summary>
+        public static string TileJoinCompetition {
+            get {
+                return ResourceManager.GetString("TileJoinCompetition", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Buscar.
+        /// </summary>
+        public static string BtSearch {
+            get {
+                return ResourceManager.GetString("BtSearch", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Introduzca ID de la competición: .
+        /// </summary>
+        public static string LbCompetitionID {
+            get {
+                return ResourceManager.GetString("LbCompetitionID", resourceCulture);
+            }
+        }
+
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Colocar dorsales a jugadores inscritos.
+        /// </summary>
+        public static string BtInsertDorsals {
+            get {
+                return ResourceManager.GetString("BtInsertDorsals", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Dorsal.
+        /// </summary>
+        public static string TileInscriptionDorsal {
+            get {
+                return ResourceManager.GetString("TileInscriptionDorsal", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap dorsalsIco {
+            get {
+                object obj = ResourceManager.GetObject("dorsalsIco", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

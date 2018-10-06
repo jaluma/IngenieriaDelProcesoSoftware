@@ -1,5 +1,6 @@
 ﻿using System.Windows.Controls;
 using Ui.Main.Pages.Competition.Times;
+using Ui.Main.Pages.Inscriptions.HasRegistered;
 
 namespace Ui.Main.Pages.MenuInitial {
     /// <summary>
@@ -24,5 +25,14 @@ namespace Ui.Main.Pages.MenuInitial {
             };
 
         }
+
+        private void TileInscriptionDorsal_Click(object sender, System.Windows.RoutedEventArgs e) {
+            Content = new Frame() {
+                Content = new AddDorsalsAndRegisteredInCompetition()
+            };
+
+        }
+
+        
     }
 }

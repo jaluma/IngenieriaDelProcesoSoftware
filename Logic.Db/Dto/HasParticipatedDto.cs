@@ -11,6 +11,5 @@ namespace Logic.Db.Dto {
         public AthleteDto Athlete;
         public long InitialTime;
         public long FinishTime;
-        public int Dorsal;
     }
 }

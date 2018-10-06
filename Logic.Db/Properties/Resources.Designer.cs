@@ -157,5 +157,17 @@ namespace Logic.Db.Properties {
                 return ResourceManager.GetString("SQL_SELECT_ATHLETES_TIMES", resourceCulture);
             }
         }
+
+        internal static string SQL_SELECT_ATHLETES_STATUS {
+            get {
+                return ResourceManager.GetString("SQL_SELECT_ATHLETES_STATUS", resourceCulture);
+            }
+        }
+
+        internal static string SQL_INSERT_HAS_PARTICIPATED {
+            get {
+                return ResourceManager.GetString("SQL_INSERT_HAS_PARTICIPATED", resourceCulture);
+            }
+        }
     }
 }

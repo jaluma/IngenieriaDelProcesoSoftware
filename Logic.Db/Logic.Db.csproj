@@ -62,6 +62,8 @@
   <ItemGroup>
     <Compile Include="ActionObjects\AthleteLogic\AddAthleteLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\DeleteAthleteLogic.cs" />
+    <Compile Include="ActionObjects\AthleteLogic\InsertAthletesHasRegisteredLogic - Copia.cs" />
+    <Compile Include="ActionObjects\AthleteLogic\SelectAthleteEnrollLogic.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\AddCompetitionLogic.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\DeleteCompetitionLogic.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\SelectCompetitionLogic.cs" />
@@ -70,6 +72,7 @@
     <Compile Include="ActionObjects\TimesLogic\SelectCompetitionTimeLogic.cs" />
     <Compile Include="ActionObjects\TimesLogic\SelectHasParticipatedTimeLogic.cs" />
     <Compile Include="Connection\DBConnection.cs" />
+    <Compile Include="Dto\AthleteCompetitionInscriptionDto.cs" />
     <Compile Include="Dto\AthleteDto.cs" />
     <Compile Include="Dto\CompetitionDto.cs" />
     <Compile Include="Dto\HasParticipatedDto.cs" />
@@ -79,6 +82,7 @@
     <Compile Include="Util\ServiceAdapter.cs" />
     <Compile Include="Util\Services\AthletesService.cs" />
     <Compile Include="Util\Services\CompetitionService.cs" />
+    <Compile Include="Util\Services\EnrollService.cs" />
     <Compile Include="Util\Services\TimesService.cs" />
   </ItemGroup>
   <ItemGroup>

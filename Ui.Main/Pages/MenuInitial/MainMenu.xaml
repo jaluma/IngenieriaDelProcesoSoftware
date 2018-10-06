@@ -6,7 +6,7 @@
       xmlns:properties="clr-namespace:Ui.Main.Properties"
       xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="625" d:DesignWidth="1250"
       Title="MainMenu">
     <Page.Resources>
         <Style TargetType="mah:Tile" x:Key="Tile">
@@ -19,7 +19,7 @@
         </Style>
     </Page.Resources>
 
-    <WrapPanel Name ="LayoutMainMenu" VerticalAlignment="Center" HorizontalAlignment="Center" >
+    <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center" Name ="LayoutMainMenu" Margin="10,10,10,-25" >
         <mah:Tile x:Name="TileAthletes" Style="{StaticResource Tile}"
                   Title="{x:Static properties:Resources.TileAthletes}"
                   Background="SlateBlue" Click="TileAthletes_Click">
@@ -34,6 +34,11 @@
                   Title="{x:Static properties:Resources.TileCompetitionFinish}"
                   Background="DarkKhaki" Click="TileCompetitionFinish_Click">
             <Image Height="100" Width="100" Source="../../Resources/competitionFinishIco.png"/>
+        </mah:Tile>
+        <mah:Tile x:Name="TileInscriptionDorsal" Style="{StaticResource Tile}"
+                  Title="{x:Static properties:Resources.TileInscriptionDorsal}"
+                  Background="BurlyWood" Click="TileInscriptionDorsal_Click">
+            <Image Height="100" Width="100" Source="../../Resources/dorsalsIco.png"/>
         </mah:Tile>
     </WrapPanel>
 </Page>
