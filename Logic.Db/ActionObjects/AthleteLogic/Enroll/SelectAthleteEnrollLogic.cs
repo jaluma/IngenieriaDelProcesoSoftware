@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Logic.Db.Connection;
 using Logic.Db.Dto;
 
-namespace Logic.Db.ActionObjects.AthleteLogic {
+namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
 
     public class SelectAthleteEnrollLogic : IActionObject {
 
@@ -24,8 +19,8 @@ namespace Logic.Db.ActionObjects.AthleteLogic {
 
         public void Execute() {
             try {
-                using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_ATHLETES_STATUS, _conn.DbConnection)) {
-                    command.Parameters.AddWithValue("@STATUS", TypesStatus.Registered.ToString().ToUpper());
+                using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_ATHLETE_INSCRIPTION, _conn.DbConnection)) {
+                    //command.Parameters.AddWithValue("@STATUS", TypesStatus.Registered.ToString().ToUpper());
                     command.Parameters.AddWithValue("@COMPETITION_ID", _competition.ID);
                     SQLiteDataAdapter da = new SQLiteDataAdapter(command);
                     da.Fill(Table);

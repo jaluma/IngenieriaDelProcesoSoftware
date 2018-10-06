@@ -172,6 +172,11 @@ where status=@STATUS</value>
 WHERE STATUS = @STATUS AND COMPETITION_ID=@COMPETITION_ID
 ORDER BY DATE_INSCRIPTION</value>
   </data>
+  <data name="SQL_SELECT_ATHLETE_INSCRIPTION" xml:space="preserve">
+    <value>SELECT * FROM ENROLL
+WHERE COMPETITION_ID=@COMPETITION_ID
+ORDER BY DATE_INSCRIPTION, STATUS</value>
+  </data>
   <data name="SQL_UPDATE_DORSAL" xml:space="preserve">
     <value>update Enroll
 set dorsal=@DORSAL

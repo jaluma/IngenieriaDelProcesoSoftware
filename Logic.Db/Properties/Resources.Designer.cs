@@ -176,5 +176,11 @@ namespace Logic.Db.Properties {
             }
         }
 
+        internal static string SQL_SELECT_ATHLETE_INSCRIPTION {
+            get {
+                return ResourceManager.GetString("SQL_SELECT_ATHLETE_INSCRIPTION", resourceCulture);
+            }
+        }
+
     }
 }
