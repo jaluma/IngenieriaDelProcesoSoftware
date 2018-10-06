@@ -66,22 +66,16 @@ namespace Ui.Main.Pages.Competition.Times
         }
 
         private string GenerateFilter() {
-            string filter = null;
+            string filter = string.Empty;
 
-            if (MaleIsChecked() || FemaleIsChecked()) {
-                filter = string.Empty;
-
-                if (MaleIsChecked()) {
-                    filter += $"{Properties.Resources.AthleteGender} = 'M'";
-                }
-
-                if (MaleIsChecked() && FemaleIsChecked()) {
-                    filter += " or ";
-                }
-
-                if (FemaleIsChecked()) {
-                    filter += $"{Properties.Resources.AthleteGender} = 'F'";
-                }
+            if (MaleIsChecked() && FemaleIsChecked()) {
+                filter = null;
+            } else if (MaleIsChecked()) {
+                filter = $"{Properties.Resources.AthleteGender} = 'M'";
+            } else if (FemaleIsChecked()) {
+                filter = $"{Properties.Resources.AthleteGender} = 'F'";
+            } else {
+                filter = $"{Properties.Resources.AthleteGender} <> 'F' and {Properties.Resources.AthleteGender} <> 'M'";
             }
 
             return filter;
