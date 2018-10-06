@@ -162,11 +162,19 @@ WHERE COMPETITION_ID=@COMPETITION_ID</value>
 WHERE COMPETITION_STATUS=@STATUS</value>
   </data>
   <data name="SQL_INSERT_HAS_PARTICIPATED" xml:space="preserve">
-    <value>insert into HasParticipated values (@COMPETITION_ID, @ATHLETE_DNI, @INITIAL_TIME, @FINISH_TIME)</value>
+    <value>INSERT INTO HasParticipated(COMPETITION_ID, ATHLETE_DNI)
+select COMPETITION_ID, ATHLETE_DNI
+from Enroll
+where status=@STATUS</value>
   </data>
   <data name="SQL_SELECT_ATHLETES_STATUS" xml:space="preserve">
     <value>SELECT * FROM ENROLL
 WHERE STATUS = @STATUS AND COMPETITION_ID=@COMPETITION_ID
 ORDER BY DATE_INSCRIPTION</value>
+  </data>
+  <data name="SQL_UPDATE_DORSAL" xml:space="preserve">
+    <value>update Enroll
+set dorsal=@DORSAL
+where COMPETITION_ID=@COMPETITION_ID and ATHLETE_DNI=@DNI</value>
   </data>
 </root>

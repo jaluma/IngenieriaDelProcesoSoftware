@@ -169,5 +169,12 @@ namespace Logic.Db.Properties {
                 return ResourceManager.GetString("SQL_INSERT_HAS_PARTICIPATED", resourceCulture);
             }
         }
+
+        internal static string SQL_UPDATE_DORSAL {
+            get {
+                return ResourceManager.GetString("SQL_UPDATE_DORSAL", resourceCulture);
+            }
+        }
+
     }
 }

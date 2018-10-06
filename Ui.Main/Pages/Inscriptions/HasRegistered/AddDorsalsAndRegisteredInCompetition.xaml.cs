@@ -21,8 +21,10 @@ namespace Ui.Main.Pages.Inscriptions.HasRegistered
     /// <summary>
     /// Lógica de interacción para AddDorsalsAndRegisteredInCompetition.xaml
     /// </summary>
-    public partial class AddDorsalsAndRegisteredInCompetition : Page
-    {
+    public partial class AddDorsalsAndRegisteredInCompetition : Page {
+        private EnrollService _enroll;
+        private CompetitionDto _competition;
+
         public AddDorsalsAndRegisteredInCompetition()
         {
             InitializeComponent();
@@ -47,17 +49,29 @@ namespace Ui.Main.Pages.Inscriptions.HasRegistered
                 return;
             }
 
-            CompetitionDto competition = new CompetitionDto() {
+            _competition = new CompetitionDto() {
                 ID = id
             };
+
+            _enroll = new EnrollService(_competition);
             
-            EnrollService enroll = new EnrollService(competition);
-            
-            DataGridCompetition.ItemsSource = enroll.SelectAthleteRegistered().DefaultView;
+            DataGridCompetition.ItemsSource = _enroll.SelectAthleteRegistered().DefaultView;
+
+            BtDorsals.IsEnabled = true;
+            BtSearch.IsEnabled = false;
         }
 
         private void BtDorsals_Click(object sender, RoutedEventArgs e) {
-            throw new NotImplementedException();
+            try {
+                _enroll.UpdateAthleteRegisteredDorsal(_competition);
+
+                DataGridCompetition.ItemsSource = _enroll.SelectAthleteRegistered().DefaultView;
+
+                BtDorsals.IsEnabled = false;
+            } catch (NullReferenceException) {
+                MessageBox.Show("Introduzca primero la competición");
+                return;
+            }
         }
     }
 }
