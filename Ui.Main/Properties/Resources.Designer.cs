@@ -61,6 +61,51 @@ namespace Ui.Main.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a .
+        /// </summary>
+        public static string AthleteDni {
+            get {
+                return ResourceManager.GetString("AthleteDni", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a .
+        /// </summary>
+        public static string AthleteDorsal {
+            get {
+                return ResourceManager.GetString("AthleteDorsal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a .
+        /// </summary>
+        public static string AthleteGender {
+            get {
+                return ResourceManager.GetString("AthleteGender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a .
+        /// </summary>
+        public static string AthleteName {
+            get {
+                return ResourceManager.GetString("AthleteName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a .
+        /// </summary>
+        public static string AthleteSurname {
+            get {
+                return ResourceManager.GetString("AthleteSurname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap athleticIco {
@@ -217,11 +262,29 @@ namespace Ui.Main.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Tiempo de la competición: .
+        ///   Busca una cadena traducida similar a Corredores.
         /// </summary>
         public static string TitleTimesCompetition {
             get {
                 return ResourceManager.GetString("TitleTimesCompetition", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tiempo inicial (s).
+        /// </summary>
+        public static string InitialTime {
+            get {
+                return ResourceManager.GetString("InitialTime", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tiempo final (s).
+        /// </summary>
+        public static string FinishTime {
+            get {
+                return ResourceManager.GetString("FinishTime", resourceCulture);
             }
         }
     }

@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="bb" xml:space="preserve">
+    <value>bb</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Database" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Connection\database.db;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -130,7 +133,7 @@
     <comment>path from database file</comment>
   </data>
   <data name="SQL_DELETE_ATHLETE" xml:space="preserve">
-    <value>DELETE FROM Athlete WHERE DNI=@DNI</value>
+    <value>DELETE FROM Athlete WHERE ATHLETE_DNI=@DNI</value>
     <comment>sql command for delete Athletes</comment>
   </data>
   <data name="SQL_DELETE_COMPETITION" xml:space="preserve">
@@ -144,8 +147,12 @@
     <value />
   </data>
   <data name="SQL_SELECT_ATHLETE" xml:space="preserve">
-    <value>SELECT DNI, NAME, SURNAME, BIRTH_DATE, GENDER FROM Athlete</value>
+    <value>SELECT ATHLETE_DNI, ATHLETE_NAME, ATHLETE_SURNAME, ATHLETE_BIRTH_DATE, ATHLETE_GENDER FROM Athlete</value>
     <comment>query sql for return athletes</comment>
+  </data>
+  <data name="SQL_SELECT_ATHLETES_TIMES" xml:space="preserve">
+    <value>SELECT DORSAL, ATHLETE_DNI, ATHLETE_NAME, ATHLETE_SURNAME, ATHLETE_GENDER, INITIAL_TIME, FINISH_TIME  FROM HasParticipated NATURAL JOIN Enroll NATURAL JOIN Athlete
+WHERE COMPETITION_ID=@COMPETITION_ID</value>
   </data>
   <data name="SQL_SELECT_COMPETITION" xml:space="preserve">
     <value>SELECT * FROM Competition</value>

@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Logic.Db.Dto;
 using Logic.Db.Util;
 using Logic.Db.Util.Services;
 
@@ -23,14 +24,16 @@ namespace Ui.Main.Pages.Competition.Times
     /// </summary>
     public partial class SelectionCompetition : Page {
 
+        private readonly CompetitionService _service;
+
         public SelectionCompetition()
         {
             InitializeComponent();
             // change title window
 
             // inicialize data table
-            CompetitionService service = new CompetitionService();
-            DataTable table = service.SelectCompetitionFinish();
+            _service = new CompetitionService();
+            DataTable table = _service.SelectCompetitionFinish();
             table.Columns[0].ColumnName = Properties.Resources.Competition_Id;
             table.Columns[1].ColumnName = Properties.Resources.Competition_Name;
             table.Columns[2].ColumnName = Properties.Resources.Competition_Type;
@@ -44,9 +47,24 @@ namespace Ui.Main.Pages.Competition.Times
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            Content = new Frame() {
-                //Content = new SelectionCompetition()
+
+            DataRowView row = DataGridCompetition.SelectedItems[0] as DataRowView;
+
+            long id = (long) row[0];
+
+            CompetitionDto competition = new CompetitionDto() {
+                ID = (int)id
             };
+
+            _service.Dispose();
+
+            Page timesService = new TimesAthletes(competition);
+            
+            Content = new Frame() {
+                Content = timesService
+            };
+
         }
+
     }
 }

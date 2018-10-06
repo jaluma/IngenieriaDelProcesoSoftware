@@ -14,12 +14,12 @@
                FontWeight="Bold"
                HorizontalAlignment="Center"
                Content="{x:Static properties:Resources.TitleTimesCompetition}" DockPanel.Dock="Top"/>
-        <DataGrid x:Name="DataGridTimes" MinWidth="800" MinHeight="450" VerticalAlignment="Top" ColumnWidth="*" Height="501" DockPanel.Dock="Right" Width="985" IsReadOnly="True"/>
+        <DataGrid x:Name="DataGridTimes" AutoGenerateColumns="True" MinWidth="800" MinHeight="450" VerticalAlignment="Top" ColumnWidth="*" Height="501" DockPanel.Dock="Right" Width="985" IsReadOnly="True"/>
         <StackPanel Background="White" VerticalAlignment="Top" Width="195" Height="511">
             <StackPanel HorizontalAlignment="Left" Name = "SelectorGender" Height="100" Margin="10,2">
                 <Label FontWeight="Bold" FontSize="16" Content="{x:Static properties:Resources.Category}" HorizontalContentAlignment="Center" Width="180"/>
-                <CheckBox Name="MaleCheckBox" IsChecked="True" Content="{x:Static properties:Resources.MaleText}" Margin="0,5" Checked="MaleCheckBox_Checked"/>
-                <CheckBox Name="FemaleCheckBox" IsChecked="True" Content="{x:Static properties:Resources.FemaleText}" Margin="0,5" Checked="FemaleCheckBox_Checked"/>
+                <CheckBox Name="MaleCheckBox" IsChecked="True" Content="{x:Static properties:Resources.MaleText}" Margin="0,5" Click="CheckBox_OnClick" />
+                <CheckBox Name="FemaleCheckBox" IsChecked="True" Content="{x:Static properties:Resources.FemaleText}" Margin="0,5" Click="CheckBox_OnClick"/>
             </StackPanel>
         </StackPanel>
     </DockPanel>

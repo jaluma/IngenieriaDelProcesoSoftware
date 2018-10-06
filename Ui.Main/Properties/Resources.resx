@@ -161,7 +161,7 @@
     <value>Tipo</value>
   </data>
   <data name="TitleTimesCompetition" xml:space="preserve">
-    <value>Tiempo de la competición: </value>
+    <value>Corredores</value>
   </data>
   <data name="FemaleText" xml:space="preserve">
     <value>Femenina</value>
@@ -171,5 +171,26 @@
   </data>
   <data name="Category" xml:space="preserve">
     <value>CATEGORIA</value>
+  </data>
+  <data name="AthleteDni" xml:space="preserve">
+    <value>DNI</value>
+  </data>
+  <data name="AthleteDorsal" xml:space="preserve">
+    <value>Dorsal</value>
+  </data>
+  <data name="AthleteGender" xml:space="preserve">
+    <value>Sexo</value>
+  </data>
+  <data name="AthleteName" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="AthleteSurname" xml:space="preserve">
+    <value>Apellido</value>
+  </data>
+  <data name="FinishTime" xml:space="preserve">
+    <value>Tiempo final (s)</value>
+  </data>
+  <data name="InitialTime" xml:space="preserve">
+    <value>Tiempo inicial (s)</value>
   </data>
 </root>

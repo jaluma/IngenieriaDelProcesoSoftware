@@ -151,11 +151,5 @@ namespace Logic.Db.Properties {
                 return ResourceManager.GetString("SQL_SELECT_COMPETITION_STATUS", resourceCulture);
             }
         }
-
-        internal static string SQL_SELECT_ATHLETES_TIMES {
-            get {
-                return ResourceManager.GetString("SQL_SELECT_ATHLETES_TIMES", resourceCulture);
-            }
-        }
     }
 }
