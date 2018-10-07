@@ -59,6 +59,16 @@ namespace Ui.Main.Properties {
                 resourceCulture = value;
             }
         }
+
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ApplicationIco {
+            get {
+                object obj = ResourceManager.GetObject("ApplicationIco", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
         
         /// <summary>
         ///   Busca una cadena traducida similar a .

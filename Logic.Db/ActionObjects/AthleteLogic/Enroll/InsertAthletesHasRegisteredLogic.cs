@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SQLite;
 using Logic.Db.Connection;
 using Logic.Db.Dto;
 
-namespace Logic.Db.ActionObjects.AthleteLogic {
+namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
 
     public class InsertAthletesHasRegisteredLogic : IActionObject {
 

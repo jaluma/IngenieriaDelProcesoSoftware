@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SQLite;
+using System.Xml;
 
 namespace Logic.Db.Dto {
     public class AthleteDto {
