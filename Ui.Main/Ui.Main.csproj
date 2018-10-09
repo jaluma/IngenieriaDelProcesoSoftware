@@ -104,6 +104,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Inscriptions\CompetitionSelectionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Inscriptions\HasRegistered\AddDorsalsAndRegisteredInCompetition.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -129,6 +133,9 @@
     </Compile>
     <Compile Include="Pages\Competition.Times\TimesAthletes.xaml.cs">
       <DependentUpon>TimesAthletes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Inscriptions\CompetitionSelectionPage.xaml.cs">
+      <DependentUpon>CompetitionSelectionPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Inscriptions\HasRegistered\AddDorsalsAndRegisteredInCompetition.xaml.cs">
       <DependentUpon>AddDorsalsAndRegisteredInCompetition.xaml</DependentUpon>
