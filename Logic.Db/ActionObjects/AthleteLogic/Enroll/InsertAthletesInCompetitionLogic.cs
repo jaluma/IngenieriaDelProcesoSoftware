@@ -8,7 +8,7 @@ using Logic.Db.Connection;
 using Logic.Db.Dto;
 
 namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
-    class InsertAthletesInCompetitionLogic : IActionObject {
+    public class InsertAthletesInCompetitionLogic : IActionObject {
 
         private readonly DBConnection _conn;
         private readonly AthleteDto _athlete;

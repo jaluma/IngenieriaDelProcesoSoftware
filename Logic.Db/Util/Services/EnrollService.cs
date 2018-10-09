@@ -31,5 +31,11 @@ namespace Logic.Db.Util.Services {
             UpdateAthletesRegisteredDorsal update = new UpdateAthletesRegisteredDorsal(ref _conn, competition);
             update.Execute();
         }
+
+        public bool IsCategoryInCompetition(CompetitionDto competition, AthleteDto athlete) {
+            IsCategoryInCompetitionLogic isCategory = new IsCategoryInCompetitionLogic(ref _conn, _competition, athlete);
+            isCategory.Execute();
+            return isCategory.IsCorrect;
+        }
     }
 }

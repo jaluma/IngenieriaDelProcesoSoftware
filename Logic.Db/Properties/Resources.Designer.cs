@@ -188,5 +188,17 @@ namespace Logic.Db.Properties {
             }
         }
 
+        internal static string SQL_SELECT_CATEGORY_IN_COMPETITION {
+            get {
+                return ResourceManager.GetString("SQL_SELECT_CATEGORY_IN_COMPETITION", resourceCulture);
+            }
+        }
+
+        internal static string SQL_SELECT_COMPETITION_CATEGORY {
+            get {
+                return ResourceManager.GetString("SQL_SELECT_COMPETITION_CATEGORY", resourceCulture);
+            }
+        }
+
     }
 }

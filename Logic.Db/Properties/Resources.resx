@@ -185,4 +185,10 @@ where COMPETITION_ID=@COMPETITION_ID and ATHLETE_DNI=@DNI</value>
   <data name="SQL_INSERT_ENROLL" xml:space="preserve">
     <value>insert into enroll values (@DNI, @COMPETITION_ID, @STATUS, date('now'), null)</value>
   </data>
+  <data name="SQL_SELECT_CATEGORY_IN_COMPETITION" xml:space="preserve">
+    <value>select CATEGORY_NAME FROM GET_CATEGORY_COMPETITION where athlete_dni =@DNI and COMPETITION_ID=@COMPETITION_ID</value>
+  </data>
+  <data name="SQL_SELECT_COMPETITION_CATEGORY" xml:space="preserve">
+    <value>select category_name from get_category_competition where competition_id=@COMPETITION_ID</value>
+  </data>
 </root>

@@ -58,6 +58,7 @@
     <Compile Include="ActionObjects\AthleteLogic\AddAthleteLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\DeleteAthleteLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\InsertAthletesInCompetitionLogic.cs" />
+    <Compile Include="ActionObjects\AthleteLogic\Enroll\IsCategoryInCompetitionLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\UpdateAthletesRegisteredDorsal.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\InsertAthletesHasRegisteredLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\SelectAthleteEnrollLogic.cs" />
