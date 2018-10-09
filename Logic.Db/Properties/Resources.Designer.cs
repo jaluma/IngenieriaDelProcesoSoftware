@@ -182,5 +182,11 @@ namespace Logic.Db.Properties {
             }
         }
 
+        internal static string SQL_INSERT_ENROLL {
+            get {
+                return ResourceManager.GetString("SQL_INSERT_ENROLL", resourceCulture);
+            }
+        }
+
     }
 }

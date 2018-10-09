@@ -12,7 +12,6 @@ namespace Ui.Main.Pages.MenuInitial {
         }
 
         private void TileAthletes_Click(object sender, System.Windows.RoutedEventArgs e) {
-            
         }
 
         private void TileCompetition_Click(object sender, System.Windows.RoutedEventArgs e) {

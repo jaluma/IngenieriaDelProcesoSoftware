@@ -182,4 +182,7 @@ ORDER BY DATE_INSCRIPTION, STATUS</value>
 set dorsal=@DORSAL
 where COMPETITION_ID=@COMPETITION_ID and ATHLETE_DNI=@DNI</value>
   </data>
+  <data name="SQL_INSERT_ENROLL" xml:space="preserve">
+    <value>insert into enroll values (@DNI, @COMPETITION_ID, @STATUS, date('now'), null)</value>
+  </data>
 </root>

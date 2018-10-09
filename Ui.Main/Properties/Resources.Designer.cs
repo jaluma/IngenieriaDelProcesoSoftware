@@ -353,5 +353,23 @@ namespace Ui.Main.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+
+        public static string AthleteBirthDate {
+            get {
+                return ResourceManager.GetString("AthleteBirthDate", resourceCulture);
+            }
+        }
+
+        public static string TileAthleteInscription {
+            get {
+                return ResourceManager.GetString("TileAthleteInscription", resourceCulture);
+            }
+        }
+
+        public static string Next {
+            get {
+                return ResourceManager.GetString("Next", resourceCulture);
+            }
+        }
     }
 }
