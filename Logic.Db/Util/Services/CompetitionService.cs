@@ -1,5 +1,8 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
+using System.Data;
+using Logic.Db.ActionObjects.CompetitionLogic;
 using Logic.Db.ActionObjects.TimesLogic;
+using Logic.Db.Dto;
 
 namespace Logic.Db.Util.Services {
     public class CompetitionService : ServiceAdapter {
@@ -8,6 +11,13 @@ namespace Logic.Db.Util.Services {
             SelectCompetitionTimeLogic selectCompetition = new SelectCompetitionTimeLogic(ref _conn);
             selectCompetition.Execute();
             return selectCompetition.Table;
+        }
+
+        public List<CompetitionDto> ListOpenCompetitions()
+        {
+            SelectCompetitionLogic listOpenCompetition = new SelectCompetitionLogic(ref _conn);
+            listOpenCompetition.Execute();
+            return listOpenCompetition.List;
         }
 
         //public void InsertAthletesTable(AthleteDto athleteP) {

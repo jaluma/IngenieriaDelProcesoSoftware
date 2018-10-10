@@ -1,6 +1,7 @@
 ﻿using System.Windows.Controls;
 using Ui.Main.Pages.Competition.Times;
 using Ui.Main.Pages.Inscriptions.HasRegistered;
+using Ui.Main.Pages.OpenCompetitions;
 
 namespace Ui.Main.Pages.MenuInitial {
     /// <summary>
@@ -15,6 +16,11 @@ namespace Ui.Main.Pages.MenuInitial {
         }
 
         private void TileCompetition_Click(object sender, System.Windows.RoutedEventArgs e) {
+            Content = new Frame()
+            {
+                Content = new ListOpenCompetition()
+            };
+
 
         }
 
