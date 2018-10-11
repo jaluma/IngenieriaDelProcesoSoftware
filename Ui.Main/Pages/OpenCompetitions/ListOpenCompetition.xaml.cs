@@ -29,7 +29,7 @@ namespace Ui.Main.Pages.OpenCompetitions
 
         public ListOpenCompetition()
         {
-
+            //inicializamos los componentes
             InitializeComponent();
            
             _service = new CompetitionService();
