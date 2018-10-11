@@ -142,15 +142,8 @@ namespace Logic.Db.Properties {
             }
         }
 
-       
         /// <summary>
-        ///   Busca una cadena traducida similar a SELECT COMPETITION_NAME, COMPETITION_TYPE, 
-        ///COMPETITION_KM, COMPETITION_PRICE, 
-        ///INITIAL_DATE, FINISH_DATE , COMPETITION_NUMBER_PLACES  
-        ///FROM Competition, CompetitionDates
-        ///WHERE Competition.COMPETITION_ID = 
-        ///CompetitionDates.COMPETITION_ID and
-        ///COMPETITION_STATUS&lt;&gt; &apos;FINISH&apos;.
+        ///   Busca una cadena traducida similar a SELECT COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, COMPETITIONDATES.INITIAL_DATE,COMPETITIONDATES.FINISH_DATE, COMPETITION_NUMBER_PLACES  FROM Competition, COMPETITIONDATES        WHERE COMPETITION_STATUS<> 'FINISH'&lt;&gt; &apos;FINISH&apos;.
         /// </summary>
         internal static string SQL_SELECT_OPEN_COMPETITION
         {
@@ -217,6 +210,6 @@ namespace Logic.Db.Properties {
                 return ResourceManager.GetString("SQL_SELECT_COMPETITION_CATEGORY", resourceCulture);
             }
         }
-        
+
     }
 }

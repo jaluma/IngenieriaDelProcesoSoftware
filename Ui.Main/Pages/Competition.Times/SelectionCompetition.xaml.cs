@@ -39,8 +39,10 @@ namespace Ui.Main.Pages.Competition.Times
             table.Columns[3].ColumnName = Properties.Resources.Competition_Km;
             table.Columns[4].ColumnName = Properties.Resources.Competition_Price;
             table.Columns[5].ColumnName = Properties.Resources.Competition_Date;
-            table.Columns[6].ColumnName = Properties.Resources.Competition_Number;
-            table.Columns[7].ColumnName = Properties.Resources.Competition_Status;
+            table.Columns[6].ColumnName = Properties.Resources.Competition_Status;
+            table.Columns[7].ColumnName = Properties.Resources.Competition_Inscritos;
+
+            table.Columns[0].ColumnMapping = MappingType.Hidden;
 
             DataGridCompetition.ItemsSource = table.DefaultView;
         }
@@ -58,10 +60,7 @@ namespace Ui.Main.Pages.Competition.Times
             _service.Dispose();
 
             Page timesService = new TimesAthletes(competition);
-            
-            Content = new Frame() {
-                Content = timesService
-            };
+
 
         }
 

@@ -16,18 +16,20 @@ namespace Logic.Db.Connection {
                 if (_dbConnection == null) {
                     DBConnection.Inicialize();
 
-                    _dbConnection = new SQLiteConnection($"Data Source={Logic.Db.Properties.Resources.DbFileName};Version=3;New=True;Compress=True;");
-                    _dbConnection.Open();
+                    _dbConnection = new SQLiteConnection($"Data Source={Logic.Db.Properties.Resources.DbFileName};Version=3;Pooling=True;Max Pool Size=100;");
+                    //_dbConnection.Open();
                 }
 
-                return _dbConnection;
+                return _dbConnection.OpenAndReturn();
             }
         }
 
         private static void Inicialize() {
             if (!DbIsCreated()) {
                 // copy database.db resource to execution path
-                File.WriteAllBytes(DestFile.Substring(8), Logic.Db.Properties.Resources.Database);
+                try {
+                    File.WriteAllBytes(DestFile.Substring(8), Logic.Db.Properties.Resources.Database);
+                } catch (IOException) { }
             }
         }
 

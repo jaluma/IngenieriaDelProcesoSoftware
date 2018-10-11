@@ -125,9 +125,9 @@
     <value>..\Resources\competitionIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TileAthletes" xml:space="preserve">
-    <value>Atletas inscritos</value>
+    <value>Atletas</value>
   </data>
-  <data name="TileCompetition" xml:space="preserve">
+  <data name="TileCompetitionActive" xml:space="preserve">
     <value>Competiciones activas</value>
   </data>
   <data name="TileCompetitionFinish" xml:space="preserve">
@@ -140,7 +140,7 @@
     <value>Fecha</value>
   </data>
   <data name="Competition_Id" xml:space="preserve">
-    <value>Id</value>
+    <value>ID</value>
   </data>
   <data name="Competition_Km" xml:space="preserve">
     <value>KM</value>
@@ -223,10 +223,31 @@
   <data name="TileAthleteInscription" xml:space="preserve">
     <value>Inscribir atletas</value>
   </data>
+  <data name="Competition_Inscritos" xml:space="preserve">
+    <value>Inscrito(s)</value>
+  </data>
+  <data name="CategoryMenuActive" xml:space="preserve">
+    <value>Activas</value>
+  </data>
+  <data name="CategoryMenuFinish" xml:space="preserve">
+    <value>Finalizadas</value>
+  </data>
+  <data name="AthleteMenuList" xml:space="preserve">
+    <value>Listar atletas</value>
+  </data>
+  <data name="TileAthletesInscription" xml:space="preserve">
+    <value>Atletas inscritos</value>
+  </data>
+  <data name="TileCompetition" xml:space="preserve">
+    <value>Competiciones</value>
+  </data>
+  <data name="TileTimes" xml:space="preserve">
+    <value>Tiempos</value>
+  </data>
+  <data name="InscriptionClose" xml:space="preserve">
+    <value>Inscripción hasta</value>
+  </data>
   <data name="InscriptionOpen" xml:space="preserve">
     <value>Inscripción desde</value>
-  </data>
-  <data name="LimitInscription" xml:space="preserve">
-    <value>Inscripción hasta</value>
   </data>
 </root>

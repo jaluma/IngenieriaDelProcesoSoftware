@@ -5,9 +5,10 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Ui.Main.Pages.Inscriptions.HasRegistered"
       xmlns:properties="clr-namespace:Ui.Main.Properties"
+      xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
       mc:Ignorable="d" 
-      d:DesignHeight="625" d:DesignWidth="1250
-      "
+      d:DesignHeight="625" d:DesignWidth="1250"
+      FocusManager.FocusedElement="{Binding ElementName=CompetitionIdTextBox}"
       Title="AddDorsalsAndRegisteredInCompetition">
 
     <DockPanel  Height="545" VerticalAlignment="Bottom">
@@ -20,14 +21,14 @@
 
         <StackPanel Background="LightGray" Orientation="Horizontal" HorizontalAlignment="Center" Height="60" VerticalAlignment="Center" Width="1160" Margin="45,0" DockPanel.Dock="Bottom">
             <Label FontWeight="Bold" Content="{x:Static properties:Resources.LbCompetitionID}" VerticalContentAlignment="Center" Margin="0,0,10,0"/>
-            <TextBox Name="CompetitionIDTextBox" FocusableChanged="UIElement_OnFocusableChanged" Foreground="DarkGray" VerticalContentAlignment="Center" TextWrapping="Wrap" Text="ID" Width="120" Margin="0,10"/>
+            <TextBox Name="CompetitionIdTextBox" KeyDown="CompetitionIdTextBox_OnKeyDown" mah:TextBoxHelper.Watermark="{x:Static properties:Resources.Competition_Id}" Foreground="DarkGray" VerticalContentAlignment="Center" TextWrapping="Wrap" Width="120" Margin="0,10"/>
             <Button Name="BtSearch" Content="{x:Static properties:Resources.BtSearch}" Width="75" Margin="15,10,0,10" Click="Button_Click"/>
             <StackPanel Width="738" VerticalAlignment="Center" Margin="0,8">
                 <Button Name="BtDorsals" IsEnabled="False" HorizontalAlignment="Right" Content="{x:Static properties:Resources.BtInsertDorsals}" Height="45" Margin="0,0,42,0" Click="BtDorsals_Click"/>
             </StackPanel>
         </StackPanel>
 
-        <DataGrid x:Name="DataGridCompetition" MinWidth="800" MinHeight="450" VerticalAlignment="Top" ColumnWidth="*" Height="419" DockPanel.Dock="Bottom" IsReadOnly="True"/>
+        <DataGrid x:Name="DataGridCompetition" SelectionMode="Single" MinWidth="800" MinHeight="450" VerticalAlignment="Top" ColumnWidth="*" Height="419" DockPanel.Dock="Bottom" IsReadOnly="True"/>
 
     </DockPanel>
 </Page>

@@ -45,7 +45,28 @@ namespace Ui.Main.Properties {
                 return resourceMan;
             }
         }
-        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Inscripción hasta.
+        /// </summary>
+        public static string InscriptionClose
+        {
+            get
+            {
+                return ResourceManager.GetString("InscriptionClose", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Inscripción desde.
+        /// </summary>
+        public static string InscriptionOpen
+        {
+            get
+            {
+                return ResourceManager.GetString("InscriptionOpen", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
         ///   búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
@@ -394,5 +415,66 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("Next", resourceCulture);
             }
         }
+
+        public static string Competition_Inscritos {
+            get {
+                return ResourceManager.GetString("Competition_Inscritos", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Activas.
+        /// </summary>
+        public static string CategoryMenuActive {
+            get {
+                return ResourceManager.GetString("CategoryMenuActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Finalizadas.
+        /// </summary>
+        public static string CategoryMenuFinish {
+            get {
+                return ResourceManager.GetString("CategoryMenuFinish", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tiempos.
+        /// </summary>
+        public static string TileTimes {
+            get {
+                return ResourceManager.GetString("TileTimes", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Competiciones activas.
+        /// </summary>
+        public static string TileCompetitionActive {
+            get {
+                return ResourceManager.GetString("TileCompetitionActive", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Listar atletas.
+        /// </summary>
+        public static string AthleteMenuList {
+            get {
+                return ResourceManager.GetString("AthleteMenuList", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Inscribir atletas.
+        /// </summary>
+        public static string TileAthletesInscription {
+            get {
+                return ResourceManager.GetString("TileAthletesInscription", resourceCulture);
+            }
+        }
+
     }
 }

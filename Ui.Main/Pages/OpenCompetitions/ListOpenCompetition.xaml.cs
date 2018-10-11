@@ -29,7 +29,7 @@ namespace Ui.Main.Pages.OpenCompetitions
 
         public ListOpenCompetition()
         {
-
+            //inicializamos los componentes
             InitializeComponent();
            
             _service = new CompetitionService();
@@ -39,19 +39,16 @@ namespace Ui.Main.Pages.OpenCompetitions
             table.Columns[2].ColumnName = Properties.Resources.Competition_Km;
             table.Columns[3].ColumnName = Properties.Resources.Competition_Price;
             table.Columns[4].ColumnName = Properties.Resources.InscriptionOpen;
-            table.Columns[5].ColumnName = Properties.Resources.LimitInscription;            
+            table.Columns[5].ColumnName = Properties.Resources.InscriptionClose;
             table.Columns[6].ColumnName = Properties.Resources.Competition_Number;
-
            
 
-
             DataGridCompetition.ItemsSource = table.DefaultView;
+            
         }
 
     
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-        }
+       
 
     }
 }
