@@ -244,4 +244,10 @@
   <data name="TileTimes" xml:space="preserve">
     <value>Tiempos</value>
   </data>
+  <data name="InscriptionClose" xml:space="preserve">
+    <value>Inscripción hasta</value>
+  </data>
+  <data name="InscriptionOpen" xml:space="preserve">
+    <value>Inscripción desde</value>
+  </data>
 </root>

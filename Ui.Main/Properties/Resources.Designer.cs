@@ -452,5 +452,6 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("TileAthletesInscription", resourceCulture);
             }
         }
+
     }
 }
