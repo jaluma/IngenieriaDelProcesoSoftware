@@ -64,6 +64,7 @@
     <Compile Include="ActionObjects\AthleteLogic\Enroll\SelectAthleteEnrollLogic.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\AddCompetitionLogic.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\DeleteCompetitionLogic.cs" />
+    <Compile Include="ActionObjects\CompetitionLogic\ListOpenCompetitionLogic.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\SelectCompetitionLogic.cs" />
     <Compile Include="ActionObjects\IActionObject.cs" />
     <Compile Include="ActionObjects\AthleteLogic\SelectAthleteLogic.cs" />
@@ -96,6 +97,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

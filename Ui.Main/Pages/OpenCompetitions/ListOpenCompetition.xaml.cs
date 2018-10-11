@@ -29,56 +29,28 @@ namespace Ui.Main.Pages.OpenCompetitions
 
         public ListOpenCompetition()
         {
-           
+
             InitializeComponent();
-
+           
             _service = new CompetitionService();
-            DataTable dt = new DataTable();
-            //defines las columnas del datatable
-            dt.Columns.Add(Properties.Resources.Competition_Id);
-            dt.Columns.Add(Properties.Resources.Competition_Name);
-            dt.Columns.Add(Properties.Resources.Competition_Type);
-            dt.Columns.Add(Properties.Resources.Competition_Km);
-            dt.Columns.Add(Properties.Resources.Competition_Price);
-            dt.Columns.Add(Properties.Resources.Competition_Date);
-            dt.Columns.Add(Properties.Resources.Competition_Number);
-            
+            DataTable table = _service.ListOpenCompetitions();
+            table.Columns[0].ColumnName = Properties.Resources.Competition_Name;
+            table.Columns[1].ColumnName = Properties.Resources.Competition_Type;
+            table.Columns[2].ColumnName = Properties.Resources.Competition_Km;
+            table.Columns[3].ColumnName = Properties.Resources.Competition_Price;
+            table.Columns[4].ColumnName = Properties.Resources.InscriptionOpen;
+            table.Columns[5].ColumnName = Properties.Resources.LimitInscription;            
+            table.Columns[6].ColumnName = Properties.Resources.Competition_Number;
 
-            foreach (var item in _service.ListOpenCompetitions())
-            {
-                if (!(item.Status.Equals("FINISH"))){
-                    DataRow row = dt.NewRow();
+           
 
-                    row[Properties.Resources.Competition_Id] = item.ID;
-                    row[Properties.Resources.Competition_Name] = item.Name;
-                    row[Properties.Resources.Competition_Type] = item.Type;
-                    row[Properties.Resources.Competition_Km] = item.Km;
-                    row[Properties.Resources.Competition_Price] = item.Price;
-                    row[Properties.Resources.Competition_Date] = item.Date;
-                    row[Properties.Resources.Competition_Number] = item.NumberPlaces;
-                    dt.Rows.Add(row);
 
-                } }
-
-            DataGridCompetition.ItemsSource = dt.DefaultView;
-            
+            DataGridCompetition.ItemsSource = table.DefaultView;
         }
+
+    
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-            DataRowView row = DataGridCompetition.SelectedItems[0] as DataRowView;
-
-            long id = (long)row[0];
-
-            CompetitionDto competition = new CompetitionDto()
-            {
-                ID = (int)id
-            };
-
-            _service.Dispose();
-
-
-
         }
 
     }

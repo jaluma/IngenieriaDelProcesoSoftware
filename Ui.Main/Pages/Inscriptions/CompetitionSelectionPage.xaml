@@ -9,12 +9,6 @@
       Title="CompetitionSelectionPage">
 
     <Grid>
-        <DockPanel HorizontalAlignment="Center" LastChildFill="False" VerticalAlignment="Top" RenderTransformOrigin="4.022,0.252">
-            <Label FontSize="18"
-               FontWeight="Bold"
-               HorizontalAlignment="Center"
-               Content="cambiar nombre" DockPanel.Dock="Top"/>
-            
-        </DockPanel>
+        
     </Grid>
 </Page>

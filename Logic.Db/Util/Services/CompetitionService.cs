@@ -13,11 +13,11 @@ namespace Logic.Db.Util.Services {
             return selectCompetition.Table;
         }
 
-        public List<CompetitionDto> ListOpenCompetitions()
+        public DataTable ListOpenCompetitions()
         {
-            SelectCompetitionLogic listOpenCompetition = new SelectCompetitionLogic(ref _conn);
+            ListOpenCompetitionLogic listOpenCompetition = new ListOpenCompetitionLogic(ref _conn);
             listOpenCompetition.Execute();
-            return listOpenCompetition.List;
+            return listOpenCompetition.Table;
         }
 
         //public void InsertAthletesTable(AthleteDto athleteP) {

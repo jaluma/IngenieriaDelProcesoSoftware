@@ -191,4 +191,13 @@ where COMPETITION_ID=@COMPETITION_ID and ATHLETE_DNI=@DNI</value>
   <data name="SQL_SELECT_COMPETITION_CATEGORY" xml:space="preserve">
     <value>select category_name from get_category_competition where competition_id=@COMPETITION_ID</value>
   </data>
+  <data name="SQL_SELECT_OPEN_COMPETITION" xml:space="preserve">
+    <value>SELECT COMPETITION_NAME, COMPETITION_TYPE, 
+COMPETITION_KM, COMPETITION_PRICE, 
+INITIAL_DATE, FINISH_DATE , COMPETITION_NUMBER_PLACES  
+FROM Competition, CompetitionDates
+WHERE Competition.COMPETITION_ID = 
+CompetitionDates.COMPETITION_ID and
+COMPETITION_STATUS&lt;&gt; 'FINISH'</value>
+  </data>
 </root>
