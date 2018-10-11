@@ -27,30 +27,34 @@ namespace Ui.Main.Pages.Competition.Times
         private CompetitionDto _competition;
         private DataTable _table;
         private List<int> _ids;
+        private List<string> _list;
 
         public TimesAthletes()
         {
             this.
             InitializeComponent();
 
-            CompetitionService _competitionService = new CompetitionService();
-            _table = _competitionService.SelectCompetitionFinish();
+            CompetitionService competitionService = new CompetitionService();
+            _table = competitionService.SelectCompetitionFinish();
             
             
-            List<string> list = new List<string>();
+            _list = new List<string>();
             _ids = new List<int>();
 
             foreach (DataRow row in _table.Rows) {
                 _ids.Add(int.Parse(row[_table.Columns.IndexOf("Competition_ID")].ToString()));
-                list.Add(row[_table.Columns.IndexOf("Competition_Name")].ToString());
+                _list.Add(row[_table.Columns.IndexOf("Competition_Name")].ToString());
             }
 
-            CompetitionList.ItemsSource = list;
+            CompetitionList.ItemsSource = _list;
         }
 
         public TimesAthletes(CompetitionDto competition) : this() {
             // inicialize data table
             _service = new TimesService(competition, MaleCheckBox.IsChecked, FemaleCheckBox.IsChecked);
+            
+            CompetitionList.SelectedIndex = _list.IndexOf(competition.Name);
+
             GenerateDataGrid();
         }
 
