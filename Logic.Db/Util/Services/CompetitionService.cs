@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using Logic.Db.ActionObjects.CompetitionLogic;
 using Logic.Db.ActionObjects.TimesLogic;
 using Logic.Db.Dto;
@@ -18,6 +19,19 @@ namespace Logic.Db.Util.Services {
             ListOpenCompetitionLogic listOpenCompetition = new ListOpenCompetitionLogic(ref _conn);
             listOpenCompetition.Execute();
             return listOpenCompetition.Table;
+        }
+
+        public DataTable ListNotRealizedCompetitions()
+        {
+            ListNotRealizedCompetitionLogic listCompetition = new ListNotRealizedCompetitionLogic(ref _conn);
+            listCompetition.Execute();
+            return listCompetition.Table;
+        }
+
+        public CompetitionDto SelectCompetitionDtoFromName(CompetitionDto competition) {
+            SelectCompetitionLogic select = new SelectCompetitionLogic(ref _conn);
+            select.Execute();
+            return @select.List.First(s => s.Name.Equals(competition.Name));
         }
 
         //public void InsertAthletesTable(AthleteDto athleteP) {

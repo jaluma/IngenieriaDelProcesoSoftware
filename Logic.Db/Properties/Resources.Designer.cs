@@ -211,5 +211,13 @@ namespace Logic.Db.Properties {
             }
         }
 
+        internal static string SQL_SELECT_COMPETITION_FINISH_LIST {
+            get {
+                return ResourceManager.GetString("SQL_SELECT_COMPETITION_FINISH_LIST", resourceCulture);
+            }
+        }
+
+        
+
     }
 }

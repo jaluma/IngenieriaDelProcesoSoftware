@@ -38,13 +38,11 @@ namespace Ui.Main.Pages.MenuInitial {
             //Content = new Frame() {
             //    Content = new AddDorsalsAndRegisteredInCompetition()
             //};
-            ChangeMenuSelected(Properties.Resources.TileInscriptionDorsal, Properties.Resources.TileInscriptionDorsal);
+            ChangeMenuSelected(Properties.Resources.TileTimes, Properties.Resources.TitleTimesCompetition);
         }
 
         public static void ChangeMenuSelected(string menuName, string subMenuName) {
-            var mainWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive) as MainWindow;
-
-            if (mainWindow != null) {
+            if (Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive) is MainWindow mainWindow) {
                 var linkMenu = mainWindow.PrincipalWindow.MenuLinkGroups
                     .First(m => m.DisplayName.Equals(menuName)).Links;
                 var linkSubMenu = linkMenu.First(l => l.DisplayName.Equals(subMenuName));

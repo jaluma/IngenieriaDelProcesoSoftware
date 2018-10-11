@@ -22,17 +22,24 @@
             <mui:LinkGroup.Links>
                 <mui:Link DisplayName="{x:Static properties:Resources.AthleteMenuList}" Source="/Pages/" />
                 <mui:Link DisplayName="{x:Static properties:Resources.TileAthletesInscription}" Source="/Pages/Inscriptions/InscriptionPage.xaml" />
+
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
         <mui:LinkGroup DisplayName="{x:Static properties:Resources.TileCompetition}">
             <mui:LinkGroup.Links>
                 <mui:Link DisplayName="{x:Static properties:Resources.CategoryMenuActive}" Source="/Pages/OpenCompetitions/ListOpenCompetition.xaml" />
                 <mui:Link DisplayName="{x:Static properties:Resources.CategoryMenuFinish}" Source="/Pages/Competition.Times/SelectionCompetition.xaml" />
+                <mui:Link DisplayName="{x:Static properties:Resources.SubmenuAddDorsal}" Source="/Pages/Inscriptions/HasRegistered/AddDorsalsAndRegisteredInCompetition.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
         <mui:LinkGroup DisplayName="{x:Static properties:Resources.TileTimes}">
             <mui:LinkGroup.Links>
                 <mui:Link DisplayName="{x:Static properties:Resources.TitleTimesCompetition}" Source="/Pages/Competition.Times/TimesAthletes.xaml" />
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+        <mui:LinkGroup DisplayName="{x:Static properties:Resources.TileDorsal}">
+            <mui:LinkGroup.Links>
+
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
     </mui:ModernWindow.MenuLinkGroups>

@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Logic.Db.Dto;
 using Logic.Db.Util;
 using Logic.Db.Util.Services;
+using Ui.Main.Pages.MenuInitial;
 
 namespace Ui.Main.Pages.Competition.Times
 {
@@ -57,12 +58,19 @@ namespace Ui.Main.Pages.Competition.Times
                 ID = (int)id
             };
 
-            _service.Dispose();
+            //_service.Dispose();
 
             Page timesService = new TimesAthletes(competition);
 
-
+            MainMenu.ChangeMenuSelected(Properties.Resources.TileTimes, Properties.Resources.TitleTimesCompetition);
         }
 
+        private void DataGridCompetition_OnMouseEnter(object sender, MouseEventArgs e) {
+            DataGridCompetition.Cursor = Cursors.Hand;
+        }
+
+        private void DataGridCompetition_OnMouseLeave(object sender, MouseEventArgs e) {
+            DataGridCompetition.Cursor = null;
+        }
     }
 }

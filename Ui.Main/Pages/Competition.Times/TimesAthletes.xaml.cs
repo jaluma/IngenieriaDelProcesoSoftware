@@ -23,14 +23,29 @@ namespace Ui.Main.Pages.Competition.Times
     /// </summary>
     public partial class TimesAthletes : Page {
 
-        private readonly TimesService _service;
+        private TimesService _service;
+        private CompetitionDto _competition;
         private DataTable _table;
+        private List<int> _ids;
 
         public TimesAthletes()
         {
             this.
             InitializeComponent();
 
+            CompetitionService _competitionService = new CompetitionService();
+            _table = _competitionService.SelectCompetitionFinish();
+            
+            
+            List<string> list = new List<string>();
+            _ids = new List<int>();
+
+            foreach (DataRow row in _table.Rows) {
+                _ids.Add(int.Parse(row[_table.Columns.IndexOf("Competition_ID")].ToString()));
+                list.Add(row[_table.Columns.IndexOf("Competition_Name")].ToString());
+            }
+
+            CompetitionList.ItemsSource = list;
         }
 
         public TimesAthletes(CompetitionDto competition) : this() {
@@ -86,6 +101,16 @@ namespace Ui.Main.Pages.Competition.Times
 
         private bool FemaleIsChecked() {
             return (bool) FemaleCheckBox.IsChecked;
+        }
+
+        private void CompetitionList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            _competition = new CompetitionDto() {
+                ID = _ids[CompetitionList.SelectedIndex]
+            };
+
+            _service = new TimesService(_competition, MaleCheckBox.IsChecked, FemaleCheckBox.IsChecked);
+
+            GenerateDataGrid();
         }
     }
 }

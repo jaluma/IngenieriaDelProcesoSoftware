@@ -40,14 +40,18 @@ namespace Ui.Main.Pages.OpenCompetitions
             table.Columns[3].ColumnName = Properties.Resources.Competition_Price;
             table.Columns[4].ColumnName = Properties.Resources.InscriptionOpen;
             table.Columns[5].ColumnName = Properties.Resources.InscriptionClose;
-            table.Columns[6].ColumnName = Properties.Resources.Competition_Number;
+            table.Columns[6].ColumnName = Properties.Resources.Competition_Date;
            
 
             DataGridCompetition.ItemsSource = table.DefaultView;
             
         }
 
-    
+        private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyType == typeof(System.DateTime))
+                ((DataGridTextColumn) e.Column).Binding.StringFormat = "dd/MM/yyyy";
+        }
        
 
     }

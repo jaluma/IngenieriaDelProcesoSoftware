@@ -250,4 +250,13 @@
   <data name="InscriptionOpen" xml:space="preserve">
     <value>Inscripción desde</value>
   </data>
+  <data name="SubmenuAddDorsal" xml:space="preserve">
+    <value>Añadir Dorsal</value>
+  </data>
+  <data name="TileDorsal" xml:space="preserve">
+    <value>Dorsal</value>
+  </data>
+  <data name="InscriptionDate" xml:space="preserve">
+    <value>Fecha de inscripción</value>
+  </data>
 </root>

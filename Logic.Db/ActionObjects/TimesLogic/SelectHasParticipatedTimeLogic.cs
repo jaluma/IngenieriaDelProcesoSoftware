@@ -26,11 +26,13 @@ namespace Logic.Db.ActionObjects.TimesLogic {
         }
         public void Execute() {
             try {
-                using (SQLiteCommand command = new SQLiteCommand(SqlCommandGenerator(), _conn.DbConnection)) {
-                    command.Parameters.AddWithValue("@COMPETITION_ID", _competition.ID);
+                using (var _connection = _conn.DbConnection) {
+                    using (SQLiteCommand command = new SQLiteCommand(SqlCommandGenerator(), _connection)) {
+                        command.Parameters.AddWithValue("@COMPETITION_ID", _competition.ID);
 
-                    SQLiteDataAdapter da = new SQLiteDataAdapter(command);
-                    da.Fill(Table);
+                        SQLiteDataAdapter da = new SQLiteDataAdapter(command);
+                        da.Fill(Table);
+                    }
                 }
             } catch (SQLiteException) {
                 _conn.DbConnection?.Close();

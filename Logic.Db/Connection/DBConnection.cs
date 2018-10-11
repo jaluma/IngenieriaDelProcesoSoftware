@@ -16,7 +16,7 @@ namespace Logic.Db.Connection {
                 if (_dbConnection == null) {
                     DBConnection.Inicialize();
 
-                    _dbConnection = new SQLiteConnection($"Data Source={Logic.Db.Properties.Resources.DbFileName};Version=3;Pooling=True;Max Pool Size=100;");
+                    _dbConnection = new SQLiteConnection($"Data Source={Logic.Db.Properties.Resources.DbFileName};Version=3;Pooling=True;Max Pool Size=1500;");
                     //_dbConnection.Open();
                 }
 
@@ -32,9 +32,6 @@ namespace Logic.Db.Connection {
                 } catch (IOException) { }
             }
         }
-
-
-        public void DbClose() => _dbConnection.Close();
 
         private static bool DbIsCreated() => File.Exists(DestFile);
     }

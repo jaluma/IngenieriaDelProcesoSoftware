@@ -377,18 +377,6 @@ namespace Ui.Main.Properties {
         }
 
         /// <summary>
-        ///   Busca una cadena traducida similar a Inscripción desde.
-        /// </summary>
-        public static string InscriptionOpen
-        {
-            get
-            {
-                return ResourceManager.GetString("InscriptionOpen", resourceCulture);
-            }
-        }
-
-
-        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap dorsalsIco {
@@ -473,6 +461,33 @@ namespace Ui.Main.Properties {
         public static string TileAthletesInscription {
             get {
                 return ResourceManager.GetString("TileAthletesInscription", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a AñadirDorsal.
+        /// </summary>
+        public static string SubmenuAddDorsal {
+            get {
+                return ResourceManager.GetString("SubmenuAddDorsal", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Dorsal.
+        /// </summary>
+        public static string TileDorsal {
+            get {
+                return ResourceManager.GetString("TileDorsal", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fecha de inscripción.
+        /// </summary>
+        public static string InscriptionDate {
+            get {
+                return ResourceManager.GetString("InscriptionDate", resourceCulture);
             }
         }
 

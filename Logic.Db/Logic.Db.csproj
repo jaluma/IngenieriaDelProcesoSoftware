@@ -64,6 +64,7 @@
     <Compile Include="ActionObjects\AthleteLogic\Enroll\SelectAthleteEnrollLogic.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\AddCompetitionLogic.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\DeleteCompetitionLogic.cs" />
+    <Compile Include="ActionObjects\CompetitionLogic\ListNotRealizedCompetitionLogic.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\ListOpenCompetitionLogic.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\SelectCompetitionLogic.cs" />
     <Compile Include="ActionObjects\IActionObject.cs" />
