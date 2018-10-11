@@ -223,4 +223,10 @@
   <data name="TileAthleteInscription" xml:space="preserve">
     <value>Inscribir atletas</value>
   </data>
+  <data name="InscriptionClose" xml:space="preserve">
+    <value>Inscripción hasta</value>
+  </data>
+  <data name="InscriptionOpen" xml:space="preserve">
+    <value>Inscripción desde</value>
+  </data>
 </root>
