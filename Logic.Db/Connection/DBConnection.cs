@@ -11,8 +11,6 @@ namespace Logic.Db.Connection {
 
         private SQLiteConnection _dbConnection;
 
-        private static ISQLiteConnectionPool pool;
-
         public SQLiteConnection DbConnection {
             get {
                 if (_dbConnection == null) {
