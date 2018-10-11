@@ -21,10 +21,8 @@ namespace Logic.Db.ActionObjects.CompetitionLogic
         {
             try
             {
-                using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_COMPETITION_STATUS, _conn.DbConnection))
+                using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_OPEN_COMPETITION, _conn.DbConnection))
                 {
-                    command.Parameters.AddWithValue("@STATUS", "");
-
                     SQLiteDataAdapter da = new SQLiteDataAdapter(command);
                     da.Fill(Table);
                 }
