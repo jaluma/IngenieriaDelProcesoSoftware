@@ -45,7 +45,28 @@ namespace Ui.Main.Properties {
                 return resourceMan;
             }
         }
-        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Inscripción hasta.
+        /// </summary>
+        public static string InscriptionClose
+        {
+            get
+            {
+                return ResourceManager.GetString("InscriptionClose", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Inscripción desde.
+        /// </summary>
+        public static string InscriptionOpen
+        {
+            get
+            {
+                return ResourceManager.GetString("InscriptionOpen", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
         ///   búsquedas de recursos mediante esta clase de recurso fuertemente tipado.

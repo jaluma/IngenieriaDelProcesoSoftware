@@ -6,14 +6,14 @@
       xmlns:local="clr-namespace:Ui.Main.Pages.OpenCompetitions"
       xmlns:properties="clr-namespace:Ui.Main.Properties"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="625" d:DesignWidth="1250"
       Title="ListOpenCompetitions" Height="545">
     <DockPanel  Height="545" VerticalAlignment="Bottom">
         <Label FontSize="18"
                FontWeight="Bold"
                HorizontalAlignment="Center"
                 Content="{x:Static properties:Resources.TileCompetition}" DockPanel.Dock="Top"/>
-        <DataGrid x:Name="DataGridCompetition" MinWidth="800" MinHeight="450" SelectionChanged="DataGrid_SelectionChanged"  VerticalAlignment="Top" ColumnWidth="*" Height="419" DockPanel.Dock="Bottom" IsReadOnly="True"/>
+        <DataGrid x:Name="DataGridCompetition" MinWidth="800" MinHeight="450"  VerticalAlignment="Top" ColumnWidth="*" Height="419" DockPanel.Dock="Bottom" IsReadOnly="True"/>
     </DockPanel>
 
 

@@ -141,7 +141,18 @@ namespace Logic.Db.Properties {
                 return ResourceManager.GetString("SQL_SELECT_COMPETITION", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, COMPETITIONDATES.INITIAL_DATE,COMPETITIONDATES.FINISH_DATE, COMPETITION_NUMBER_PLACES  FROM Competition, COMPETITIONDATES        WHERE COMPETITION_STATUS<> 'FINISH'&lt;&gt; &apos;FINISH&apos;.
+        /// </summary>
+        internal static string SQL_SELECT_OPEN_COMPETITION
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_OPEN_COMPETITION", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Busca una cadena traducida similar a SELECT * FROM Competition
         ///WHERE COMPETITION_STATUS=@STATUS.
