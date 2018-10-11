@@ -31,20 +31,11 @@ namespace Ui.Main.Pages.Inscriptions.HasRegistered
             InitializeComponent();
         }
 
-        private void UIElement_OnFocusableChanged(object sender, DependencyPropertyChangedEventArgs e) {
-            var text = sender as TextBox;
-
-            if (text.Text.Equals("ID")) {
-                text.Foreground = new SolidColorBrush(Colors.Black);
-                text.Text = string.Empty;
-            }
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e) {
             int id;
 
             try {
-                id = int.Parse(CompetitionIDTextBox.Text);
+                id = int.Parse(CompetitionIdTextBox.Text);
             } catch (FormatException) {
                 MessageBox.Show("Error con la ID");
                 return;
@@ -58,8 +49,8 @@ namespace Ui.Main.Pages.Inscriptions.HasRegistered
 
             GenerateTable();
 
-            BtDorsals.IsEnabled = true;
-            BtSearch.IsEnabled = false;
+            if (_table.Rows.Count > 0)
+                BtDorsals.IsEnabled = true;
         }
 
         private void GenerateTable() {
@@ -85,6 +76,11 @@ namespace Ui.Main.Pages.Inscriptions.HasRegistered
                 MessageBox.Show("Introduzca primero la competición");
                 return;
             }
+        }
+
+        private void CompetitionIdTextBox_OnKeyDown(object sender, KeyEventArgs e) {
+            if (e.Key == Key.Enter)
+                BtSearch.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.Primitives.ButtonBase.ClickEvent));
         }
     }
 }

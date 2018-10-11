@@ -1,14 +1,50 @@
-﻿<Controls:MetroWindow Name="PrincipalWindow" x:Class="Ui.Main.MainWindow"
+﻿<!--<Controls:MetroWindow Name="PrincipalWindow" x:Class="Ui.Main.MainWindow"-->
+<mui:ModernWindow Name="PrincipalWindow" x:Class="Ui.Main.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-                      xmlns:menuInitial="clr-namespace:Ui.Main.Pages.MenuInitial"
-        mc:Ignorable="d"
+                  xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+                  xmlns:menuInitial="clr-namespace:Ui.Main.Pages.MenuInitial"
+                  xmlns:properties="clr-namespace:Ui.Main.Properties"
+                  mc:Ignorable="d"
         Title="Competiciones populares"
-        Height="625" Width="1250" MinHeight="450" MinWidth="450" TitleAlignment="Left">
+        Height="625" Width="1250" MinHeight="450" MinWidth="450">
+        <!--Style="{StaticResource BlankWindow}"-->
 
-    <menuInitial:MainMenu/>
+    <mui:ModernWindow.MenuLinkGroups>
+        <mui:LinkGroup DisplayName="Hola :)">
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="home" Source="/Pages/MenuInitial/MainMenu.xaml" />
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+        <mui:LinkGroup DisplayName="{x:Static properties:Resources.TileAthletes}">
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="Lista de atletas inscritos" Source="/Pages/" />
+                <mui:Link DisplayName="Inscripción" Source="/Pages/Inscriptions/InscriptionPage.xaml" />
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+        <mui:LinkGroup DisplayName="{x:Static properties:Resources.TileAthleteInscription}">
+            <mui:LinkGroup.Links>
+                
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+        <mui:LinkGroup DisplayName="{x:Static properties:Resources.TileCompetition}">
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="{x:Static properties:Resources.CategoryMenuActive}" Source="/Pages/OpenCompetitions/ListOpenCompetition.xaml" />
+                <mui:Link DisplayName="{x:Static properties:Resources.CategoryMenuFinish}" Source="/Pages/Competition.Times/SelectionCompetition.xaml" />
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+        <mui:LinkGroup DisplayName="{x:Static properties:Resources.TileCompetitionFinish}">
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="{x:Static properties:Resources.TitleTimesCompetition}" Source="/Pages/Competition.Times/TimesAthletes.xaml" />
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+    </mui:ModernWindow.MenuLinkGroups>
 
-</Controls:MetroWindow>
+    <mui:ModernWindow.TitleLinks>
+        <mui:Link DisplayName="help" Source="https://bitbucket.org/UO258092/ips-l7-g1/src/master/" />
+    </mui:ModernWindow.TitleLinks>
+
+
+</mui:ModernWindow>

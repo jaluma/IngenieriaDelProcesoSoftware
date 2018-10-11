@@ -371,5 +371,29 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("Next", resourceCulture);
             }
         }
+
+        public static string Competition_Inscritos {
+            get {
+                return ResourceManager.GetString("Competition_Inscritos", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Activas.
+        /// </summary>
+        public static string CategoryMenuActive {
+            get {
+                return ResourceManager.GetString("CategoryMenuActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Finalizadas.
+        /// </summary>
+        public static string CategoryMenuFinish {
+            get {
+                return ResourceManager.GetString("CategoryMenuFinish", resourceCulture);
+            }
+        }
     }
 }

@@ -158,8 +158,9 @@ WHERE COMPETITION_ID=@COMPETITION_ID</value>
     <value>SELECT * FROM Competition</value>
   </data>
   <data name="SQL_SELECT_COMPETITION_STATUS" xml:space="preserve">
-    <value>SELECT * FROM Competition
-WHERE COMPETITION_STATUS=@STATUS</value>
+    <value>SELECT COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, COMPETITION_DATE, COMPETITION_STATUS, count(*) as INSCRITOS FROM Competition natural join Enroll
+WHERE COMPETITION_STATUS=@STATUS
+group by COMPETITION_ID</value>
   </data>
   <data name="SQL_INSERT_HAS_PARTICIPATED" xml:space="preserve">
     <value>INSERT INTO HasParticipated(COMPETITION_ID, ATHLETE_DNI)

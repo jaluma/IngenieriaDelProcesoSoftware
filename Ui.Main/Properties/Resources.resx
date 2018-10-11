@@ -140,7 +140,7 @@
     <value>Fecha</value>
   </data>
   <data name="Competition_Id" xml:space="preserve">
-    <value>Id</value>
+    <value>ID</value>
   </data>
   <data name="Competition_Km" xml:space="preserve">
     <value>KM</value>
@@ -222,5 +222,14 @@
   </data>
   <data name="TileAthleteInscription" xml:space="preserve">
     <value>Inscribir atletas</value>
+  </data>
+  <data name="Competition_Inscritos" xml:space="preserve">
+    <value>Inscrito(s)</value>
+  </data>
+  <data name="CategoryMenuActive" xml:space="preserve">
+    <value>Activas</value>
+  </data>
+  <data name="CategoryMenuFinish" xml:space="preserve">
+    <value>Finalizadas</value>
   </data>
 </root>

@@ -13,7 +13,7 @@ namespace Logic.Db.Util {
         }
 
         public void Dispose() {
-            _conn.DbConnection.Close();
+            _conn.DbConnection?.Close();
         }
     }
 }
