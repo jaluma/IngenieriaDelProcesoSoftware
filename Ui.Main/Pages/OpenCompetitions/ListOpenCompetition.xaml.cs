@@ -44,6 +44,7 @@ namespace Ui.Main.Pages.OpenCompetitions
            
 
             DataGridCompetition.ItemsSource = table.DefaultView;
+            
         }
 
     
