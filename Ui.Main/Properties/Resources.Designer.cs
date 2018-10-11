@@ -395,5 +395,41 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("CategoryMenuFinish", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tiempos.
+        /// </summary>
+        public static string TileTimes {
+            get {
+                return ResourceManager.GetString("TileTimes", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Competiciones activas.
+        /// </summary>
+        public static string TileCompetitionActive {
+            get {
+                return ResourceManager.GetString("TileCompetitionActive", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Listar atletas.
+        /// </summary>
+        public static string AthleteMenuList {
+            get {
+                return ResourceManager.GetString("AthleteMenuList", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Inscribir atletas.
+        /// </summary>
+        public static string TileAthletesInscription {
+            get {
+                return ResourceManager.GetString("TileAthletesInscription", resourceCulture);
+            }
+        }
     }
 }

@@ -20,13 +20,8 @@
         </mui:LinkGroup>
         <mui:LinkGroup DisplayName="{x:Static properties:Resources.TileAthletes}">
             <mui:LinkGroup.Links>
-                <mui:Link DisplayName="Lista de atletas inscritos" Source="/Pages/" />
-                <mui:Link DisplayName="Inscripción" Source="/Pages/Inscriptions/InscriptionPage.xaml" />
-            </mui:LinkGroup.Links>
-        </mui:LinkGroup>
-        <mui:LinkGroup DisplayName="{x:Static properties:Resources.TileAthleteInscription}">
-            <mui:LinkGroup.Links>
-                
+                <mui:Link DisplayName="{x:Static properties:Resources.AthleteMenuList}" Source="/Pages/" />
+                <mui:Link DisplayName="{x:Static properties:Resources.TileAthletesInscription}" Source="/Pages/Inscriptions/InscriptionPage.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
         <mui:LinkGroup DisplayName="{x:Static properties:Resources.TileCompetition}">
@@ -35,7 +30,7 @@
                 <mui:Link DisplayName="{x:Static properties:Resources.CategoryMenuFinish}" Source="/Pages/Competition.Times/SelectionCompetition.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
-        <mui:LinkGroup DisplayName="{x:Static properties:Resources.TileCompetitionFinish}">
+        <mui:LinkGroup DisplayName="{x:Static properties:Resources.TileTimes}">
             <mui:LinkGroup.Links>
                 <mui:Link DisplayName="{x:Static properties:Resources.TitleTimesCompetition}" Source="/Pages/Competition.Times/TimesAthletes.xaml" />
             </mui:LinkGroup.Links>

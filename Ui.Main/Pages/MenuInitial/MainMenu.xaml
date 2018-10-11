@@ -21,12 +21,12 @@
 
     <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center" Name ="LayoutMainMenu" Margin="10,10,10,-25" >
         <mah:Tile x:Name="TileAthletes" Style="{StaticResource Tile}"
-                  Title="{x:Static properties:Resources.TileAthletes}"
+                  Title="{x:Static properties:Resources.TileAthletesInscription}"
                   Background="SlateBlue" Click="TileAthletes_Click">
             <Image Height="100" Width="100" Source="../../Resources/athleticIco.png"/>
         </mah:Tile>
         <mah:Tile x:Name="TileCompetition" Style="{StaticResource Tile}"
-                  Title="{x:Static properties:Resources.TileCompetition}"
+                  Title="{x:Static properties:Resources.TileCompetitionActive}"
                   Background="AntiqueWhite" Click="TileCompetition_Click">
             <Image Height="100" Width="100" Source="../../Resources/competitionIcon.png"/>
         </mah:Tile>

@@ -125,9 +125,9 @@
     <value>..\Resources\competitionIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TileAthletes" xml:space="preserve">
-    <value>Atletas inscritos</value>
+    <value>Atletas</value>
   </data>
-  <data name="TileCompetition" xml:space="preserve">
+  <data name="TileCompetitionActive" xml:space="preserve">
     <value>Competiciones activas</value>
   </data>
   <data name="TileCompetitionFinish" xml:space="preserve">
@@ -231,5 +231,17 @@
   </data>
   <data name="CategoryMenuFinish" xml:space="preserve">
     <value>Finalizadas</value>
+  </data>
+  <data name="AthleteMenuList" xml:space="preserve">
+    <value>Listar atletas</value>
+  </data>
+  <data name="TileAthletesInscription" xml:space="preserve">
+    <value>Atletas inscritos</value>
+  </data>
+  <data name="TileCompetition" xml:space="preserve">
+    <value>Competiciones</value>
+  </data>
+  <data name="TileTimes" xml:space="preserve">
+    <value>Tiempos</value>
   </data>
 </root>
