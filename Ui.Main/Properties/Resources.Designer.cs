@@ -491,5 +491,46 @@ namespace Ui.Main.Properties {
             }
         }
 
+        /// <summary>
+        ///   Busca una cadena traducida similar a Seleccionar una competición.
+        /// </summary>
+        public static string TitleSelectCompetition
+        {
+            get
+            {
+                return ResourceManager.GetString("TitleSelectCompetition", resourceCulture);
+            }
+        }
+
+        public static string IncompleteFields
+        {
+            get
+            {
+                return ResourceManager.GetString("IncompleteFields", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Finalizar inscripción.
+        /// </summary>
+        public static string FinishInscription
+        {
+            get
+            {
+                return ResourceManager.GetString("FinishInscription", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a No hay una competición seleccionada..
+        /// </summary>
+        public static string NothingSelected
+        {
+            get
+            {
+                return ResourceManager.GetString("NothingSelected", resourceCulture);
+            }
+        }
+
     }
 }

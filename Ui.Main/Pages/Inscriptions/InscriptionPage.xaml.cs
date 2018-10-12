@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Logic.Db.Dto;
+using Logic.Db.Util.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,39 @@ namespace Ui.Main.Pages.Inscriptions
     /// </summary>
     public partial class InscriptionPage : Page
     {
+        private readonly AthletesService _athletesService;
+
         public InscriptionPage()
         {
             InitializeComponent();
+
+            _athletesService = new AthletesService();
+        }
+
+        private void BtNext_Click(object sender, RoutedEventArgs e)
+        {
+            if (TxName.Text == null || TxSurname.Text == null || TxDNI.Text == null || DPBirthDate.SelectedDate == null)
+            {
+                MessageBox.Show(Properties.Resources.IncompleteFields);
+                return;
+            }
+            
+            AthleteDto athlete = new AthleteDto
+            {
+                Name = TxName.Text,
+                Surname = TxSurname.Text,
+                Dni = TxDNI.Text,
+                BirthDate = (DateTime)DPBirthDate.SelectedDate
+            };
+            if ((bool)RBMasc.IsChecked)
+                athlete.Gender = Gender.Male;
+            else
+                athlete.Gender = Gender.Female;
+
+            //if (_athletesService.CountAthleteByDni(athlete.Dni) == 0)
+                _athletesService.InsertAthletesTable(athlete);
+
+            new CompetitionSelectionWindow(athlete).ShowDialog();
         }
     }
 }

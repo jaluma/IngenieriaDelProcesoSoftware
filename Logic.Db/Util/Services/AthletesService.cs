@@ -23,6 +23,13 @@ namespace Logic.Db.Util.Services {
             delete.Execute();
         }
 
+        public int CountAthleteByDni(string dni)
+        {
+            CountAthleteByDniLogic search = new CountAthleteByDniLogic(ref _conn, dni);
+            search.Execute();
+            return search.Contador;
+        }
+
         public static void PrintAthletes(IEnumerable<AthleteDto> list) {
             Console.WriteLine(string.Join("\n", list));
         }

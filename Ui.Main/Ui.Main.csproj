@@ -108,7 +108,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Inscriptions\CompetitionSelectionPage.xaml">
+    <Page Include="Pages\Inscriptions\CompetitionSelectionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -117,6 +117,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Inscriptions\InscriptionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Inscriptions\InscriptionProofWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -138,14 +142,17 @@
     <Compile Include="Pages\Competition.Times\TimesAthletes.xaml.cs">
       <DependentUpon>TimesAthletes.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Inscriptions\CompetitionSelectionPage.xaml.cs">
-      <DependentUpon>CompetitionSelectionPage.xaml</DependentUpon>
+    <Compile Include="Pages\Inscriptions\CompetitionSelectionWindow.xaml.cs">
+      <DependentUpon>CompetitionSelectionWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Inscriptions\HasRegistered\AddDorsalsAndRegisteredInCompetition.xaml.cs">
       <DependentUpon>AddDorsalsAndRegisteredInCompetition.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Inscriptions\InscriptionPage.xaml.cs">
       <DependentUpon>InscriptionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Inscriptions\InscriptionProofWindow.xaml.cs">
+      <DependentUpon>InscriptionProofWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MenuInitial\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>

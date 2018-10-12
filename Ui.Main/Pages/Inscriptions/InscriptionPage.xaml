@@ -15,7 +15,7 @@
                HorizontalAlignment="Center"
                Content="{x:Static properties:Resources.TileAthleteInscription}" DockPanel.Dock="Top"/>
         <Grid DockPanel.Dock="Bottom">
-            <TextBox Name="TxName" HorizontalAlignment="Left" Height="28" Margin="421,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="359"/>
+            <TextBox Name="TxName" HorizontalAlignment="Left" Height="28" Margin="421,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="359" />
             <Label Name="LbName" Content="{x:Static properties:Resources.AthleteName}" HorizontalAlignment="Left" Margin="189,87,0,0" VerticalAlignment="Top" Height="27" FontSize="14" />
             <TextBox Name="TxSurname" HorizontalAlignment="Left" Height="28" Margin="421,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="359"/>
             <Label Name="LbSurname" Content="{x:Static properties:Resources.AthleteSurname}" HorizontalAlignment="Left" Margin="189,141,0,0" VerticalAlignment="Top" Height="27" FontSize="14" />
@@ -26,7 +26,7 @@
             <Label Name="LbGender" Content="{x:Static properties:Resources.AthleteGender}" HorizontalAlignment="Left" Margin="189,322,0,0" VerticalAlignment="Top" Height="27" FontSize="14" />
             <RadioButton Name="RBMasc" Content="{x:Static properties:Resources.MaleText}" HorizontalAlignment="Left" Margin="421,328,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="GroupGender" Height="17" Width="89" FontSize="14"/>
             <RadioButton Name="RBFem" Content="{x:Static properties:Resources.FemaleText}" HorizontalAlignment="Left" Margin="573,328,0,0" VerticalAlignment="Top" GroupName="GroupGender" Height="17" Width="87" FontSize="14"/>
-            <Button Name="BtNext" Content="{x:Static properties:Resources.Next}" HorizontalAlignment="Left" Margin="520,406,0,0" VerticalAlignment="Top" Width="175" Height="70" FontSize="16"/>
+            <Button Name="BtNext" Content="{x:Static properties:Resources.Next}" HorizontalAlignment="Left" Margin="520,406,0,0" VerticalAlignment="Top" Width="175" Height="70" FontSize="16" Click="BtNext_Click"/>
         </Grid>
     </DockPanel>
 

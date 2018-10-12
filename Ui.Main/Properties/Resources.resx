@@ -259,4 +259,16 @@
   <data name="InscriptionDate" xml:space="preserve">
     <value>Fecha de inscripción</value>
   </data>
+  <data name="TitleSelectCompetition" xml:space="preserve">
+    <value>Seleccionar una competición</value>
+  </data>
+  <data name="IncompleteFields" xml:space="preserve">
+    <value>No se puede realizar la inscripción: campos incompletos.</value>
+  </data>
+  <data name="FinishInscription" xml:space="preserve">
+    <value>Finalizar inscripción</value>
+  </data>
+  <data name="NothingSelected" xml:space="preserve">
+    <value>No hay una competición seleccionada.</value>
+  </data>
 </root>

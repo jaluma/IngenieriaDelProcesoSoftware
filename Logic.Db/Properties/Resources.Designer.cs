@@ -217,7 +217,21 @@ namespace Logic.Db.Properties {
             }
         }
 
-        
+        internal static string SQL_COUNT_ATHLETE_BY_DNI
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_COUNT_ATHLETE_BY_DNI", resourceCulture);
+            }
+        }
+
+        internal static string SQL_SELECT_COMPETITION_TO_INSCRIBE
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_COMPETITION_TO_INSCRIBE", resourceCulture);
+            }
+        }
 
     }
 }
