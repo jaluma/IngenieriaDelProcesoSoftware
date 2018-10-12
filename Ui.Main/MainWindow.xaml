@@ -37,6 +37,7 @@
                 <mui:Link DisplayName="{x:Static properties:Resources.TitleTimesCompetition}" Source="/Pages/Competition.Times/TimesAthletes.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
+    </mui:ModernWindow.MenuLinkGroups>
 
     <mui:ModernWindow.TitleLinks>
         <mui:Link DisplayName="help" Source="https://bitbucket.org/UO258092/ips-l7-g1/src/master/" />
