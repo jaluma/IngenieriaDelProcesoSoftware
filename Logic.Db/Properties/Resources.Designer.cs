@@ -232,6 +232,14 @@ namespace Logic.Db.Properties {
                 return ResourceManager.GetString("SQL_SELECT_COMPETITION_TO_INSCRIBE", resourceCulture);
             }
         }
+        
+        internal static string SQL_SELECT_COMPETITION_BY_ID
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_COMPETITION_BY_ID", resourceCulture);
+            }
+        }
 
     }
 }

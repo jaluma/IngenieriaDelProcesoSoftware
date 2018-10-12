@@ -41,6 +41,13 @@ namespace Logic.Db.Util.Services {
             return competitions.Table;
         }
 
+        public CompetitionDto SearchCompetitionById(CompetitionDto competition)
+        {
+            SearchCompetitionByIdLogic searchCompetition = new SearchCompetitionByIdLogic(ref _conn, competition);
+            searchCompetition.Execute();
+            return searchCompetition.Competition;
+        }
+
         //public void InsertAthletesTable(AthleteDto athleteP) {
         //    AddAthleteLogic add = new AddAthleteLogic(ref _conn, athleteP);
         //    add.Execute();
