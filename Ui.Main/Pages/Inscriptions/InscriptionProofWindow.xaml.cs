@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using FirstFloor.ModernUI.Windows.Controls;
 using Logic.Db.Dto;
 using Logic.Db.Util.Services;
 
@@ -19,7 +20,7 @@ namespace Ui.Main.Pages.Inscriptions
     /// <summary>
     /// Lógica de interacción para InscriptionProofWindow.xaml
     /// </summary>
-    public partial class InscriptionProofWindow : Window
+    public partial class InscriptionProofWindow : ModernWindow
     {
         private readonly CompetitionService _competitionService;
         private readonly EnrollService _enrollService;

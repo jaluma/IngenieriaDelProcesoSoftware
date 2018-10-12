@@ -532,5 +532,24 @@ namespace Ui.Main.Properties {
             }
         }
 
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap default_profile {
+            get {
+                object obj = ResourceManager.GetObject("default_profile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Datos Personales.
+        /// </summary>
+        public static string PersonalInfo {
+            get {
+                return ResourceManager.GetString("PersonalInfo", resourceCulture);
+            }
+        }
+
     }
 }

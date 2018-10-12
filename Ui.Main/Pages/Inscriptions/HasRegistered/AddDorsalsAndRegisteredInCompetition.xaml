@@ -26,9 +26,9 @@
         </Grid>
 
 
-        <StackPanel Style="{StaticResource ContentRoot}" Orientation="Vertical">
+        <StackPanel Orientation="Vertical" Margin="10,30,10,10">
             <DataGrid x:Name="DataGridCompetition" SelectionMode="Single" MinWidth="800" MinHeight="450" VerticalAlignment="Top" ColumnWidth="*" Height="435" IsReadOnly="True"/>
-            <Button x:Name="BtDorsals" MaxWidth="400" IsEnabled="False" Content="{x:Static properties:Resources.BtInsertDorsals}" Height="45" Click="BtDorsals_Click"/>
+            <Button x:Name="BtDorsals" MaxWidth="400" IsEnabled="False" Content="{x:Static properties:Resources.BtInsertDorsals}" Height="45" Click="BtDorsals_Click" Margin="0,10,0,0"/>
         </StackPanel>
 
     </DockPanel>

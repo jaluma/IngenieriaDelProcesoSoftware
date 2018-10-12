@@ -34,12 +34,14 @@ namespace Ui.Main.Pages.Inscriptions
         {
             InitializeComponent();
 
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+
             _athlete = athlete;
 
-            TxNameSurname.Text = _athlete.Name + " " + _athlete.Surname;
-            TxDni.Text = _athlete.Dni;
-            TxBirthDate.Text = _athlete.BirthDate.ToShortDateString();
-            TxGender.Text = _athlete.Gender.ToString();
+            TxNameSurname.Content = _athlete.Name + " " + _athlete.Surname;
+            TxDni.Content = _athlete.Dni;
+            TxBirthDate.Content = _athlete.BirthDate.ToShortDateString();
+            TxGender.Content = _athlete.Gender.ToString();
 
 
             _competitionService = new CompetitionService();
