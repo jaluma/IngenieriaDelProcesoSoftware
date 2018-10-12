@@ -21,8 +21,8 @@ namespace Ui.Main.Pages.Inscriptions
     /// </summary>
     public partial class InscriptionProofWindow : Window
     {
-
-        private readonly EnrollService _service;
+        private readonly CompetitionService _competitionService;
+        private readonly EnrollService _enrollService;
         private readonly AthleteDto _athlete;
         private readonly CompetitionDto _competition;
       
@@ -32,11 +32,13 @@ namespace Ui.Main.Pages.Inscriptions
             InitializeComponent();
 
             _athlete = athlete;
-            _competition = competition;
 
-            _service = new EnrollService(_competition);
+            _competitionService = new CompetitionService();
+            _enrollService = new EnrollService(_competition);
 
-            string category = _service.GetCategory(_athlete, _competition);
+            _competition = _competitionService.SearchCompetitionById(competition);
+
+            string category = _enrollService.GetCategory(_athlete, _competition);
 
             TxJustificante.Text = "Atleta: " + _athlete.Name + " " + _athlete.Surname + "\nCompetición: " + _competition.Name +
                 "\nCategoría: " + category + "\nFecha de inscripción: " + DateTime.Now.ToShortDateString() + "\nCantidad a abonar: " +_competition.Price + " €";
