@@ -10,16 +10,14 @@ namespace Logic.Db.Connection {
         private static readonly string DestFile = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) ?? throw new InvalidOperationException(), Logic.Db.Properties.Resources.DbFileName);
 
         private static SQLiteConnection _dbConnection;
-
+        
         public SQLiteConnection DbConnection {
             get {
                 if (_dbConnection == null) {
-                    _dbConnection = new SQLiteConnection($"Data Source={Logic.Db.Properties.Resources.DbFileName};Version=3;Pooling=True;Max Pool Size=1500;");
-                    
-                    //_dbConnection.Open();
+                    _dbConnection = new SQLiteConnection($"Data Source={Logic.Db.Properties.Resources.DbFileName};Version=3;Pooling=True;Max Pool Size=1500;").OpenAndReturn();
                 }
 
-                return _dbConnection.OpenAndReturn();
+                return _dbConnection;
             }
         }
 
