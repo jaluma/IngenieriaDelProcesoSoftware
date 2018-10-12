@@ -37,11 +37,6 @@
                 <mui:Link DisplayName="{x:Static properties:Resources.TitleTimesCompetition}" Source="/Pages/Competition.Times/TimesAthletes.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
-        <mui:LinkGroup DisplayName="{x:Static properties:Resources.TileDorsal}">
-            <mui:LinkGroup.Links>
-
-            </mui:LinkGroup.Links>
-        </mui:LinkGroup>
     </mui:ModernWindow.MenuLinkGroups>
 
     <mui:ModernWindow.TitleLinks>
