@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,6 +26,7 @@ namespace Ui.Main.Pages.Competition.Times
     public partial class SelectionCompetition : Page {
 
         private readonly CompetitionService _service;
+        private List<long> _columnIds;
 
         public SelectionCompetition()
         {
@@ -43,22 +45,25 @@ namespace Ui.Main.Pages.Competition.Times
             table.Columns[6].ColumnName = Properties.Resources.Competition_Status;
             table.Columns[7].ColumnName = Properties.Resources.Competition_Inscritos;
 
-            table.Columns[0].ColumnMapping = MappingType.Hidden;
+            //columnIds = table.Columns[0];
+            _columnIds = table.AsEnumerable()
+                .Select(dr => dr.Field<long>(Properties.Resources.Competition_Id)).ToList();
+
+            table.Columns.RemoveAt(0);
 
             DataGridCompetition.ItemsSource = table.DefaultView;
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e) {
 
-            DataRowView row = DataGridCompetition.SelectedItems[0] as DataRowView;
+            int indexSeletected = DataGridCompetition.SelectedIndex;
 
-            long id = (long) row[0];
+            int id = (int) _columnIds[indexSeletected];
+
 
             CompetitionDto competition = new CompetitionDto() {
-                ID = (int)id
+                ID = id
             };
-
-            //_service.Dispose();
 
             Page timesService = new TimesAthletes(competition);
 
