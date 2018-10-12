@@ -129,7 +129,7 @@
     <comment>name database file</comment>
   </data>
   <data name="DbPath" xml:space="preserve">
-    <value>IPS.Logic.BD\Connection\</value>
+    <value>Logic.BD\Connection\</value>
     <comment>path from database file</comment>
   </data>
   <data name="SQL_DELETE_ATHLETE" xml:space="preserve">
