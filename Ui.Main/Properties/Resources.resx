@@ -286,4 +286,7 @@
   <data name="InscriptionProof" xml:space="preserve">
     <value>Justificante de inscripción</value>
   </data>
+  <data name="PreviouslyEnrolled" xml:space="preserve">
+    <value>Ya se inscribió anteriormente en esta competición.</value>
+  </data>
 </root>

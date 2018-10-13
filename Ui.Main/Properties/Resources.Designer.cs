@@ -579,5 +579,16 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("InscriptionProof", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ya se inscribió anteriormente en esta competición..
+        /// </summary>
+        public static string PreviouslyEnrolled
+        {
+            get
+            {
+                return ResourceManager.GetString("PreviouslyEnrolled", resourceCulture);
+            }
+        }
     }
 }

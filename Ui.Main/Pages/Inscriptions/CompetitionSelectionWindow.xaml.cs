@@ -78,13 +78,21 @@ namespace Ui.Main.Pages.Inscriptions
                 return;
             }
             EnrollService enrollService = new EnrollService(_competition);
-            enrollService.InsertAthleteInCompetition(_athlete, _competition);
+            try
+            {
+                enrollService.InsertAthleteInCompetition(_athlete, _competition);
+                new InscriptionProofWindow(_athlete, _competition).ShowDialog();
+            } catch (ApplicationException)
+            {
+                MessageBox.Show(Properties.Resources.PreviouslyEnrolled);
+            }
+            
             //Content = new Frame()
             //{
             //    Content = new InscriptionProofWindow(_athlete, _competition)
             //};
 
-            new InscriptionProofWindow(_athlete, _competition).ShowDialog();
+            
         }
 
         private void CompetitionsToSelect_SelectionChanged(object sender, SelectionChangedEventArgs e)
