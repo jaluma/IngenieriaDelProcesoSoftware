@@ -304,4 +304,22 @@
   <data name="InvalidDNI" xml:space="preserve">
     <value>El DNI introducido no es válido.</value>
   </data>
+  <data name="PaymentMethodSelection" xml:space="preserve">
+    <value>Seleccionar método de pago</value>
+  </data>
+  <data name="WireTransfer" xml:space="preserve">
+    <value>Transferencia bancaria</value>
+  </data>
+  <data name="BeneficiaryData" xml:space="preserve">
+    <value>Datos del beneficiario: Gestor de carreras populares</value>
+  </data>
+  <data name="IBAN" xml:space="preserve">
+    <value>IBAN: ES11 2222 3333 4444 5555 6666</value>
+  </data>
+  <data name="PaymentAmount" xml:space="preserve">
+    <value>Cantidad a abonar:</value>
+  </data>
+  <data name="PaymentTimeLimit" xml:space="preserve">
+    <value>Dispone de 48h para realizar la transferencia.</value>
+  </data>
 </root>

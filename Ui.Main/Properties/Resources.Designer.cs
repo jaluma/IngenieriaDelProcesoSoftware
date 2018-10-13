@@ -639,5 +639,82 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("InvalidDNI", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Seleccionar método de pago.
+        /// </summary>
+        public static string PaymentMethodSelection
+        {
+            get
+            {
+                return ResourceManager.GetString("PaymentMethodSelection", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Transferencia bancaria.
+        /// </summary>
+        public static string WireTransfer
+        {
+            get
+            {
+                return ResourceManager.GetString("WireTransfer", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Datos del beneficiario: Gestor de carreras populares.
+        /// </summary>
+        public static string BeneficiaryData
+        {
+            get
+            {
+                return ResourceManager.GetString("BeneficiaryData", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a IBAN: ES11 2222 3333 4444 5555 6666.
+        /// </summary>
+        public static string IBAN
+        {
+            get
+            {
+                return ResourceManager.GetString("IBAN", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cantidad a abonar:.
+        /// </summary>
+        public static string PaymentAmount
+        {
+            get
+            {
+                return ResourceManager.GetString("PaymentAmount", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Dispone de 48h para realizar la transferencia..
+        /// </summary>
+        public static string PaymentTimeLimit
+        {
+            get
+            {
+                return ResourceManager.GetString("PaymentTimeLimit", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Datos para la transferencia.
+        /// </summary>
+        public static string TransferData
+        {
+            get
+            {
+                return ResourceManager.GetString("TransferData", resourceCulture);
+            }
+        }
     }
 }
