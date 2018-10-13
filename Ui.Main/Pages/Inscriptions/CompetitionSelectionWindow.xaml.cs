@@ -78,7 +78,7 @@ namespace Ui.Main.Pages.Inscriptions
             enrollService.InsertAthleteInCompetition(_athlete, _competition);
             //Content = new Frame()
             //{
-            //    Content = new InscriptionProofWindow(_athlete, _competition)
+            //    Content = new InscriptionProofWindow(_athlete, Competition)
             //};
 
             new InscriptionProofWindow(_athlete, _competition).ShowDialog();

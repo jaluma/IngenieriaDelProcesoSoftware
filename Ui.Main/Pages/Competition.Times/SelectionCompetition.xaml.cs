@@ -13,6 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FirstFloor.ModernUI.Windows;
+using FirstFloor.ModernUI.Windows.Controls;
+using FirstFloor.ModernUI.Windows.Navigation;
 using Logic.Db.Dto;
 using Logic.Db.Util;
 using Logic.Db.Util.Services;
@@ -23,8 +26,7 @@ namespace Ui.Main.Pages.Competition.Times
     /// <summary>
     /// Lógica de interacción para SelectionCompetition.xaml
     /// </summary>
-    public partial class SelectionCompetition : Page {
-
+    public partial class SelectionCompetition : ModernFrame {
         private readonly CompetitionService _service;
         private List<long> _columnIds;
 
@@ -65,7 +67,7 @@ namespace Ui.Main.Pages.Competition.Times
                 ID = id
             };
 
-            Page timesService = new TimesAthletes(competition);
+            TimesAthletes.Competition = competition;
 
             MainMenu.ChangeMenuSelected(Properties.Resources.TileTimes, Properties.Resources.TitleTimesCompetition);
         }
