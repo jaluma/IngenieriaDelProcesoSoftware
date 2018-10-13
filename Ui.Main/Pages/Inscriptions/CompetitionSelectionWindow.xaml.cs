@@ -21,46 +21,44 @@ namespace Ui.Main.Pages.Inscriptions
     /// <summary>
     /// Lógica de interacción para CompetitionSelectionPage.xaml
     /// </summary>
-    public partial class CompetitionSelectionWindow : Window
-    {
+    public partial class CompetitionSelectionWindow : Page {
+        public static string Dni;
+
         private readonly CompetitionService _competitionService;
-        private readonly AthleteDto _athlete;
+        private readonly AthletesService _athletesService;
+        private AthleteDto _athlete;
 
         private CompetitionDto _competition;
 
         private List<long> _columnIds;
 
-        public CompetitionSelectionWindow(AthleteDto athlete)
+        public CompetitionSelectionWindow()
         {
+            _competitionService = new CompetitionService();
+            _athletesService = new AthletesService();
             InitializeComponent();
 
-            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            LoadData(Dni);
+        }
 
-            _athlete = athlete;
+        private void PlaceData() {
+            TxDni.Text = _athlete.Dni;
+            LbNameSurname.Content = _athlete.Name + " " + _athlete.Surname;
+            LbBirthDate.Content = _athlete.BirthDate.ToShortDateString();
+            LbGender.Content = _athlete.Gender.ToString();
+        }
 
-            TxNameSurname.Content = _athlete.Name + " " + _athlete.Surname;
-            TxDni.Content = _athlete.Dni;
-            TxBirthDate.Content = _athlete.BirthDate.ToShortDateString();
-            TxGender.Content = _athlete.Gender.ToString();
+        private void LoadData(string dni) {
+            List<AthleteDto> atleList = _athletesService.SelectAthleteTable();
 
+            try {
+                _athlete = atleList.First(a => a.Dni.Equals(dni));
 
-            _competitionService = new CompetitionService();
-            DataTable table = _competitionService.ListCompetitionsToInscribe();
-            table.Columns[0].ColumnName = Properties.Resources.Competition_Id;
-            table.Columns[1].ColumnName = Properties.Resources.Competition_Name;
-            table.Columns[2].ColumnName = Properties.Resources.Competition_Type;
-            table.Columns[3].ColumnName = Properties.Resources.Competition_Km;
-            table.Columns[4].ColumnName = Properties.Resources.Competition_Price;
-            table.Columns[5].ColumnName = Properties.Resources.InscriptionOpen;
-            table.Columns[6].ColumnName = Properties.Resources.InscriptionClose;
-            table.Columns[7].ColumnName = Properties.Resources.Competition_Date;
-            
-            _columnIds = table.AsEnumerable()
-                .Select(dr => dr.Field<long>(Properties.Resources.Competition_Id)).ToList();
+                PlaceData();
 
-            table.Columns.RemoveAt(0);
+                GetListCompetition();
 
-            CompetitionsToSelect.ItemsSource = table.DefaultView;
+            } catch(InvalidOperationException) { }
         }
 
         private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
@@ -78,10 +76,12 @@ namespace Ui.Main.Pages.Inscriptions
             }
             EnrollService enrollService = new EnrollService(_competition);
             enrollService.InsertAthleteInCompetition(_athlete, _competition);
-            Content = new Frame()
-            {
-                Content = new InscriptionProofWindow(_athlete, _competition)
-            };
+            //Content = new Frame()
+            //{
+            //    Content = new InscriptionProofWindow(_athlete, _competition)
+            //};
+
+            new InscriptionProofWindow(_athlete, _competition).ShowDialog();
         }
 
         private void CompetitionsToSelect_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -92,6 +92,30 @@ namespace Ui.Main.Pages.Inscriptions
             {
                 ID = (int)_columnIds[indexSeletected]
             };
+        }
+
+        private void GetListCompetition() {
+            DataTable table = _competitionService.ListCompetitionsToInscribe();
+            table.Columns[0].ColumnName = Properties.Resources.Competition_Id;
+            table.Columns[1].ColumnName = Properties.Resources.Competition_Name;
+            table.Columns[2].ColumnName = Properties.Resources.Competition_Type;
+            table.Columns[3].ColumnName = Properties.Resources.Competition_Km;
+            table.Columns[4].ColumnName = Properties.Resources.Competition_Price;
+            table.Columns[5].ColumnName = Properties.Resources.InscriptionOpen;
+            table.Columns[6].ColumnName = Properties.Resources.InscriptionClose;
+            table.Columns[7].ColumnName = Properties.Resources.Competition_Date;
+
+            _columnIds = table.AsEnumerable()
+                .Select(dr => dr.Field<long>(Properties.Resources.Competition_Id)).ToList();
+
+            table.Columns.RemoveAt(0);
+
+            if (CompetitionsToSelect != null)
+                CompetitionsToSelect.ItemsSource = table.DefaultView;
+        }
+
+        private void TxDni_TextChanged(object sender, TextChangedEventArgs e) {
+            LoadData(TxDni.Text);
         }
     }
 }

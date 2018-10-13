@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Ui.Main.Pages.MenuInitial;
 
 namespace Ui.Main.Pages.Inscriptions
 {
@@ -54,7 +55,8 @@ namespace Ui.Main.Pages.Inscriptions
             //if (_athletesService.CountAthleteByDni(athlete.Dni) == 0)
                 _athletesService.InsertAthletesTable(athlete);
 
-            new CompetitionSelectionWindow(athlete).ShowDialog();
+            CompetitionSelectionWindow.Dni = athlete.Dni;
+            MainMenu.ChangeMenuSelected(Properties.Resources.TileAthletes, Properties.Resources.TileAthletesInscriptionCompetition);
         }
     }
 }

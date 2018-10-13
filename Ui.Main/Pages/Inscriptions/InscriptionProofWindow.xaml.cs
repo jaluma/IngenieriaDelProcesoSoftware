@@ -20,7 +20,7 @@ namespace Ui.Main.Pages.Inscriptions
     /// <summary>
     /// Lógica de interacción para InscriptionProofWindow.xaml
     /// </summary>
-    public partial class InscriptionProofWindow : ModernWindow
+    public partial class InscriptionProofWindow : ModernDialog
     {
         private readonly CompetitionService _competitionService;
         private readonly EnrollService _enrollService;

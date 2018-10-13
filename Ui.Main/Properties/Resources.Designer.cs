@@ -551,5 +551,13 @@ namespace Ui.Main.Properties {
             }
         }
 
+        /// <summary>
+        ///   Busca una cadena traducida similar a Datos Personales.
+        /// </summary>
+        public static string TileAthletesInscriptionCompetition {
+            get {
+                return ResourceManager.GetString("TileAthletesInscriptionCompetition", resourceCulture);
+            }
+        }
     }
 }

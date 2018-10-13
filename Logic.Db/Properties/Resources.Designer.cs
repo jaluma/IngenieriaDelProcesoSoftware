@@ -241,5 +241,13 @@ namespace Logic.Db.Properties {
             }
         }
 
+        internal static string SQL_SELECT_MAX_DORSAL
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_MAX_DORSAL", resourceCulture);
+            }
+        }
+
     }
 }

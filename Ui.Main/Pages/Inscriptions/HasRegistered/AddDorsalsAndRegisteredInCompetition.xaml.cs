@@ -66,6 +66,8 @@ namespace Ui.Main.Pages.Inscriptions.HasRegistered
 
             if (_table.Rows.Count > 0) {
                 BtDorsals.IsEnabled = true;
+            } else {
+                BtDorsals.IsEnabled = false;
             }
         }
 

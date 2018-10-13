@@ -211,4 +211,7 @@ where date('now') BETWEEN INITIAL_DATE and FINISH_DATE and COMPETITION_STATUS&lt
   <data name="SQL_SELECT_COMPETITION_BY_ID" xml:space="preserve">
     <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, INITIAL_DATE, FINISH_DATE, COMPETITION_DATE from Competition where COMPETITION_ID=@ID</value>
   </data>
+  <data name="SQL_SELECT_MAX_DORSAL" xml:space="preserve">
+    <value>select max(dorsal) from enroll</value>
+  </data>
 </root>
