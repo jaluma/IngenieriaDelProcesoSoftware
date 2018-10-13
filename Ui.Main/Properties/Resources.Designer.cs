@@ -590,5 +590,14 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("PreviouslyEnrolled", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Inscribit atleta.
+        /// </summary>
+        public static string MenuAthletesInscription {
+            get {
+                return ResourceManager.GetString("MenuAthletesInscription", resourceCulture);
+            }
+        }
     }
 }

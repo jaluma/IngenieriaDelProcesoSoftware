@@ -68,6 +68,7 @@
     <Compile Include="ActionObjects\CompetitionLogic\CompetitionsToInscribeLogic.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\DeleteCompetitionLogic.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\ListNotRealizedCompetitionLogic.cs" />
+    <Compile Include="ActionObjects\CompetitionLogic\SelectAllCompetition.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\ListOpenCompetitionLogic.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\SearchCompetitionByIdLogic.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\SelectCompetitionLogic.cs" />

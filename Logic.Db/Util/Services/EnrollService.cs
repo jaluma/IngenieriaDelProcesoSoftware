@@ -16,6 +16,12 @@ namespace Logic.Db.Util.Services {
             _competition = competition;
         }
 
+        public DataTable SelectAthlete() {
+            SelectAthleteEnrollLogic select = new SelectAthleteEnrollLogic(ref _conn, _competition);
+            select.Execute();
+            return select.Table;
+        }
+
         public DataTable SelectAthleteRegistered() {
             SelectAthleteEnrollLogic select = new SelectAthleteEnrollLogic(ref _conn, _competition);
             select.Execute();

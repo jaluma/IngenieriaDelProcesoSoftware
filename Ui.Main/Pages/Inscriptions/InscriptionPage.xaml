@@ -16,11 +16,11 @@
                HorizontalAlignment="Center"
                Content="{x:Static properties:Resources.TileAthleteInscription}" DockPanel.Dock="Top"/>
         <Grid DockPanel.Dock="Bottom">
-            <TextBox Name="TxName" HorizontalAlignment="Left" Height="28" Margin="421,87,0,0" mah:TextBoxHelper.Watermark="{x:Static properties:Resources.AthleteName}" TextWrapping="Wrap" VerticalAlignment="Top" Width="359" />
+            <TextBox Name="TxName" HorizontalAlignment="Left" Height="28" Margin="421,87,0,0" Style="{StaticResource TextBoxWaterMark}" Tag="{x:Static properties:Resources.AthleteName}" TextWrapping="Wrap" VerticalAlignment="Top" Width="359" />
             <Label Name="LbName" Content="{x:Static properties:Resources.AthleteName}" HorizontalAlignment="Left" Margin="189,87,0,0" VerticalAlignment="Top" Height="27" FontSize="14" />
-            <TextBox Name="TxSurname" HorizontalAlignment="Left" Height="28" Margin="421,141,0,0" TextWrapping="Wrap" mah:TextBoxHelper.Watermark="{x:Static properties:Resources.AthleteSurname}" VerticalAlignment="Top" Width="359"/>
+            <TextBox Name="TxSurname" HorizontalAlignment="Left" Height="28" Margin="421,141,0,0" TextWrapping="Wrap" Style="{StaticResource TextBoxWaterMark}" Tag="{x:Static properties:Resources.AthleteSurname}" VerticalAlignment="Top" Width="359"/>
             <Label Name="LbSurname" Content="{x:Static properties:Resources.AthleteSurname}" HorizontalAlignment="Left" Margin="189,141,0,0" VerticalAlignment="Top" Height="27" FontSize="14" />
-            <TextBox Name="TxDNI" HorizontalAlignment="Left" Height="27" Margin="421,202,0,0" TextWrapping="Wrap" mah:TextBoxHelper.Watermark="{x:Static properties:Resources.AthleteDni}" VerticalAlignment="Top" Width="359"/>
+            <TextBox Name="TxDNI" HorizontalAlignment="Left" Height="27" Margin="421,202,0,0" TextWrapping="Wrap" Style="{StaticResource TextBoxWaterMark}" Tag="{x:Static properties:Resources.AthleteDni}" VerticalAlignment="Top" Width="359"/>
             <Label Name="LbDNI" Content="{x:Static properties:Resources.AthleteDni}" HorizontalAlignment="Left" Margin="189,202,0,0" VerticalAlignment="Top" Height="25" FontSize="14" />
             <DatePicker Name="DPBirthDate" HorizontalAlignment="Left" Margin="421,266,0,0" VerticalAlignment="Top" Height="28" Width="359"/>
             <Label Name="LbDate" Content="{x:Static properties:Resources.AthleteBirthDate}" HorizontalAlignment="Left" Margin="189,266,0,0" VerticalAlignment="Top" Height="27" FontSize="14" />

@@ -55,7 +55,7 @@ namespace Ui.Main.Pages.Inscriptions
             if (_athletesService.CountAthleteByDni(athlete.Dni) == 0)
                 _athletesService.InsertAthletesTable(athlete);
 
-            CompetitionSelectionWindow.Dni = athlete.Dni;
+            CompetitionInscription.Dni = athlete.Dni;
             MainMenu.ChangeMenuSelected(Properties.Resources.TileAthletes, Properties.Resources.TileAthletesInscriptionCompetition);
         }
     }

@@ -21,7 +21,7 @@ namespace Ui.Main.Pages.Inscriptions
     /// <summary>
     /// Lógica de interacción para CompetitionSelectionPage.xaml
     /// </summary>
-    public partial class CompetitionSelectionWindow : Page {
+    public partial class CompetitionInscription : Page {
         public static string Dni;
 
         private readonly CompetitionService _competitionService;
@@ -32,20 +32,18 @@ namespace Ui.Main.Pages.Inscriptions
 
         private List<long> _columnIds;
 
-        public CompetitionSelectionWindow()
+        public CompetitionInscription()
         {
             _competitionService = new CompetitionService();
             _athletesService = new AthletesService();
             InitializeComponent();
-
-            LoadData(Dni);
         }
 
         private void PlaceData() {
             TxDni.Text = _athlete.Dni;
             LbNameSurname.Content = _athlete.Name + " " + _athlete.Surname;
             LbBirthDate.Content = _athlete.BirthDate.ToShortDateString();
-            if (_athlete.Gender == 0)
+            if (_athlete.Gender == Gender.Female)
                 LbGender.Content = Properties.Resources.MaleText;
             else
                 LbGender.Content = Properties.Resources.FemaleText;
@@ -127,6 +125,12 @@ namespace Ui.Main.Pages.Inscriptions
 
         private void TxDni_TextChanged(object sender, TextChangedEventArgs e) {
             LoadData(TxDni.Text);
+        }
+
+        private void CompetitionSelectionWindow_OnLoaded(object sender, RoutedEventArgs e) {
+            if (_athlete == null || !Dni.Equals(_athlete.Dni)) {
+                LoadData(Dni);
+            }
         }
     }
 }

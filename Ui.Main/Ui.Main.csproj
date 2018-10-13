@@ -109,11 +109,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Inscriptions\CompetitionSelectionWindow.xaml">
+    <Page Include="Pages\Inscriptions\CompetitionInscription.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Inscriptions\HasRegistered\AddDorsalsAndRegisteredInCompetition.xaml">
+    <Page Include="Pages\Inscriptions\HasRegistered\Dorsals.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -143,11 +143,11 @@
     <Compile Include="Pages\Competition.Times\TimesAthletes.xaml.cs">
       <DependentUpon>TimesAthletes.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Inscriptions\CompetitionSelectionWindow.xaml.cs">
-      <DependentUpon>CompetitionSelectionWindow.xaml</DependentUpon>
+    <Compile Include="Pages\Inscriptions\CompetitionInscription.xaml.cs">
+      <DependentUpon>CompetitionInscription.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Inscriptions\HasRegistered\AddDorsalsAndRegisteredInCompetition.xaml.cs">
-      <DependentUpon>AddDorsalsAndRegisteredInCompetition.xaml</DependentUpon>
+    <Compile Include="Pages\Inscriptions\HasRegistered\Dorsals.xaml.cs">
+      <DependentUpon>Dorsals.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Inscriptions\InscriptionPage.xaml.cs">
       <DependentUpon>InscriptionPage.xaml</DependentUpon>
@@ -162,12 +162,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\Inscriptions\ListAthletes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\OpenCompetitions\ListOpenCompetition.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\Inscriptions\ListAthletes.xaml.cs">
+      <DependentUpon>ListAthletes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\OpenCompetitions\ListOpenCompetition.xaml.cs">
       <DependentUpon>ListOpenCompetition.xaml</DependentUpon>
     </Compile>
