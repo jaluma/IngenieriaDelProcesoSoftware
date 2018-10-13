@@ -8,11 +8,10 @@ namespace Logic.Db.Dto {
         public string Name;
         public string Surname;
         public DateTime BirthDate;
-        public Gender Gender;
+        public char Gender;
 
+        public const char MALE = 'M';
+        public const char FEMALE = 'F';
     }
-
-    public enum Gender {
-        Male = 'M', Female = 'F'
-    }
+    
 }
