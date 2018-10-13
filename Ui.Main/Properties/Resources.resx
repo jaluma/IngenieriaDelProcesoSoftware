@@ -298,4 +298,10 @@
   <data name="Woman" xml:space="preserve">
     <value>Mujer</value>
   </data>
+  <data name="InvalidAge" xml:space="preserve">
+    <value>La edad mínima de inscripción es de 18 años.</value>
+  </data>
+  <data name="InvalidDNI" xml:space="preserve">
+    <value>El DNI introducido no es válido.</value>
+  </data>
 </root>

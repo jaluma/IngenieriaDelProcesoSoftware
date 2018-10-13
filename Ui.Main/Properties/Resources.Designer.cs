@@ -617,5 +617,27 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("Man", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a La edad mínima de inscripción es de 18 años..
+        /// </summary>
+        public static string InvalidAge
+        {
+            get
+            {
+                return ResourceManager.GetString("InvalidAge", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a El DNI introducido no es válido..
+        /// </summary>
+        public static string InvalidDNI
+        {
+            get
+            {
+                return ResourceManager.GetString("InvalidDNI", resourceCulture);
+            }
+        }
     }
 }

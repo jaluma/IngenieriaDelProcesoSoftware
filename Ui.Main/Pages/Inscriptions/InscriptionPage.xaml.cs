@@ -39,24 +39,53 @@ namespace Ui.Main.Pages.Inscriptions
                 MessageBox.Show(Properties.Resources.IncompleteFields);
                 return;
             }
-            
+
+            if (!ComprobarDNI(TxDNI.Text))
+            {
+                MessageBox.Show(Properties.Resources.InvalidDNI);
+                return;
+            }
+
+            DateTime date = (DateTime)DPBirthDate.SelectedDate;
+
+            if (DateTime.Now.Year - date.Year < 18)
+            {
+                MessageBox.Show(Properties.Resources.InvalidAge);
+                return;
+            }
+
             AthleteDto athlete = new AthleteDto
             {
                 Name = TxName.Text,
                 Surname = TxSurname.Text,
                 Dni = TxDNI.Text,
-                BirthDate = (DateTime)DPBirthDate.SelectedDate
+                BirthDate = date
             };
             if ((bool)RBMasc.IsChecked)
-                athlete.Gender = Gender.Male;
+                athlete.Gender = AthleteDto.MALE;
             else
-                athlete.Gender = Gender.Female;
+                athlete.Gender = AthleteDto.FEMALE;
 
             if (_athletesService.CountAthleteByDni(athlete.Dni) == 0)
                 _athletesService.InsertAthletesTable(athlete);
 
             CompetitionInscription.Dni = athlete.Dni;
             MainMenu.ChangeMenuSelected(Properties.Resources.TileAthletes, Properties.Resources.TileAthletesInscriptionCompetition);
+        }
+
+        private bool ComprobarDNI(string dni)
+        {
+            if (! (dni.Length == 9))
+                return false;
+
+            for (int i = 0; i < 8; i++)
+                if (!Char.IsDigit(dni[i]))
+                    return false;
+
+            if (!Char.IsLetter(dni[8]))
+                return false;
+
+            return true;
         }
     }
 }
