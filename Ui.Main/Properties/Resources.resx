@@ -277,6 +277,9 @@
   <data name="PersonalInfo" xml:space="preserve">
     <value>Datos Personales</value>
   </data>
+  <data name="AthletePosition" xml:space="preserve">
+    <value>Posición</value>
+  </data>
   <data name="TileAthletesInscriptionCompetition" xml:space="preserve">
     <value>Inscribir en competición</value>
   </data>

@@ -559,5 +559,14 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("TileAthletesInscriptionCompetition", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Posición.
+        /// </summary>
+        public static string AthletePosition {
+            get {
+                return ResourceManager.GetString("AthletePosition", resourceCulture);
+            }
+        }
     }
 }

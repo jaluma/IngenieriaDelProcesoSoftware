@@ -60,14 +60,27 @@ namespace Ui.Main.Pages.Competition.Times
 
         private void GenerateDataGrid() {
 
-            _table = _service.SelectCompetitionTimes();
-            _table.Columns[0].ColumnName = Properties.Resources.AthleteDorsal;
-            _table.Columns[1].ColumnName = Properties.Resources.AthleteDni;
-            _table.Columns[2].ColumnName = Properties.Resources.AthleteName;
-            _table.Columns[3].ColumnName = Properties.Resources.AthleteSurname;
-            _table.Columns[4].ColumnName = Properties.Resources.AthleteGender;
-            _table.Columns[5].ColumnName = Properties.Resources.InitialTime;
-            _table.Columns[6].ColumnName = Properties.Resources.FinishTime;
+            _table = new DataTable();
+                        DataColumn column = new DataColumn(Properties.Resources.AthletePosition, typeof(string)) {
+                AllowDBNull = true
+            };
+            _table.Columns.Add(column);
+
+            _table.Columns[Properties.Resources.AthletePosition].AutoIncrement = true;
+            _table.Columns[Properties.Resources.AthletePosition].AutoIncrementSeed = 1;
+            _table.Columns[Properties.Resources.AthletePosition].AutoIncrementStep = 1;
+
+            _table.Merge(_service.SelectCompetitionTimes());
+            _table.Columns[1].ColumnName = Properties.Resources.AthleteDorsal;
+            _table.Columns[2].ColumnName = Properties.Resources.AthleteDni;
+            _table.Columns[3].ColumnName = Properties.Resources.AthleteName;
+            _table.Columns[4].ColumnName = Properties.Resources.AthleteSurname;
+            _table.Columns[5].ColumnName = Properties.Resources.AthleteGender;
+            _table.Columns[6].ColumnName = Properties.Resources.InitialTime;
+            _table.Columns[7].ColumnName = Properties.Resources.FinishTime;
+
+            _table.Columns.Remove(Properties.Resources.InitialTime);
+            _table.Columns.Remove(Properties.Resources.FinishTime);
 
             DataGridTimes.ItemsSource = _table.DefaultView;
         }

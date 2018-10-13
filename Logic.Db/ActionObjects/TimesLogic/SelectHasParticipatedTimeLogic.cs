@@ -26,8 +26,8 @@ namespace Logic.Db.ActionObjects.TimesLogic {
         }
         public void Execute() {
             try {
-                using (var _connection = _conn.DbConnection) {
-                    using (SQLiteCommand command = new SQLiteCommand(SqlCommandGenerator(), _connection)) {
+                using (var connection = _conn.DbConnection) {
+                    using (SQLiteCommand command = new SQLiteCommand(SqlCommandGenerator(), connection)) {
                         command.Parameters.AddWithValue("@COMPETITION_ID", _competition.ID);
 
                         SQLiteDataAdapter da = new SQLiteDataAdapter(command);
@@ -58,6 +58,8 @@ namespace Logic.Db.ActionObjects.TimesLogic {
                 sql += " OR ";
             if (_femaleFilter)
                 sql += "ATHLETE_GENDER='F'";
+            sql += " order by FINISH_TIME - INITIAL_TIME";
+
             return sql;
         }
     }
