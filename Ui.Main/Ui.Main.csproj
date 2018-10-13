@@ -146,6 +146,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Inscriptions\Payment\PaymentMethodSelectionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Inscriptions\Payment\WireTransferWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MenuInitial\MainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -175,6 +183,12 @@
     </Compile>
     <Compile Include="Pages\Inscriptions\InscriptionProofWindow.xaml.cs">
       <DependentUpon>InscriptionProofWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Inscriptions\Payment\PaymentMethodSelectionWindow.xaml.cs">
+      <DependentUpon>PaymentMethodSelectionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Inscriptions\Payment\WireTransferWindow.xaml.cs">
+      <DependentUpon>WireTransferWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MenuInitial\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>

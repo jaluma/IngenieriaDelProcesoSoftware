@@ -7,7 +7,7 @@
         xmlns:properties="clr-namespace:Ui.Main.Properties"
         xmlns:mui="http://firstfloorsoftware.com/ModernUI"
         mc:Ignorable="d"
-        Title="{x:Static properties:Resources.InscriptionProof}" Height="300" Width="300">
+        Title="{x:Static properties:Resources.InscriptionProof}" Height="400" Width="400">
     <Grid>
         <TextBlock Name="TxJustificante" HorizontalAlignment="Left" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Width="282" Height="249"/>
     </Grid>

@@ -42,7 +42,7 @@ namespace Ui.Main.Pages.Inscriptions
             string category = _enrollService.GetCategory(_athlete, _competition);
 
             TxJustificante.Text = "Atleta: " + _athlete.Name + " " + _athlete.Surname + "\nCompetición: " + _competition.Name +
-                "\nCategoría: " + category + "\nFecha de inscripción: " + DateTime.Now.ToShortDateString() + "\nCantidad a abonar: " +_competition.Price + " €";
+                "\nCategoría: " + category + "\nFecha de inscripción: " + DateTime.Now.ToShortDateString() + "\nPrecio de la inscripción: " +_competition.Price + " €";
         }
     }
 }

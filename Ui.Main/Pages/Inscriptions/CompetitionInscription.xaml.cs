@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Ui.Main.Pages.Inscriptions.Payment;
 
 namespace Ui.Main.Pages.Inscriptions
 {
@@ -79,17 +80,14 @@ namespace Ui.Main.Pages.Inscriptions
             try
             {
                 enrollService.InsertAthleteInCompetition(_athlete, _competition);
-                new InscriptionProofWindow(_athlete, _competition).ShowDialog();
+
+                //new InscriptionProofWindow(_athlete, _competition).ShowDialog();
+                new PaymentMethodSelectionWindow(_athlete, _competition).ShowDialog();
+
             } catch (ApplicationException)
             {
                 MessageBox.Show(Properties.Resources.PreviouslyEnrolled);
             }
-            
-            //Content = new Frame()
-            //{
-            //    Content = new InscriptionProofWindow(_athlete, Competition)
-            //};
-
             
         }
 
