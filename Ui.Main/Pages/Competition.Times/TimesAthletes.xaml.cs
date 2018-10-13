@@ -129,5 +129,15 @@ namespace Ui.Main.Pages.Competition.Times
 
             GenerateDataGrid();
         }
+
+        private void OnMouseEnter(object sender, MouseEventArgs e) {
+            if (sender is Control component)
+                component.Cursor = Cursors.Hand;
+        }
+
+        private void OnMouseLeave(object sender, MouseEventArgs e) {
+            if (sender is Control component)
+                component.Cursor = null;
+        }
     }
 }
