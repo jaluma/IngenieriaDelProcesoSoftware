@@ -181,7 +181,7 @@ ORDER BY DATE_INSCRIPTION, STATUS</value>
   <data name="SQL_UPDATE_DORSAL" xml:space="preserve">
     <value>update Enroll
 set dorsal=@DORSAL
-where COMPETITION_ID=@COMPETITION_ID and ATHLETE_DNI=@DNI</value>
+where COMPETITION_ID=@COMPETITION_ID and ATHLETE_DNI=@DNI and dorsal is null</value>
   </data>
   <data name="SQL_INSERT_ENROLL" xml:space="preserve">
     <value>insert into enroll values (@DNI, @COMPETITION_ID, @STATUS, date('now'), null)</value>
@@ -212,6 +212,6 @@ where date('now') BETWEEN INITIAL_DATE and FINISH_DATE and COMPETITION_STATUS&lt
     <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, COMPETITION_DATE from Competition where COMPETITION_ID=@ID</value>
   </data>
   <data name="SQL_SELECT_MAX_DORSAL" xml:space="preserve">
-    <value>select max(dorsal) from enroll</value>
+    <value>select max(dorsal) from enroll where COMPETITION_ID=@COMPETITION_ID</value>
   </data>
 </root>

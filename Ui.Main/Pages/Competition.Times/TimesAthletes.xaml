@@ -8,7 +8,7 @@
       xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
       mc:Ignorable="d" 
       d:DesignHeight="625" d:DesignWidth="1250"
-      Title="TimesAthletes">
+      Title="TimesAthletes" Loaded="TimesAthletes_OnLoaded">
 
     <DockPanel VerticalAlignment="Bottom" Height="625">
         <Label Style="{StaticResource ContentRoot}" FontSize="18"

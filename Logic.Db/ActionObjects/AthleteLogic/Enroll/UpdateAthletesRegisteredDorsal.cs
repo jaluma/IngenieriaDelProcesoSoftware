@@ -1,4 +1,5 @@
-﻿using System.Data.SQLite;
+﻿using System;
+using System.Data.SQLite;
 using Logic.Db.Connection;
 using Logic.Db.Dto;
 
@@ -15,16 +16,15 @@ namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
 
         public void Execute() {
             try {
-                int dorsal;
+                int dorsal = 20;
                 using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_MAX_DORSAL, _conn.DbConnection)) {
+                    command.Parameters.AddWithValue("@COMPETITION_ID", _competition.ID);
                     using (SQLiteDataReader reader = command.ExecuteReader()) {
                         reader.Read();
-                        dorsal = reader.GetInt32(0);
+                        try {
+                            dorsal = reader.GetInt32(0);
+                        } catch (InvalidCastException) { }
                     }
-                }
-
-                if (dorsal == null) {
-                    dorsal = 20;
                 }
 
                 using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_ATHLETE_INSCRIPTION, _conn.DbConnection)) {

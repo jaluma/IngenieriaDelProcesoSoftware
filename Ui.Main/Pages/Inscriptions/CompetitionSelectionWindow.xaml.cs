@@ -89,7 +89,7 @@ namespace Ui.Main.Pages.Inscriptions
             
             //Content = new Frame()
             //{
-            //    Content = new InscriptionProofWindow(_athlete, _competition)
+            //    Content = new InscriptionProofWindow(_athlete, Competition)
             //};
 
             
