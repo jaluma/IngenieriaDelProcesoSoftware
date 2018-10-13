@@ -4,11 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ui.Main.Pages.Inscriptions"
+        xmlns:properties="clr-namespace:Ui.Main.Properties"
         xmlns:mui="http://firstfloorsoftware.com/ModernUI"
         mc:Ignorable="d"
-        Title="InscriptionProofWindow" Height="450" Width="800">
+        Title="{x:Static properties:Resources.InscriptionProof}" Height="300" Width="300">
     <Grid>
-        <TextBlock Name="TxJustificante" HorizontalAlignment="Left" Margin="250,276,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="16"/>
-
+        <TextBlock Name="TxJustificante" HorizontalAlignment="Left" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Width="282" Height="249"/>
     </Grid>
 </mui:ModernDialog>

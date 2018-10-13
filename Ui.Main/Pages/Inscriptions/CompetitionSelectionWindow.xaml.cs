@@ -45,7 +45,10 @@ namespace Ui.Main.Pages.Inscriptions
             TxDni.Text = _athlete.Dni;
             LbNameSurname.Content = _athlete.Name + " " + _athlete.Surname;
             LbBirthDate.Content = _athlete.BirthDate.ToShortDateString();
-            LbGender.Content = _athlete.Gender.ToString();
+            if (_athlete.Gender == 0)
+                LbGender.Content = Properties.Resources.MaleText;
+            else
+                LbGender.Content = Properties.Resources.FemaleText;
         }
 
         private void LoadData(string dni) {

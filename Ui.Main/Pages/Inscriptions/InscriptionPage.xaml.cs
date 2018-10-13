@@ -52,7 +52,7 @@ namespace Ui.Main.Pages.Inscriptions
             else
                 athlete.Gender = Gender.Female;
 
-            //if (_athletesService.CountAthleteByDni(athlete.Dni) == 0)
+            if (_athletesService.CountAthleteByDni(athlete.Dni) == 0)
                 _athletesService.InsertAthletesTable(athlete);
 
             CompetitionSelectionWindow.Dni = athlete.Dni;

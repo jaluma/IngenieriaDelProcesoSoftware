@@ -283,4 +283,7 @@
   <data name="TileAthletesInscriptionCompetition" xml:space="preserve">
     <value>Inscribir en competición</value>
   </data>
+  <data name="InscriptionProof" xml:space="preserve">
+    <value>Justificante de inscripción</value>
+  </data>
 </root>

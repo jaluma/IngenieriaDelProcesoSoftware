@@ -568,5 +568,16 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("AthletePosition", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Justificante de inscripción.
+        /// </summary>
+        public static string InscriptionProof
+        {
+            get
+            {
+                return ResourceManager.GetString("InscriptionProof", resourceCulture);
+            }
+        }
     }
 }
