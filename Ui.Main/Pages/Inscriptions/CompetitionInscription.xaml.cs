@@ -44,9 +44,9 @@ namespace Ui.Main.Pages.Inscriptions
             LbNameSurname.Content = _athlete.Name + " " + _athlete.Surname;
             LbBirthDate.Content = _athlete.BirthDate.ToShortDateString();
             if (_athlete.Gender == Gender.Female)
-                LbGender.Content = Properties.Resources.MaleText;
+                LbGender.Content = Properties.Resources.Woman;
             else
-                LbGender.Content = Properties.Resources.FemaleText;
+                LbGender.Content = Properties.Resources.Man;
         }
 
         private void LoadData(string dni) {

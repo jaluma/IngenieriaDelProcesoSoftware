@@ -6,6 +6,8 @@
       xmlns:local="clr-namespace:Ui.Main.Pages.Inscriptions"
       xmlns:properties="clr-namespace:Ui.Main.Properties"
       xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+      xmlns:adorners="http://gu.se/Adorners"
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       mc:Ignorable="d" 
       d:DesignHeight="625" d:DesignWidth="1250"
       Title="CompetitionSelectionPage" Loaded="CompetitionSelectionWindow_OnLoaded">
@@ -15,16 +17,16 @@
            FontWeight="Bold"
            HorizontalAlignment="Center"
                VerticalContentAlignment="Center"
-           Content="{x:Static properties:Resources.TitleSelectCompetition}" DockPanel.Dock="Top" Height="40" Margin="500,0"/>
-        <StackPanel HorizontalAlignment="Left" Margin="10,2,0,10">
+           Content="{x:Static properties:Resources.TitleSelectCompetition}" DockPanel.Dock="Top" Height="40"/>
+        <StackPanel HorizontalAlignment="Left" Margin="10,2,0,10" Width="240">
             <Image HorizontalAlignment="Center"  Source="../../Resources/default_profile.png" VerticalAlignment="Top" Width="180" Margin="0,10,0,0"/>
             <Label FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Content="{x:Static properties:Resources.PersonalInfo}" Margin="0,15" />
             <Border BorderThickness="2" BorderBrush="DarkGray" Height="205" Margin="5,0">
-                <Grid Margin="20,5,5,5">
-                    <TextBox Name="TxDni" x:FieldModifier="public" Style="{StaticResource TextBoxWaterMark}" Tag="{x:Static properties:Resources.AthleteDni}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" FontSize="18" FontWeight="Bold" Width="210" Margin="10,0,0,0" TextChanged="TxDni_TextChanged"/>
-                    <Label Name="LbNameSurname" HorizontalAlignment="Left" FontSize="18" FontWeight="Bold" Width="230" Margin="10,40,-10,122"/>
-                    <Label Name="LbBirthDate" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" FontSize="18" FontWeight="Bold" Width="230" Margin="10,94,-10,0"/>
-                    <Label Name="LbGender" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" FontSize="18" FontWeight="Bold" Width="230" Margin="10,151,-10,0"/>
+                <Grid Margin="8,5,5,5">
+                    <xctk:WatermarkTextBox Name="TxDni" x:FieldModifier="public" Watermark="{x:Static properties:Resources.AthleteDni}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" FontSize="18" FontWeight="Bold" Width="181" Margin="10,0,0,0" TextChanged="TxDni_TextChanged"/>
+                    <Label Name="LbNameSurname" HorizontalAlignment="Left" FontSize="18" FontWeight="Bold" Width="181" Margin="10,40,0,122"/>
+                    <Label Name="LbBirthDate" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" FontSize="18" FontWeight="Bold" Width="181" Margin="10,94,0,0"/>
+                    <Label Name="LbGender" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" FontSize="18" FontWeight="Bold" Width="181" Margin="10,151,0,0"/>
                 </Grid>
             </Border>
 

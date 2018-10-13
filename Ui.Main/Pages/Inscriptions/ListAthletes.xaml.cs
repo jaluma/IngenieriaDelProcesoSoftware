@@ -33,6 +33,9 @@ namespace Ui.Main.Pages.Inscriptions
             }
 
             CompetitionList.ItemsSource = list;
+
+            if (list.Count > 0)
+                CompetitionList.SelectedIndex = 0;
         }
 
         private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)

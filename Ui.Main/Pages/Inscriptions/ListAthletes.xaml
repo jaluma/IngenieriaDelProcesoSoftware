@@ -12,7 +12,7 @@
       FocusManager.FocusedElement="{Binding ElementName=CompetitionIdTextBox}"
       Title="AddDorsalsAndRegisteredInCompetition">
 
-    <DockPanel  Height="545" VerticalAlignment="Bottom">
+    <DockPanel  Height="515" VerticalAlignment="Bottom">
 
         <Label HorizontalContentAlignment="Center"
                FontSize="18"

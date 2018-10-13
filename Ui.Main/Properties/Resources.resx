@@ -292,4 +292,10 @@
   <data name="MenuAthletesInscription" xml:space="preserve">
     <value>Inscribir atleta</value>
   </data>
+  <data name="Man" xml:space="preserve">
+    <value>Hombre</value>
+  </data>
+  <data name="Woman" xml:space="preserve">
+    <value>Mujer</value>
+  </data>
 </root>

@@ -49,6 +49,9 @@ namespace Ui.Main.Pages.Competition.Times
             }
 
             CompetitionList.ItemsSource = _list;
+
+            //if (_list.Count > 0)
+            //    CompetitionList.SelectedIndex = 0;
         }
 
         private void GenerateDataGrid() {

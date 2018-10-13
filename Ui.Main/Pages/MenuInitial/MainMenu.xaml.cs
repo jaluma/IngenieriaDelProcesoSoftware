@@ -17,6 +17,7 @@ namespace Ui.Main.Pages.MenuInitial {
         private void TileAthletes_Click(object sender, System.Windows.RoutedEventArgs e) {
 
             //NavigationService?.Navigate(new ...);
+            ChangeMenuSelected(Properties.Resources.TileAthletes, Properties.Resources.AthleteMenuList);
         }
 
         private void TileCompetition_Click(object sender, System.Windows.RoutedEventArgs e) {
