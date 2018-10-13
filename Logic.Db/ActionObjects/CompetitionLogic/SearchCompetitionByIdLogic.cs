@@ -37,9 +37,7 @@ namespace Logic.Db.ActionObjects.CompetitionLogic
                                 Name = reader.GetString(1),
                                 Km = reader.GetInt32(3),
                                 Price = reader.GetDouble(4),
-                                Date = reader.GetDateTime(5),
-                                NumberPlaces = reader.GetInt32(6),
-                                Status = reader.GetString(7)
+                                Date = reader.GetDateTime(5)
                             };
                             Enum.TryParse<TypeCompetition>(reader.GetString(2), out Competition.Type);
                         }
