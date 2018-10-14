@@ -13,8 +13,8 @@
                      FontSize="14" HorizontalAlignment="Center" DockPanel.Dock="Top"/>
             <TextBox Text="{x:Static properties:Resources.BeneficiaryData}" Height="46" TextWrapping="Wrap" VerticalAlignment="Top" Margin="13,20,13,0"
                      FontSize="14" HorizontalAlignment="Center" DockPanel.Dock="Top"/>
-            <Label Name="LbPaymentAmount" Height="23" VerticalAlignment="Top" Margin="88,20,88,0"
-                     FontSize="14" HorizontalAlignment="Center" DockPanel.Dock="Top"/>
+            <Label Name="LbPaymentAmount" Height="23" VerticalAlignment="Top" Margin="21,20,0,0" Width="261"
+                     FontSize="14" HorizontalAlignment="Left" DockPanel.Dock="Top"/>
             <Label Content="{x:Static properties:Resources.PaymentTimeLimit}" Height="26" VerticalAlignment="Top" Margin="8,20,8,0"
                      FontSize="14" HorizontalAlignment="Center" DockPanel.Dock="Top"/>
             <Button Name="BtNext" Content="{x:Static properties:Resources.Next}" Height="35" VerticalAlignment="Top" DockPanel.Dock="Bottom" Margin="179,25,10,0" FontSize="16" Click="BtNext_Click"/>

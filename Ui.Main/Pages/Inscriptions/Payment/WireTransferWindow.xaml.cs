@@ -30,15 +30,14 @@ namespace Ui.Main.Pages.Inscriptions.Payment
             _athlete = athlete;
             _competition = competition;
 
-            LbPaymentAmount.Content = Properties.Resources.PaymentAmount + _competition.Price + " €";
+            string cont = Properties.Resources.PaymentAmount +" " + _competition.Price + " €";
+            LbPaymentAmount.Content = cont;
         }
 
         private void BtNext_Click(object sender, RoutedEventArgs e)
         {
-            /*Content = new Frame
-            {
-                Content = new InscriptionProofWindow(_athlete, _competition)
-            };*/
+            new InscriptionProofWindow(_athlete, _competition).Show();
+            this.Close();
         }
     }
 }

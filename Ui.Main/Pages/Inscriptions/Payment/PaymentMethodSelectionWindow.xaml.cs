@@ -36,10 +36,8 @@ namespace Ui.Main.Pages.Inscriptions.Payment
         {
             if ((bool)RBWireTransfer.IsChecked)
             {
-                /*Content = new Frame
-                {
-                    Content = new WireTransferWindow(_athlete, _competition)
-                };*/
+                new WireTransferWindow(_athlete, _competition).Show();
+                this.Close();
             }
         }
     }
