@@ -33,6 +33,8 @@ namespace Ui.Main.Pages.PersonalMenuAthlete
         public PersonalDataMenu()
         {
             InitializeComponent();
+            GeneratePersonalDataTable();
+            GenerateInscriptionsDataTable();
         }
 
         private void BtSearch_Click(object sender, RoutedEventArgs e)
@@ -42,9 +44,15 @@ namespace Ui.Main.Pages.PersonalMenuAthlete
                 MessageBox.Show(Properties.Resources.InvalidDNI);
                 return;
             }
+            DataTable table = _serviceAthlete.SelectAthleteByDni(Dni.Text.ToUpper());
+            if (table.Rows.Count == 0)
+            {
+                MessageBox.Show(Properties.Resources.NoRegistrado);
+                return;
+            }
 
             GeneratePersonalDataTable();
-            GenerateInscriptionsDataTable();
+           
         }
 
         private void GeneratePersonalDataTable()
@@ -52,14 +60,14 @@ namespace Ui.Main.Pages.PersonalMenuAthlete
             _serviceAthlete = new AthletesService();           
 
             DataTable table = _serviceAthlete.SelectAthleteByDni(Dni.Text.ToUpper());
+           
             table.Columns[0].ColumnName = Properties.Resources.AthleteDni;
             table.Columns[1].ColumnName = Properties.Resources.AthleteName;
             table.Columns[2].ColumnName = Properties.Resources.AthleteSurname;
-            table.Columns[3].ColumnName = Properties.Resources.AthleteBirthDate;
-            table.Columns[4].ColumnName = Properties.Resources.AthleteGender;
+           
 
             DataGridDataPersonal.ItemsSource = table.DefaultView;
-
+            GenerateInscriptionsDataTable();
         }
 
         private void GenerateInscriptionsDataTable()
@@ -72,8 +80,14 @@ namespace Ui.Main.Pages.PersonalMenuAthlete
             table.Columns[2].ColumnName = Properties.Resources.Competition_Date;
             table.Columns[3].ColumnName = Properties.Resources.AthleteDorsal;
            
-
+           
             DataGridInscriptions.ItemsSource = table.DefaultView;
+
+        }
+
+        private void GenerateResultsDataTable()
+        {
+           
 
         }
 
@@ -96,6 +110,11 @@ namespace Ui.Main.Pages.PersonalMenuAthlete
         {
             if (e.PropertyType == typeof(System.DateTime))
                 ((DataGridTextColumn)e.Column).Binding.StringFormat = "dd/MM/yyyy";
+        }
+
+        private void DataGridDataPersonal_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -61,7 +61,7 @@ namespace Logic.Db.Properties {
         }
 
         /// <summary>
-        ///   Busca una cadena traducida similar a SELECT ATHLETE_DNI, ATHLETE_NAME, ATHLETE_SURNAME, ATHLETE_BIRTH_DATE, ATHLETE_GENDER FROM Athlete where ATHLETE_DNI = @DNI.
+        ///   Busca una cadena traducida similar a SELECT ATHLETE_DNI, ATHLETE_NAME, ATHLETE_SURNAME FROM Athlete where ATHLETE_DNI = @DNI.
         /// </summary>
         internal static string SQL_SELECT_ATHLETE_BY_DNI
         {

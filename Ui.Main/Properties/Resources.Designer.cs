@@ -77,6 +77,39 @@ namespace Ui.Main.Properties {
         }
 
         /// <summary>
+        ///   Busca una cadena traducida similar a Inscripciones registradas.
+        /// </summary>
+        public static string InscriptionsRegistered
+        {
+            get
+            {
+                return ResourceManager.GetString("InscriptionsRegistered", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Introduzca su dni.
+        /// </summary>
+        public static string InsertDni
+        {
+            get
+            {
+                return ResourceManager.GetString("InsertDni", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a El atleta no está registrado en ninguna competición..
+        /// </summary>
+        public static string NoRegistrado
+        {
+            get
+            {
+                return ResourceManager.GetString("NoRegistrado", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
         ///   búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
         /// </summary>

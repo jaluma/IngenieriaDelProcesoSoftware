@@ -325,4 +325,13 @@
   <data name="PersonalMenu" xml:space="preserve">
     <value>Área personal</value>
   </data>
+  <data name="NoRegistrado" xml:space="preserve">
+    <value>El atleta no está registrado en ninguna competición.</value>
+  </data>
+  <data name="InscriptionsRegistered" xml:space="preserve">
+    <value>Inscripciones registradas</value>
+  </data>
+  <data name="InsertDni" xml:space="preserve">
+    <value>Introduzca su dni</value>
+  </data>
 </root>
