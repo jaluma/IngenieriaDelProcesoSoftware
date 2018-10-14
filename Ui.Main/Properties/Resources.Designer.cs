@@ -56,16 +56,7 @@ namespace Ui.Main.Properties {
             }
         }
 
-        /// <summary>
-        ///   Busca una cadena traducida similar a Inscripción desde.
-        /// </summary>
-        public static string InscriptionOpen
-        {
-            get
-            {
-                return ResourceManager.GetString("InscriptionOpen", resourceCulture);
-            }
-        }
+      
 
         /// <summary>
         ///   Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
@@ -365,16 +356,7 @@ namespace Ui.Main.Properties {
             }
         }
 
-        /// <summary>
-        ///   Busca una cadena traducida similar a Inscripción hasta.
-        /// </summary>
-        public static string LimitInscription
-        {
-            get
-            {
-                return ResourceManager.GetString("LimitInscription", resourceCulture);
-            }
-        }
+        
 
         /// <summary>
         ///   Busca una cadena traducida similar a Inscripción desde.
