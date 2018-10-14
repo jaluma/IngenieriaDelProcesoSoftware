@@ -80,6 +80,8 @@ namespace Ui.Main.Pages.Competition.Times
                 _table.Columns.Remove(Properties.Resources.FinishTime);
 
                 DataGridTimes.ItemsSource = _table.DefaultView;
+
+                CheckBox_OnClick(null, null);
             }
         }
 
