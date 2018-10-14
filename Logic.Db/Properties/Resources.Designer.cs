@@ -59,7 +59,18 @@ namespace Logic.Db.Properties {
                 resourceCulture = value;
             }
         }
-        
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT ATHLETE_DNI, ATHLETE_NAME, ATHLETE_SURNAME, ATHLETE_BIRTH_DATE, ATHLETE_GENDER FROM Athlete where ATHLETE_DNI = @DNI.
+        /// </summary>
+        internal static string SQL_SELECT_ATHLETE_BY_DNI
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_ATHLETE_BY_DNI", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
@@ -78,7 +89,9 @@ namespace Logic.Db.Properties {
                 return ResourceManager.GetString("DbFileName", resourceCulture);
             }
         }
-        
+
+       
+
         /// <summary>
         ///   Busca una cadena traducida similar a IPS.Logic.BD\Connection\.
         /// </summary>
@@ -143,7 +156,8 @@ namespace Logic.Db.Properties {
         }
 
         /// <summary>
-        ///   Busca una cadena traducida similar a SELECT COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, COMPETITIONDATES.INITIAL_DATE,COMPETITIONDATES.FINISH_DATE, COMPETITION_NUMBER_PLACES  FROM Competition, COMPETITIONDATES        WHERE COMPETITION_STATUS<> 'FINISH'&lt;&gt; &apos;FINISH&apos;.
+        ///   Busca una cadena traducida similar a select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, INITIAL_DATE, FINISH_DATE, COMPETITION_DATE from Competition natural join CompetitionDates
+        ///where date(&apos;now&apos;) BETWEEN INITIAL_DATE and FINISH_DATE and COMPETITION_STATUS&lt;&gt;&apos;FINISH&apos; or  COMPETITION_STATUS isNull.
         /// </summary>
         internal static string SQL_SELECT_OPEN_COMPETITION
         {

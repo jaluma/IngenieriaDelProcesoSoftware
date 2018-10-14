@@ -23,6 +23,7 @@
                 <mui:Link DisplayName="{x:Static properties:Resources.AthleteMenuList}" Source="/Pages/Inscriptions/ListAthletes.xaml" />
                 <mui:Link DisplayName="{x:Static properties:Resources.MenuAthletesInscription}" Source="/Pages/Inscriptions/InscriptionPage.xaml" />
                 <mui:Link DisplayName="{x:Static properties:Resources.TileAthletesInscriptionCompetition}" Source="/Pages/Inscriptions/CompetitionInscription.xaml" />
+                <mui:Link DisplayName="{x:Static properties:Resources.PersonalMenu}" Source="/Pages/PersonalMenuAthlete/PersonalDataMenu.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
         <mui:LinkGroup DisplayName="{x:Static properties:Resources.TileCompetition}">

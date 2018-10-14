@@ -194,7 +194,7 @@ where COMPETITION_ID=@COMPETITION_ID and ATHLETE_DNI=@DNI and dorsal is null</va
   </data>
   <data name="SQL_SELECT_OPEN_COMPETITION" xml:space="preserve">
     <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, INITIAL_DATE, FINISH_DATE, COMPETITION_DATE from Competition natural join CompetitionDates
-where date('now') BETWEEN INITIAL_DATE and FINISH_DATE and COMPETITION_STATUS&lt;&gt;'FINISH'</value>
+where date('now') BETWEEN INITIAL_DATE and FINISH_DATE and COMPETITION_STATUS&lt;&gt;'FINISH' or  COMPETITION_STATUS isNull</value>
   </data>
   <data name="SQL_SELECT_COMPETITION_FINISH_LIST" xml:space="preserve">
     <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, INITIAL_DATE, FINISH_DATE, COMPETITION_DATE from Competition natural join CompetitionDates
@@ -216,5 +216,8 @@ where date('now') BETWEEN INITIAL_DATE and FINISH_DATE and COMPETITION_STATUS&lt
   </data>
   <data name="SQL_SELECT_ALL_COMPETITIONS" xml:space="preserve">
     <value>select * from Competition</value>
+  </data>
+  <data name="SQL_SELECT_ATHLETE_BY_DNI" xml:space="preserve">
+    <value>SELECT ATHLETE_DNI, ATHLETE_NAME, ATHLETE_SURNAME, ATHLETE_BIRTH_DATE, ATHLETE_GENDER FROM Athlete where ATHLETE_DNI = @DNI</value>
   </data>
 </root>

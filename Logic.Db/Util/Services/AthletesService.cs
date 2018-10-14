@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Logic.Db.ActionObjects.AthleteLogic;
 using Logic.Db.Connection;
 using Logic.Db.Dto;
+using System.Data;
 
 namespace Logic.Db.Util.Services {
     public class AthletesService : ServiceAdapter {
@@ -28,6 +29,13 @@ namespace Logic.Db.Util.Services {
             CountAthleteByDniLogic search = new CountAthleteByDniLogic(ref _conn, dni);
             search.Execute();
             return search.Contador;
+        }
+
+        public DataTable SelectAthleteByDni(string dni)
+        {
+            SelectAthleteByDniLogic select = new SelectAthleteByDniLogic(ref _conn, dni);
+            select.Execute();
+            return select.Table;
         }
 
         public static void PrintAthletes(IEnumerable<AthleteDto> list) {

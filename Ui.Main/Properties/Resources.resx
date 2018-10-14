@@ -322,4 +322,7 @@
   <data name="PaymentTimeLimit" xml:space="preserve">
     <value>Dispone de 48h para realizar la transferencia.</value>
   </data>
+  <data name="PersonalMenu" xml:space="preserve">
+    <value>Área personal</value>
+  </data>
 </root>

@@ -55,7 +55,16 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("InscriptionClose", resourceCulture);
             }
         }
-
+        /// <summary>
+        ///   Busca una cadena traducida similar a Área personal.
+        /// </summary>
+        public static string PersonalMenu
+        {
+            get
+            {
+                return ResourceManager.GetString("PersonalMenu", resourceCulture);
+            }
+        }
         /// <summary>
         ///   Busca una cadena traducida similar a Inscripción desde.
         /// </summary>
