@@ -1,23 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using FirstFloor.ModernUI.Windows;
 using FirstFloor.ModernUI.Windows.Controls;
-using FirstFloor.ModernUI.Windows.Navigation;
 using Logic.Db.Dto;
-using Logic.Db.Util;
 using Logic.Db.Util.Services;
 using Ui.Main.Pages.MenuInitial;
 
@@ -79,6 +66,12 @@ namespace Ui.Main.Pages.Competition.Times
 
         private void DataGridCompetition_OnMouseLeave(object sender, MouseEventArgs e) {
             DataGridCompetition.Cursor = null;
+        }
+
+        private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyType == typeof(System.DateTime))
+                ((System.Windows.Controls.DataGridTextColumn)e.Column).Binding.StringFormat = "dd/MM/yyyy";
         }
     }
 }

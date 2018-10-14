@@ -92,5 +92,11 @@ namespace Ui.Main.Pages.Inscriptions.HasRegistered
 
             GenerateTable();
         }
+
+        private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyType == typeof(System.DateTime))
+                ((System.Windows.Controls.DataGridTextColumn)e.Column).Binding.StringFormat = "dd/MM/yyyy";
+        }
     }
 }
