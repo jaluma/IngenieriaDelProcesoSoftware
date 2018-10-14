@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,18 +13,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using FirstFloor.ModernUI.Windows;
+using FirstFloor.ModernUI.Windows.Controls;
+using FirstFloor.ModernUI.Windows.Navigation;
 using Logic.Db.Dto;
 using Logic.Db.Util;
 using Logic.Db.Util.Services;
+using Ui.Main.Pages.MenuInitial;
 
 namespace Ui.Main.Pages.Competition.Times
 {
     /// <summary>
     /// Lógica de interacción para SelectionCompetition.xaml
     /// </summary>
-    public partial class SelectionCompetition : Page {
-
+    public partial class SelectionCompetition : ModernFrame {
         private readonly CompetitionService _service;
+        private List<long> _columnIds;
 
         public SelectionCompetition()
         {
@@ -42,27 +47,38 @@ namespace Ui.Main.Pages.Competition.Times
             table.Columns[6].ColumnName = Properties.Resources.Competition_Status;
             table.Columns[7].ColumnName = Properties.Resources.Competition_Inscritos;
 
-            table.Columns[0].ColumnMapping = MappingType.Hidden;
+            //columnIds = table.Columns[0];
+            _columnIds = table.AsEnumerable()
+                .Select(dr => dr.Field<long>(Properties.Resources.Competition_Id)).ToList();
+
+            table.Columns.RemoveAt(0);
+            table.Columns.Remove(Properties.Resources.Competition_Status);
 
             DataGridCompetition.ItemsSource = table.DefaultView;
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e) {
 
-            DataRowView row = DataGridCompetition.SelectedItems[0] as DataRowView;
+            int indexSeletected = DataGridCompetition.SelectedIndex;
 
-            long id = (long) row[0];
+            int id = (int) _columnIds[indexSeletected];
+
 
             CompetitionDto competition = new CompetitionDto() {
-                ID = (int)id
+                ID = id
             };
 
-            _service.Dispose();
+            TimesAthletes.Competition = competition;
 
-            Page timesService = new TimesAthletes(competition);
-
-
+            MainMenu.ChangeMenuSelected(Properties.Resources.TileTimes, Properties.Resources.TitleTimesCompetition);
         }
 
+        private void DataGridCompetition_OnMouseEnter(object sender, MouseEventArgs e) {
+            DataGridCompetition.Cursor = Cursors.Hand;
+        }
+
+        private void DataGridCompetition_OnMouseLeave(object sender, MouseEventArgs e) {
+            DataGridCompetition.Cursor = null;
+        }
     }
 }

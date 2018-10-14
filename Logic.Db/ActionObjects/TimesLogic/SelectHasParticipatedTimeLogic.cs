@@ -14,19 +14,14 @@ namespace Logic.Db.ActionObjects.TimesLogic {
         public readonly DataTable Table;
         private readonly CompetitionDto _competition;
 
-        private bool _maleFilter;
-        private bool _femaleFilter;
-
-        public SelectHasParticipatedTimeLogic(ref DBConnection conn, CompetitionDto competition, bool? male, bool? female) {
+        public SelectHasParticipatedTimeLogic(ref DBConnection conn, CompetitionDto competition) {
             _conn = conn;
             Table = new DataTable();
             _competition = competition;
-            _maleFilter = (bool) male;
-            _femaleFilter = (bool) female;
         }
         public void Execute() {
             try {
-                using (SQLiteCommand command = new SQLiteCommand(SqlCommandGenerator(), _conn.DbConnection)) {
+                using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_ATHLETES_TIMES, _conn.DbConnection)) {
                     command.Parameters.AddWithValue("@COMPETITION_ID", _competition.ID);
 
                     SQLiteDataAdapter da = new SQLiteDataAdapter(command);
@@ -36,27 +31,6 @@ namespace Logic.Db.ActionObjects.TimesLogic {
                 _conn.DbConnection?.Close();
                 throw;
             }
-        }
-
-        public void MaleFilterSwitch() {
-            _maleFilter = !_maleFilter;
-        }
-
-        public void FemaleFilterSwitch() {
-            _femaleFilter = !_femaleFilter;
-        }
-
-        private string SqlCommandGenerator() {
-            string sql = Logic.Db.Properties.Resources.SQL_SELECT_ATHLETES_TIMES;
-            if (_maleFilter || _femaleFilter)
-                sql += " AND ";
-            if (_maleFilter)
-                sql += "ATHLETE_GENDER='M'";
-            if (_maleFilter && _femaleFilter)
-                sql += " OR ";
-            if (_femaleFilter)
-                sql += "ATHLETE_GENDER='F'";
-            return sql;
         }
     }
 }

@@ -13,7 +13,7 @@
                FontWeight="Bold"
                HorizontalAlignment="Center"
                 Content="{x:Static properties:Resources.TileCompetition}" DockPanel.Dock="Top"/>
-        <DataGrid x:Name="DataGridCompetition" MinWidth="800" MinHeight="450"  VerticalAlignment="Top" ColumnWidth="*" Height="419" DockPanel.Dock="Bottom" IsReadOnly="True"/>
+        <DataGrid x:Name="DataGridCompetition" MinWidth="800" AutoGeneratingColumn="OnAutoGeneratingColumn" MinHeight="450"  VerticalAlignment="Top" ColumnWidth="*" Height="419" DockPanel.Dock="Bottom" IsReadOnly="True"/>
     </DockPanel>
 
 

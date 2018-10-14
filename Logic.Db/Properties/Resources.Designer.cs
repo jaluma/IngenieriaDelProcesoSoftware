@@ -211,5 +211,53 @@ namespace Logic.Db.Properties {
             }
         }
 
+        internal static string SQL_SELECT_COMPETITION_FINISH_LIST {
+            get {
+                return ResourceManager.GetString("SQL_SELECT_COMPETITION_FINISH_LIST", resourceCulture);
+            }
+        }
+
+        internal static string SQL_COUNT_ATHLETE_BY_DNI
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_COUNT_ATHLETE_BY_DNI", resourceCulture);
+            }
+        }
+
+        internal static string SQL_SELECT_COMPETITION_TO_INSCRIBE
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_COMPETITION_TO_INSCRIBE", resourceCulture);
+            }
+        }
+        
+        internal static string SQL_SELECT_COMPETITION_BY_ID
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_COMPETITION_BY_ID", resourceCulture);
+            }
+        }
+
+        internal static string SQL_SELECT_MAX_DORSAL
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_MAX_DORSAL", resourceCulture);
+            }
+        }
+
+        internal static string SQL_SELECT_ALL_COMPETITIONS
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_ALL_COMPETITIONS", resourceCulture);
+            }
+        }
+
+        
+
     }
 }

@@ -17,7 +17,7 @@ namespace Unit.Logic.Db {
                 Name = "Alejandro",
                 Surname = "Perez",
                 BirthDate = new DateTime(2010, 09, 11),
-                Gender = Gender.Male
+                Gender = AthleteDto.MALE
             };
             
             AthletesService service = new AthletesService();
