@@ -5,9 +5,6 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Ui.Main.Pages.Inscriptions"
       xmlns:properties="clr-namespace:Ui.Main.Properties"
-      xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
-      xmlns:adorners="http://gu.se/Adorners"
-      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       mc:Ignorable="d" 
       d:DesignHeight="625" d:DesignWidth="1250
       "
@@ -18,18 +15,18 @@
                HorizontalAlignment="Center"
                Content="{x:Static properties:Resources.TileAthleteInscription}" DockPanel.Dock="Top"/>
         <Grid DockPanel.Dock="Bottom">
-            <xctk:WatermarkTextBox Watermark="{x:Static properties:Resources.AthleteName}" Name="TxName" HorizontalAlignment="Left" Height="28" Margin="421,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="359" />
+            <TextBox Name="TxName" HorizontalAlignment="Left" Height="28" Margin="421,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="359"/>
             <Label Name="LbName" Content="{x:Static properties:Resources.AthleteName}" HorizontalAlignment="Left" Margin="189,87,0,0" VerticalAlignment="Top" Height="27" FontSize="14" />
-            <xctk:WatermarkTextBox Watermark="{x:Static properties:Resources.AthleteSurname}" Name="TxSurname" HorizontalAlignment="Left" Height="28" Margin="421,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="359"/>
+            <TextBox Name="TxSurname" HorizontalAlignment="Left" Height="28" Margin="421,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="359"/>
             <Label Name="LbSurname" Content="{x:Static properties:Resources.AthleteSurname}" HorizontalAlignment="Left" Margin="189,141,0,0" VerticalAlignment="Top" Height="27" FontSize="14" />
-            <xctk:WatermarkTextBox Watermark="{x:Static properties:Resources.AthleteDni}" Name="TxDNI" HorizontalAlignment="Left" Height="27" Margin="421,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="359"/>
+            <TextBox Name="TxDNI" HorizontalAlignment="Left" Height="27" Margin="421,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="359"/>
             <Label Name="LbDNI" Content="{x:Static properties:Resources.AthleteDni}" HorizontalAlignment="Left" Margin="189,202,0,0" VerticalAlignment="Top" Height="25" FontSize="14" />
-            <DatePicker Name="DPBirthDate" HorizontalAlignment="Left" Margin="421,266,0,0" VerticalAlignment="Top" Height="28" Width="359"/>
+            <DatePicker Name="DPBirthDate" HorizontalAlignment="Left" Margin="466,266,0,0" VerticalAlignment="Top" Height="28" Width="269"/>
             <Label Name="LbDate" Content="{x:Static properties:Resources.AthleteBirthDate}" HorizontalAlignment="Left" Margin="189,266,0,0" VerticalAlignment="Top" Height="27" FontSize="14" />
             <Label Name="LbGender" Content="{x:Static properties:Resources.AthleteGender}" HorizontalAlignment="Left" Margin="189,322,0,0" VerticalAlignment="Top" Height="27" FontSize="14" />
-            <RadioButton Name="RBMasc" Content="{x:Static properties:Resources.MaleText}" HorizontalAlignment="Left" Margin="451,322,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="GroupGender" Height="17" Width="89" FontSize="14"/>
-            <RadioButton Name="RBFem" Content="{x:Static properties:Resources.FemaleText}" HorizontalAlignment="Left" Margin="658,322,0,0" VerticalAlignment="Top" GroupName="GroupGender" Height="17" Width="87" FontSize="14"/>
-            <Button Name="BtNext" Content="{x:Static properties:Resources.Next}" HorizontalAlignment="Left" Margin="520,406,0,0" VerticalAlignment="Top" Width="175" Height="70" FontSize="16" Click="BtNext_Click"/>
+            <RadioButton Name="RBMasc" Content="{x:Static properties:Resources.MaleText}" HorizontalAlignment="Left" Margin="421,328,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="GroupGender" Height="17" Width="89" FontSize="14"/>
+            <RadioButton Name="RBFem" Content="{x:Static properties:Resources.FemaleText}" HorizontalAlignment="Left" Margin="573,328,0,0" VerticalAlignment="Top" GroupName="GroupGender" Height="17" Width="87" FontSize="14"/>
+            <Button Name="BtNext" Content="{x:Static properties:Resources.Next}" HorizontalAlignment="Left" Margin="520,406,0,0" VerticalAlignment="Top" Width="175" Height="70" FontSize="16"/>
         </Grid>
     </DockPanel>
 

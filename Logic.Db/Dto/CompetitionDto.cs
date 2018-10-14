@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Logic.Db.Dto {
     public class CompetitionDto {
-        public long ID;
+        public int ID;
         public string Name;
         public TypeCompetition Type;
         public double Km;

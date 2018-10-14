@@ -20,16 +20,14 @@
         </mui:LinkGroup>
         <mui:LinkGroup DisplayName="{x:Static properties:Resources.TileAthletes}">
             <mui:LinkGroup.Links>
-                <mui:Link DisplayName="{x:Static properties:Resources.AthleteMenuList}" Source="/Pages/Inscriptions/ListAthletes.xaml" />
-                <mui:Link DisplayName="{x:Static properties:Resources.MenuAthletesInscription}" Source="/Pages/Inscriptions/InscriptionPage.xaml" />
-                <mui:Link DisplayName="{x:Static properties:Resources.TileAthletesInscriptionCompetition}" Source="/Pages/Inscriptions/CompetitionInscription.xaml" />
+                <mui:Link DisplayName="{x:Static properties:Resources.AthleteMenuList}" Source="/Pages/" />
+                <mui:Link DisplayName="{x:Static properties:Resources.TileAthletesInscription}" Source="/Pages/Inscriptions/InscriptionPage.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
         <mui:LinkGroup DisplayName="{x:Static properties:Resources.TileCompetition}">
             <mui:LinkGroup.Links>
                 <mui:Link DisplayName="{x:Static properties:Resources.CategoryMenuActive}" Source="/Pages/OpenCompetitions/ListOpenCompetition.xaml" />
                 <mui:Link DisplayName="{x:Static properties:Resources.CategoryMenuFinish}" Source="/Pages/Competition.Times/SelectionCompetition.xaml" />
-                <mui:Link DisplayName="{x:Static properties:Resources.SubmenuAddDorsal}" Source="/Pages/Inscriptions/HasRegistered/Dorsals.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
         <mui:LinkGroup DisplayName="{x:Static properties:Resources.TileTimes}">

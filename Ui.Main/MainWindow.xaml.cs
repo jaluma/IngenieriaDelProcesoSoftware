@@ -15,12 +15,10 @@ namespace Ui.Main {
     //public partial class MainWindow : MetroWindow {
         public MainWindow() {
             InitializeComponent();
-            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            //_mainFrame.NavigationService.Navigate(new MainMenu());
 
             AppearanceManager.Current.AccentColor = Colors.BlueViolet;
             ContentSource = MenuLinkGroups.First().Links.First().Source;
-
-            
         }
     }
 }

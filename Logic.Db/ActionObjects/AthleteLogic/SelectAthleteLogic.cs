@@ -24,9 +24,9 @@ namespace Logic.Db.ActionObjects.AthleteLogic {
                                 Dni = reader.GetString(0),
                                 Name = reader.GetString(1),
                                 Surname = reader.GetString(2),
-                                BirthDate = reader.GetDateTime(3),
-                                Gender = reader.GetString(4).ToCharArray()[0]
+                                BirthDate = reader.GetDateTime(3)
                             };
+                            Enum.TryParse<Gender>(reader.GetString(4), out athlete.Gender);
                             List.Add(athlete);
                         }
                     }

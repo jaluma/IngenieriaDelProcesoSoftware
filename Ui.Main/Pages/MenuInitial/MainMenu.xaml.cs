@@ -17,7 +17,6 @@ namespace Ui.Main.Pages.MenuInitial {
         private void TileAthletes_Click(object sender, System.Windows.RoutedEventArgs e) {
 
             //NavigationService?.Navigate(new ...);
-            ChangeMenuSelected(Properties.Resources.TileAthletes, Properties.Resources.AthleteMenuList);
         }
 
         private void TileCompetition_Click(object sender, System.Windows.RoutedEventArgs e) {
@@ -39,11 +38,13 @@ namespace Ui.Main.Pages.MenuInitial {
             //Content = new Frame() {
             //    Content = new AddDorsalsAndRegisteredInCompetition()
             //};
-            ChangeMenuSelected(Properties.Resources.TileTimes, Properties.Resources.TitleTimesCompetition);
+            ChangeMenuSelected(Properties.Resources.TileInscriptionDorsal, Properties.Resources.TileInscriptionDorsal);
         }
 
         public static void ChangeMenuSelected(string menuName, string subMenuName) {
-            if (Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive) is MainWindow mainWindow) {
+            var mainWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive) as MainWindow;
+
+            if (mainWindow != null) {
                 var linkMenu = mainWindow.PrincipalWindow.MenuLinkGroups
                     .First(m => m.DisplayName.Equals(menuName)).Links;
                 var linkSubMenu = linkMenu.First(l => l.DisplayName.Equals(subMenuName));

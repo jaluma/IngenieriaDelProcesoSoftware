@@ -5,26 +5,21 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Ui.Main.Pages.Competition.Times"
       xmlns:properties="clr-namespace:Ui.Main.Properties"
-      xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
       mc:Ignorable="d" 
       d:DesignHeight="625" d:DesignWidth="1250"
-      Title="TimesAthletes" Loaded="TimesAthletes_OnLoaded">
+      Title="TimesAthletes">
 
-    <DockPanel VerticalAlignment="Bottom" Height="625">
-        <Label Style="{StaticResource ContentRoot}" FontSize="18"
+    <DockPanel  Height="545" VerticalAlignment="Bottom">
+        <Label FontSize="18"
                FontWeight="Bold"
                HorizontalAlignment="Center"
                Content="{x:Static properties:Resources.TitleTimesCompetition}" DockPanel.Dock="Top"/>
-        <DataGrid x:Name="DataGridTimes" AutoGenerateColumns="True" VerticalAlignment="Top" ColumnWidth="*" Height="501" DockPanel.Dock="Right" Width="949" IsReadOnly="True" Margin="0,28,15,0"/>
-        <StackPanel Style="{StaticResource ContentRoot}" VerticalAlignment="Top" Width="195" Height="501" Margin="16,28,16,0">
-            <StackPanel Style="{StaticResource ContentRoot}" HorizontalAlignment="Left" Name = "SelectorCompetition" Margin="16,28,0,16" Width="169">
-                <TextBlock Typography.Capitals="AllPetiteCaps" Name="TextBlock" TextAlignment="Center" FontWeight="Bold"  Text="{x:Static properties:Resources.TileCompetitionFinish}" TextWrapping="WrapWithOverflow" FontSize="16" Width="155" Height="46" Margin="7,0"/>
-                <ListBox Name="CompetitionList" Cursor="Hand" Height="100" HorizontalContentAlignment="Left" SelectionChanged="CompetitionList_SelectionChanged"/>
-            </StackPanel>
-            <StackPanel Style="{StaticResource ContentRoot}" HorizontalAlignment="Left" Name = "SelectorGender" Height="100" Margin="10,2">
+        <DataGrid x:Name="DataGridTimes" AutoGenerateColumns="True" MinWidth="800" MinHeight="450" VerticalAlignment="Top" ColumnWidth="*" Height="501" DockPanel.Dock="Right" Width="985" IsReadOnly="True"/>
+        <StackPanel Background="White" VerticalAlignment="Top" Width="195" Height="511">
+            <StackPanel HorizontalAlignment="Left" Name = "SelectorGender" Height="100" Margin="10,2">
                 <Label FontWeight="Bold" FontSize="16" Content="{x:Static properties:Resources.Category}" HorizontalContentAlignment="Center" Width="180"/>
-                <CheckBox Name="MaleCheckBox" IsChecked="True" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Content="{x:Static properties:Resources.MaleText}" Margin="0,5" Click="CheckBox_OnClick" />
-                <CheckBox Name="FemaleCheckBox" IsChecked="True" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Content="{x:Static properties:Resources.FemaleText}" Margin="0,5" Click="CheckBox_OnClick"/>
+                <CheckBox Name="MaleCheckBox" IsChecked="True" Content="{x:Static properties:Resources.MaleText}" Margin="0,5" Click="CheckBox_OnClick" />
+                <CheckBox Name="FemaleCheckBox" IsChecked="True" Content="{x:Static properties:Resources.FemaleText}" Margin="0,5" Click="CheckBox_OnClick"/>
             </StackPanel>
         </StackPanel>
     </DockPanel>

@@ -16,12 +16,6 @@ namespace Logic.Db.Util.Services {
             _competition = competition;
         }
 
-        public DataTable SelectAthlete() {
-            SelectAthleteEnrollLogic select = new SelectAthleteEnrollLogic(ref _conn, _competition);
-            select.Execute();
-            return select.Table;
-        }
-
         public DataTable SelectAthleteRegistered() {
             SelectAthleteEnrollLogic select = new SelectAthleteEnrollLogic(ref _conn, _competition);
             select.Execute();
@@ -42,19 +36,6 @@ namespace Logic.Db.Util.Services {
             IsCategoryInCompetitionLogic isCategory = new IsCategoryInCompetitionLogic(ref _conn, _competition, athlete);
             isCategory.Execute();
             return isCategory.IsCorrect;
-        }
-
-        public void InsertAthleteInCompetition(AthleteDto athlete, CompetitionDto competition)
-        {
-            InsertAthletesInCompetitionLogic insertAthletesInCompetition = new InsertAthletesInCompetitionLogic(ref _conn, athlete, competition);
-            insertAthletesInCompetition.Execute();
-        }
-
-        public string GetCategory(AthleteDto athlete, CompetitionDto competition)
-        {
-            GetCategoryLogic getCategory = new GetCategoryLogic(ref _conn, competition, athlete);
-            getCategory.Execute();
-            return getCategory.Category;
         }
     }
 }
