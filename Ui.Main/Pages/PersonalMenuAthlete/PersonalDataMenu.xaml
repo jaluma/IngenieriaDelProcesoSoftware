@@ -20,8 +20,9 @@
             <xctk:WatermarkTextBox Watermark="{x:Static properties:Resources.AthleteDni}" Name="Dni" HorizontalAlignment="Left" Height="30" Margin="460,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="359" />
             <Label Name="LbDni" Content="{x:Static properties:Resources.AthleteDni}" HorizontalAlignment="Left" Margin="340,46,0,0" VerticalAlignment="Top" Height="27" FontSize="14" Width="30" RenderTransformOrigin="1.333,1.111" />
             <Button Name="BtSearch" Content="{x:Static properties:Resources.BtSearch}" HorizontalAlignment="Left" Margin="875,43,0,0" VerticalAlignment="Top" Width="105" Height="30" FontSize="16" Click="BtSearch_Click" RenderTransformOrigin="0.19,0.667"/>
+            <DataGrid x:Name="DataGridDataPersonal" MinWidth="800" AutoGeneratingColumn="OnAutoGeneratingColumn" MinHeight="10"  VerticalAlignment="Bottom" ColumnWidth="*" Height="52" DockPanel.Dock="Bottom" IsReadOnly="True" Margin="10,0,0,-74"/>
         </Grid>
-        <DataGrid x:Name="DataGridCompetition" MinWidth="800" AutoGeneratingColumn="OnAutoGeneratingColumn" MinHeight="450"  VerticalAlignment="Top" ColumnWidth="*" Height="419" DockPanel.Dock="Bottom" IsReadOnly="True"/>
+        <DataGrid x:Name="DataGridInscriptions" MinWidth="800" AutoGeneratingColumn="OnAutoGeneratingColumn" MinHeight="200"  VerticalAlignment="Bottom" ColumnWidth="*" Height="360" DockPanel.Dock="Bottom" IsReadOnly="True"/>
     </DockPanel>
 
 

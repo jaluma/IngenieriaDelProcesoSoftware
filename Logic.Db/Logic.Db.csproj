@@ -60,6 +60,7 @@
     <Compile Include="ActionObjects\AthleteLogic\Enroll\GetCategoryLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\InsertAthletesInCompetitionLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\IsCategoryInCompetitionLogic.cs" />
+    <Compile Include="ActionObjects\CompetitionLogic\SelectAllCompetitionsInscripted.cs" />
     <Compile Include="ActionObjects\AthleteLogic\SelectAthleteByDniLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\UpdateAthletesRegisteredDorsal.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\InsertAthletesHasRegisteredLogic.cs" />

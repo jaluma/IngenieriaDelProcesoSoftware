@@ -55,6 +55,14 @@ namespace Logic.Db.Util.Services {
             return searchCompetition.Competition;
         }
 
+        public DataTable SelectAllCompetitionsInscripted(string dni)
+        {
+            SelectAllCompetitionsInscripted competitions = new SelectAllCompetitionsInscripted(ref _conn, dni);
+            competitions.Execute();
+            return competitions.Table;
+        }
+
+
         //public void InsertAthletesTable(AthleteDto athleteP) {
         //    AddAthleteLogic add = new AddAthleteLogic(ref _conn, athleteP);
         //    add.Execute();

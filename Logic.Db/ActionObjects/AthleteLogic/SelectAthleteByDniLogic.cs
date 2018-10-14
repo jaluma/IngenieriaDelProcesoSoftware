@@ -10,7 +10,6 @@ namespace Logic.Db.ActionObjects.AthleteLogic
 
         private readonly DBConnection _conn;
         private readonly string _dni;
-        private AthleteDto _athlete;
         public readonly DataTable Table;
 
 

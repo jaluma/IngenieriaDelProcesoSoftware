@@ -27,22 +27,14 @@ namespace Ui.Main.Pages.PersonalMenuAthlete
     {
      
       
-        private AthletesService _service;
-        
-
-        
-
-
-
+        private AthletesService _serviceAthlete;
+        private CompetitionService _serviceComp;
 
         public PersonalDataMenu()
         {
             InitializeComponent();
-
-
-
-
         }
+
         private void BtSearch_Click(object sender, RoutedEventArgs e)
         {
             if (!ComprobarDNI(Dni.Text))
@@ -51,25 +43,37 @@ namespace Ui.Main.Pages.PersonalMenuAthlete
                 return;
             }
 
-            GenerateTable();
-
-
-
+            GeneratePersonalDataTable();
+            GenerateInscriptionsDataTable();
         }
 
-        private void GenerateTable()
+        private void GeneratePersonalDataTable()
         {
-            _service = new AthletesService();
-           
+            _serviceAthlete = new AthletesService();           
 
-            DataTable table = _service.SelectAthleteByDni(Dni.Text.ToUpper());
+            DataTable table = _serviceAthlete.SelectAthleteByDni(Dni.Text.ToUpper());
             table.Columns[0].ColumnName = Properties.Resources.AthleteDni;
             table.Columns[1].ColumnName = Properties.Resources.AthleteName;
             table.Columns[2].ColumnName = Properties.Resources.AthleteSurname;
             table.Columns[3].ColumnName = Properties.Resources.AthleteBirthDate;
             table.Columns[4].ColumnName = Properties.Resources.AthleteGender;
 
-            DataGridCompetition.ItemsSource = table.DefaultView;
+            DataGridDataPersonal.ItemsSource = table.DefaultView;
+
+        }
+
+        private void GenerateInscriptionsDataTable()
+        {
+            _serviceComp = new CompetitionService();
+
+            DataTable table = _serviceComp.SelectAllCompetitionsInscripted(Dni.Text.ToUpper());
+            table.Columns[0].ColumnName = Properties.Resources.Competition_Name;
+            table.Columns[1].ColumnName = Properties.Resources.Competition_Status;
+            table.Columns[2].ColumnName = Properties.Resources.Competition_Date;
+            table.Columns[3].ColumnName = Properties.Resources.AthleteDorsal;
+           
+
+            DataGridInscriptions.ItemsSource = table.DefaultView;
 
         }
 

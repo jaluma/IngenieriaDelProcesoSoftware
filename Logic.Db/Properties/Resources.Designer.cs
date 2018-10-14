@@ -168,6 +168,19 @@ namespace Logic.Db.Properties {
         }
 
         /// <summary>
+        ///   Busca una cadena traducida similar a Select Competition.COMPETITION_NAME, Enroll.STATUS, Enroll.DATE_INSCRIPTION,
+        /// Enroll.DORSAL from Enroll, Competition where Athlete_dni = @DNI
+        ///and Competition.COMPETITION_ID = Enroll.COMPETITION_ID.
+        /// </summary>
+        internal static string SQL_SELECT_ALL_COMP_INSCRIPTED
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_ALL_COMP_INSCRIPTED", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Busca una cadena traducida similar a SELECT * FROM Competition
         ///WHERE COMPETITION_STATUS=@STATUS.
         /// </summary>
@@ -272,6 +285,8 @@ namespace Logic.Db.Properties {
         }
 
         
+
+
 
     }
 }
