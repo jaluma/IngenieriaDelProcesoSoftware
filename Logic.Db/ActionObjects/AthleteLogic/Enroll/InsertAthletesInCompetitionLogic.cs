@@ -30,8 +30,7 @@ namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
                     command.ExecuteNonQuery();
                 }
             } catch (SQLiteException) {
-                _conn.DbConnection?.Close();
-                throw;
+                throw new ApplicationException();
             }
         }
     }

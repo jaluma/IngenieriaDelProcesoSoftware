@@ -377,18 +377,6 @@ namespace Ui.Main.Properties {
         }
 
         /// <summary>
-        ///   Busca una cadena traducida similar a Inscripción desde.
-        /// </summary>
-        public static string InscriptionOpen
-        {
-            get
-            {
-                return ResourceManager.GetString("InscriptionOpen", resourceCulture);
-            }
-        }
-
-
-        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap dorsalsIco {
@@ -476,5 +464,257 @@ namespace Ui.Main.Properties {
             }
         }
 
+        /// <summary>
+        ///   Busca una cadena traducida similar a AñadirDorsal.
+        /// </summary>
+        public static string SubmenuAddDorsal {
+            get {
+                return ResourceManager.GetString("SubmenuAddDorsal", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Dorsal.
+        /// </summary>
+        public static string TileDorsal {
+            get {
+                return ResourceManager.GetString("TileDorsal", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fecha de inscripción.
+        /// </summary>
+        public static string InscriptionDate {
+            get {
+                return ResourceManager.GetString("InscriptionDate", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Seleccionar una competición.
+        /// </summary>
+        public static string TitleSelectCompetition
+        {
+            get
+            {
+                return ResourceManager.GetString("TitleSelectCompetition", resourceCulture);
+            }
+        }
+
+        public static string IncompleteFields
+        {
+            get
+            {
+                return ResourceManager.GetString("IncompleteFields", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Finalizar inscripción.
+        /// </summary>
+        public static string FinishInscription
+        {
+            get
+            {
+                return ResourceManager.GetString("FinishInscription", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a No hay una competición seleccionada..
+        /// </summary>
+        public static string NothingSelected
+        {
+            get
+            {
+                return ResourceManager.GetString("NothingSelected", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap default_profile {
+            get {
+                object obj = ResourceManager.GetObject("default_profile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Datos Personales.
+        /// </summary>
+        public static string PersonalInfo {
+            get {
+                return ResourceManager.GetString("PersonalInfo", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Datos Personales.
+        /// </summary>
+        public static string TileAthletesInscriptionCompetition {
+            get {
+                return ResourceManager.GetString("TileAthletesInscriptionCompetition", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Posición.
+        /// </summary>
+        public static string AthletePosition {
+            get {
+                return ResourceManager.GetString("AthletePosition", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Justificante de inscripción.
+        /// </summary>
+        public static string InscriptionProof
+        {
+            get
+            {
+                return ResourceManager.GetString("InscriptionProof", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ya se inscribió anteriormente en esta competición..
+        /// </summary>
+        public static string PreviouslyEnrolled
+        {
+            get
+            {
+                return ResourceManager.GetString("PreviouslyEnrolled", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Inscribit atleta.
+        /// </summary>
+        public static string MenuAthletesInscription {
+            get {
+                return ResourceManager.GetString("MenuAthletesInscription", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Mujer.
+        /// </summary>
+        public static string Woman {
+            get {
+                return ResourceManager.GetString("Woman", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Hombre.
+        /// </summary>
+        public static string Man {
+            get {
+                return ResourceManager.GetString("Man", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a La edad mínima de inscripción es de 18 años..
+        /// </summary>
+        public static string InvalidAge
+        {
+            get
+            {
+                return ResourceManager.GetString("InvalidAge", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a El DNI introducido no es válido..
+        /// </summary>
+        public static string InvalidDNI
+        {
+            get
+            {
+                return ResourceManager.GetString("InvalidDNI", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Seleccionar método de pago.
+        /// </summary>
+        public static string PaymentMethodSelection
+        {
+            get
+            {
+                return ResourceManager.GetString("PaymentMethodSelection", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Transferencia bancaria.
+        /// </summary>
+        public static string WireTransfer
+        {
+            get
+            {
+                return ResourceManager.GetString("WireTransfer", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Datos del beneficiario: Gestor de carreras populares.
+        /// </summary>
+        public static string BeneficiaryData
+        {
+            get
+            {
+                return ResourceManager.GetString("BeneficiaryData", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a IBAN: ES11 2222 3333 4444 5555 6666.
+        /// </summary>
+        public static string IBAN
+        {
+            get
+            {
+                return ResourceManager.GetString("IBAN", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cantidad a abonar:.
+        /// </summary>
+        public static string PaymentAmount
+        {
+            get
+            {
+                return ResourceManager.GetString("PaymentAmount", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Dispone de 48h para realizar la transferencia..
+        /// </summary>
+        public static string PaymentTimeLimit
+        {
+            get
+            {
+                return ResourceManager.GetString("PaymentTimeLimit", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Datos para la transferencia.
+        /// </summary>
+        public static string TransferData
+        {
+            get
+            {
+                return ResourceManager.GetString("TransferData", resourceCulture);
+            }
+        }
     }
 }

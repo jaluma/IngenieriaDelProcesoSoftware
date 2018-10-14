@@ -1,0 +1,14 @@
+﻿<mui:ModernDialog x:Class="Ui.Main.Pages.Inscriptions.InscriptionProofWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ui.Main.Pages.Inscriptions"
+        xmlns:properties="clr-namespace:Ui.Main.Properties"
+        xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+        mc:Ignorable="d"
+        Title="{x:Static properties:Resources.InscriptionProof}" Height="400" Width="400">
+    <Grid>
+        <TextBlock Name="TxJustificante" HorizontalAlignment="Left" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Width="282" Height="249"/>
+    </Grid>
+</mui:ModernDialog>

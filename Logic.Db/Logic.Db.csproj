@@ -57,14 +57,20 @@
   <ItemGroup>
     <Compile Include="ActionObjects\AthleteLogic\AddAthleteLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\DeleteAthleteLogic.cs" />
+    <Compile Include="ActionObjects\AthleteLogic\Enroll\GetCategoryLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\InsertAthletesInCompetitionLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\IsCategoryInCompetitionLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\UpdateAthletesRegisteredDorsal.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\InsertAthletesHasRegisteredLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\SelectAthleteEnrollLogic.cs" />
+    <Compile Include="ActionObjects\AthleteLogic\CountAthleteByDni.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\AddCompetitionLogic.cs" />
+    <Compile Include="ActionObjects\CompetitionLogic\CompetitionsToInscribeLogic.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\DeleteCompetitionLogic.cs" />
+    <Compile Include="ActionObjects\CompetitionLogic\ListNotRealizedCompetitionLogic.cs" />
+    <Compile Include="ActionObjects\CompetitionLogic\SelectAllCompetition.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\ListOpenCompetitionLogic.cs" />
+    <Compile Include="ActionObjects\CompetitionLogic\SearchCompetitionByIdLogic.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\SelectCompetitionLogic.cs" />
     <Compile Include="ActionObjects\IActionObject.cs" />
     <Compile Include="ActionObjects\AthleteLogic\SelectAthleteLogic.cs" />

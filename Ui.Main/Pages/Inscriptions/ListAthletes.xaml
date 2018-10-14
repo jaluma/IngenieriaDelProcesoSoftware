@@ -1,0 +1,34 @@
+﻿<Page x:Class="Ui.Main.Pages.Inscriptions.ListAthletes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Ui.Main.Pages.Inscriptions.HasRegistered"
+      xmlns:properties="clr-namespace:Ui.Main.Properties"
+      xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+      xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+      mc:Ignorable="d" 
+      d:DesignHeight="625" d:DesignWidth="1250"
+      FocusManager.FocusedElement="{Binding ElementName=CompetitionIdTextBox}"
+      Title="AddDorsalsAndRegisteredInCompetition">
+
+    <DockPanel  Height="515" VerticalAlignment="Bottom">
+
+        <Label HorizontalContentAlignment="Center"
+               FontSize="18"
+               FontWeight="Bold"
+               HorizontalAlignment="Center"
+               Content="{x:Static properties:Resources.TileJoinCompetition}" Width="680" DockPanel.Dock="Top"/>
+        <Grid Style="{StaticResource ContentRoot}">
+            <ListView Name="CompetitionList" Cursor="Hand" Width="200" SelectionChanged="CompetitionList_SelectionChanged">
+
+            </ListView>
+        </Grid>
+
+
+        <StackPanel Orientation="Vertical" Margin="10,30,10,10">
+            <DataGrid x:Name="DataGridCompetition" AutoGeneratingColumn="OnAutoGeneratingColumn" SelectionMode="Single" MinWidth="800" MinHeight="450" VerticalAlignment="Top" ColumnWidth="*" IsReadOnly="True"/>
+        </StackPanel>
+
+    </DockPanel>
+</Page>

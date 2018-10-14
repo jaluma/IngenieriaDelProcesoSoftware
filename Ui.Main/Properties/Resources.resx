@@ -128,10 +128,10 @@
     <value>Atletas</value>
   </data>
   <data name="TileCompetitionActive" xml:space="preserve">
-    <value>Competiciones activas</value>
+    <value>Competiciones ins. abierta</value>
   </data>
   <data name="TileCompetitionFinish" xml:space="preserve">
-    <value>Competiciones finalizadas</value>
+    <value>Competiciones ins. finalizada</value>
   </data>
   <data name="competitionFinishIco" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\competitionFinishIco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -209,7 +209,7 @@
     <value>..\Resources\dorsalsIco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TileInscriptionDorsal" xml:space="preserve">
-    <value>Listar corredores y asignación de dorsales</value>
+    <value>Tiempos</value>
   </data>
   <data name="ApplicationIco" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ApplicationIco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -221,7 +221,7 @@
     <value>Siguiente</value>
   </data>
   <data name="TileAthleteInscription" xml:space="preserve">
-    <value>Inscribir atletas</value>
+    <value>Inscribir atleta</value>
   </data>
   <data name="Competition_Inscritos" xml:space="preserve">
     <value>Inscrito(s)</value>
@@ -249,5 +249,77 @@
   </data>
   <data name="InscriptionOpen" xml:space="preserve">
     <value>Inscripción desde</value>
+  </data>
+  <data name="SubmenuAddDorsal" xml:space="preserve">
+    <value>Añadir Dorsal</value>
+  </data>
+  <data name="TileDorsal" xml:space="preserve">
+    <value>Dorsal</value>
+  </data>
+  <data name="InscriptionDate" xml:space="preserve">
+    <value>Fecha de inscripción</value>
+  </data>
+  <data name="TitleSelectCompetition" xml:space="preserve">
+    <value>Seleccionar una competición</value>
+  </data>
+  <data name="IncompleteFields" xml:space="preserve">
+    <value>No se puede realizar la inscripción: campos incompletos.</value>
+  </data>
+  <data name="FinishInscription" xml:space="preserve">
+    <value>Finalizar inscripción</value>
+  </data>
+  <data name="NothingSelected" xml:space="preserve">
+    <value>No hay una competición seleccionada.</value>
+  </data>
+  <data name="default_profile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\default_profile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PersonalInfo" xml:space="preserve">
+    <value>Datos Personales</value>
+  </data>
+  <data name="AthletePosition" xml:space="preserve">
+    <value>Posición</value>
+  </data>
+  <data name="TileAthletesInscriptionCompetition" xml:space="preserve">
+    <value>Inscribir en competición</value>
+  </data>
+  <data name="InscriptionProof" xml:space="preserve">
+    <value>Justificante de inscripción</value>
+  </data>
+  <data name="PreviouslyEnrolled" xml:space="preserve">
+    <value>Ya se inscribió anteriormente en esta competición.</value>
+  </data>
+  <data name="MenuAthletesInscription" xml:space="preserve">
+    <value>Inscribir atleta</value>
+  </data>
+  <data name="Man" xml:space="preserve">
+    <value>Hombre</value>
+  </data>
+  <data name="Woman" xml:space="preserve">
+    <value>Mujer</value>
+  </data>
+  <data name="InvalidAge" xml:space="preserve">
+    <value>La edad mínima de inscripción es de 18 años.</value>
+  </data>
+  <data name="InvalidDNI" xml:space="preserve">
+    <value>El DNI introducido no es válido.</value>
+  </data>
+  <data name="PaymentMethodSelection" xml:space="preserve">
+    <value>Seleccionar método de pago</value>
+  </data>
+  <data name="WireTransfer" xml:space="preserve">
+    <value>Transferencia bancaria</value>
+  </data>
+  <data name="BeneficiaryData" xml:space="preserve">
+    <value>Datos del beneficiario: Gestor de carreras populares</value>
+  </data>
+  <data name="IBAN" xml:space="preserve">
+    <value>IBAN: ES11 2222 3333 4444 5555 6666</value>
+  </data>
+  <data name="PaymentAmount" xml:space="preserve">
+    <value>Cantidad a abonar:</value>
+  </data>
+  <data name="PaymentTimeLimit" xml:space="preserve">
+    <value>Dispone de 48h para realizar la transferencia.</value>
   </data>
 </root>
