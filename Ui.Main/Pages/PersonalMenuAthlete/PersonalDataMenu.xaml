@@ -19,18 +19,24 @@
 
 
         <Grid Width="1240" Margin="0,0,0,10">
-            <Label FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Content="{x:Static properties:Resources.PersonalInfo}" Margin="320,46,784,433" Width="136" RenderTransformOrigin="0.515,0.375" />
-            <Label FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Content="{x:Static properties:Resources.InscriptionsRegistered}" Margin="320,196,719,280" Width="201" />
-            <Label FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Content="{x:Static properties:Resources.InsertDni}" Margin="25,271,1079,214" Width="136" />
-            <DataGrid x:Name="DataGridDataPersonal" MinWidth="1" AutoGeneratingColumn="OnAutoGeneratingColumn" MinHeight="10"  ColumnWidth="*" IsReadOnly="True" Margin="0,86,10,370" SelectionChanged="DataGridDataPersonal_SelectionChanged" Height="Auto" HorizontalAlignment="Right" Width="910"/>
+            <Label FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Content="{x:Static properties:Resources.PersonalInfo}" Margin="320,24,784,455" Width="136" RenderTransformOrigin="0.515,0.375" />
+            <Label FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Content="{x:Static properties:Resources.InscriptionsRegistered}" Margin="320,187,719,289" Width="201" RenderTransformOrigin="0.473,1.057" />
+            <Label FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Content="{x:Static properties:Resources.InsertDni}" Margin="65,221,1039,264" Width="136" />
+            <DataGrid x:Name="DataGridDataPersonal" MinWidth="1" AutoGeneratingColumn="OnAutoGeneratingColumn" MinHeight="10"  ColumnWidth="*" IsReadOnly="True" Margin="0,61,10,352"  Height="Auto" HorizontalAlignment="Right" Width="910"/>
 
-            <xctk:WatermarkTextBox Watermark="{x:Static properties:Resources.AthleteDni}" Name="Dni" HorizontalAlignment="Left" Height="30" Margin="25,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" />
-            <Button Name="BtSearch" Content="{x:Static properties:Resources.BtSearch}" HorizontalAlignment="Left" Margin="215,302,0,0" VerticalAlignment="Top" Width="85" Height="30" FontSize="16" Click="BtSearch_Click" RenderTransformOrigin="0.19,0.667"/>
-            <DataGrid x:Name="DataGridInscriptions" MinWidth="1" AutoGeneratingColumn="OnAutoGeneratingColumn" MinHeight="1" ColumnWidth="*" IsReadOnly="True" Margin="320,256,10,0"/>
+            <xctk:WatermarkTextBox Watermark="{x:Static properties:Resources.AthleteDni}" Name="Dni" HorizontalAlignment="Left" Height="30" Margin="55,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" />
+            <Button Name="BtSearch" Content="{x:Static properties:Resources.BtSearch}" HorizontalAlignment="Left" Margin="85,299,0,0" VerticalAlignment="Top" Width="85" Height="30" FontSize="16" Click="BtSearch_Click" RenderTransformOrigin="0.19,0.667"/>
+            <DataGrid x:Name="DataGridInscriptions" MinWidth="1" AutoGeneratingColumn="OnAutoGeneratingColumn" MinHeight="1" ColumnWidth="*" IsReadOnly="True" Margin="320,219,10,167"/>
 
-            <Image HorizontalAlignment="Left"  Source="../../Resources/default_profile.png" VerticalAlignment="Top" Width="176" Margin="25,46,0,0" Height="170" RenderTransformOrigin="0.483,0.5"/>
+            <Image HorizontalAlignment="Left"  Source="../../Resources/default_profile.png" VerticalAlignment="Top" Width="176" Margin="55,10,0,0" Height="170" RenderTransformOrigin="0.483,0.5"/>
+            <Label FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Content="{x:Static properties:Resources.AthletePosition}" Margin="320,349,719,140" Width="201" />
+            <DataGrid x:Name="DataGridResults" MinWidth="1"  MinHeight="1" ColumnWidth="*" IsReadOnly="True" Margin="320,376,10,0"
+                         />
 
-
+            <Label FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Content="{x:Static properties:Resources.Category}" Margin="85,376,1055,103" Width="100" RenderTransformOrigin="0.515,0.375" />
+            <CheckBox Name="MaleCheckBox" IsChecked="True" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Content="{x:Static properties:Resources.MaleText}" Margin="85,443,1070,27" Click="CheckBox_OnClick" />
+            <CheckBox Name="FemaleCheckBox" IsChecked="True" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Content="{x:Static properties:Resources.FemaleText}" Margin="85,408,1055,68" Click="CheckBox_OnClick"/>
+            
 
         </Grid>
 

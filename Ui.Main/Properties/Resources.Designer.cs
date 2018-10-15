@@ -45,6 +45,17 @@ namespace Ui.Main.Properties {
                 return resourceMan;
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Competición.
+        /// </summary>
+        public static string Competition
+        {
+            get
+            {
+                return ResourceManager.GetString("Competition", resourceCulture);
+            }
+        }
         /// <summary>
         ///   Busca una cadena traducida similar a Inscripción hasta.
         /// </summary>
@@ -187,16 +198,18 @@ namespace Ui.Main.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
+
         /// <summary>
-        ///   Busca una cadena traducida similar a CATEGORIA.
+        ///   Busca una cadena traducida similar a Categoría.
         /// </summary>
-        public static string Category {
-            get {
+        public static string Category
+        {
+            get
+            {
                 return ResourceManager.GetString("Category", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Busca una cadena traducida similar a Fecha.
         /// </summary>
