@@ -163,7 +163,7 @@ namespace Logic.Db.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, INITIAL_DATE, FINISH_DATE, COMPETITION_DATE from Competition natural join CompetitionDates
         ///where (date(&apos;now&apos;) between INITIAL_DATE and FINISH_DATE)
-        ///and Competition.COMPETITION_STATUS isnull or Competition.COMPETITION_STATUS&lt;&gt;&apos;FINISH&apos;.
+        ///and  Competition.COMPETITION_STATUS=&apos;OPEN&apos;.
         /// </summary>
         internal static string SQL_SELECT_OPEN_COMPETITION
         {

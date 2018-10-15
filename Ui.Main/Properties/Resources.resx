@@ -328,4 +328,10 @@
   <data name="Competition" xml:space="preserve">
     <value>Competición</value>
   </data>
+  <data name="InscriptionsRegistered" xml:space="preserve">
+    <value>Inscripciones registradas</value>
+  </data>
+  <data name="PersonalMenu" xml:space="preserve">
+    <value>Área Personal</value>
+  </data>
 </root>
