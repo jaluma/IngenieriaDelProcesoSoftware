@@ -716,5 +716,14 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("TransferData", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cerrar.
+        /// </summary>
+        public static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
+            }
+        }
     }
 }

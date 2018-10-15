@@ -322,4 +322,7 @@
   <data name="PaymentTimeLimit" xml:space="preserve">
     <value>Dispone de 48h para realizar la transferencia.</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
 </root>

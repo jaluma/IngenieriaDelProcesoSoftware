@@ -18,7 +18,7 @@ namespace Ui.Main.Pages.Inscriptions.Payment
     /// <summary>
     /// Lógica de interacción para WireTransferWindow.xaml
     /// </summary>
-    public partial class WireTransferWindow : Window
+    public partial class WireTransferWindow : Page
     {
         private readonly AthleteDto _athlete;
         private readonly CompetitionDto _competition;
@@ -34,10 +34,10 @@ namespace Ui.Main.Pages.Inscriptions.Payment
             LbPaymentAmount.Content = cont;
         }
 
-        private void BtNext_Click(object sender, RoutedEventArgs e)
-        {
-            new InscriptionProofWindow(_athlete, _competition).Show();
-            this.Close();
+        private void BtNext_Click(object sender, RoutedEventArgs e) {
+            Window parentWindow = Window.GetWindow(this);
+            if (parentWindow != null)
+                parentWindow.Content = new InscriptionProofWindow(_athlete, _competition);
         }
     }
 }

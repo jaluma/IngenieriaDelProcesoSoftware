@@ -82,7 +82,7 @@ namespace Ui.Main.Pages.Inscriptions
                 enrollService.InsertAthleteInCompetition(_athlete, _competition);
 
                 //new InscriptionProofWindow(_athlete, _competition).ShowDialog();
-                new PaymentMethodSelectionWindow(_athlete, _competition).ShowDialog();
+                new DialogPayment(_athlete, _competition).ShowDialog();
 
             } catch (ApplicationException)
             {
@@ -126,7 +126,7 @@ namespace Ui.Main.Pages.Inscriptions
         }
 
         private void CompetitionSelectionWindow_OnLoaded(object sender, RoutedEventArgs e) {
-            if (_athlete == null || !Dni.Equals(_athlete.Dni)) {
+            if (_athlete == null || _athlete.Dni == null || !Dni.Equals(_athlete.Dni)) {
                 LoadData(Dni);
             }
         }

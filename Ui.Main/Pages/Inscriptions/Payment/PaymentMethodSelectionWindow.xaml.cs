@@ -18,7 +18,7 @@ namespace Ui.Main.Pages.Inscriptions.Payment
     /// <summary>
     /// Lógica de interacción para PaymentMethodSelection.xaml
     /// </summary>
-    public partial class PaymentMethodSelectionWindow : Window
+    public partial class PaymentMethodSelectionWindow : Page
     {
         private readonly AthleteDto _athlete;
         private readonly CompetitionDto _competition;
@@ -36,8 +36,9 @@ namespace Ui.Main.Pages.Inscriptions.Payment
         {
             if ((bool)RBWireTransfer.IsChecked)
             {
-                new WireTransferWindow(_athlete, _competition).Show();
-                this.Close();
+                Window parentWindow = Window.GetWindow(this);
+                if (parentWindow != null)
+                    parentWindow.Content = new WireTransferWindow(_athlete, _competition);
             }
         }
     }
