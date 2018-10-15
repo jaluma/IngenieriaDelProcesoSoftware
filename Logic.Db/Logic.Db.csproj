@@ -60,6 +60,8 @@
     <Compile Include="ActionObjects\AthleteLogic\Enroll\GetCategoryLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\InsertAthletesInCompetitionLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\IsCategoryInCompetitionLogic.cs" />
+    <Compile Include="ActionObjects\CompetitionLogic\SelectAllCompetitionsInscripted.cs" />
+    <Compile Include="ActionObjects\AthleteLogic\SelectAthleteByDniLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\UpdateAthletesRegisteredDorsal.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\InsertAthletesHasRegisteredLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\SelectAthleteEnrollLogic.cs" />
@@ -92,12 +94,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Connection\database.db" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Connection\database.db">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

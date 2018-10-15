@@ -1,0 +1,40 @@
+﻿<Page x:Class="Ui.Main.Pages.PersonalMenuAthlete.PersonalDataMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Ui.Main.Pages.PersonalMenuAthlete"
+      xmlns:properties="clr-namespace:Ui.Main.Properties"
+      xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+      xmlns:adorners="http://gu.se/Adorners"
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+      mc:Ignorable="d" 
+      d:DesignHeight="625" d:DesignWidth="1250"
+      Title="ListOpenCompetitions" Height="545">
+    <DockPanel  Height="545" VerticalAlignment="Bottom">
+        <Label FontSize="18"
+               FontWeight="Bold"
+               HorizontalAlignment="Center"
+               Content="{x:Static properties:Resources.PersonalMenu}" DockPanel.Dock="Top"/>
+
+
+        <Grid Width="1240" Margin="0,0,0,10">
+            <Label FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Content="{x:Static properties:Resources.PersonalInfo}" Margin="320,46,784,433" Width="136" RenderTransformOrigin="0.515,0.375" />
+            <Label FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Content="{x:Static properties:Resources.InscriptionsRegistered}" Margin="320,196,719,280" Width="201" />
+            <Label FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Content="{x:Static properties:Resources.InsertDni}" Margin="25,271,1079,214" Width="136" />
+            <DataGrid x:Name="DataGridDataPersonal" MinWidth="1" AutoGeneratingColumn="OnAutoGeneratingColumn" MinHeight="10"  ColumnWidth="*" IsReadOnly="True" Margin="0,86,10,370" SelectionChanged="DataGridDataPersonal_SelectionChanged" Height="Auto" HorizontalAlignment="Right" Width="910"/>
+
+            <xctk:WatermarkTextBox Watermark="{x:Static properties:Resources.AthleteDni}" Name="Dni" HorizontalAlignment="Left" Height="30" Margin="25,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" />
+            <Button Name="BtSearch" Content="{x:Static properties:Resources.BtSearch}" HorizontalAlignment="Left" Margin="215,302,0,0" VerticalAlignment="Top" Width="85" Height="30" FontSize="16" Click="BtSearch_Click" RenderTransformOrigin="0.19,0.667"/>
+            <DataGrid x:Name="DataGridInscriptions" MinWidth="1" AutoGeneratingColumn="OnAutoGeneratingColumn" MinHeight="1" ColumnWidth="*" IsReadOnly="True" Margin="320,256,10,0"/>
+
+            <Image HorizontalAlignment="Left"  Source="../../Resources/default_profile.png" VerticalAlignment="Top" Width="176" Margin="25,46,0,0" Height="170" RenderTransformOrigin="0.483,0.5"/>
+
+
+
+        </Grid>
+
+    </DockPanel>
+
+
+</Page>

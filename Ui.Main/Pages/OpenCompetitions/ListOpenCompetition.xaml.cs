@@ -49,6 +49,7 @@ namespace Ui.Main.Pages.OpenCompetitions
                 .Select(dr => dr.Field<long>(Properties.Resources.Competition_Id)).ToList();
 
             table.Columns.RemoveAt(0);
+           
 
             DataGridCompetition.ItemsSource = table.DefaultView;
             
