@@ -687,6 +687,17 @@ namespace Ui.Main.Properties {
         }
 
         /// <summary>
+        ///   Busca una cadena traducida similar a El usuario no está pre/inscrito a ninguna competición..
+        /// </summary>
+        public static string NoRegistered
+        {
+            get
+            {
+                return ResourceManager.GetString("NoRegistered", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Busca una cadena traducida similar a El DNI introducido no es válido..
         /// </summary>
         public static string InvalidDNI

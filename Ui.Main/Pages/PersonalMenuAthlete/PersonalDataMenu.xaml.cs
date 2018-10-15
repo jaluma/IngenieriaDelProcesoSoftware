@@ -56,7 +56,7 @@ namespace Ui.Main.Pages.PersonalMenuAthlete
             DataTable table = _serviceAthlete.SelectAthleteByDni(Dni.Text.ToUpper());
             if (table.Rows.Count == 0)
             {
-                MessageBox.Show(Properties.Resources.NoRegistrado);
+                MessageBox.Show(Properties.Resources.NoRegistered);
                 return;
             }
 
@@ -80,9 +80,9 @@ namespace Ui.Main.Pages.PersonalMenuAthlete
 
             for (int i = 1; i < _tablePersonal.Rows.Count; i++) {
                 _tablePersonal.Rows.RemoveAt(i); }
-            if (DataGridDataPersonal.Columns.Count >= 1){
-                DataGridDataPersonal.Columns.ElementAt(3).Visibility = Visibility.Collapsed;
-            }
+
+            _tablePersonal.Columns.RemoveAt(3);
+            
             DataGridDataPersonal.ItemsSource = _tablePersonal.DefaultView;
             GenerateInscriptionsDataTable();
 
@@ -120,22 +120,17 @@ namespace Ui.Main.Pages.PersonalMenuAthlete
             _tableResult.Columns[Properties.Resources.AthletePosition].AutoIncrementSeed = 1;
             _tableResult.Columns[Properties.Resources.AthletePosition].AutoIncrementStep = 1;
 
-            _tableResult.Merge(_serviceAthleteResult.SelectAthleteByDni(Dni.Text.ToUpper()));
+            _tableResult.Merge(_serviceAthleteResult.SelectParticipatedByDni(Dni.Text.ToUpper()));
 
-            _tableResult.Columns[1].ColumnName = Properties.Resources.AthleteDni;
-            _tableResult.Columns[2].ColumnName = Properties.Resources.AthleteName;
-            _tableResult.Columns[3].ColumnName = Properties.Resources.AthleteSurname;
-            _tableResult.Columns[4].ColumnName = Properties.Resources.Competition;
-            _tableResult.Columns[5].ColumnName = Properties.Resources.AthleteGender;
+          
+            _tableResult.Columns[1].ColumnName = Properties.Resources.Competition;
+            _tableResult.Columns[2].ColumnName = Properties.Resources.AthleteGender;
 
 
             DataGridResults.ItemsSource = _tableResult.DefaultView;
             if (DataGridResults.Columns.Count >= 1)
             {
-                DataGridResults.Columns.ElementAt(1).Visibility = Visibility.Collapsed;
-                DataGridResults.Columns.ElementAt(2).Visibility = Visibility.Collapsed;
-                DataGridResults.Columns.ElementAt(3).Visibility = Visibility.Collapsed;
-                DataGridResults.Columns.ElementAt(5).Visibility = Visibility.Collapsed;
+               DataGridResults.Columns.ElementAt(2).Visibility = Visibility.Collapsed;                
             }
         }
 

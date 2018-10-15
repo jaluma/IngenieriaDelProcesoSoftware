@@ -334,4 +334,7 @@
   <data name="PersonalMenu" xml:space="preserve">
     <value>Área Personal</value>
   </data>
+  <data name="NoRegistered" xml:space="preserve">
+    <value>El usuario no está pre/inscrito a ninguna competición.</value>
+  </data>
 </root>

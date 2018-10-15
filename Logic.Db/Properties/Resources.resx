@@ -217,15 +217,18 @@ where date('now') BETWEEN INITIAL_DATE and FINISH_DATE and COMPETITION_STATUS&lt
     <value>select * from Competition</value>
   </data>
   <data name="SQL_SELECT_ATHLETE_BY_DNI" xml:space="preserve">
-    <value>SELECT Athlete.ATHLETE_DNI, Athlete.ATHLETE_NAME, 
+    <value>SELECT distinct Athlete.ATHLETE_DNI, Athlete.ATHLETE_NAME, 
 Athlete.ATHLETE_SURNAME, 
  Competition.Competition_name, Athlete.ATHLETE_GENDER
- FROM Athlete, hasParticipated, competition
- where Athlete.ATHLETE_DNI = @DNI and hasParticipated.athlete_dni =@DNI and hasparticipated.competition_id = competition.competition_id</value>
+ FROM Athlete, hasParticipated, competition, enroll
+ where Athlete.ATHLETE_DNI = @DNI and enroll.athlete_dni =@DNI and hasparticipated.competition_id = competition.competition_id</value>
   </data>
   <data name="SQL_SELECT_ALL_COMP_INSCRIPTED" xml:space="preserve">
     <value>Select Competition.COMPETITION_NAME, Enroll.STATUS, Enroll.DATE_INSCRIPTION,
  Enroll.DORSAL from Enroll, Competition where Athlete_dni = @DNI
 and Competition.COMPETITION_ID = Enroll.COMPETITION_ID</value>
+  </data>
+  <data name="SQL_SELECT_COMPETITIONS_PARTICIPATED" xml:space="preserve">
+    <value>select  Competition.COMPETITION_NAME,Athlete.athlete_gender from Competition, hasparticipated, athlete where Competition.COMPETITION_ID= hasparticipated.COMPETITION_ID and hasparticipated.athlete_dni = @DNI and athlete.athlete_dni = @DNI</value>
   </data>
 </root>

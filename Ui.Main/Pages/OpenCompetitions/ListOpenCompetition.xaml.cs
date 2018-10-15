@@ -48,10 +48,7 @@ namespace Ui.Main.Pages.OpenCompetitions
             _columnIds = table.AsEnumerable()
                 .Select(dr => dr.Field<long>(Properties.Resources.Competition_Id)).ToList();
 
-            if (DataGridCompetition.Columns.Count >= 1)
-            {
-                DataGridCompetition.Columns.ElementAt(0).Visibility = Visibility.Collapsed;
-            }
+            table.Columns.RemoveAt(0);
             DataGridCompetition.ItemsSource = table.DefaultView;
             
         }

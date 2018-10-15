@@ -38,6 +38,13 @@ namespace Logic.Db.Util.Services {
             return select.Table;
         }
 
+        public DataTable SelectParticipatedByDni(string dni)
+        {
+            SelectCompParticipatedByAhtlete select = new SelectCompParticipatedByAhtlete(ref _conn, dni);
+            select.Execute();
+            return select.Table;
+        }
+
         public static void PrintAthletes(IEnumerable<AthleteDto> list) {
             Console.WriteLine(string.Join("\n", list));
         }

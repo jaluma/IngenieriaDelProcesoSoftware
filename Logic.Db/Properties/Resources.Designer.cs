@@ -186,6 +186,18 @@ namespace Logic.Db.Properties {
             }
         }
 
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a select  Competition.COMPETITION_NAME from Competition, hasparticipated where Competition.COMPETITION_ID= hasparticipated.COMPETITION_ID and hasparticipated.athlete_dni = @DNI.
+        /// </summary>
+        internal static string SQL_SELECT_COMPETITIONS_PARTICIPATED
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_COMPETITIONS_PARTICIPATED", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Busca una cadena traducida similar a SELECT * FROM Competition
         ///WHERE COMPETITION_STATUS=@STATUS.
