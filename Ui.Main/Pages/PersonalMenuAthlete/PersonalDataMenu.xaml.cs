@@ -80,8 +80,8 @@ namespace Ui.Main.Pages.PersonalMenuAthlete
 
             for (int i = 1; i < _tablePersonal.Rows.Count; i++) {
                 _tablePersonal.Rows.RemoveAt(i); }
-            if (DataGridResults.Columns.Count >= 1){
-                DataGridResults.Columns.ElementAt(3).Visibility = Visibility.Collapsed;
+            if (DataGridDataPersonal.Columns.Count >= 1){
+                DataGridDataPersonal.Columns.ElementAt(3).Visibility = Visibility.Collapsed;
             }
             DataGridDataPersonal.ItemsSource = _tablePersonal.DefaultView;
             GenerateInscriptionsDataTable();
