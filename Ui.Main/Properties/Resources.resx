@@ -170,7 +170,7 @@
     <value>Masculina</value>
   </data>
   <data name="Category" xml:space="preserve">
-    <value>CATEGORIA</value>
+    <value>Categoría</value>
   </data>
   <data name="AthleteDni" xml:space="preserve">
     <value>DNI</value>
@@ -333,5 +333,8 @@
   </data>
   <data name="InsertDni" xml:space="preserve">
     <value>Introduzca su dni</value>
+  </data>
+  <data name="Competition" xml:space="preserve">
+    <value>Competición</value>
   </data>
 </root>
