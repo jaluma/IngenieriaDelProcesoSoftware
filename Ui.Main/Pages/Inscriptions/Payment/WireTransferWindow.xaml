@@ -17,8 +17,10 @@
                      FontSize="14" HorizontalAlignment="Left" DockPanel.Dock="Top"/>
             <Label Content="{x:Static properties:Resources.PaymentTimeLimit}" Height="26" VerticalAlignment="Top" Margin="8,20,8,0"
                      FontSize="14" HorizontalAlignment="Center" DockPanel.Dock="Top"/>
-            <Button Name="BtNext" Content="{x:Static properties:Resources.Next}" Height="35" VerticalAlignment="Top" DockPanel.Dock="Bottom" Margin="179,25,10,0" FontSize="16" Click="BtNext_Click"/>
+            
         </DockPanel>
-
+        <Button Name="BtNext" Content="{x:Static properties:Resources.Next}" Height="35" VerticalAlignment="Top" DockPanel.Dock="Bottom" Margin="49,255,140,0" FontSize="16" Click="BtNext_Click"/>
+        <Button Content="{x:Static properties:Resources.Close}" Height="35" VerticalAlignment="Top" 
+                DockPanel.Dock="Bottom" FontSize="16" HorizontalAlignment="Right" Width="118" Margin="0,255,10,0" Click="Button_Click"/>
     </Grid>
 </Page>

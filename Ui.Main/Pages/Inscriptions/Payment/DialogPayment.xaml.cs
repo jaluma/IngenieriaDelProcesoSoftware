@@ -26,6 +26,9 @@ namespace Ui.Main.Pages.Inscriptions.Payment
         {
             InitializeComponent();
 
+            Buttons = null;
+
+
             Content = new PaymentMethodSelectionWindow(athlete, competition);
         }
     }

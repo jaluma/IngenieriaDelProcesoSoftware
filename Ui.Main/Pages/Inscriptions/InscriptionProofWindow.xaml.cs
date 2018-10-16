@@ -20,7 +20,7 @@ namespace Ui.Main.Pages.Inscriptions
     /// <summary>
     /// Lógica de interacción para InscriptionProofWindow.xaml
     /// </summary>
-    public partial class InscriptionProofWindow : ModernDialog
+    public partial class InscriptionProofWindow : Page
     {
         private readonly CompetitionService _competitionService;
         private readonly EnrollService _enrollService;
@@ -30,19 +30,26 @@ namespace Ui.Main.Pages.Inscriptions
 
         public InscriptionProofWindow(AthleteDto athlete, CompetitionDto competition)
         {
-            InitializeComponent();
-
             _athlete = athlete;
+            _competition = competition;
+
+            InitializeComponent();
 
             _competitionService = new CompetitionService();
             _enrollService = new EnrollService(_competition);
 
-            _competition = _competitionService.SearchCompetitionById(competition);
-
             string category = _enrollService.GetCategory(_athlete, _competition);
+
+            EnrollService enrollService = new EnrollService(_competition);
+            enrollService.InsertAthleteInCompetition(_athlete, _competition);
 
             TxJustificante.Text = "Atleta: " + _athlete.Name + " " + _athlete.Surname + "\nCompetición: " + _competition.Name +
                 "\nCategoría: " + category + "\nFecha de inscripción: " + DateTime.Now.ToShortDateString() + "\nPrecio de la inscripción: " +_competition.Price + " €";
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e) {
+
+            Window.GetWindow(this)?.Close();
         }
     }
 }

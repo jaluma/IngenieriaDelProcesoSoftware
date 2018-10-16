@@ -41,5 +41,9 @@ namespace Ui.Main.Pages.Inscriptions.Payment
                     parentWindow.Content = new WireTransferWindow(_athlete, _competition);
             }
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e) {
+            Window.GetWindow(this)?.Close();
+        }
     }
 }

@@ -53,14 +53,17 @@ namespace Ui.Main.Pages.Inscriptions
         private void LoadData(string dni) {
             List<AthleteDto> atleList = _athletesService.SelectAthleteTable();
 
-            try {
-                _athlete = atleList.First(a => a.Dni.Equals(dni));
+            if (dni != null) {
+                try {
+                    _athlete = atleList.First(a => a.Dni.ToUpper().Equals(dni.ToUpper()));
 
-                PlaceData();
+                    PlaceData();
 
-                GetListCompetition();
+                    GetListCompetition();
 
-            } catch(InvalidOperationException) { }
+                } catch(InvalidOperationException) { }
+            }
+            
         }
 
         private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
@@ -76,13 +79,12 @@ namespace Ui.Main.Pages.Inscriptions
                 MessageBox.Show(Properties.Resources.NothingSelected);
                 return;
             }
-            EnrollService enrollService = new EnrollService(_competition);
+            
             try
             {
-                enrollService.InsertAthleteInCompetition(_athlete, _competition);
-
-                //new InscriptionProofWindow(_athlete, _competition).ShowDialog();
+                _competition = _competitionService.SearchCompetitionById(_competition);
                 new DialogPayment(_athlete, _competition).ShowDialog();
+                LoadData(TxDni.Text);
 
             } catch (ApplicationException)
             {
@@ -94,15 +96,18 @@ namespace Ui.Main.Pages.Inscriptions
         private void CompetitionsToSelect_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int indexSeletected = CompetitionsToSelect.SelectedIndex;
-            
-            _competition = new CompetitionDto()
-            {
-                ID = (int)_columnIds[indexSeletected]
-            };
+
+            if (indexSeletected != -1) {
+                _competition = new CompetitionDto()
+                {
+                    ID = (int)_columnIds[indexSeletected]
+                };
+            }
+
         }
 
         private void GetListCompetition() {
-            DataTable table = _competitionService.ListCompetitionsToInscribe();
+            DataTable table = _competitionService.ListCompetitionsToInscribe(_athlete);
             table.Columns[0].ColumnName = Properties.Resources.Competition_Id;
             table.Columns[1].ColumnName = Properties.Resources.Competition_Name;
             table.Columns[2].ColumnName = Properties.Resources.Competition_Type;

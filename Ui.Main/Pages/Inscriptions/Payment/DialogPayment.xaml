@@ -12,8 +12,7 @@
 
     <!--<mui:ModernDialog.Buttons>
         <x:Array Type="Button">
-            <Button Name="BtNext" Content="{x:Static properties:Resources.Next}" />
-            <Button Name="BtClose" Content="{x:Static properties:Resources.Close}" />
+            --><!--<Button Name="BtClose" Content="{x:Static properties:Resources.Close}" IsEnabled="False" />--><!--
         </x:Array>
     </mui:ModernDialog.Buttons>-->
 

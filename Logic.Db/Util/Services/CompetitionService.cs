@@ -34,9 +34,9 @@ namespace Logic.Db.Util.Services {
             return @select.List.First(s => s.Name.Equals(competition.Name));
         }
 
-        public DataTable ListCompetitionsToInscribe()
+        public DataTable ListCompetitionsToInscribe(AthleteDto athlete)
         {
-            CompetitionsToInscribeLogic competitions = new CompetitionsToInscribeLogic(ref _conn);
+            CompetitionsToInscribeLogic competitions = new CompetitionsToInscribeLogic(ref _conn, athlete);
             competitions.Execute();
             return competitions.Table;
         }

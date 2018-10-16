@@ -58,7 +58,7 @@ namespace Ui.Main.Pages.Inscriptions
             {
                 Name = TxName.Text,
                 Surname = TxSurname.Text,
-                Dni = TxDNI.Text,
+                Dni = TxDNI.Text.ToUpper(),
                 BirthDate = date
             };
             if ((bool)RBMasc.IsChecked)

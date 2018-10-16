@@ -9,7 +9,7 @@
                   xmlns:properties="clr-namespace:Ui.Main.Properties"
                   mc:Ignorable="d"
         Title="Competiciones populares"
-        Height="625" Width="1250" MinHeight="450" MinWidth="450">
+        Height="625" Width="1250" MinHeight="450" MinWidth="450" ResizeMode="CanMinimize">
         <!--Style="{StaticResource BlankWindow}"-->
 
     <mui:ModernWindow.MenuLinkGroups>
