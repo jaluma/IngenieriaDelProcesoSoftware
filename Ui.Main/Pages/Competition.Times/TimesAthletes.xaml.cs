@@ -76,10 +76,28 @@ namespace Ui.Main.Pages.Competition.Times
                 _table.Columns[6].ColumnName = Properties.Resources.InitialTime;
                 _table.Columns[7].ColumnName = Properties.Resources.FinishTime;
 
-                _table.Columns.Remove(Properties.Resources.InitialTime);
-                _table.Columns.Remove(Properties.Resources.FinishTime);
+                DataTable dtClone = _table.Clone();
+                dtClone.Columns[6].ColumnName = Properties.Resources.Time;
+                dtClone.Columns[Properties.Resources.Time].DataType = typeof(string);
 
-                DataGridTimes.ItemsSource = _table.DefaultView;
+                
+                foreach (DataRow row in _table.Rows) {
+                    object[] dr = row.ItemArray as object[];
+                    if (dr[6] is DBNull || dr[7] is DBNull) {
+                        dr[6] = "---";
+                    } else {
+                        dr[6] = (long)dr[7] - (long)dr[6];
+                    }
+
+                    var desRow = dtClone.NewRow();
+                    desRow.ItemArray = dr;
+                    dtClone.Rows.Add(desRow);
+                }
+
+                //_table.Columns.Remove(Properties.Resources.InitialTime);
+                dtClone.Columns.Remove(Properties.Resources.FinishTime);
+
+                _table = dtClone;
 
                 CheckBox_OnClick(null, null);
             }

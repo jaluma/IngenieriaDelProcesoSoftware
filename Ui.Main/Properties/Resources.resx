@@ -337,4 +337,7 @@
   <data name="NoRegistered" xml:space="preserve">
     <value>El usuario no está pre/inscrito a ninguna competición.</value>
   </data>
+  <data name="Time" xml:space="preserve">
+    <value>Tiempo</value>
+  </data>
 </root>
