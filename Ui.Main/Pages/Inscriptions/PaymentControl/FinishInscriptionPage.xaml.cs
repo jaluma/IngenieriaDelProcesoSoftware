@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Logic.Db.Dto;
 
 namespace Ui.Main.Pages.Inscriptions.InscriptionsPaidControl
 {
@@ -57,6 +58,29 @@ namespace Ui.Main.Pages.Inscriptions.InscriptionsPaidControl
             return list;
         }
 
+        private void BtActualizar_Click(object sender, RoutedEventArgs e)
+        {
+            if (_file == null || _file.Equals(""))
+            {
+                System.Windows.MessageBox.Show(Properties.Resources.NotSelectedFile);
+                return;
+            }
+                
+            List<PaymentDto> list = new List<PaymentDto>();
+            foreach (string[] s in LeerExtracto(_file))
+            {
+                PaymentDto dto = new PaymentDto()
+                {
+                    Dni = s[0],
+                    Name = s[1],
+                    Surname = s[2],
+                    Date = DateTime.Parse(s[3]),
+                    Amount = float.Parse(s[4])
+                };
+                list.Add(dto);
+            }
 
+
+        }
     }
 }

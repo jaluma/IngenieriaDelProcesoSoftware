@@ -857,5 +857,16 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("UpdateInscriptionsState", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se ha seleccionado ningún extracto bancario..
+        /// </summary>
+        public static string NotSelectedFile
+        {
+            get
+            {
+                return ResourceManager.GetString("NotSelectedFile", resourceCulture);
+            }
+        }
     }
 }

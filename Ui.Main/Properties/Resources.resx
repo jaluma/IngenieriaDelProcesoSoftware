@@ -346,6 +346,9 @@
   <data name="FinishInscriptions" xml:space="preserve">
     <value>Finalizar inscripciones</value>
   </data>
+  <data name="NotSelectedFile" xml:space="preserve">
+    <value>No se ha seleccionado ningún extracto bancario.</value>
+  </data>
   <data name="TilePayments" xml:space="preserve">
     <value>Pagos</value>
   </data>

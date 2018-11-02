@@ -15,7 +15,7 @@
                 Content="{x:Static properties:Resources.FinishInscriptions}" DockPanel.Dock="Top" Height="40" />
             <Button Name="BtSeleccionar" Content="{x:Static properties:Resources.DocumentSelection}" FontSize="18" Margin="420,64,420,380" Click="BtSeleccionar_Click" Width="296" DockPanel.Dock="Top" />
             <TextBox Height="35" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="200,-347, 200, 0" Name="txFileName" Background="{x:Null}" HorizontalContentAlignment="Center" DockPanel.Dock="Top"/>
-            <Button Name="BtActualizar" FontSize="18" Height="35" VerticalAlignment="Top" Margin="400,-275, 400, 0" DockPanel.Dock="Top" Content="" />
+            <Button Name="BtActualizar" FontSize="18" Height="35" VerticalAlignment="Top" Margin="400,-275, 400, 0" DockPanel.Dock="Top" Content="{x:Static properties:Resources.UpdateInscriptionsState}" Click="BtActualizar_Click" />
 
         </DockPanel>
     </Grid>
