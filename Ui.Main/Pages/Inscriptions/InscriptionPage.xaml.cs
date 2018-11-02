@@ -48,7 +48,7 @@ namespace Ui.Main.Pages.Inscriptions
 
             DateTime date = (DateTime)DPBirthDate.SelectedDate;
 
-            if (DateTime.Now.Year - date.Year < 18)
+            if (DateTime.Now.Year - date.Year < 18 || DateTime.Now.Year - date.Year > 100)
             {
                 MessageBox.Show(Properties.Resources.InvalidAge);
                 return;

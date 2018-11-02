@@ -802,5 +802,16 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("Close", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Atletas preinscritos.
+        /// </summary>
+        public static string Preregistered
+        {
+            get
+            {
+                return ResourceManager.GetString("Preregistered", resourceCulture);
+            }
+        }
     }
 }
