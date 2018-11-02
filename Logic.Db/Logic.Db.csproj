@@ -52,6 +52,7 @@
       <HintPath>..\packages\System.Data.SQLite.Linq.1.0.109.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +63,7 @@
     <Compile Include="ActionObjects\AthleteLogic\Enroll\IsDorsalsByCompetition.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\IsCategoryInCompetitionLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\SelectCompParticipatedByAhtlete.cs" />
+    <Compile Include="ActionObjects\CompetitionLogic\SelectAllCategoriesByCompetitionId.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\SelectAllCompetitionsInscripted.cs" />
     <Compile Include="ActionObjects\AthleteLogic\SelectAthleteByDniLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\UpdateAthletesRegisteredDorsal.cs" />
@@ -79,10 +81,12 @@
     <Compile Include="ActionObjects\IActionObject.cs" />
     <Compile Include="ActionObjects\AthleteLogic\SelectAthleteLogic.cs" />
     <Compile Include="ActionObjects\TimesLogic\SelectCompetitionTimeLogic.cs" />
+    <Compile Include="ActionObjects\TimesLogic\SelectHasParticipatedTimeLogicByCategory.cs" />
     <Compile Include="ActionObjects\TimesLogic\SelectHasParticipatedTimeLogic.cs" />
     <Compile Include="Connection\DBConnection.cs" />
     <Compile Include="Dto\AthleteCompetitionInscriptionDto.cs" />
     <Compile Include="Dto\AthleteDto.cs" />
+    <Compile Include="Dto\CategortDto.cs" />
     <Compile Include="Dto\CompetitionDto.cs" />
     <Compile Include="Dto\HasParticipatedDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

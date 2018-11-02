@@ -310,7 +310,23 @@ namespace Logic.Db.Properties {
             }
         }
 
+        internal static string SQL_SELECT_CATEGORY_BY_COMPETITION
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_CATEGORY_BY_COMPETITION", resourceCulture);
+            }
+        }
 
+        internal static string SQL_SELECT_ATHLETES_TIMES_BY_GENDER
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_ATHLETES_TIMES_BY_GENDER", resourceCulture);
+            }
+        }
 
+        
+        
     }
 }

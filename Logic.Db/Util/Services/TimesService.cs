@@ -14,5 +14,11 @@ namespace Logic.Db.Util.Services {
             selectCompetition.Execute();
             return selectCompetition.Table;
         }
+
+        public DataTable SelectCompetitionTimes(CompetitionDto competition, CategoryDto categorySelected) {
+            SelectHasParticipatedTimeLogicByCategory selectCompetition = new SelectHasParticipatedTimeLogicByCategory(ref _conn, competition, categorySelected);
+            selectCompetition.Execute();
+            return selectCompetition.Table;
+        }
     }
 }

@@ -86,5 +86,10 @@ namespace Logic.Db.Util.Services {
         //public static void PrintAthletes(IEnumerable<Athlete> list) {
         //    Console.WriteLine(string.Join("\n", list));
         //}
+        public IEnumerable<CategoryDto> SelectAllCategoriesByCompetitionId(CompetitionDto competition) {
+            SelectAllCategoriesByCompetitionId categories = new SelectAllCategoriesByCompetitionId(ref _conn, competition);
+            categories.Execute();
+            return categories.Categories;
+        }
     }
 }

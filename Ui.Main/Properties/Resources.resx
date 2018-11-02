@@ -340,4 +340,7 @@
   <data name="Time" xml:space="preserve">
     <value>Tiempo</value>
   </data>
+  <data name="Absolute" xml:space="preserve">
+    <value>Absoluta</value>
+  </data>
 </root>

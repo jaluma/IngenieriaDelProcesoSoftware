@@ -802,5 +802,14 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("Close", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Absoluta.
+        /// </summary>
+        public static string Absolute {
+            get {
+                return ResourceManager.GetString("Absolute", resourceCulture);
+            }
+        }
     }
 }
