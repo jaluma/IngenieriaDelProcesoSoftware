@@ -57,7 +57,11 @@ namespace Logic.Db.Util.Services {
             return getCategory.Category;
         }
 
-
+        public bool IsDorsalsInCompetition(CompetitionDto competition) {
+            IsDorsalsByCompetition dorsals = new IsDorsalsByCompetition(ref _conn, competition);
+            dorsals.Execute();
+            return dorsals.IsDorsals;
+        }
 
     }
 }

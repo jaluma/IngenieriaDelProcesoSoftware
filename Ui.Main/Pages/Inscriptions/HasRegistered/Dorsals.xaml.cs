@@ -73,8 +73,18 @@ namespace Ui.Main.Pages.Inscriptions.HasRegistered
 
         private void BtDorsals_Click(object sender, RoutedEventArgs e) {
             try {
+                bool dorsals = _enroll.IsDorsalsInCompetition(_competition);
 
-                _enroll.UpdateAthleteRegisteredDorsal(_competition);
+                MessageBoxResult result = MessageBoxResult.None;
+                if (dorsals) {
+                    result = MessageBox.Show("Quiere reemplazar los dorsales?");
+                }
+
+                if (result == MessageBoxResult.Yes) {
+                    // insertar
+                } else {
+                    _enroll.UpdateAthleteRegisteredDorsal(_competition);
+                }
 
                 GenerateTable();
 

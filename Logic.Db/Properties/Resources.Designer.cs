@@ -302,7 +302,13 @@ namespace Logic.Db.Properties {
             }
         }
 
-        
+        internal static string SQL_SELECT_COUNT_DORSALS_BY_COMPETITION
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_COUNT_DORSALS_BY_COMPETITION", resourceCulture);
+            }
+        }
 
 
 
