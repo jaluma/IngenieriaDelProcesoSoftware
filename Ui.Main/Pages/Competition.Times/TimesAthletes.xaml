@@ -6,7 +6,6 @@
       xmlns:properties="clr-namespace:Ui.Main.Properties"
       xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
       xmlns:mui="http://firstfloorsoftware.com/ModernUI"
-      xmlns:tabControls="clr-namespace:Ui.Main.TabControls"
       mc:Ignorable="d" 
       d:DesignHeight="625" d:DesignWidth="1250"
       Title="TimesAthletes" Loaded="TimesAthletes_OnLoaded">

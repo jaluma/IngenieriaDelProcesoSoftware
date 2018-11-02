@@ -23,7 +23,6 @@ using FirstFloor.ModernUI.Windows.Controls;
 using Logic.Db;
 using Logic.Db.Dto;
 using Logic.Db.Util.Services;
-using Ui.Main.TabControls;
 using Xceed.Wpf.Toolkit.Core.Converters;
 
 namespace Ui.Main.Pages.Competition.Times
