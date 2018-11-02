@@ -824,5 +824,38 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("DocumentSelection", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Pagos.
+        /// </summary>
+        public static string TilePayments
+        {
+            get
+            {
+                return ResourceManager.GetString("TilePayments", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Comprobar pagos de inscripción.
+        /// </summary>
+        public static string TitleFinishPayment
+        {
+            get
+            {
+                return ResourceManager.GetString("TitleFinishPayment", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Actualizar estado de las inscripciones.
+        /// </summary>
+        public static string UpdateInscriptionsState
+        {
+            get
+            {
+                return ResourceManager.GetString("UpdateInscriptionsState", resourceCulture);
+            }
+        }
     }
 }

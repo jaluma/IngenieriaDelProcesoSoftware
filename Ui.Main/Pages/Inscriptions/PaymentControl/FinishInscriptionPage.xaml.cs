@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,7 @@ namespace Ui.Main.Pages.Inscriptions.InscriptionsPaidControl
     public partial class FinishInscriptionPage : Page
     {
 
-        private String _file;
+        private string _file;
 
         public FinishInscriptionPage()
         {
@@ -38,5 +39,24 @@ namespace Ui.Main.Pages.Inscriptions.InscriptionsPaidControl
             _file = openFile.FileName;
             txFileName.Text = _file;
         }
+
+        private List<string[]> LeerExtracto(string file)
+        {
+            List<string[]> list = new List<string[]>();
+            using (StreamReader readFile = new StreamReader(file))
+            {
+                string line;
+                string[] row;
+
+                while ((line = readFile.ReadLine()) != null)
+                {
+                    row = line.Split(',');
+                    list.Add(row);
+                }
+            }
+            return list;
+        }
+
+
     }
 }

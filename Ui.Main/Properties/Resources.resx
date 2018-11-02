@@ -346,4 +346,13 @@
   <data name="FinishInscriptions" xml:space="preserve">
     <value>Finalizar inscripciones</value>
   </data>
+  <data name="TilePayments" xml:space="preserve">
+    <value>Pagos</value>
+  </data>
+  <data name="TitleFinishPayment" xml:space="preserve">
+    <value>Comprobar pagos de inscripción</value>
+  </data>
+  <data name="UpdateInscriptionsState" xml:space="preserve">
+    <value>Actualizar estado de las inscripciones</value>
+  </data>
 </root>

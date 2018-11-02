@@ -38,6 +38,11 @@
                 <mui:Link DisplayName="{x:Static properties:Resources.TitleTimesCompetition}" Source="/Pages/Competition.Times/TimesAthletes.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
+        <mui:LinkGroup DisplayName="{x:Static properties:Resources.TilePayments}">
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="{x:Static properties:Resources.TitleFinishPayment}" Source="/Pages/Inscriptions/PaymentControl/FinishInscriptionPage.xaml"/>
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
     </mui:ModernWindow.MenuLinkGroups>
 
     <mui:ModernWindow.TitleLinks>
