@@ -1,0 +1,21 @@
+﻿<Page x:Class="Ui.Main.Pages.Inscriptions.InscriptionsPaidControl.FinishInscriptionPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:properties="clr-namespace:Ui.Main.Properties"
+      xmlns:local="clr-namespace:Ui.Main.Pages.Inscriptions.InscriptionsPaidControl"
+      mc:Ignorable="d" 
+      d:DesignHeight="625" d:DesignWidth="1250"
+      Title="FinishInscriptionPage">
+
+    <Grid>
+        <DockPanel Height="525" VerticalAlignment="Bottom">
+            <Label FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalAlignment="Center"
+                Content="{x:Static properties:Resources.FinishInscriptions}" DockPanel.Dock="Top" Height="40" />
+            <Button Name="BtSeleccionar" Content="{x:Static properties:Resources.DocumentSelection}" FontSize="18" Margin="420,64,420,380" Click="BtSeleccionar_Click" Width="296" DockPanel.Dock="Top" />
+            <TextBox Height="35" VerticalAlignment="Top" Margin="400,-347" Name="txFileName" Background="{x:Null}" IsReadOnlyCaretVisible="True" />
+
+        </DockPanel>
+    </Grid>
+</Page>

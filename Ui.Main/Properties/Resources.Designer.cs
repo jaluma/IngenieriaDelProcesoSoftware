@@ -802,5 +802,27 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("Close", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Finalizar inscripciones.
+        /// </summary>
+        public static string FinishInscriptions
+        {
+            get
+            {
+                return ResourceManager.GetString("FinishInscriptions", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Seleccionar extracto bancario.
+        /// </summary>
+        public static string DocumentSelection
+        {
+            get
+            {
+                return ResourceManager.GetString("DocumentSelection", resourceCulture);
+            }
+        }
     }
 }

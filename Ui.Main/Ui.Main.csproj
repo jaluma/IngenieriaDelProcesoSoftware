@@ -146,6 +146,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Inscriptions\PaymentControl\FinishInscriptionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Inscriptions\Payment\DialogPayment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -187,6 +191,9 @@
     </Compile>
     <Compile Include="Pages\Inscriptions\InscriptionProofWindow.xaml.cs">
       <DependentUpon>InscriptionProofWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Inscriptions\PaymentControl\FinishInscriptionPage.xaml.cs">
+      <DependentUpon>FinishInscriptionPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Inscriptions\Payment\DialogPayment.xaml.cs">
       <DependentUpon>DialogPayment.xaml</DependentUpon>
