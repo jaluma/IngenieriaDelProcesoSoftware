@@ -13,5 +13,6 @@ namespace Logic.Db.Dto
         public string Surname;
         public DateTime Date;
         public float Amount;
+        public long Id;
     }
 }

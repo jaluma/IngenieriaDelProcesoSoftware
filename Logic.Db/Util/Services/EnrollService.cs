@@ -57,7 +57,17 @@ namespace Logic.Db.Util.Services {
             return getCategory.Category;
         }
 
+        public List<PaymentDto> SelectPreregisteredAthletes()
+        {
+            SelectPreregisteredAthletes select = new SelectPreregisteredAthletes(ref _conn);
+            select.Execute();
+            return select.Preregistered;
+        }
 
-
+        public void UpdateInscriptionStatus(string dni, long id, string status)
+        {
+            UpdateInscriptionStatus update = new UpdateInscriptionStatus(ref _conn, dni, id, status);
+            update.Execute();
+        }
     }
 }

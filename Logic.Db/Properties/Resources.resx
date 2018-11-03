@@ -231,4 +231,10 @@ and Competition.COMPETITION_ID = Enroll.COMPETITION_ID</value>
   <data name="SQL_SELECT_COMPETITIONS_PARTICIPATED" xml:space="preserve">
     <value>select  Competition.COMPETITION_NAME,Athlete.athlete_gender from Competition, hasparticipated, athlete where Competition.COMPETITION_ID= hasparticipated.COMPETITION_ID and hasparticipated.athlete_dni = @DNI and athlete.athlete_dni = @DNI</value>
   </data>
+  <data name="SQL_SELECT_PREREGISTERED" xml:space="preserve">
+    <value>select ATHLETE_DNI, COMPETITION_ID, COMPETITION_PRICE, DATE_INSCRIPTION from Enroll natural join Competition where status in ('PRE-REGISTERED', 'PREREGISTERED')</value>
+  </data>
+  <data name="SQL_UPDATE_INSCRIPTION_STATUS" xml:space="preserve">
+    <value>update Enroll set status=@STATUS where competition_id=@COMPETITION_ID and athlete_dni=@DNI</value>
+  </data>
 </root>
