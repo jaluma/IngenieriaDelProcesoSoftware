@@ -868,5 +868,27 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("NotSelectedFile", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a El extracto seleccionado está vacío..
+        /// </summary>
+        public static string EmptyDocument
+        {
+            get
+            {
+                return ResourceManager.GetString("EmptyDocument", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a El documento seleccionado no es válido..
+        /// </summary>
+        public static string InvalidDocument
+        {
+            get
+            {
+                return ResourceManager.GetString("InvalidDocument", resourceCulture);
+            }
+        }
     }
 }

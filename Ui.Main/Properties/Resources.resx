@@ -358,4 +358,10 @@
   <data name="UpdateInscriptionsState" xml:space="preserve">
     <value>Actualizar estado de las inscripciones</value>
   </data>
+  <data name="EmptyDocument" xml:space="preserve">
+    <value>El extracto seleccionado está vacío.</value>
+  </data>
+  <data name="InvalidDocument" xml:space="preserve">
+    <value>El documento seleccionado no es válido.</value>
+  </data>
 </root>

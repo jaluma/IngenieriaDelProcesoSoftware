@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Logic.Db.Dto;
+using Logic.Db.Util.Services;
 
 namespace Ui.Main.Pages.Inscriptions.InscriptionsPaidControl
 {
@@ -23,11 +24,12 @@ namespace Ui.Main.Pages.Inscriptions.InscriptionsPaidControl
     /// </summary>
     public partial class FinishInscriptionPage : Page
     {
-
+        private readonly EnrollService _enrollService;
         private string _file;
 
         public FinishInscriptionPage()
         {
+            _enrollService = new EnrollService(null);
             InitializeComponent();
         }
 
@@ -47,7 +49,7 @@ namespace Ui.Main.Pages.Inscriptions.InscriptionsPaidControl
             using (StreamReader readFile = new StreamReader(file))
             {
                 string line;
-                string[] row;
+                string[] row = new string[5];
 
                 while ((line = readFile.ReadLine()) != null)
                 {
@@ -55,6 +57,9 @@ namespace Ui.Main.Pages.Inscriptions.InscriptionsPaidControl
                     list.Add(row);
                 }
             }
+            if (list.Count == 0)
+                throw new ArgumentException();
+
             return list;
         }
 
@@ -65,22 +70,58 @@ namespace Ui.Main.Pages.Inscriptions.InscriptionsPaidControl
                 System.Windows.MessageBox.Show(Properties.Resources.NotSelectedFile);
                 return;
             }
-                
-            List<PaymentDto> list = new List<PaymentDto>();
-            foreach (string[] s in LeerExtracto(_file))
+
+            List<string[]> list = new List<string[]>();
+            try
             {
-                PaymentDto dto = new PaymentDto()
-                {
-                    Dni = s[0],
-                    Name = s[1],
-                    Surname = s[2],
-                    Date = DateTime.Parse(s[3]),
-                    Amount = float.Parse(s[4])
-                };
-                list.Add(dto);
+                 list = LeerExtracto(_file);
+            } catch (ArgumentException)
+            {
+                System.Windows.MessageBox.Show(Properties.Resources.EmptyDocument);
+                return;
             }
 
+            List<PaymentDto> extracto = new List<PaymentDto>();
+            foreach (string[] s in list)
+            {
+                try
+                {
+                    PaymentDto dto = new PaymentDto()
+                    {
+                        Dni = s[0],
+                        Name = s[1],
+                        Surname = s[2],
+                        Date = DateTime.Parse(s[3]),
+                        Amount = float.Parse(s[4])
+                    };
+                    extracto.Add(dto);
+                }catch (Exception)
+                {
+                    System.Windows.MessageBox.Show(Properties.Resources.InvalidDocument);
+                    return;
+                }
 
+            }
+            
+            List<PaymentDto> preregistered = _enrollService.SelectPreregisteredAthletes();
+
+            //comprobaciones
+
+            foreach (PaymentDto prereg in preregistered)
+            {
+                float cantidadPagada = 0;
+                foreach (PaymentDto payment in extracto)
+                {
+                    if (prereg.Dni.Equals(payment.Dni))
+                    {
+                        TimeSpan time = payment.Date.Subtract(prereg.Date);
+                        if (time.Days <= 2)
+                            cantidadPagada += payment.Amount;
+                    }
+                }
+                if (cantidadPagada >= prereg.Amount)
+                    _enrollService.UpdateInscriptionStatus(prereg.Dni, prereg.Id, "REGISTERED");
+            }
         }
     }
 }
