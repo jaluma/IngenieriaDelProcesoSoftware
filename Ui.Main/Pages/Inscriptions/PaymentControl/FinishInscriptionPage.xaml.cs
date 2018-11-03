@@ -131,7 +131,7 @@ namespace Ui.Main.Pages.Inscriptions.InscriptionsPaidControl
                     else
                     {
                         _enrollService.UpdateInscriptionStatus(prereg.Dni, prereg.Id, "CANCELED");
-                        stringBuilder.Append("El atleta con dni " + prereg.Dni + " no ha realizado un pago válido.\n\n");
+                        stringBuilder.Append("El atleta con dni " + prereg.Dni + " no ha realizado un pago válido para la competición con ID " + prereg.Id + ".\n\n");
                     }
                 }
             }
