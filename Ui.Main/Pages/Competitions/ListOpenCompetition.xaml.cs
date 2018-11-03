@@ -6,8 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-
-
 using Logic.Db.Dto;
 using Logic.Db.Util.Services;
 using Ui.Main.Pages.MenuInitial;
@@ -78,13 +76,17 @@ namespace Ui.Main.Pages.Competitions
             bytes = service.GetRules(competition);
             CompetitionService service1 = new CompetitionService();
             string nombre = service1.SearchCompetitionById(competition).Name;
+            string filename = @"C:\Users\Public\Downloads\Reglamento de " + nombre + ".pdf";
+            for (int count = 0; File.Exists(filename); count++)
+                filename = @"C:\Users\Public\Downloads\Reglamento de " + nombre + " ("+ count + ").pdf";
 
-            BinaryWriter writer = new BinaryWriter(File.Open(@"C:\Users\Public\Downloads\Reglamento de "+ nombre + ".pdf", FileMode.CreateNew));
+            BinaryWriter writer = new BinaryWriter(File.Open(filename, FileMode.CreateNew));
+
             writer.Write(bytes);
 
             writer.Close();
 
-            System.Diagnostics.Process.Start(@"C:\Users\Public\Downloads\Reglamento de" + nombre + ".pdf");
+            System.Diagnostics.Process.Start(@"C:\Users\Public\Downloads\Reglamento de " + nombre + ".pdf");
 
 
         }

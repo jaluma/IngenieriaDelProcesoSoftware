@@ -73,6 +73,13 @@ namespace Logic.Db.Util.Services {
             return rules.Execute();
         }
 
+        public DataTable SelectAllCategories()
+        {
+            SelectCategoriesPredefinied cat = new SelectCategoriesPredefinied(ref _conn);
+            cat.Execute();
+            return cat.Table;
+        }
+
         //public void InsertAthletesTable(AthleteDto athleteP) {
         //    AddAthleteLogic add = new AddAthleteLogic(ref _conn, athleteP);
         //    add.Execute();

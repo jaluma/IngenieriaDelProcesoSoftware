@@ -75,6 +75,7 @@
     <Compile Include="ActionObjects\CompetitionLogic\SelectAllCompetition.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\ListOpenCompetitionLogic.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\SearchCompetitionByIdLogic.cs" />
+    <Compile Include="ActionObjects\CompetitionLogic\SelectCategoriesPredefinied.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\SelectCompetitionLogic.cs" />
     <Compile Include="ActionObjects\IActionObject.cs" />
     <Compile Include="ActionObjects\AthleteLogic\SelectAthleteLogic.cs" />

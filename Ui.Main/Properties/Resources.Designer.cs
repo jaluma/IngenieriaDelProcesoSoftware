@@ -47,6 +47,38 @@ namespace Ui.Main.Properties {
         }
 
         /// <summary>
+        ///   Busca una cadena traducida similar a D+.
+        /// </summary>
+        public static string PositiveDesnivel
+        {
+            get
+            {
+                return ResourceManager.GetString("PositiveDesnivel", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Busca una cadena traducida similar a D-.
+        /// </summary>
+        public static string NegativeDesnivel
+        {
+            get
+            {
+                return ResourceManager.GetString("NegativeDesnivel", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Categorías.
+        /// </summary>
+        public static string Categories
+        {
+            get
+            {
+                return ResourceManager.GetString("Categories", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Busca una cadena traducida similar a Añadir.
         /// </summary>
         public static string Add
@@ -54,6 +86,28 @@ namespace Ui.Main.Properties {
             get
             {
                 return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Total.
+        /// </summary>
+        public static string Total
+        {
+            get
+            {
+                return ResourceManager.GetString("Total", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Desnivel.
+        /// </summary>
+        public static string Desnivel
+        {
+            get
+            {
+                return ResourceManager.GetString("Desnivel", resourceCulture);
             }
         }
 

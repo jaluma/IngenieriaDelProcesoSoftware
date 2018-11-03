@@ -77,6 +77,17 @@ namespace Logic.Db.Properties {
         }
 
         /// <summary>
+        ///   Busca una cadena traducida similar a select * from category.
+        /// </summary>
+        internal static string SQL_SELECT_ALL_CATEGORIES
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_ALL_CATEGORIES", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
         internal static byte[] Database {

@@ -2,6 +2,7 @@
 using Logic.Db.Util.Services;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -27,18 +28,16 @@ namespace Ui.Main.Pages.Competitions
     {
 
         private CompetitionService _serviceComp = new CompetitionService();
+        private CompetitionService _serviceCompCat = new CompetitionService();
         private CompetitionDto _competition = new CompetitionDto();
         byte[] bytes;
+        private DataTable _tableResult;
 
         public ConfigureCompetition()
         {
             InitializeComponent();
+            GridMountain.Visibility = Visibility.Collapsed;
         }
-
-
-        
-
-
 
         private void BtSearch_Click(object sender, RoutedEventArgs e)
         {
@@ -58,10 +57,7 @@ namespace Ui.Main.Pages.Competitions
                 bytes = File.ReadAllBytes(System.IO.Path.GetFullPath(path));
             }
         }
-
-       
-
-
+        
         private void BtAdd_Click(object sender, RoutedEventArgs e)
         {
            
@@ -81,7 +77,80 @@ namespace Ui.Main.Pages.Competitions
 
         }
 
+        private void OnMouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            if (sender is System.Windows.Controls.Control component)
+                component.Cursor = System.Windows.Input.Cursors.Hand;
+        }
 
+        private void OnMouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            if (sender is System.Windows.Controls.Control component)
+                component.Cursor = null;
+        }
 
+        private bool MountainIsChecked()
+        {
+            return (bool)RBMountain.IsChecked;
+        }
+
+        private bool AsphaltIsChecked()
+        {
+            return (bool)RBAsphalt.IsChecked;
+        }
+
+        private void CalculateDesnivel() {
+
+            if (DPos.Text == "")
+                DPos.Text = "0";
+            if (DNeg.Text == "")
+                DNeg.Text = "0";
+
+            double cant= (Double.Parse(DPos.Text) - Double.Parse(DNeg.Text));
+            DTotal.Text = cant.ToString();
+
+        }
+
+        private void CheckBox_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (MountainIsChecked())
+            
+                GridMountain.Visibility = Visibility.Visible;               
+            
+            else
+                GridMountain.Visibility = Visibility.Collapsed;
+        }
+
+        
+
+        private void DPos_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (!DPos.IsFocused)
+                CalculateDesnivel();
+        }
+
+        private void DNeg_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if(!DNeg.IsFocused)
+            CalculateDesnivel();
+        }
+
+        private void ComboBox_Initialized(object sender, EventArgs e)
+        { 
+            _tableResult= _serviceCompCat.SelectAllCategories();
+
+            _tableResult.Columns[0].ColumnName = Properties.Resources.Competition_Name;
+            _tableResult.Columns[1].ColumnName = Properties.Resources.FinishTime;
+            _tableResult.Columns[2].ColumnName = Properties.Resources.InitialTime;
+
+            Categories.DisplayMemberPath = Properties.Resources.Competition_Name;
+           
+            Categories.ItemsSource = _tableResult.DefaultView;
+        }
+
+        private void Categories_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

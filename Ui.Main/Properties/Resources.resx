@@ -367,4 +367,19 @@
   <data name="Rules" xml:space="preserve">
     <value>Reglamento</value>
   </data>
+  <data name="Desnivel" xml:space="preserve">
+    <value>Desnivel (metros)</value>
+  </data>
+  <data name="NegativeDesnivel" xml:space="preserve">
+    <value>D- (metros)</value>
+  </data>
+  <data name="PositiveDesnivel" xml:space="preserve">
+    <value>D+ (metros)</value>
+  </data>
+  <data name="Categories" xml:space="preserve">
+    <value>Categorías</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
 </root>

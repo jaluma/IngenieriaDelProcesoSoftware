@@ -234,4 +234,7 @@ and Competition.COMPETITION_ID = Enroll.COMPETITION_ID</value>
   <data name="SQL_GET_RULES" xml:space="preserve">
     <value>select competition_rules from competition where competition_id=@COMPETITION_ID</value>
   </data>
+  <data name="SQL_SELECT_ALL_CATEGORIES" xml:space="preserve">
+    <value>select * from category</value>
+  </data>
 </root>
