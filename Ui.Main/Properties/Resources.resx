@@ -346,4 +346,16 @@
   <data name="FinishInscriptions" xml:space="preserve">
     <value>Finalizar inscripciones</value>
   </data>
+  <data name="TitleConfigureCompetition" xml:space="preserve">
+    <value>Configurador de carreras</value>
+  </data>
+  <data name="CompetitionName" xml:space="preserve">
+    <value>Nombre de la competición</value>
+  </data>
+  <data name="Asfalto" xml:space="preserve">
+    <value>Asfalto</value>
+  </data>
+  <data name="Mountain" xml:space="preserve">
+    <value>Montaña</value>
+  </data>
 </root>

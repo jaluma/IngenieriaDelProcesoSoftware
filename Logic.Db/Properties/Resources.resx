@@ -144,7 +144,7 @@
     <comment>sql command for insert values into table Athletes</comment>
   </data>
   <data name="SQL_INSERT_COMPETITION" xml:space="preserve">
-    <value />
+    <value>INSERT INTO competition values(null, @COMPETITION_NAME, 'S', @COMPETITION_KM, @COMPETITION_PRICE, @COMPETITION_DATE, @COMPETITION_NUMBER_PLACES,@COMPETITION_STATUS, @COMPETITION_RULES)</value>
   </data>
   <data name="SQL_SELECT_ATHLETE" xml:space="preserve">
     <value>SELECT ATHLETE_DNI, ATHLETE_NAME, ATHLETE_SURNAME, ATHLETE_BIRTH_DATE, ATHLETE_GENDER FROM Athlete</value>
@@ -229,6 +229,6 @@ Athlete.ATHLETE_SURNAME,
 and Competition.COMPETITION_ID = Enroll.COMPETITION_ID</value>
   </data>
   <data name="SQL_SELECT_COMPETITIONS_PARTICIPATED" xml:space="preserve">
-    <value>select  Competition.COMPETITION_NAME,Athlete.athlete_gender from Competition, hasparticipated, athlete where Competition.COMPETITION_ID= hasparticipated.COMPETITION_ID and hasparticipated.athlete_dni = @DNI and athlete.athlete_dni = @DNI</value>
+    <value>select    finish_time  , Competition.COMPETITION_NAME,Athlete.athlete_gender from Competition, hasparticipated, athlete where Competition.COMPETITION_ID= hasparticipated.COMPETITION_ID and hasparticipated.athlete_dni = @DNI and athlete.athlete_dni = @DNI</value>
   </data>
 </root>

@@ -58,6 +58,51 @@ namespace Ui.Main.Properties {
         }
 
         /// <summary>
+        ///   Busca una cadena traducida similar a Configurador de carreras.
+        /// </summary>
+        public static string TitleConfigureCompetition
+        {
+            get
+            {
+                return ResourceManager.GetString("TitleConfigureCompetition", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Montaña.
+        /// </summary>
+        public static string Mountain
+        {
+            get
+            {
+                return ResourceManager.GetString("Mountain", resourceCulture);
+            }
+        }
+
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Asfalto.
+        /// </summary>
+        public static string Asfalto
+        {
+            get
+            {
+                return ResourceManager.GetString("Asfalto", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre de la competición.
+        /// </summary>
+        public static string CompetitionName
+        {
+            get
+            {
+                return ResourceManager.GetString("CompetitionName", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Busca una cadena traducida similar a Competición.
         /// </summary>
         public static string Competition
