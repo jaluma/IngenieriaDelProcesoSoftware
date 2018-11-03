@@ -549,6 +549,15 @@ namespace Ui.Main.Properties {
         }
 
         /// <summary>
+        ///   Busca una cadena traducida similar a Edad.
+        /// </summary>
+        public static string Age {
+            get {
+                return ResourceManager.GetString("Age", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Busca una cadena traducida similar a Seleccionar una competición.
         /// </summary>
         public static string TitleSelectCompetition

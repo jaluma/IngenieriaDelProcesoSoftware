@@ -86,6 +86,8 @@ namespace Ui.Main.Pages.Competition.Times
             categories = _competitionService.SelectAllCategoriesByCompetitionId(Competition);
             categories = categories.Reverse().Append(cat).Reverse();
 
+            CategorySelected = categories.First();
+
             int count = 0;
             foreach (CategoryDto category in categories) {
                 but = GenerateButton();
@@ -96,7 +98,6 @@ namespace Ui.Main.Pages.Competition.Times
             }
 
             ButtonBase_OnClick(LayoutButtons.Children[0], null);
-            CategorySelected = categories.First();
         }
 
         private Button GenerateButton() {
@@ -105,6 +106,7 @@ namespace Ui.Main.Pages.Competition.Times
                 BorderThickness = new Thickness(0, 0, 0, 0),
                 Background = Brushes.Transparent,
                 FontFamily = new FontFamily("Segoe UI"),
+                Foreground = Brushes.Black,
                 FontSize = 14,
                 Height = 50
             };
@@ -133,6 +135,18 @@ namespace Ui.Main.Pages.Competition.Times
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e) {
             Button bt = (Button) sender;
             if ((Int32?) bt.Tag != null) {
+
+                int indexOldBut = categories.ToList().FindIndex(c => c.Name.Equals(CategorySelected.Name));
+                Button old = (Button) LayoutButtons.Children[indexOldBut];
+                old.FontWeight = FontWeights.Normal;
+                old.Background = Brushes.Transparent;
+
+                LayoutButtons.Children[indexOldBut] = old;
+
+                bt.FontWeight = FontWeights.Bold;
+                bt.Background = Brushes.AliceBlue;
+                
+
                 CategorySelected = categories.ElementAt((int) bt.Tag);
 
                 GenerateDataGrid();
@@ -160,6 +174,7 @@ namespace Ui.Main.Pages.Competition.Times
                 _table.Columns[5].ColumnName = Properties.Resources.AthleteGender;
                 _table.Columns[6].ColumnName = Properties.Resources.InitialTime;
                 _table.Columns[7].ColumnName = Properties.Resources.FinishTime;
+                _table.Columns[8].ColumnName = Properties.Resources.Age;
 
                 DataTable dtClone = _table.Clone();
                 dtClone.Columns[6].ColumnName = Properties.Resources.Time;

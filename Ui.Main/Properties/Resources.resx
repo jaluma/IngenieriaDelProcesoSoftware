@@ -343,4 +343,7 @@
   <data name="Absolute" xml:space="preserve">
     <value>Absoluta</value>
   </data>
+  <data name="Age" xml:space="preserve">
+    <value>Edad</value>
+  </data>
 </root>
