@@ -47,6 +47,17 @@ namespace Ui.Main.Properties {
         }
 
         /// <summary>
+        ///   Busca una cadena traducida similar a Añadir.
+        /// </summary>
+        public static string Add
+        {
+            get
+            {
+                return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Busca una cadena traducida similar a Área Personal.
         /// </summary>
         public static string PersonalMenu
@@ -54,6 +65,28 @@ namespace Ui.Main.Properties {
             get
             {
                 return ResourceManager.GetString("PersonalMenu", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Reglamento.
+        /// </summary>
+        public static string Rules
+        {
+            get
+            {
+                return ResourceManager.GetString("Rules", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Seleccione el pdf del reglamento....
+        /// </summary>
+        public static string FileSelect
+        {
+            get
+            {
+                return ResourceManager.GetString("FileSelect", resourceCulture);
             }
         }
 

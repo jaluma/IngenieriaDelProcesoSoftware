@@ -30,10 +30,10 @@
         <RadioButton x:Name="RBMountain" Content="{x:Static properties:Resources.Mountain}" HorizontalAlignment="Left" Margin="656,83,0,0" VerticalAlignment="Top" IsChecked="False" GroupName="GroupType" Height="22" Width="74" FontSize="12"/>
         <RadioButton x:Name="RBAsphalt" Content="{x:Static properties:Resources.Asfalto}" HorizontalAlignment="Left" Margin="560,83,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="GroupType" Height="22" Width="75" FontSize="12" RenderTransformOrigin="0.2,0.682"/>
         <Label FontSize="12" FontWeight="bold"  x:Name="LbType" Content="{x:Static properties:Resources.Competition_Type}" HorizontalAlignment="Left" Margin="480,86,0,0" VerticalAlignment="Top" Height="27" />
-        <Button x:Name="BtSearch" Content="{x:Static properties:Resources.BtSearch}" HorizontalAlignment="Left" Margin="85,299,0,0" VerticalAlignment="Top" Width="85" Height="30" FontSize="16" Click="BtSearch_Click" RenderTransformOrigin="0.19,0.667"/>
-        <xctk:WatermarkTextBox Watermark="path" x:Name="LbReglamento" HorizontalAlignment="Left" Height="30" Margin="220,299,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Focusable="False"/>
-        <xctk:WatermarkTextBox Watermark="path" x:Name="LbReglamento1" HorizontalAlignment="Left" Height="30" Margin="220,345,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="380" Focusable="False"/>
-        <Button x:Name="BtAdd" Content="{x:Static properties:Resources.BtSearch}" HorizontalAlignment="Left" Margin="80,470,0,0" VerticalAlignment="Top" Width="85" Height="30" FontSize="16" Click="BtAdd_Click" RenderTransformOrigin="0.19,0.667"/>
+        <Button x:Name="BtSearch" Content="{x:Static properties:Resources.BtSearch}" HorizontalAlignment="Left" Margin="440,377,0,0" VerticalAlignment="Top" Width="60" Height="23" FontSize="9" Click="BtSearch_Click" RenderTransformOrigin="0.19,0.667"/>
+        <xctk:WatermarkTextBox Watermark="{x:Static properties:Resources.FileSelect}" x:Name="Reglamento" HorizontalAlignment="Left" Height="30" Margin="205,373,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="225" Focusable="False"/>
+        <Button x:Name="BtAdd" Content="{x:Static properties:Resources.Add}" HorizontalAlignment="Left" Margin="520,480,0,0" VerticalAlignment="Top" Width="210" Height="30" FontSize="16" Click="BtAdd_Click" RenderTransformOrigin="0.19,0.667"/>
+        <Label FontSize="12" FontWeight="bold" x:Name="LbReglamento" Content="{x:Static properties:Resources.Rules}" HorizontalAlignment="Left" Margin="80,377,0,0" VerticalAlignment="Top" Height="27" Width="165" RenderTransformOrigin="2.788,0.481" />
 
 
 

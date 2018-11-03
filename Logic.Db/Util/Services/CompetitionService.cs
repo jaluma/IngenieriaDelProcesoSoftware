@@ -67,6 +67,11 @@ namespace Logic.Db.Util.Services {
             add.Execute();
         }
 
+        public byte[] GetRules(CompetitionDto competition)
+        {
+            GetRulesCompetitionLogic rules = new GetRulesCompetitionLogic(ref _conn, competition);
+            return rules.Execute();
+        }
 
         //public void InsertAthletesTable(AthleteDto athleteP) {
         //    AddAthleteLogic add = new AddAthleteLogic(ref _conn, athleteP);

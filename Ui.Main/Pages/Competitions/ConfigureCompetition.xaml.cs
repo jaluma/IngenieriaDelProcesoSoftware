@@ -36,28 +36,26 @@ namespace Ui.Main.Pages.Competitions
         }
 
 
+        
+
+
 
         private void BtSearch_Click(object sender, RoutedEventArgs e)
         {
 
 
             OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "PDF Files|*.pdf"; // file types, that will be allowed to upload
-            dialog.Multiselect = false; // allow/deny user to upload more than one file at a time
-            if (dialog.ShowDialog() == DialogResult.OK) // if user clicked OK
+            dialog.Filter = "PDF Files|*.pdf"; 
+            dialog.Multiselect = false; 
+            if (dialog.ShowDialog() == DialogResult.OK) 
             {
-                String path = dialog.FileName; // get name of file
-                using (StreamReader reader = new StreamReader(new FileStream(path, FileMode.Open), new UTF8Encoding())) // do anything you want, e.g. read it
+                String path = dialog.FileName;
+                using (StreamReader reader = new StreamReader(new FileStream(path, FileMode.Open), new UTF8Encoding())) 
                 {
-                    LbReglamento.Text = dialog.SafeFileName;
-                    LbReglamento1.Text = System.IO.Path.GetFullPath(path);
+                    Reglamento.Text = dialog.SafeFileName;
                 }
 
                 bytes = File.ReadAllBytes(System.IO.Path.GetFullPath(path));
-                
-
-
-
             }
         }
 
@@ -66,10 +64,14 @@ namespace Ui.Main.Pages.Competitions
 
         private void BtAdd_Click(object sender, RoutedEventArgs e)
         {
-
-            _competition.Date = (DateTime)FechaCompeticion.SelectedDate;
+           
+            _competition.Date = (DateTime) FechaCompeticion.SelectedDate;
             _competition.Km =Double.Parse(Km.Text);
-            _competition.Name = Nombre.Text;           
+            _competition.Name = Nombre.Text;
+            if ((bool)RBMountain.IsChecked)
+                _competition.Type = TypeCompetition.Mountain;
+            else
+                _competition.Type = TypeCompetition.Asphalt;
             _competition.NumberPlaces = 150;
             _competition.Price = 100;
             _competition.Rules = bytes;

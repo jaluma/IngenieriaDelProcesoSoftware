@@ -358,4 +358,13 @@
   <data name="Mountain" xml:space="preserve">
     <value>Montaña</value>
   </data>
+  <data name="Add" xml:space="preserve">
+    <value>Añadir</value>
+  </data>
+  <data name="FileSelect" xml:space="preserve">
+    <value>Seleccione el pdf del reglamento...</value>
+  </data>
+  <data name="Rules" xml:space="preserve">
+    <value>Reglamento</value>
+  </data>
 </root>
