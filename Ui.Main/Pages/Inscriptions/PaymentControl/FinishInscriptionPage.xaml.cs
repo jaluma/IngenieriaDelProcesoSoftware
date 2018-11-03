@@ -106,22 +106,37 @@ namespace Ui.Main.Pages.Inscriptions.InscriptionsPaidControl
             List<PaymentDto> preregistered = _enrollService.SelectPreregisteredAthletes();
 
             //comprobaciones
-
+            StringBuilder stringBuilder = new StringBuilder();
             foreach (PaymentDto prereg in preregistered)
             {
                 float cantidadPagada = 0;
+                bool pago = false;
                 foreach (PaymentDto payment in extracto)
                 {
                     if (prereg.Dni.Equals(payment.Dni))
                     {
+                        pago = true;
                         TimeSpan time = payment.Date.Subtract(prereg.Date);
                         if (time.Days <= 2)
                             cantidadPagada += payment.Amount;
                     }
                 }
-                if (cantidadPagada >= prereg.Amount)
-                    _enrollService.UpdateInscriptionStatus(prereg.Dni, prereg.Id, "REGISTERED");
+                if (pago)
+                {
+                    if (cantidadPagada >= prereg.Amount)
+                    {
+                        _enrollService.UpdateInscriptionStatus(prereg.Dni, prereg.Id, "REGISTERED");
+                        stringBuilder.Append("El atleta con dni " + prereg.Dni + " ha sido inscrito en la competición con ID " + prereg.Id + ".\n\n");
+                    }
+                    else
+                    {
+                        _enrollService.UpdateInscriptionStatus(prereg.Dni, prereg.Id, "CANCELED");
+                        stringBuilder.Append("El atleta con dni " + prereg.Dni + " no ha realizado un pago válido.\n\n");
+                    }
+                }
             }
+
+            TxActualizado.Text = stringBuilder.ToString();
         }
     }
 }
