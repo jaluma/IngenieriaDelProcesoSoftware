@@ -84,6 +84,10 @@
     <Compile Include="ActionObjects\TimesLogic\SelectHasParticipatedTimeLogicByCategory.cs" />
     <Compile Include="ActionObjects\TimesLogic\SelectHasParticipatedTimeLogic.cs" />
     <Compile Include="Connection\DBConnection.cs" />
+    <Compile Include="Csv\CsvLoader.cs" />
+    <Compile Include="Csv\CsvTimes.cs" />
+    <Compile Include="Csv\Object\CsvObject.cs" />
+    <Compile Include="Csv\Object\PartialTimesObjects.cs" />
     <Compile Include="Dto\AthleteCompetitionInscriptionDto.cs" />
     <Compile Include="Dto\AthleteDto.cs" />
     <Compile Include="Dto\CategortDto.cs" />
