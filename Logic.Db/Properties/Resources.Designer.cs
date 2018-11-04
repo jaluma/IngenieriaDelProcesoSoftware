@@ -326,7 +326,15 @@ namespace Logic.Db.Properties {
             }
         }
 
-        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] DefaultCategories {
+            get {
+                object obj = ResourceManager.GetObject("DefaultCategories", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
         
     }
 }

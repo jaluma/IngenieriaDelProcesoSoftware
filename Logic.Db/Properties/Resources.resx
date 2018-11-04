@@ -247,4 +247,7 @@ WHERE COMPETITION_ID=@COMPETITION_ID AND CATEGORY_MIN_AGE &lt;= @AGE AND @AGE &g
     <value>SELECT DORSAL, ATHLETE_DNI, ATHLETE_NAME, ATHLETE_SURNAME, ATHLETE_GENDER, INITIAL_TIME, FINISH_TIME FROM HasParticipated NATURAL JOIN Enroll NATURAL JOIN Athlete NATURAL JOIN GET_AGE_NOW 
 WHERE COMPETITION_ID=@COMPETITION_ID AND ATHLETE_DNI=GET_AGE_NOW.ATHLETE_DNI AND AGE &gt;= @CATEGORY_MIN_AGE AND AGE &lt;= @CATEGORY_MAX_AGE AND ATHLETE_GENDER = @GENDER</value>
   </data>
+  <data name="DefaultCategories" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DefaultCategories.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

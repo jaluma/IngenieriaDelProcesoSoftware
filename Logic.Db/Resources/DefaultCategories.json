@@ -1,0 +1,26 @@
+[
+  {
+    "Name": "JUNIOR",
+    "MinAge": 18,
+    "MaxAge": 18
+  },
+  {
+    "Name": "SENIOR",
+    "MinAge": 19,
+    "MaxAge": 34
+  },
+  {
+    "Name": "VETERAN_A",
+    "MinAge": 35,
+    "MaxAge": 44
+  },
+  {
+    "Name": "VETERAN_B",
+    "MinAge": 45,
+    "MaxAge": 54
+  },
+  {
+    "Name": "VETERAN_C",
+    "MinAge": 55
+  }
+]

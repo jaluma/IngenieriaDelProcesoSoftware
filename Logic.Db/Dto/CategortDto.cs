@@ -9,7 +9,7 @@ namespace Logic.Db.Dto {
         public string Name;
         public int MinAge;
         public int MaxAge;
-        public string Gender;
+        //public string Gender;
 
     }
 }

@@ -41,7 +41,6 @@ namespace Logic.Db.ActionObjects.CompetitionLogic
                             else {
                                 category.MaxAge = -1;
                             }
-                            category.Gender = reader.IsDBNull(3) ? null : reader.GetString(3);
 
                             Categories.Add(category);
                         }

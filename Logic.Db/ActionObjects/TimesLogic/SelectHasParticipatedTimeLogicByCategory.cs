@@ -23,28 +23,16 @@ namespace Logic.Db.ActionObjects.TimesLogic {
         }
         public void Execute() {
             try {
-                // sin genero
-                if (_category.Gender == null) {
-                    using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_ATHLETES_TIMES, _conn.DbConnection)) {
-                        command.Parameters.AddWithValue("@COMPETITION_ID", _competition.ID);
-                        command.Parameters.AddWithValue("@CATEGORY_MIN_AGE", _category.MinAge);
-                        command.Parameters.AddWithValue("@CATEGORY_MAX_AGE", _category.MaxAge);
+                using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_ATHLETES_TIMES, _conn.DbConnection)) {
+                    command.Parameters.AddWithValue("@COMPETITION_ID", _competition.ID);
+                    command.Parameters.AddWithValue("@CATEGORY_MIN_AGE", _category.MinAge);
+                    command.Parameters.AddWithValue("@CATEGORY_MAX_AGE", _category.MaxAge);
 
-                        SQLiteDataAdapter da = new SQLiteDataAdapter(command);
-                        da.Fill(Table);
-                    }
-                } else {
-                    using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_ATHLETES_TIMES_BY_GENDER, _conn.DbConnection)) {
-                        command.Parameters.AddWithValue("@COMPETITION_ID", _competition.ID);
-                        command.Parameters.AddWithValue("@GENDER", _category.Gender);
-                        command.Parameters.AddWithValue("@CATEGORY_MIN_AGE", _category.MinAge);
-                        command.Parameters.AddWithValue("@CATEGORY_MAX_AGE", _category.MaxAge);
-
-                        SQLiteDataAdapter da = new SQLiteDataAdapter(command);
-                        da.Fill(Table);
-                    }
+                    SQLiteDataAdapter da = new SQLiteDataAdapter(command);
+                    da.Fill(Table);
                 }
-               
+
+
             } catch (SQLiteException) {
                 _conn.DbConnection?.Close();
                 throw;
