@@ -21,19 +21,19 @@
         <xctk:WatermarkTextBox Watermark="{x:Static properties:Resources.Competition_Name}" x:Name="Nombre" HorizontalAlignment="Left" Height="30" Margin="285,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" />
         <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="{x:Static properties:Resources.CompetitionName}" Margin="80,86,0,424" Width="215" RenderTransformOrigin="0.473,1.057" />
 
-        <xctk:WatermarkTextBox Watermark="{x:Static properties:Resources.Competition_Km}" x:Name="Km" HorizontalAlignment="Left" Height="28" Margin="560,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" RenderTransformOrigin="-3.8,0.286" />
-        <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="{x:Static properties:Resources.Competition_Km}" Margin="480,147,0,370" Width="75" RenderTransformOrigin="0.473,1.057" />
+        <xctk:WatermarkTextBox Watermark="{x:Static properties:Resources.Competition_Km}" x:Name="Km" HorizontalAlignment="Left" Height="28" Margin="560,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" RenderTransformOrigin="-3.8,0.286" />
+        <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="{x:Static properties:Resources.Competition_Km}" Margin="480,134,0,383" Width="75" RenderTransformOrigin="0.473,1.057" />
 
-        <DatePicker x:Name="FechaCompeticion" HorizontalAlignment="Left" Margin="285,142,0,0" VerticalAlignment="Top" Height="28" Width="160"/>
-        <Label FontSize="12" FontWeight="bold" x:Name="LbDate" Content="{x:Static properties:Resources.Competition_Date}" HorizontalAlignment="Left" Margin="80,147,0,0" VerticalAlignment="Top" Height="27" Width="52" RenderTransformOrigin="2.788,0.481" />
+        <DatePicker x:Name="FechaCompeticion" HorizontalAlignment="Left" Margin="285,130,0,0" VerticalAlignment="Top" Height="28" Width="160"/>
+        <Label FontSize="12" FontWeight="bold" x:Name="LbDate" Content="{x:Static properties:Resources.Competition_Date}" HorizontalAlignment="Left" Margin="80,135,0,0" VerticalAlignment="Top" Height="27" Width="52" RenderTransformOrigin="2.788,0.481" />
 
         <RadioButton x:Name="RBMountain" Content="{x:Static properties:Resources.Mountain}" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" HorizontalAlignment="Left" Margin="656,83,0,0" VerticalAlignment="Top" IsChecked="False" GroupName="GroupType" Height="22" Width="74" FontSize="12" Click="CheckBox_OnClick"/>
         <RadioButton x:Name="RBAsphalt" Content="{x:Static properties:Resources.Asfalto}" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" HorizontalAlignment="Left" Margin="560,83,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="GroupType" Height="22" Width="75" FontSize="12" RenderTransformOrigin="0.2,0.682" Click="CheckBox_OnClick"/>
         <Label FontSize="12" FontWeight="bold"  x:Name="LbType" Content="{x:Static properties:Resources.Competition_Type}" HorizontalAlignment="Left" Margin="480,86,0,0" VerticalAlignment="Top" Height="27" />
-        <Button x:Name="BtSearch" Content="{x:Static properties:Resources.BtSearch}" HorizontalAlignment="Left" Margin="440,377,0,0" VerticalAlignment="Top" Width="60" Height="23" FontSize="9" Click="BtSearch_Click" RenderTransformOrigin="0.19,0.667"/>
-        <xctk:WatermarkTextBox Watermark="{x:Static properties:Resources.FileSelect}" x:Name="Reglamento" HorizontalAlignment="Left" Height="30" Margin="205,373,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="225" Focusable="False"/>
+        <Button x:Name="BtSearch" Content="{x:Static properties:Resources.BtSearch}" HorizontalAlignment="Left" Margin="325,466,0,0" VerticalAlignment="Top" Width="60" Height="23" FontSize="9" Click="BtSearch_Click" RenderTransformOrigin="0.19,0.667"/>
+        <xctk:WatermarkTextBox Watermark="{x:Static properties:Resources.FileSelect}" x:Name="Reglamento" HorizontalAlignment="Left" Height="30" Margin="250,431,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="225" Focusable="False"/>
         <Button x:Name="BtAdd" Content="{x:Static properties:Resources.Add}" HorizontalAlignment="Left" Margin="520,480,0,0" VerticalAlignment="Top" Width="210" Height="30" FontSize="16" Click="BtAdd_Click" RenderTransformOrigin="0.19,0.667"/>
-        <Label FontSize="12" FontWeight="bold" x:Name="LbReglamento" Content="{x:Static properties:Resources.Rules}" HorizontalAlignment="Left" Margin="80,377,0,0" VerticalAlignment="Top" Height="27" Width="165" RenderTransformOrigin="2.788,0.481" />
+        <Label FontSize="12" FontWeight="bold" x:Name="LbReglamento" Content="{x:Static properties:Resources.Rules}" HorizontalAlignment="Left" Margin="80,435,0,0" VerticalAlignment="Top" Height="27" Width="165" RenderTransformOrigin="2.788,0.481" />
 
         <Grid x:Name="GridMountain" MinWidth="1"  MinHeight="1"  Margin="770,76,75,325">
             <Grid.RowDefinitions>
@@ -50,8 +50,12 @@
 
 
         </Grid>
-        <ComboBox SelectionChanged="Categories_SelectionChanged"  Name="Categories" HorizontalAlignment="Left" Height="30" Margin="285,223,0,0" VerticalAlignment="Top" Width="160" Initialized="ComboBox_Initialized"/>
-        <Label FontSize="12" FontWeight="bold" x:Name="LbCategories" Content="{x:Static properties:Resources.Categories}" HorizontalAlignment="Left" Margin="80,223,0,0" VerticalAlignment="Top" Height="27" Width="85" RenderTransformOrigin="2.788,0.481" />
+        <Label FontSize="12" FontWeight="bold" x:Name="LbCategories" Content="{x:Static properties:Resources.Predefined}" HorizontalAlignment="Left" Margin="80,193,0,0" VerticalAlignment="Top" Height="27" Width="165" RenderTransformOrigin="2.788,0.481" />
+        <ListBox Name="Categories" HorizontalAlignment="Left" Height="127" Margin="285,193,0,0" VerticalAlignment="Top" Width="160" Initialized="ComboBox_Initialized"/>
+        <Button x:Name="BtNueva" Content="{x:Static properties:Resources.CreateNew}" HorizontalAlignment="Left" Margin="80,235,0,0" VerticalAlignment="Top" Width="165" Height="23" FontSize="9" Click="BtNueva_Click" RenderTransformOrigin="0.19,0.667"/>
+        <ListBox x:Name="Categories_new" HorizontalAlignment="Left" Height="127" Margin="85,273,0,0" VerticalAlignment="Top" Width="160" />
+
+
 
 
 

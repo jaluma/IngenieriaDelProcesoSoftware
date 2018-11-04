@@ -56,6 +56,28 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("PositiveDesnivel", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Categorías predefinidas.
+        /// </summary>
+        public static string Predefined
+        {
+            get
+            {
+                return ResourceManager.GetString("Predefined", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Añadir nueva .
+        /// </summary>
+        public static string CreateNew
+        {
+            get
+            {
+                return ResourceManager.GetString("CreateNew", resourceCulture);
+            }
+        }
         /// <summary>
         ///   Busca una cadena traducida similar a D-.
         /// </summary>

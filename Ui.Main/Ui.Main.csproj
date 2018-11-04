@@ -134,6 +134,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Pages\Competitions\categories\NewCategoriesDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Inscriptions\CompetitionInscription.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -186,6 +190,9 @@
     </Compile>
     <Compile Include="Pages\Competitions\ConfigureCompetition.xaml.cs">
       <DependentUpon>ConfigureCompetition.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Competitions\categories\NewCategoriesDialog.xaml.cs">
+      <DependentUpon>NewCategoriesDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Inscriptions\CompetitionInscription.xaml.cs">
       <DependentUpon>CompetitionInscription.xaml</DependentUpon>

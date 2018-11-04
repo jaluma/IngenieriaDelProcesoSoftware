@@ -50,7 +50,7 @@ namespace Ui.Main.Pages.Competitions
             table.Columns[5].ColumnName = Properties.Resources.InscriptionOpen;
             table.Columns[6].ColumnName = Properties.Resources.InscriptionClose;
             table.Columns[7].ColumnName = Properties.Resources.Competition_Date;
-            table.Columns[8].ColumnName = Properties.Resources.Rules;
+            table.Columns[8].ColumnName = "b";
 
             _columnIds = table.AsEnumerable()
                 .Select(dr => dr.Field<long>(Properties.Resources.Competition_Id)).ToList();
@@ -58,8 +58,17 @@ namespace Ui.Main.Pages.Competitions
             table.Columns.RemoveAt(0);
             DataGridCompetition.ItemsSource = table.DefaultView;
 
-           
-            
+            DataColumn column = new DataColumn(Properties.Resources.Rules, typeof(string));
+            table.Columns.Add(column);
+
+            foreach (DataRow row in table.Rows)
+            {
+                if(row.Field<byte[]>("b")!=null)
+                    row.SetField<string>(column, "Descargar");
+            }
+
+
+            table.Columns.RemoveAt(7);
 
         }
 
@@ -74,19 +83,23 @@ namespace Ui.Main.Pages.Competitions
 
             CompetitionService service = new CompetitionService();
             bytes = service.GetRules(competition);
-            CompetitionService service1 = new CompetitionService();
-            string nombre = service1.SearchCompetitionById(competition).Name;
-            string filename = @"C:\Users\Public\Downloads\Reglamento de " + nombre + ".pdf";
-            for (int count = 0; File.Exists(filename); count++)
-                filename = @"C:\Users\Public\Downloads\Reglamento de " + nombre + " ("+ count + ").pdf";
 
-            BinaryWriter writer = new BinaryWriter(File.Open(filename, FileMode.CreateNew));
+            if (bytes != null)
+            {
+                CompetitionService service1 = new CompetitionService();
+                string nombre = service1.SearchCompetitionById(competition).Name;
+                string filename = @"C:\Users\Public\Downloads\Reglamento de " + nombre + ".pdf";
+                for (int count = 0; File.Exists(filename); count++)
+                    filename = @"C:\Users\Public\Downloads\Reglamento de " + nombre + " (" + count + ").pdf";
 
-            writer.Write(bytes);
+                BinaryWriter writer = new BinaryWriter(File.Open(filename, FileMode.CreateNew));
 
-            writer.Close();
+                writer.Write(bytes);
 
-            System.Diagnostics.Process.Start(@"C:\Users\Public\Downloads\Reglamento de " + nombre + ".pdf");
+                writer.Close();
+
+                System.Diagnostics.Process.Start(@"C:\Users\Public\Downloads\Reglamento de " + nombre + ".pdf");
+            }
 
 
         }

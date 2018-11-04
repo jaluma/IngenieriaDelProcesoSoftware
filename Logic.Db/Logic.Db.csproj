@@ -84,6 +84,7 @@
     <Compile Include="Connection\DBConnection.cs" />
     <Compile Include="Dto\AthleteCompetitionInscriptionDto.cs" />
     <Compile Include="Dto\AthleteDto.cs" />
+    <Compile Include="Dto\CategoryDto.cs" />
     <Compile Include="Dto\CompetitionDto.cs" />
     <Compile Include="Dto\HasParticipatedDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

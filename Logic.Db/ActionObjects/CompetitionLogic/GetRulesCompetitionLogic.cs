@@ -26,8 +26,8 @@ namespace Logic.Db.ActionObjects.CompetitionLogic
         }
         public byte[] Execute()
             {
-                try
-                {
+            try
+            {
                 using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_GET_RULES, _conn.DbConnection))
                 {
 
@@ -42,22 +42,33 @@ namespace Logic.Db.ActionObjects.CompetitionLogic
                         {
                             while (reader.Read())
                             {
-                                while ((bytesRead = reader.GetBytes(0, fieldOffset, buffer, 0, buffer.Length)) > 0)
+                                if (reader.IsDBNull(0))
                                 {
-                                    stream.Write(buffer, 0, (int)bytesRead);
-                                    fieldOffset += bytesRead;
+                                    return null;
+                                }
+                                else
+                                {
+                                    while ((bytesRead = reader.GetBytes(0, fieldOffset, buffer, 0, buffer.Length)) > 0)
+                                    {
+                                        stream.Write(buffer, 0, (int)bytesRead);
+                                        fieldOffset += bytesRead;
+                                    }
+
+
+                                    return stream.ToArray();
                                 }
                             }
-                            return stream.ToArray();
+                            return null;
                         }
                     }
+
                 }
-                }
-                catch (SQLiteException)
-                {
-                    _conn.DbConnection?.Close();
-                    throw;
-                }
+            }
+            catch (SQLiteException)
+            {
+                _conn.DbConnection?.Close();
+                throw;
+            }
             }
         }
     }

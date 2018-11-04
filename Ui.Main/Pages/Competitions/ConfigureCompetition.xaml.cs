@@ -18,6 +18,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Ui.Main.Pages.Competitions.categories;
+using SelectionMode = System.Windows.Controls.SelectionMode;
 
 namespace Ui.Main.Pages.Competitions
 {
@@ -32,6 +34,7 @@ namespace Ui.Main.Pages.Competitions
         private CompetitionDto _competition = new CompetitionDto();
         byte[] bytes;
         private DataTable _tableResult;
+       private List<CategoryDto> list;
 
         public ConfigureCompetition()
         {
@@ -137,20 +140,31 @@ namespace Ui.Main.Pages.Competitions
 
         private void ComboBox_Initialized(object sender, EventArgs e)
         { 
-            _tableResult= _serviceCompCat.SelectAllCategories();
+            
 
-            _tableResult.Columns[0].ColumnName = Properties.Resources.Competition_Name;
-            _tableResult.Columns[1].ColumnName = Properties.Resources.FinishTime;
-            _tableResult.Columns[2].ColumnName = Properties.Resources.InitialTime;
+            list= _serviceCompCat.SelectAllCategories();
 
-            Categories.DisplayMemberPath = Properties.Resources.Competition_Name;
-           
-            Categories.ItemsSource = _tableResult.DefaultView;
-        }
+            foreach (CategoryDto c in list)
+            {
+
+                Categories.SelectionMode = SelectionMode.Multiple;
+                Categories.Items.Add(c);
+            }
+
+            }
 
         private void Categories_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void BtNueva_Click(object sender, RoutedEventArgs e)
+        {
+
+            NewCategoriesDialog catD = new NewCategoriesDialog();
+            catD.ShowDialog();
+            Categories_new.Items.Add(catD.cat);
+            Categories_new.Items.Refresh();
         }
     }
 }

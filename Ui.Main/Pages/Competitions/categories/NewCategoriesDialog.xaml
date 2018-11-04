@@ -1,0 +1,28 @@
+﻿<mui:ModernDialog  x:Class="Ui.Main.Pages.Competitions.categories.NewCategoriesDialog"
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                  xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+                  xmlns:local="clr-namespace:Ui.Main.Pages.Competitions.categories"
+                  xmlns:Properties="clr-namespace:Ui.Main.Properties" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
+                  mc:Ignorable="d"
+                 Title="Añadir categorías" Height="395" Width="480">
+
+    <Grid>
+
+
+        <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="{x:Static Properties:Resources.Competition_Name}" Margin="40,38,0,297" Width="75" RenderTransformOrigin="0.473,1.057" />
+
+
+        <xctk:WatermarkTextBox Watermark="{x:Static Properties:Resources.Competition_Name}" x:Name="Nombre" HorizontalAlignment="Left" Height="30" Margin="165,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" />
+        <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="Edad" Margin="40,185,0,153" Width="75" RenderTransformOrigin="0.473,1.057" />
+        <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="Desde" Margin="165,145,0,194" Width="55" RenderTransformOrigin="0.473,1.057" />
+        <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="Hasta" Margin="295,145,0,199" Width="55" RenderTransformOrigin="0.473,1.057" />
+        <xctk:WatermarkTextBox  x:Name="Desde" HorizontalAlignment="Left" Height="26" Margin="165,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0.455,0.133" />
+        <xctk:WatermarkTextBox  x:Name="Hasta" HorizontalAlignment="Left" Height="26" Margin="295,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0.364,-0.533" />
+        <Button x:Name="BtNueva" Content="Añadir" HorizontalAlignment="Left" Margin="165,297,0,0" VerticalAlignment="Top" Width="185" Height="23" FontSize="9"  RenderTransformOrigin="0.19,0.667" Click="BtNueva_Click" />
+
+
+    </Grid>
+</mui:ModernDialog>

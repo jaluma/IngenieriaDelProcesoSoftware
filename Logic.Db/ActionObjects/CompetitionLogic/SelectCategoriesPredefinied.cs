@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using Logic.Db.Dto;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
@@ -13,28 +14,41 @@ namespace Logic.Db.ActionObjects.CompetitionLogic
         class SelectCategoriesPredefinied : IActionObject
         {
             private readonly DBConnection _conn;
-            public readonly DataTable Table;
+            public readonly List<CategoryDto> list;
 
             public SelectCategoriesPredefinied(ref DBConnection conn)
             {
                 _conn = conn;
-                Table = new DataTable();
+            list = new List<CategoryDto>();
             }
             public void Execute()
             {
-                try
+            try
+            {
+                using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_ALL_CATEGORIES, _conn.DbConnection))
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
                 {
-                    using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_ALL_CATEGORIES, _conn.DbConnection))
+
+                    while (reader.Read())
                     {
-                        SQLiteDataAdapter da = new SQLiteDataAdapter(command);
-                        da.Fill(Table);
+                        CategoryDto cat = new CategoryDto()
+                        {
+
+                            Name = reader.GetString(0),
+                            Min_Age = reader.GetInt16(1),
+                            Max_Age = reader.GetInt16(1)
+                    };
+
+                        list.Add(cat);
                     }
                 }
-                catch (SQLiteException)
-                {
-                    _conn.DbConnection?.Close();
-                    throw;
-                }
+            }
+            catch (SQLiteException)
+            {
+                _conn.DbConnection?.Close();
+                throw;
+            }
             }
         }
     }
