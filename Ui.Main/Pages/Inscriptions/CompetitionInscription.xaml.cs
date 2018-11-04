@@ -131,7 +131,7 @@ namespace Ui.Main.Pages.Inscriptions
         }
 
         private void CompetitionSelectionWindow_OnLoaded(object sender, RoutedEventArgs e) {
-            if (_athlete == null || _athlete.Dni == null || !Dni.Equals(_athlete.Dni)) {
+            if (_athlete == null || _athlete.Dni == null || Dni==null ||!Dni.Equals(_athlete.Dni)) {
                 LoadData(Dni);
             }
         }
