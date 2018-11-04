@@ -141,7 +141,6 @@ namespace Ui.Main.Pages.Competitions
         private void ComboBox_Initialized(object sender, EventArgs e)
         { 
             
-
             list= _serviceCompCat.SelectAllCategories();
 
             foreach (CategoryDto c in list)
@@ -151,7 +150,7 @@ namespace Ui.Main.Pages.Competitions
                 Categories.Items.Add(c);
             }
 
-            }
+        }
 
         private void Categories_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -161,10 +160,40 @@ namespace Ui.Main.Pages.Competitions
         private void BtNueva_Click(object sender, RoutedEventArgs e)
         {
 
-            NewCategoriesDialog catD = new NewCategoriesDialog();
+            CategoriesDialog catD = new CategoriesDialog();
             catD.ShowDialog();
-            Categories_new.Items.Add(catD.cat);
-            Categories_new.Items.Refresh();
+            Categories.Items.Add(catD.cat);
+            Categories.Items.Refresh();
+        }
+
+        private void BtPlazo_Click(object sender, RoutedEventArgs e)
+        {
+            InscriptionDatesDto plazos = new InscriptionDatesDto();
+            plazos.fechaInicio= (DateTime)InicioPlazo.SelectedDate;
+            plazos.fechaFin = (DateTime)FinPlazo.SelectedDate;
+            plazos.devolucion = Devolucion.Text;
+
+            Plazos_list.SelectionMode = SelectionMode.Multiple;
+            Plazos_list.Items.Add(plazos);
+
+        }
+
+        private void Devolucion_Initialized(object sender, EventArgs e)
+        {
+            List<string> devoluciones = new List<string>();
+            devoluciones.Add("NO DEVOLUCIÓN");
+            devoluciones.Add("100%");
+            devoluciones.Add("75%");
+            devoluciones.Add("50%");
+            devoluciones.Add("25%");
+
+           
+
+            foreach (string c in devoluciones)
+            {
+                Devolucion.Items.Add(c);
+            }
+           
         }
     }
 }

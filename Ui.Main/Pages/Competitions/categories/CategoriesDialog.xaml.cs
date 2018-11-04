@@ -20,11 +20,12 @@ namespace Ui.Main.Pages.Competitions.categories
     /// <summary>
     /// Lógica de interacción para NewCategoriesDialog.xaml
     /// </summary>
-    public partial class NewCategoriesDialog : ModernDialog
+    public partial class CategoriesDialog : ModernDialog
     {
 
         public CategoryDto cat = new CategoryDto();
-        public NewCategoriesDialog()
+
+        public CategoriesDialog()
         {
             InitializeComponent();
             

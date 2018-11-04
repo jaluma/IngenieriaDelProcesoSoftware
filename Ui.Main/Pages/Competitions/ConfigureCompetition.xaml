@@ -51,9 +51,15 @@
 
         </Grid>
         <Label FontSize="12" FontWeight="bold" x:Name="LbCategories" Content="{x:Static properties:Resources.Predefined}" HorizontalAlignment="Left" Margin="80,193,0,0" VerticalAlignment="Top" Height="27" Width="165" RenderTransformOrigin="2.788,0.481" />
-        <ListBox Name="Categories" HorizontalAlignment="Left" Height="127" Margin="285,193,0,0" VerticalAlignment="Top" Width="160" Initialized="ComboBox_Initialized"/>
+        <ListBox Name="Categories" HorizontalAlignment="Left" Height="127" Margin="295,225,0,0" VerticalAlignment="Top" Width="160" Initialized="ComboBox_Initialized"/>
         <Button x:Name="BtNueva" Content="{x:Static properties:Resources.CreateNew}" HorizontalAlignment="Left" Margin="80,235,0,0" VerticalAlignment="Top" Width="165" Height="23" FontSize="9" Click="BtNueva_Click" RenderTransformOrigin="0.19,0.667"/>
         <ListBox x:Name="Categories_new" HorizontalAlignment="Left" Height="127" Margin="85,273,0,0" VerticalAlignment="Top" Width="160" />
+        <DatePicker x:Name="InicioPlazo" HorizontalAlignment="Left" Margin="895,255,0,0" VerticalAlignment="Top" Height="35" Width="170"/>
+        <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="{x:Static properties:Resources.CompetitionName}" Margin="640,255,0,255" Width="215" RenderTransformOrigin="0.473,1.057" />
+        <ListBox x:Name="Plazos_list" HorizontalAlignment="Left" Height="127" Margin="640,318,0,0" VerticalAlignment="Top" Width="160" />
+        <DatePicker x:Name="FinPlazo" HorizontalAlignment="Left" Margin="895,300,0,0" VerticalAlignment="Top" Height="28" Width="170"/>
+        <ComboBox IsEditable="True"  x:Name="Devolucion" HorizontalAlignment="Left" Height="18" Margin="895,352,0,0" VerticalAlignment="Top" Width="150" Initialized="Devolucion_Initialized"/>
+        <Button x:Name="BtPlazo" Content="{x:Static properties:Resources.CreateNew}" HorizontalAlignment="Left" Margin="895,395,0,0" VerticalAlignment="Top" Width="165" Height="23" FontSize="9" Click="BtPlazo_Click"  RenderTransformOrigin="0.19,0.667"/>
 
 
 
