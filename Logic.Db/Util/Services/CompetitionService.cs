@@ -62,6 +62,23 @@ namespace Logic.Db.Util.Services {
             return competitions.Table;
         }
 
+        public void AddCompetition(CompetitionDto competition) {
+            AddCompetitionLogic add = new AddCompetitionLogic(ref _conn, competition);
+            add.Execute();
+        }
+
+        public byte[] GetRules(CompetitionDto competition)
+        {
+            GetRulesCompetitionLogic rules = new GetRulesCompetitionLogic(ref _conn, competition);
+            return rules.Execute();
+        }
+
+        public List<CategoryDto> SelectAllCategories()
+        {
+            SelectCategoriesPredefinied cat = new SelectCategoriesPredefinied(ref _conn);
+            cat.Execute();
+            return cat.list;
+        }
 
         //public void InsertAthletesTable(AthleteDto athleteP) {
         //    AddAthleteLogic add = new AddAthleteLogic(ref _conn, athleteP);

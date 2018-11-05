@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using Ui.Main.Pages.Competition.Times;
 using Ui.Main.Pages.Inscriptions.HasRegistered;
-using Ui.Main.Pages.OpenCompetitions;
+using Ui.Main.Pages.Competitions;
 
 namespace Ui.Main.Pages.MenuInitial {
     /// <summary>

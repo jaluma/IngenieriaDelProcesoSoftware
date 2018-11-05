@@ -302,66 +302,9 @@ namespace Logic.Db.Properties {
             }
         }
 
-        internal static string SQL_SELECT_PREREGISTERED
-        {
-            get
-            {
-                return ResourceManager.GetString("SQL_SELECT_PREREGISTERED", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Busca una cadena traducida similar a update Enroll set status=@STATUS where competition_id=@COMPETITION_ID and athlete_dni=@DNI.
-        /// </summary>
-        internal static string SQL_UPDATE_INSCRIPTION_STATUS
-        {
-            get
-            {
-                return ResourceManager.GetString("SQL_UPDATE_INSCRIPTION_STATUS", resourceCulture);
-            }
-        }
-
-        internal static string SQL_SELECT_COUNT_DORSALS_BY_COMPETITION
-        {
-            get
-            {
-                return ResourceManager.GetString("SQL_SELECT_COUNT_DORSALS_BY_COMPETITION", resourceCulture);
-            }
-        }
-
-        internal static string SQL_SELECT_CATEGORY_BY_COMPETITION
-        {
-            get
-            {
-                return ResourceManager.GetString("SQL_SELECT_CATEGORY_BY_COMPETITION", resourceCulture);
-            }
-        }
-
-        internal static string SQL_SELECT_ATHLETES_TIMES_BY_GENDER
-        {
-            get
-            {
-                return ResourceManager.GetString("SQL_SELECT_ATHLETES_TIMES_BY_GENDER", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Byte[].
-        /// </summary>
-        internal static byte[] DefaultCategories {
-            get {
-                object obj = ResourceManager.GetObject("DefaultCategories", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-
-        internal static string SQL_SELECT_CATEGORIES
-        {
-            get
-            {
-                return ResourceManager.GetString("SQL_SELECT_CATEGORIES", resourceCulture);
-            }
-        }
         
+
+
+
     }
 }

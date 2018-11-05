@@ -352,6 +352,48 @@
   <data name="FinishInscriptions" xml:space="preserve">
     <value />
   </data>
+  <data name="TitleConfigureCompetition" xml:space="preserve">
+    <value>Configurador de carreras</value>
+  </data>
+  <data name="CompetitionName" xml:space="preserve">
+    <value>Nombre de la competición</value>
+  </data>
+  <data name="Asfalto" xml:space="preserve">
+    <value>Asfalto</value>
+  </data>
+  <data name="Mountain" xml:space="preserve">
+    <value>Montaña</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Añadir</value>
+  </data>
+  <data name="FileSelect" xml:space="preserve">
+    <value>Seleccione el pdf del reglamento...</value>
+  </data>
+  <data name="Rules" xml:space="preserve">
+    <value>Reglamento</value>
+  </data>
+  <data name="Desnivel" xml:space="preserve">
+    <value>Desnivel (metros)</value>
+  </data>
+  <data name="NegativeDesnivel" xml:space="preserve">
+    <value>D- (metros)</value>
+  </data>
+  <data name="PositiveDesnivel" xml:space="preserve">
+    <value>D+ (metros)</value>
+  </data>
+  <data name="Categories" xml:space="preserve">
+    <value>Categorías</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="CreateNew" xml:space="preserve">
+    <value>Añadir nueva </value>
+  </data>
+  <data name="Predefined" xml:space="preserve">
+    <value>Categorías predefinidas</value>
+  </data>
   <data name="NotSelectedFile" xml:space="preserve">
     <value>No se ha seleccionado ningún extracto bancario.</value>
   </data>
