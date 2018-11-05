@@ -254,4 +254,10 @@ WHERE COMPETITION_ID=@COMPETITION_ID AND ATHLETE_DNI=GET_AGE_NOW.ATHLETE_DNI  AN
     <value>SELECT * FROM Category
 WHERE CATEGORY_ID = @ID</value>
   </data>
+  <data name="SQL_SELECT_PREREGISTERED" xml:space="preserve">
+    <value>select ATHLETE_DNI, COMPETITION_ID, COMPETITION_PRICE, DATE_INSCRIPTION from Enroll natural join Competition where status in ('PRE-REGISTERED', 'PREREGISTERED','CANCELED')</value>
+  </data>
+  <data name="SQL_UPDATE_INSCRIPTION_STATUS" xml:space="preserve">
+    <value>update Enroll set status=@STATUS where competition_id=@COMPETITION_ID and athlete_dni=@DNI</value>
+  </data>
 </root>

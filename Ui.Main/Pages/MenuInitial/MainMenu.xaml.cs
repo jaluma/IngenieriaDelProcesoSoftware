@@ -51,6 +51,9 @@ namespace Ui.Main.Pages.MenuInitial {
             }
         }
 
-        
+        private void TilePayments_Click(object sender, RoutedEventArgs e)
+        {
+            ChangeMenuSelected(Properties.Resources.TilePayments, Properties.Resources.TitleFinishPayment);
+        }
     }
 }

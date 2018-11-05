@@ -842,5 +842,71 @@ namespace Ui.Main.Properties {
             }
         }
 
+        /// <summary>
+        ///   Busca una cadena traducida similar a Pagos.
+        /// </summary>
+        public static string TilePayments
+        {
+            get
+            {
+                return ResourceManager.GetString("TilePayments", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Comprobar pagos de inscripción.
+        /// </summary>
+        public static string TitleFinishPayment
+        {
+            get
+            {
+                return ResourceManager.GetString("TitleFinishPayment", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Actualizar estado de las inscripciones.
+        /// </summary>
+        public static string UpdateInscriptionsState
+        {
+            get
+            {
+                return ResourceManager.GetString("UpdateInscriptionsState", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se ha seleccionado ningún extracto bancario..
+        /// </summary>
+        public static string NotSelectedFile
+        {
+            get
+            {
+                return ResourceManager.GetString("NotSelectedFile", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a El extracto seleccionado está vacío..
+        /// </summary>
+        public static string EmptyDocument
+        {
+            get
+            {
+                return ResourceManager.GetString("EmptyDocument", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a El documento seleccionado no es válido..
+        /// </summary>
+        public static string InvalidDocument
+        {
+            get
+            {
+                return ResourceManager.GetString("InvalidDocument", resourceCulture);
+            }
+        }
+
     }
 }

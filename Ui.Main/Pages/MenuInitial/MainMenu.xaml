@@ -40,5 +40,10 @@
                   Background="BurlyWood" Click="TileInscriptionDorsal_Click">
             <Image Height="100" Width="100" Source="../../Resources/dorsalsIco.png"/>
         </mah:Tile>
+        <mah:Tile x:Name="TilePayments" Style="{StaticResource Tile}"
+                  Title="{x:Static properties:Resources.TilePayments}"
+                  Background="GhostWhite" Click="TilePayments_Click">
+            <Image Height="100" Width="100" Source="../../Resources/pagoIco.png"/>
+        </mah:Tile>
     </WrapPanel>
 </Page>

@@ -352,4 +352,22 @@
   <data name="FinishInscriptions" xml:space="preserve">
     <value />
   </data>
+  <data name="NotSelectedFile" xml:space="preserve">
+    <value>No se ha seleccionado ningún extracto bancario.</value>
+  </data>
+  <data name="TilePayments" xml:space="preserve">
+    <value>Pagos</value>
+  </data>
+  <data name="TitleFinishPayment" xml:space="preserve">
+    <value>Comprobar pagos de inscripción</value>
+  </data>
+  <data name="UpdateInscriptionsState" xml:space="preserve">
+    <value>Actualizar estado de las inscripciones</value>
+  </data>
+  <data name="EmptyDocument" xml:space="preserve">
+    <value>El extracto seleccionado está vacío.</value>
+  </data>
+  <data name="InvalidDocument" xml:space="preserve">
+    <value>El documento seleccionado no es válido.</value>
+  </data>
 </root>

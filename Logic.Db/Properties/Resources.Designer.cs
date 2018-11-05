@@ -302,6 +302,25 @@ namespace Logic.Db.Properties {
             }
         }
 
+        internal static string SQL_SELECT_PREREGISTERED
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_PREREGISTERED", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a update Enroll set status=@STATUS where competition_id=@COMPETITION_ID and athlete_dni=@DNI.
+        /// </summary>
+        internal static string SQL_UPDATE_INSCRIPTION_STATUS
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_UPDATE_INSCRIPTION_STATUS", resourceCulture);
+            }
+        }
+
         internal static string SQL_SELECT_COUNT_DORSALS_BY_COMPETITION
         {
             get

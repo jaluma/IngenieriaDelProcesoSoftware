@@ -252,7 +252,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <CustomToolNamespace>Ui.Main.Properties</CustomToolNamespace>
-      <LastGenOutput>Resources2.Designer.cs</LastGenOutput>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
