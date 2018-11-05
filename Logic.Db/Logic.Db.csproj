@@ -83,6 +83,7 @@
     <Compile Include="ActionObjects\CompetitionLogic\SelectCompetitionLogic.cs" />
     <Compile Include="ActionObjects\IActionObject.cs" />
     <Compile Include="ActionObjects\AthleteLogic\SelectAthleteLogic.cs" />
+    <Compile Include="ActionObjects\TimesLogic\SelectCategoryByAbsolutCategory.cs" />
     <Compile Include="ActionObjects\TimesLogic\SelectCompetitionTimeLogic.cs" />
     <Compile Include="ActionObjects\TimesLogic\SelectHasParticipatedTimeLogicByCategory.cs" />
     <Compile Include="ActionObjects\TimesLogic\SelectHasParticipatedTimeLogic.cs" />
@@ -91,9 +92,10 @@
     <Compile Include="Csv\CsvTimes.cs" />
     <Compile Include="Csv\Object\CsvObject.cs" />
     <Compile Include="Csv\Object\PartialTimesObjects.cs" />
+    <Compile Include="Dto\AbsoluteCategory.cs" />
     <Compile Include="Dto\AthleteCompetitionInscriptionDto.cs" />
     <Compile Include="Dto\AthleteDto.cs" />
-    <Compile Include="Dto\CategortDto.cs" />
+    <Compile Include="Dto\CategoryDto.cs" />
     <Compile Include="Dto\CompetitionDto.cs" />
     <Compile Include="Dto\HasParticipatedDto.cs" />
     <Compile Include="Json\JsonDeserialize.cs" />

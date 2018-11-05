@@ -75,14 +75,15 @@ namespace Ui.Main.Pages.Inscriptions.HasRegistered
             try {
                 bool dorsals = _enroll.IsDorsalsInCompetition(_competition);
 
-                MessageBoxResult result = MessageBoxResult.None;
+                MessageBoxResult  result = MessageBoxResult.None;
                 if (dorsals) {
-                    result = MessageBox.Show("Quiere reemplazar los dorsales?");
+                    string message = "¿Quiere sobreescribir los dorsales?";
+                    result = MessageBox.Show(message, "Error", MessageBoxButton.YesNo);
                 }
 
                 if (result == MessageBoxResult.Yes) {
                     // insertar
-                } else {
+                } else if (result == MessageBoxResult.No) {
                     _enroll.UpdateAthleteRegisteredDorsal(_competition);
                 }
 

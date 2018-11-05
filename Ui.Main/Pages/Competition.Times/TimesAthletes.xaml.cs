@@ -35,9 +35,9 @@ namespace Ui.Main.Pages.Competition.Times
         private DataTable _table;
         private List<long> _ids;
         private List<string> _list;
-        private IEnumerable<CategoryDto> categories;
+        private IEnumerable<AbsoluteCategory> categories;
         public static CompetitionDto Competition;
-        public static CategoryDto CategorySelected;
+        public static AbsoluteCategory CategorySelected;
         private readonly CompetitionService _competitionService;
         private readonly TimesService _service;
 
@@ -69,10 +69,9 @@ namespace Ui.Main.Pages.Competition.Times
             LayoutButtons.Children.Clear();
             Button but = GenerateButton();
 
-            CategoryDto cat = new CategoryDto() {
-                Name = Properties.Resources.Absolute.ToUpper(),
-                MinAge = 18,
-                MaxAge = int.MaxValue,
+            AbsoluteCategory cat = new AbsoluteCategory() {
+                Id = -1,
+                Name = Properties.Resources.Absolute.ToUpper()
             };
 
             but.Content = cat.Name;
@@ -89,7 +88,7 @@ namespace Ui.Main.Pages.Competition.Times
             CategorySelected = categories.First();
 
             int count = 0;
-            foreach (CategoryDto category in categories) {
+            foreach (var category in categories) {
                 but = GenerateButton();
                 but.Content = category.Name.Replace('_', ' ').ToUpper();
                 but.Tag = count++;
@@ -150,7 +149,37 @@ namespace Ui.Main.Pages.Competition.Times
                 CategorySelected = categories.ElementAt((int) bt.Tag);
 
                 GenerateDataGrid();
+                CheckBox_OnClick(null, null);
             }
+        }
+
+        private void CheckBox_OnClick(object sender, RoutedEventArgs e) {
+            _table.DefaultView.RowFilter = GenerateFilter();
+            DataGridTimes.ItemsSource = _table.DefaultView;
+        }
+
+        private string GenerateFilter() {
+            string filter = string.Empty;
+
+            if (MaleIsChecked() && FemaleIsChecked()) {
+                filter = null;
+            } else if (MaleIsChecked()) {
+                filter = $"{Properties.Resources.AthleteGender} = 'M'";
+            } else if (FemaleIsChecked()) {
+                filter = $"{Properties.Resources.AthleteGender} = 'F'";
+            } else {
+                filter = $"{Properties.Resources.AthleteGender} <> 'F' and {Properties.Resources.AthleteGender} <> 'M'";
+            }
+
+            return filter;
+        }
+
+        private bool MaleIsChecked() {
+            return (bool) MaleCheckBox.IsChecked;
+        }
+
+        private bool FemaleIsChecked() {
+            return (bool) FemaleCheckBox.IsChecked;
         }
 
         internal void GenerateDataGrid() {

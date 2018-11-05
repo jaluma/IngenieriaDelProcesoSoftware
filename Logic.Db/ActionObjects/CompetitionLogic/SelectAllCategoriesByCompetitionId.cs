@@ -6,6 +6,7 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Logic.Db.Util.Services;
 
 namespace Logic.Db.ActionObjects.CompetitionLogic
 {
@@ -13,7 +14,7 @@ namespace Logic.Db.ActionObjects.CompetitionLogic
     {
         private readonly DBConnection _conn;
         private readonly CompetitionDto _competitionDto;
-        public IList<CategoryDto> Categories;
+        public IList<AbsoluteCategory> Categories;
 
         public SelectAllCategoriesByCompetitionId(ref DBConnection conn, CompetitionDto comp)
         {
@@ -29,18 +30,17 @@ namespace Logic.Db.ActionObjects.CompetitionLogic
                     command.Parameters.AddWithValue("@COMPETITION_ID", _competitionDto.ID);
                     using (SQLiteDataReader reader = command.ExecuteReader())
                     {
-                        Categories = new List<CategoryDto>();
+                        Categories = new List<AbsoluteCategory>();
                         while (reader.Read()) {
-                            CategoryDto category = new CategoryDto();
+                            int[] id = {reader.GetInt32(2), reader.GetInt32(3)};
+                            IEnumerable<CategoryDto> childCategory = new CompetitionService().SelectCategoryByAbsoluteCategories(id);
 
-                            category.Name = reader.GetString(0);
-                            category.MinAge = reader.GetInt32(1);
-
-                            if (!reader.IsDBNull(2))
-                                category.MaxAge = reader.GetInt32(2);
-                            else {
-                                category.MaxAge = -1;
-                            }
+                            AbsoluteCategory category = new AbsoluteCategory {
+                                Id = reader.GetInt32(0),
+                                Name = reader.GetString(1),
+                                CategoryM = childCategory.ElementAt(0),
+                                CategoryF = childCategory.ElementAt(1),
+                            };
 
                             Categories.Add(category);
                         }

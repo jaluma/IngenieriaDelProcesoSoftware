@@ -1,49 +1,46 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Logic.Db.Json;
+﻿using Logic.Db.Dto;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Logic.Db.Dto;
 
 namespace Logic.Db.Json.Tests {
     [TestClass()]
     public class JsonDeserializeTests {
         [TestMethod()]
         public void GeneratorDefaultCategoriesTest() {
-            JsonDeserialize<CategoryDto> json = new JsonDeserialize<CategoryDto>("DefaultCategories.json");
-            CategoryDto category0 = new CategoryDto() {
-                Name = "JUNIOR",
-                MinAge = 18,
-                MaxAge = 18
-            };
-            CategoryDto category1 = new CategoryDto() {
-                Name = "SENIOR",
-                MinAge = 19,
-                MaxAge = 34
-            };
-            CategoryDto category2 = new CategoryDto() {
-                Name = "VETERAN_A",
-                MinAge = 35,
-                MaxAge = 44
-            };
-            CategoryDto category3 = new CategoryDto() {
-                Name = "VETERAN_B",
-                MinAge = 45,
-                MaxAge = 54
-            };
-            CategoryDto category4 = new CategoryDto() {
-                Name = "VETERAN_C",
-                MinAge = 55,
-                MaxAge = int.MaxValue
-            };
+            JsonDeserialize<AbsoluteCategory> json = new JsonDeserialize<AbsoluteCategory>("DefaultCategories.json");
+            string[] categorias = {"JUNIOR", "SENIOR", "VETERAN_A", "VETERAN_B", "VETERAN_C"};
+            int[] agem = {18, 19, 35, 45, 55};
+            int[] ageM = {18, 34, 44, 54, int.MaxValue};
+            AbsoluteCategory[] categories = new AbsoluteCategory[categorias.Length];
+            for (int i = 0; i < categories.Length; i++) {
+                string str = categorias[i];
 
-            CategoryDto[] categories = {category0, category1, category2, category3, category4};
+                AbsoluteCategory absoluteCategory = new AbsoluteCategory() {
+                    Id = 1,
+                    Name = str,
+                    CategoryM = new CategoryDto() {
+                        Id = 1,
+                        Name = $"{str}_M",
+                        MinAge = agem[i],
+                        MaxAge = ageM[i],
+                        Gender = "M"
+                    },
+                    CategoryF = new CategoryDto() {
+                        Id = 1,
+                        Name = $"{str}_F",
+                        MinAge = agem[i],
+                        MaxAge = ageM[i],
+                        Gender = "F"
+                    },
+                };
+
+                categories[i] = absoluteCategory;
+            }
+
             json.Serialize(categories);
             foreach (var category in json.ListJson()) {
-                Console.WriteLine($@"{category.Name} {category.MinAge} {category.MaxAge}");
+                if (category != null)
+                    Console.WriteLine($@"{category.Name} {category.CategoryF.Name} {category.CategoryM.Name}");
             }
         }
     }

@@ -335,6 +335,14 @@ namespace Logic.Db.Properties {
                 return ((byte[])(obj));
             }
         }
+
+        internal static string SQL_SELECT_CATEGORIES
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_CATEGORIES", resourceCulture);
+            }
+        }
         
     }
 }
