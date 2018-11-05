@@ -123,14 +123,17 @@ namespace Ui.Main.Pages.PersonalMenuAthlete
             _tableResult.Merge(_serviceAthleteResult.SelectParticipatedByDni(Dni.Text.ToUpper()));
 
           
-            _tableResult.Columns[1].ColumnName = Properties.Resources.Competition;
-            _tableResult.Columns[2].ColumnName = Properties.Resources.AthleteGender;
+           
+            _tableResult.Columns[1].ColumnName = Properties.Resources.FinishTime;
+            _tableResult.Columns[2].ColumnName = Properties.Resources.Competition;
+            _tableResult.Columns[3].ColumnName = Properties.Resources.AthleteGender;
+
 
 
             DataGridResults.ItemsSource = _tableResult.DefaultView;
             if (DataGridResults.Columns.Count >= 1)
             {
-               DataGridResults.Columns.ElementAt(2).Visibility = Visibility.Collapsed;                
+               DataGridResults.Columns.ElementAt(3).Visibility = Visibility.Collapsed;                
             }
         }
 

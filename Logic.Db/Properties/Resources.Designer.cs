@@ -77,6 +77,17 @@ namespace Logic.Db.Properties {
         }
 
         /// <summary>
+        ///   Busca una cadena traducida similar a select * from category.
+        /// </summary>
+        internal static string SQL_SELECT_ALL_CATEGORIES
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_ALL_CATEGORIES", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Byte[].
         /// </summary>
         internal static byte[] Database {
@@ -183,6 +194,17 @@ namespace Logic.Db.Properties {
             get
             {
                 return ResourceManager.GetString("SQL_SELECT_ALL_COMP_INSCRIPTED", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a select competition_rules from competitions where id=@COMPETITION_ID.
+        /// </summary>
+        internal static string SQL_GET_RULES
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_GET_RULES", resourceCulture);
             }
         }
 

@@ -47,6 +47,93 @@ namespace Ui.Main.Properties {
         }
 
         /// <summary>
+        ///   Busca una cadena traducida similar a D+.
+        /// </summary>
+        public static string PositiveDesnivel
+        {
+            get
+            {
+                return ResourceManager.GetString("PositiveDesnivel", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Categorías predefinidas.
+        /// </summary>
+        public static string Predefined
+        {
+            get
+            {
+                return ResourceManager.GetString("Predefined", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Añadir nueva .
+        /// </summary>
+        public static string CreateNew
+        {
+            get
+            {
+                return ResourceManager.GetString("CreateNew", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Busca una cadena traducida similar a D-.
+        /// </summary>
+        public static string NegativeDesnivel
+        {
+            get
+            {
+                return ResourceManager.GetString("NegativeDesnivel", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Categorías.
+        /// </summary>
+        public static string Categories
+        {
+            get
+            {
+                return ResourceManager.GetString("Categories", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Añadir.
+        /// </summary>
+        public static string Add
+        {
+            get
+            {
+                return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Total.
+        /// </summary>
+        public static string Total
+        {
+            get
+            {
+                return ResourceManager.GetString("Total", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Desnivel.
+        /// </summary>
+        public static string Desnivel
+        {
+            get
+            {
+                return ResourceManager.GetString("Desnivel", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Busca una cadena traducida similar a Área Personal.
         /// </summary>
         public static string PersonalMenu
@@ -54,6 +141,73 @@ namespace Ui.Main.Properties {
             get
             {
                 return ResourceManager.GetString("PersonalMenu", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Reglamento.
+        /// </summary>
+        public static string Rules
+        {
+            get
+            {
+                return ResourceManager.GetString("Rules", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Seleccione el pdf del reglamento....
+        /// </summary>
+        public static string FileSelect
+        {
+            get
+            {
+                return ResourceManager.GetString("FileSelect", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Configurador de carreras.
+        /// </summary>
+        public static string TitleConfigureCompetition
+        {
+            get
+            {
+                return ResourceManager.GetString("TitleConfigureCompetition", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Montaña.
+        /// </summary>
+        public static string Mountain
+        {
+            get
+            {
+                return ResourceManager.GetString("Mountain", resourceCulture);
+            }
+        }
+
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Asfalto.
+        /// </summary>
+        public static string Asfalto
+        {
+            get
+            {
+                return ResourceManager.GetString("Asfalto", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nombre de la competición.
+        /// </summary>
+        public static string CompetitionName
+        {
+            get
+            {
+                return ResourceManager.GetString("CompetitionName", resourceCulture);
             }
         }
 

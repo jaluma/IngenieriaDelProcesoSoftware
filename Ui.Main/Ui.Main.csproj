@@ -130,6 +130,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Competitions\ConfigureCompetition.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\Competitions\categories\CategoriesDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Inscriptions\CompetitionInscription.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -180,6 +188,12 @@
     <Compile Include="Pages\Competition.Times\TimesAthletes.xaml.cs">
       <DependentUpon>TimesAthletes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Competitions\ConfigureCompetition.xaml.cs">
+      <DependentUpon>ConfigureCompetition.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Competitions\categories\CategoriesDialog.xaml.cs">
+      <DependentUpon>CategoriesDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Inscriptions\CompetitionInscription.xaml.cs">
       <DependentUpon>CompetitionInscription.xaml</DependentUpon>
     </Compile>
@@ -215,7 +229,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Pages\OpenCompetitions\ListOpenCompetition.xaml">
+    <Page Include="Pages\Competitions\ListOpenCompetition.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -228,7 +242,7 @@
     <Compile Include="Pages\Inscriptions\ListAthletes.xaml.cs">
       <DependentUpon>ListAthletes.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\OpenCompetitions\ListOpenCompetition.xaml.cs">
+    <Compile Include="Pages\Competitions\ListOpenCompetition.xaml.cs">
       <DependentUpon>ListOpenCompetition.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PersonalMenuAthlete\PersonalDataMenu.xaml.cs">

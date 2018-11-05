@@ -13,6 +13,7 @@ namespace Logic.Db.Dto {
         public DateTime Date;
         public int NumberPlaces;
         public string Status; //can be null
+        public byte[] Rules;
     }
 
     public enum TypeCompetition {
