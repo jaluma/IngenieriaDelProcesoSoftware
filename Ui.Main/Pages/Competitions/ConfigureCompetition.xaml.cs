@@ -33,8 +33,7 @@ namespace Ui.Main.Pages.Competitions
         private CompetitionService _serviceCompCat = new CompetitionService();
         private CompetitionDto _competition = new CompetitionDto();
         byte[] bytes;
-        private DataTable _tableResult;
-       private List<CategoryDto> list;
+       private IEnumerable<AbsoluteCategory> list;
 
         public ConfigureCompetition()
         {
@@ -46,9 +45,10 @@ namespace Ui.Main.Pages.Competitions
         {
 
 
-            OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "PDF Files|*.pdf"; 
-            dialog.Multiselect = false; 
+            OpenFileDialog dialog = new OpenFileDialog {
+                Filter = "PDF Files|*.pdf",
+                Multiselect = false
+            };
             if (dialog.ShowDialog() == DialogResult.OK) 
             {
                 String path = dialog.FileName;
@@ -143,7 +143,7 @@ namespace Ui.Main.Pages.Competitions
             
             list= _serviceCompCat.SelectAllCategories();
 
-            foreach (CategoryDto c in list)
+            foreach (var c in list)
             {
 
                 Categories.SelectionMode = SelectionMode.Multiple;
@@ -168,10 +168,11 @@ namespace Ui.Main.Pages.Competitions
 
         private void BtPlazo_Click(object sender, RoutedEventArgs e)
         {
-            InscriptionDatesDto plazos = new InscriptionDatesDto();
-            plazos.fechaInicio= (DateTime)InicioPlazo.SelectedDate;
-            plazos.fechaFin = (DateTime)FinPlazo.SelectedDate;
-            plazos.devolucion = Devolucion.Text;
+            InscriptionDatesDto plazos = new InscriptionDatesDto {
+                fechaInicio = (DateTime) InicioPlazo.SelectedDate,
+                fechaFin = (DateTime) FinPlazo.SelectedDate,
+                devolucion = Devolucion.Text
+            };
 
             Plazos_list.SelectionMode = SelectionMode.Multiple;
             Plazos_list.Items.Add(plazos);
@@ -180,14 +181,15 @@ namespace Ui.Main.Pages.Competitions
 
         private void Devolucion_Initialized(object sender, EventArgs e)
         {
-            List<string> devoluciones = new List<string>();
-            devoluciones.Add("NO DEVOLUCIÓN");
-            devoluciones.Add("100%");
-            devoluciones.Add("75%");
-            devoluciones.Add("50%");
-            devoluciones.Add("25%");
+            List<string> devoluciones = new List<string> {
+                "NO DEVOLUCIÓN",
+                "100%",
+                "75%",
+                "50%",
+                "25%"
+            };
 
-           
+
 
             foreach (string c in devoluciones)
             {

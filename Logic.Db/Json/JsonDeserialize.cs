@@ -10,6 +10,8 @@ using Newtonsoft.Json;
 namespace Logic.Db.Json {
     public class JsonDeserialize<T> {
 
+        public const string DEFAULT_CATEGORIES_FILENAME = "DefaultCategories.json";
+
         private readonly string _fileName;
         private readonly JsonSerializer _serializer;
 

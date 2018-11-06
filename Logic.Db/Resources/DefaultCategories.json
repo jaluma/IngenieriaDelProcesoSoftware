@@ -1,26 +1,92 @@
 [
   {
+    "Id": 1,
     "Name": "JUNIOR",
-    "MinAge": 18,
-    "MaxAge": 18
+    "CategoryM": {
+      "Id": 1,
+      "Name": "JUNIOR_M",
+      "MinAge": 18,
+      "MaxAge": 18,
+      "Gender": "M"
+    },
+    "CategoryF": {
+      "Id": 1,
+      "Name": "JUNIOR_F",
+      "MinAge": 18,
+      "MaxAge": 18,
+      "Gender": "F"
+    }
   },
   {
+    "Id": 1,
     "Name": "SENIOR",
-    "MinAge": 19,
-    "MaxAge": 34
+    "CategoryM": {
+      "Id": 1,
+      "Name": "SENIOR_M",
+      "MinAge": 19,
+      "MaxAge": 34,
+      "Gender": "M"
+    },
+    "CategoryF": {
+      "Id": 1,
+      "Name": "SENIOR_F",
+      "MinAge": 19,
+      "MaxAge": 34,
+      "Gender": "F"
+    }
   },
   {
+    "Id": 1,
     "Name": "VETERAN_A",
-    "MinAge": 35,
-    "MaxAge": 44
+    "CategoryM": {
+      "Id": 1,
+      "Name": "VETERAN_A_M",
+      "MinAge": 35,
+      "MaxAge": 44,
+      "Gender": "M"
+    },
+    "CategoryF": {
+      "Id": 1,
+      "Name": "VETERAN_A_F",
+      "MinAge": 35,
+      "MaxAge": 44,
+      "Gender": "F"
+    }
   },
   {
+    "Id": 1,
     "Name": "VETERAN_B",
-    "MinAge": 45,
-    "MaxAge": 54
+    "CategoryM": {
+      "Id": 1,
+      "Name": "VETERAN_B_M",
+      "MinAge": 45,
+      "MaxAge": 54,
+      "Gender": "M"
+    },
+    "CategoryF": {
+      "Id": 1,
+      "Name": "VETERAN_B_F",
+      "MinAge": 45,
+      "MaxAge": 54,
+      "Gender": "F"
+    }
   },
   {
+    "Id": 1,
     "Name": "VETERAN_C",
-    "MinAge": 55
+    "CategoryM": {
+      "Id": 1,
+      "Name": "VETERAN_C_M",
+      "MinAge": 55,
+      "MaxAge": 2147483647,
+      "Gender": "M"
+    },
+    "CategoryF": {
+      "Id": 1,
+      "Name": "VETERAN_C_F",
+      "MinAge": 55,
+      "MaxAge": 2147483647,
+      "Gender": "F"
+    }
   }
 ]

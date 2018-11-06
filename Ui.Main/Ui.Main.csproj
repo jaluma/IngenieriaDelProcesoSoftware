@@ -302,6 +302,11 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\pagoIco.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Resources\competitionIcon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

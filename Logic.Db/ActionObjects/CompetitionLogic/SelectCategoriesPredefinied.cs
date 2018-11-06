@@ -7,6 +7,7 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Logic.Db.Json;
 
 namespace Logic.Db.ActionObjects.CompetitionLogic
 {
@@ -14,35 +15,36 @@ namespace Logic.Db.ActionObjects.CompetitionLogic
         class SelectCategoriesPredefinied : IActionObject
         {
             private readonly DBConnection _conn;
-            public readonly List<CategoryDto> list;
+            public IEnumerable<AbsoluteCategory> List;
 
             public SelectCategoriesPredefinied(ref DBConnection conn)
             {
                 _conn = conn;
-            list = new List<CategoryDto>();
             }
             public void Execute()
             {
             try
             {
-                using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_ALL_CATEGORIES, _conn.DbConnection))
+                Json.JsonDeserialize<AbsoluteCategory> defaultDeserialize = new JsonDeserialize<AbsoluteCategory>(JsonDeserialize<AbsoluteCategory>.DEFAULT_CATEGORIES_FILENAME);
+                List = defaultDeserialize.ListJson();
+                //using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_ALL_CATEGORIES, _conn.DbConnection))
 
-                using (SQLiteDataReader reader = command.ExecuteReader())
-                {
+                //using (SQLiteDataReader reader = command.ExecuteReader())
+                //{
 
-                    while (reader.Read())
-                    {
-                        CategoryDto cat = new CategoryDto()
-                        {
+                //    while (reader.Read())
+                //    {
+                //        CategoryDto cat = new CategoryDto()
+                //        {
 
-                            Name = reader.GetString(0),
-                            Min_Age = reader.GetInt16(1),
-                            Max_Age = reader.GetInt16(1)
-                    };
+                //            Name = reader.GetString(0),
+                //            //Min_Age = reader.GetInt16(1),
+                //            //Max_Age = reader.GetInt16(1)
+                //    };
 
-                        list.Add(cat);
-                    }
-                }
+                //        list.Add(cat);
+                //    }
+                //}
             }
             catch (SQLiteException)
             {

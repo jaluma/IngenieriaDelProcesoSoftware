@@ -10,5 +10,9 @@ namespace Logic.Db.Dto {
         public string Name;
         public CategoryDto CategoryM;
         public CategoryDto CategoryF;
+
+        public override string ToString() {
+            return Name.Replace('_', ' ');
+        }
     }
 }

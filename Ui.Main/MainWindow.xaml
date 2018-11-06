@@ -12,7 +12,7 @@
         Height="625" Width="1250" MinHeight="450" MinWidth="450" ResizeMode="CanMinimize">
         <!--Style="{StaticResource BlankWindow}"-->
 
-    <mui:ModernWindow.MenuLinkGroups>
+    <mui:ModernWindow.MenuLinkGroups >
         <mui:LinkGroup DisplayName="Hola :)">
             <mui:LinkGroup.Links>
                 <mui:Link DisplayName="home" Source="/Pages/MenuInitial/MainMenu.xaml" />

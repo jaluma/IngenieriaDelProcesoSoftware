@@ -19,8 +19,7 @@ namespace Ui.Main {
 
             AppearanceManager.Current.AccentColor = Colors.BlueViolet;
             ContentSource = MenuLinkGroups.First().Links.First().Source;
-
-            
+           
         }
     }
 }

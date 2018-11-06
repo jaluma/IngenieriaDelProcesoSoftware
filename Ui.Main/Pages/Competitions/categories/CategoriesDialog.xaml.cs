@@ -36,8 +36,8 @@ namespace Ui.Main.Pages.Competitions.categories
             
             
             cat.Name = Nombre.Text;
-            cat.Min_Age = int.Parse(Desde.Text);
-            cat.Min_Age = int.Parse(Hasta.Text);
+            //cat.Min_Age = int.Parse(Desde.Text);
+            //cat.Min_Age = int.Parse(Hasta.Text);
             Close();
                                            
         }
