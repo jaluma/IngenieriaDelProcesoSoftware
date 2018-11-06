@@ -86,6 +86,7 @@
     <Compile Include="ActionObjects\CompetitionLogic\ListOpenCompetitionLogic.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\SearchCompetitionByIdLogic.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\SelectCompetitionLogic.cs" />
+    <Compile Include="ActionObjects\CompetitionLogic\SelectCompetitionPrice.cs" />
     <Compile Include="ActionObjects\IActionObject.cs" />
     <Compile Include="ActionObjects\AthleteLogic\SelectAthleteLogic.cs" />
     <Compile Include="ActionObjects\TimesLogic\SelectCategoryByAbsolutCategory.cs" />

@@ -114,5 +114,12 @@ namespace Logic.Db.Util.Services {
             categories.Execute();
             return categories.Categories;
         }
+
+        public double SelectCompetitionPrice(string dni, long id)
+        {
+            SelectCompetitionPrice select = new SelectCompetitionPrice(ref _conn, dni, id);
+            select.Execute();
+            return select.Price;
+        }
     }
 }

@@ -264,6 +264,13 @@ WHERE CATEGORY_ID = @ID</value>
     <value>..\Resources\DefaultCategories.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="SQL_SELECT_NOT_CANCELED_INSCRIPTIONS" xml:space="preserve">
-    <value>select competition_id, status, date_inscription, dorsal from enroll where athlete_dni =@DNI and status&lt;&gt;'CANCELED'</value>
+    <value>select competition_id, competition_name, status, date_inscription, refund, date_refund 
+from enroll natural join competition natural join competitionrefund 
+where athlete_dni=@DNI and status&lt;&gt;'CANCELED' 
+and date_refund in (select min(date_refund) from competitionrefund where Date('now') &lt; date_refund group by competition_id)</value>
+  </data>
+  <data name="SELECT_COMPETITION_PRICE" xml:space="preserve">
+    <value>select competition_price from competitiondates natural join enroll
+where competition_id=100 and athlete_dni=@DNI and date_inscription between initial_date and finish_date</value>
   </data>
 </root>
