@@ -86,11 +86,13 @@
     <Compile Include="ActionObjects\CompetitionLogic\SelectAllCompetition.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\ListOpenCompetitionLogic.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\SearchCompetitionByIdLogic.cs" />
+    <Compile Include="ActionObjects\CompetitionLogic\SelectCategoryByAthleteAndCompetition.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\SelectCompetitionLogic.cs" />
     <Compile Include="ActionObjects\IActionObject.cs" />
     <Compile Include="ActionObjects\AthleteLogic\SelectAthleteLogic.cs" />
     <Compile Include="ActionObjects\TimesLogic\SelectAllPartialTimes.cs" />
     <Compile Include="ActionObjects\TimesLogic\SelectCategoryByAbsolutCategory.cs" />
+    <Compile Include="ActionObjects\TimesLogic\SelectHasParticipatedTimeObject.cs" />
     <Compile Include="ActionObjects\TimesLogic\SelectPartialTimes.cs" />
     <Compile Include="ActionObjects\TimesLogic\SelectCompetitionTimeLogic.cs" />
     <Compile Include="ActionObjects\TimesLogic\SelectHasParticipatedTimeLogicByCategory.cs" />

@@ -15,6 +15,12 @@ namespace Logic.Db.Util.Services {
             return selectCompetition.Table;
         }
 
+        public HasParticipatedDto SelectCompetitionHasParticipated(CompetitionDto competition, AthleteDto athlete) {
+            SelectHasParticipatedTimeObject selectCompetition = new SelectHasParticipatedTimeObject(ref _conn, competition, athlete);
+            selectCompetition.Execute();
+            return selectCompetition.HasParticipated;
+        }
+
         public DataTable SelectCompetitionTimes(CompetitionDto competition, AbsoluteCategory categorySelected) {
             SelectHasParticipatedTimeLogicByCategory selectCompetition = new SelectHasParticipatedTimeLogicByCategory(ref _conn, competition, categorySelected);
             selectCompetition.Execute();
@@ -31,6 +37,10 @@ namespace Logic.Db.Util.Services {
             SelectPartialTimes partial = new SelectPartialTimes(ref _conn, athlete, competition);
             partial.Execute();
             return partial.PartialTimes;
+        }
+
+        public void InsertPartialTime(string dni, long[] times) {
+            // algo
         }
     }
 }

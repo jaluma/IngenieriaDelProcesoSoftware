@@ -396,7 +396,20 @@ namespace Logic.Db.Properties {
             }
         }
 
-        
+        internal static string SQL_SELECT_CATEGORY_BY_COMP_AND_ATHLETE
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_CATEGORY_BY_COMP_AND_ATHLETE", resourceCulture);
+            }
+        }
 
+        internal static string SQL_SELECT_HAS_PARTICIPATED
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_HAS_PARTICIPATED", resourceCulture);
+            }
+        }
     }
 }

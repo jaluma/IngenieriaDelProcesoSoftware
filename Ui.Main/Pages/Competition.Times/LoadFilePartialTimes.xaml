@@ -13,12 +13,7 @@
         <DockPanel Height="525" VerticalAlignment="Bottom">
             <Label FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalAlignment="Center"
                    Content="{x:Static properties:Resources.TitleAddPartialTimes}" DockPanel.Dock="Top" Height="40" />
-            <Button Name="BtSeleccionar" Content="{x:Static properties:Resources.DocumentSelection}" FontSize="18" Margin="420,40,420,380" Click="BtSeleccionar_OnClick" DockPanel.Dock="Top" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave"/>
-            <TextBlock x:Name="TxActualizado" FontSize="16" Height="200" TextWrapping="Wrap" VerticalAlignment="Top" Margin="240,-210,240,0" DockPanel.Dock="Top">
-                <InlineUIContainer>
-                    <ScrollBar Height="200" Width="18" Margin="754,0"/>
-                </InlineUIContainer>
-            </TextBlock>
+            <Button Name="BtSeleccionar" Content="{x:Static properties:Resources.DocumentSelectionTime}" FontSize="18" Margin="420,40,420,380" Click="BtSeleccionar_OnClick" DockPanel.Dock="Top" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave"/>
         </DockPanel>
     </Grid>
 </Page>

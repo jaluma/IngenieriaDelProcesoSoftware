@@ -1100,5 +1100,14 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("TitleAddPartialTimes", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Insertar tiempos.
+        /// </summary>
+        public static string DocumentSelectionTime {
+            get {
+                return ResourceManager.GetString("DocumentSelectionTime", resourceCulture);
+            }
+        }
     }
 }

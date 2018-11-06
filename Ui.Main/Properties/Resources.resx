@@ -424,4 +424,7 @@
   <data name="TitleAddPartialTimes" xml:space="preserve">
     <value>Insertar tiempos</value>
   </data>
+  <data name="DocumentSelectionTime" xml:space="preserve">
+    <value>Seleccione el fichero de tiempos parciales</value>
+  </data>
 </root>

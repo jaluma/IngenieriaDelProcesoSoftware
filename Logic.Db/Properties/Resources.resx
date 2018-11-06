@@ -271,4 +271,17 @@ where ATHLETE_DNI = @DNI and COMPETITION_ID = @COMPETITION_ID</value>
     <value>select ATHLETE_DNI, ATHLETE_NAME, ATHLETE_SURNAME, ATHLETE_BIRTH_DATE, ATHLETE_GENDER from Athlete natural join HasParticipated
 where COMPETITION_ID = @COMPETITION_ID</value>
   </data>
+  <data name="SQL_SELECT_CATEGORY_BY_COMP_AND_ATHLETE" xml:space="preserve">
+    <value>select Category_id, Category_name, CATEGORY_MIN_AGE, CATEGORY_MAX_AGE, GENDER from GET_CATEGORY_COMPETITION natural join Category
+where ATHLETE_DNI = @DNI AND COMPETITION_ID = @COMPETITION_ID</value>
+  </data>
+  <data name="SQL_SELECT_HAS_PARTICIPATED" xml:space="preserve">
+    <value>select COMPETITION_ID, ATHLETE_DNI, INITIAL_TIME, FINISH_TIME
+from HasParticipated
+where COMPETITION_ID=@COMPETITION_ID AND ATHLETE_DNI=@DNI</value>
+  </data>
+  <data name="SQL_SELECT_DNI_FROM_DORSAL" xml:space="preserve">
+    <value>select * from Athlete natural join Enroll
+where dorsal = @DORSAL and COMPETITION_ID = @COMPETITION_ID</value>
+  </data>
 </root>

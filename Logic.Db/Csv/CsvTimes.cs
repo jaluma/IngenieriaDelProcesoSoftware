@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Logic.Db.Csv.Object;
 
 namespace Logic.Db.Csv {
-    class CsvTimes : CsvLoader {
+    public class CsvTimes : CsvLoader {
         private readonly PartialTimesObjects _times;
 
         public CsvTimes(string[] fileNames) : base(fileNames) {

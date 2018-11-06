@@ -36,7 +36,6 @@ namespace Ui.Main.Pages.Competition.Times
         private DataTable _table;
         private List<long> _ids;
         private List<string> _list;
-        private IEnumerable<AbsoluteCategory> categories;
         public static CompetitionDto Competition;
         public static AbsoluteCategory CategorySelected;
         private readonly CompetitionService _competitionService;
@@ -96,6 +95,18 @@ namespace Ui.Main.Pages.Competition.Times
             IEnumerable<PartialTimesDto> lista = _service.SelectPartialTimes(Competition);
 
             GenerateTable(lista);
+
+            if (Athlete == null) {
+                Athlete = new AthletesService().SelectAthleteByDniObject(_table.Rows[0][0] as string);
+            }
+
+            LbNameSurname.Content = $"{Athlete.Name} {Athlete.Surname}";
+
+            var category = _competitionService.SelectCompetitionByAthleteAndCompetition(Competition, Athlete);
+            LbCategory.Content = $"{category.Name.Replace('_', ' ')} ({category.MinAge} - {category.MaxAge})";
+
+            HasParticipatedDto p = _service.SelectCompetitionHasParticipated(Competition, Athlete);
+            LbTiempoTotal.Content = PartialTimeString(p.FinishTime == 0 ? 0 : p.FinishTime - p.InitialTime);
         }
 
         private void GenerateTable(IEnumerable<PartialTimesDto> lista) {
@@ -124,13 +135,17 @@ namespace Ui.Main.Pages.Competition.Times
 
         private static void GeneratePartialTimes(PartialTimesDto partialTime, object[] row) {
             for (int i = 1; i <= Competition.NumberMilestone; i++) {
-                if (partialTime.Time[i - 1] == 0) {
-                    row[i] = "---";
-                } else {
-                    var seconds = partialTime.Time[i - 1];
-                    var timespan = TimeSpan.FromSeconds(seconds);
-                    row[i] = timespan.ToString(@"hh\:mm\:ss");
-                }
+                row[i] = PartialTimeString(partialTime.Time[i-1]);
+            }
+        }
+
+        private static object PartialTimeString(long time) {
+            if (time == 0) {
+                return "---";
+            } else {
+                var seconds = time;
+                var timespan = TimeSpan.FromSeconds(seconds);
+                return timespan.ToString(@"hh\:mm\:ss");
             }
         }
 
@@ -144,9 +159,12 @@ namespace Ui.Main.Pages.Competition.Times
                     List<AthleteDto> atleList = new AthletesService().SelectAthleteTable();
                     Athlete = atleList.First(a => a.Dni.ToUpper().Equals(dni.ToUpper()));
                     LbNameSurname.Content = $"{Athlete.Name} {Athlete.Surname}";
-                    
-                    //LbCategory.Content = ;
-                    //LbMejorPosicion.Content = ;
+
+                    var category = _competitionService.SelectCompetitionByAthleteAndCompetition(Competition, Athlete);
+                    LbCategory.Content = $"{category.Name.Replace('_', ' ')} ({category.MinAge} - {category.MaxAge})";
+
+                    HasParticipatedDto p = _service.SelectCompetitionHasParticipated(Competition, Athlete);
+                    LbTiempoTotal.Content = PartialTimeString(p.FinishTime == 0 ? 0 : p.FinishTime - p.InitialTime);
 
                     PartialTimesDto partial  = _service.SelectPartialTimesByAthlete(Competition, Athlete);
 
@@ -163,7 +181,7 @@ namespace Ui.Main.Pages.Competition.Times
             TxDni.Text = "";
             LbNameSurname.Content = "";
             LbCategory.Content = "";
-            LbMejorPosicion.Content = "";
+            LbTiempoTotal.Content = "";
             CompetitionList_SelectionChanged(null, null);
         }
     }

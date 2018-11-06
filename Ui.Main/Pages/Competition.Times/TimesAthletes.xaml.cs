@@ -36,12 +36,11 @@ namespace Ui.Main.Pages.Competition.Times
         private DataTable _table;
         private List<long> _ids;
         private List<string> _list;
-        private IEnumerable<AbsoluteCategory> categories;
+        private IEnumerable<AbsoluteCategory> _categories;
         public static CompetitionDto Competition;
         public static AbsoluteCategory CategorySelected;
         private readonly CompetitionService _competitionService;
         private readonly TimesService _service;
-        private AthleteDto Athlete;
 
         public TimesAthletes() {
             this.InitializeComponent();
@@ -84,13 +83,13 @@ namespace Ui.Main.Pages.Competition.Times
 
             Competition = _competitionService.SearchCompetitionById(Competition);
 
-            categories = _competitionService.SelectAllCategoriesByCompetitionId(Competition);
-            categories = categories.Reverse().Append(cat).Reverse();
+            _categories = _competitionService.SelectAllCategoriesByCompetitionId(Competition);
+            _categories = _categories.Reverse().Append(cat).Reverse();
 
-            CategorySelected = categories.First();
+            CategorySelected = _categories.First();
 
             int count = 0;
-            foreach (var category in categories) {
+            foreach (var category in _categories) {
                 but = GenerateButton();
                 but.Content = category.Name.Replace('_', ' ').ToUpper();
                 but.Tag = count++;
@@ -137,7 +136,7 @@ namespace Ui.Main.Pages.Competition.Times
             Button bt = (Button) sender;
             if ((Int32?) bt.Tag != null) {
 
-                int indexOldBut = categories.ToList().FindIndex(c => c.Name.Equals(CategorySelected.Name));
+                int indexOldBut = _categories.ToList().FindIndex(c => c.Name.Equals(CategorySelected.Name));
                 Button old = (Button) LayoutButtons.Children[indexOldBut];
                 old.FontWeight = FontWeights.Normal;
                 old.Background = Brushes.Transparent;
@@ -148,7 +147,7 @@ namespace Ui.Main.Pages.Competition.Times
                 bt.Background = Brushes.AliceBlue;
                 
 
-                CategorySelected = categories.ElementAt((int) bt.Tag);
+                CategorySelected = _categories.ElementAt((int) bt.Tag);
 
                 GenerateDataGrid();
                 CheckBox_OnClick(null, null);

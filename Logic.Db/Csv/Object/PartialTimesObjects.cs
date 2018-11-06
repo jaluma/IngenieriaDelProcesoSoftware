@@ -10,6 +10,6 @@ namespace Logic.Db.Csv.Object {
 
         public int Dorsal { get; set; }
 
-        public int[] Times { get; set; }
+        public long[] Times { get; set; }
     }
 }

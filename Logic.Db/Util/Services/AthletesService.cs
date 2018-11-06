@@ -56,6 +56,11 @@ namespace Logic.Db.Util.Services {
             Console.WriteLine(string.Join("\n", list));
         }
 
+        public string SelectDniFromDorsal(int dorsal) {
+            // algo
+            return null;
+        }
+
         //public static void PrintAthletes(IEnumerable<Athlete> list) {
         //    Console.WriteLine(string.Join("\n", list));
         //}

@@ -73,6 +73,12 @@ namespace Logic.Db.Util.Services {
             return rules.Execute();
         }
 
+        public CategoryDto SelectCompetitionByAthleteAndCompetition(CompetitionDto competition, AthleteDto athlete) {
+            SelectCategoryByAthleteAndCompetition category = new SelectCategoryByAthleteAndCompetition(ref _conn, competition, athlete);
+            category.Execute();
+            return category.Category;
+        }
+
         public IEnumerable<AbsoluteCategory> SelectAllCategories()
         {
             SelectCategoriesPredefinied cat = new SelectCategoriesPredefinied(ref _conn);
