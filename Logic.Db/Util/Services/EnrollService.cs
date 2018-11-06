@@ -76,5 +76,11 @@ namespace Logic.Db.Util.Services {
             update.Execute();
         }
 
+        public DataTable NotCanceledInscriptions(string dni)
+        {
+            SelectNotCanceledInscriptions select = new SelectNotCanceledInscriptions(ref _conn, dni);
+            select.Execute();
+            return select.Table;
+        }
     }
 }

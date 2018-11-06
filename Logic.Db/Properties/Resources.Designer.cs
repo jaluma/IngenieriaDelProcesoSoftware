@@ -374,6 +374,12 @@ namespace Logic.Db.Properties {
             }
         }
 
-
+        internal static string SQL_SELECT_NOT_CANCELED_INSCRIPTIONS
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_NOT_CANCELED_INSCRIPTIONS", resourceCulture);
+            }
+        }
     }
 }

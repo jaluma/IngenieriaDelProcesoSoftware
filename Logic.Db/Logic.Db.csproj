@@ -65,6 +65,7 @@
     <Compile Include="ActionObjects\AthleteLogic\Enroll\InsertAthletesInCompetitionLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\IsDorsalsByCompetition.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\IsCategoryInCompetitionLogic.cs" />
+    <Compile Include="ActionObjects\AthleteLogic\Enroll\SelectNotCanceledInscriptions.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\SelectPreregisteredAthletes.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\UpdateInscriptionStatus.cs" />
     <Compile Include="ActionObjects\AthleteLogic\SelectCompParticipatedByAhtlete.cs" />
