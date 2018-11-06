@@ -42,6 +42,7 @@ namespace Ui.Main.Pages.Competitions
         {
             InitializeComponent();
             GridMountain.Visibility = Visibility.Collapsed;
+            
         }
 
         private void BtSearch_Click(object sender, RoutedEventArgs e)
@@ -150,38 +151,60 @@ namespace Ui.Main.Pages.Competitions
             foreach (var c in list)
             {
 
-                Categories.SelectionMode = SelectionMode.Multiple;
+                Categories.SelectionMode = SelectionMode.Single;
                 Categories.Items.Add(c);
             }
 
         }
 
-        private void Categories_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void BtModificar_Click(object sender, RoutedEventArgs e)
         {
-
+            if (Categories.SelectedItem != null)
+            {
+                CategoriesDialog catD = new CategoriesDialog((AbsoluteCategory)Categories.SelectedItem);
+                catD.ShowDialog();
+                Categories.Items.Refresh();
+            }
         }
-
-        private void BtNueva_Click(object sender, RoutedEventArgs e)
+        private void BtReset_Click(object sender, RoutedEventArgs e)
         {
+            list = _serviceCompCat.SelectAllCategories();
 
-            CategoriesDialog catD = new CategoriesDialog();
-            catD.ShowDialog();
-            Categories.Items.Add(catD.cat);
-            Categories.Items.Refresh();
+            Categories.Items.Clear();
+            
+            foreach (var c in list)
+            {
+                Categories.SelectionMode = SelectionMode.Single;
+                Categories.Items.Add(c);
+            }
         }
 
         private void BtPlazo_Click(object sender, RoutedEventArgs e)
         {
+            if (Devolucion.Text == "NO DEVOLUCIÓN")
+                Devolucion.Text = "0%";
+
             InscriptionDatesDto plazos = new InscriptionDatesDto {
-                fechaInicio = (DateTime) InicioPlazo.SelectedDate,
-                fechaFin = (DateTime) FinPlazo.SelectedDate,
-                devolucion = Devolucion.Text
+                fechaInicio = (DateTime)InicioPlazo.SelectedDate,
+                fechaFin = (DateTime)FinPlazo.SelectedDate,
+                devolucion = Double.Parse(Devolucion.Text.Replace("%",""))
             };
 
-            Plazos_list.SelectionMode = SelectionMode.Multiple;
+            Plazos_list.SelectionMode = SelectionMode.Single;
             Plazos_list.Items.Add(plazos);
 
+           
+
         }
+
+        private void BtBorrar_Click(object sender, RoutedEventArgs e)
+        {
+            if (Plazos_list.SelectedItem != null)
+            {
+                Plazos_list.Items.Remove(Plazos_list.SelectedItem);
+            }
+        }
+
 
         private void Devolucion_Initialized(object sender, EventArgs e)
         {
@@ -220,5 +243,7 @@ namespace Ui.Main.Pages.Competitions
             if (sender is Control component)
                 component.Cursor = null;
         }
+
+        
     }
 }

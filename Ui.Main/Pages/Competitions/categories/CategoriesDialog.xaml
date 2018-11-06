@@ -7,7 +7,7 @@
                   xmlns:local="clr-namespace:Ui.Main.Pages.Competitions.categories"
                   xmlns:Properties="clr-namespace:Ui.Main.Properties" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
                   mc:Ignorable="d"
-                 Title="Añadir categorías" Height="395" Width="480">
+                 Title="Modificar categorías" Height="395" Width="480">
 
     <Grid>
 
@@ -15,14 +15,16 @@
         <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="{x:Static Properties:Resources.Competition_Name}" Margin="40,38,0,297" Width="75" RenderTransformOrigin="0.473,1.057" />
 
 
-        <xctk:WatermarkTextBox Watermark="{x:Static Properties:Resources.Competition_Name}" x:Name="Nombre" HorizontalAlignment="Left" Height="30" Margin="165,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" />
-        <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="Edad" Margin="40,185,0,153" Width="75" RenderTransformOrigin="0.473,1.057" />
-        <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="Desde" Margin="165,145,0,194" Width="55" RenderTransformOrigin="0.473,1.057" />
-        <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="Hasta" Margin="295,145,0,199" Width="55" RenderTransformOrigin="0.473,1.057" />
-        <xctk:WatermarkTextBox  x:Name="Desde" HorizontalAlignment="Left" Height="26" Margin="165,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0.455,0.133" />
-        <xctk:WatermarkTextBox  x:Name="Hasta" HorizontalAlignment="Left" Height="26" Margin="295,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0.364,-0.533" />
-        <Button x:Name="BtNueva" Content="Añadir" HorizontalAlignment="Left" Margin="165,297,0,0" VerticalAlignment="Top" Width="185" Height="23" FontSize="9"  RenderTransformOrigin="0.19,0.667" Click="BtNueva_Click" />
-
+        <xctk:WatermarkTextBox  x:Name="Nombre" HorizontalAlignment="Left" Height="30" Margin="165,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" IsReadOnly="True" Focusable="False" />
+        <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="Edad F" Margin="40,132,0,206" Width="75" RenderTransformOrigin="0.473,1.057" />
+        <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="Edad M" Margin="40,184,0,154" Width="75" RenderTransformOrigin="0.473,1.057" />
+        <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="Desde" Margin="165,85,0,254" Width="55" RenderTransformOrigin="0.473,1.057" />
+        <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="Hasta" Margin="295,85,0,259" Width="55" RenderTransformOrigin="0.473,1.057" />
+        <xctk:WatermarkTextBox  x:Name="DesdeF" HorizontalAlignment="Left" Height="26" Margin="165,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0.455,0.692"  LostFocus="HastaF_LostFocus" />
+        <xctk:WatermarkTextBox  x:Name="HastaF" HorizontalAlignment="Left" Height="26" Margin="295,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0.455,0.5" LostFocus="HastaF_LostFocus" />
+        <Button x:Name="BtNueva" Content="{x:Static Properties:Resources.Modify}" HorizontalAlignment="Left" Margin="165,297,0,0" VerticalAlignment="Top" Width="185" Height="23" FontSize="9"  RenderTransformOrigin="0.19,0.667" Click="BtNueva_Click" />
+        <xctk:WatermarkTextBox  x:Name="DesdeM" HorizontalAlignment="Left" Height="26" Margin="165,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0.545,0.423"  LostFocus="HastaF_LostFocus" />
+        <xctk:WatermarkTextBox  x:Name="HastaM" HorizontalAlignment="Left" Height="26" Margin="295,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55" RenderTransformOrigin="0.455,0.423"  LostFocus="HastaF_LostFocus" />
 
     </Grid>
 </mui:ModernDialog>

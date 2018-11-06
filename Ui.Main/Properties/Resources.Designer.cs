@@ -47,6 +47,17 @@ namespace Ui.Main.Properties {
         }
 
         /// <summary>
+        ///   Busca una cadena traducida similar a Modificar.
+        /// </summary>
+        public static string Modify
+        {
+            get
+            {
+                return ResourceManager.GetString("Modify", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Busca una cadena traducida similar a Área Personal.
         /// </summary>
         public static string PersonalMenu
@@ -54,6 +65,18 @@ namespace Ui.Main.Properties {
             get
             {
                 return ResourceManager.GetString("PersonalMenu", resourceCulture);
+            }
+        }
+
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Restablecer.
+        /// </summary>
+        public static string Reset
+        {
+            get
+            {
+                return ResourceManager.GetString("Reset", resourceCulture);
             }
         }
 

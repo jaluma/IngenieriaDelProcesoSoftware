@@ -412,4 +412,10 @@
   <data name="Predefined" xml:space="preserve">
     <value>Categorías predefinidas</value>
   </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Restablecer todo</value>
+  </data>
+  <data name="Modify" xml:space="preserve">
+    <value>Modificar</value>
+  </data>
 </root>
