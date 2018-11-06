@@ -1098,5 +1098,49 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("CancelInscription", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Devolución.
+        /// </summary>
+        public static string Refund
+        {
+            get
+            {
+                return ResourceManager.GetString("Refund", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Final del plazo de cancelación.
+        /// </summary>
+        public static string CancelFinishDate
+        {
+            get
+            {
+                return ResourceManager.GetString("CancelFinishDate", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Inicio del plazo de cancelación.
+        /// </summary>
+        public static string CancelInitialDate
+        {
+            get
+            {
+                return ResourceManager.GetString("CancelInitialDate", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Se ha cancelado la inscripción..
+        /// </summary>
+        public static string InscriptionCanceled
+        {
+            get
+            {
+                return ResourceManager.GetString("InscriptionCanceled", resourceCulture);
+            }
+        }
     }
 }

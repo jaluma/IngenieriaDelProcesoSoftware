@@ -2,6 +2,7 @@
 using Logic.Db.Util.Services;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,16 +25,20 @@ namespace Ui.Main.Pages.Inscriptions
     {
         public static string Dni;
 
-        private readonly CompetitionService _competitionService;
+        private readonly EnrollService _enrollService;
         private readonly AthletesService _athletesService;
+        private readonly CompetitionService _competitionService;
         private AthleteDto _athlete;
 
         private CompetitionDto _competition;
+        private List<long> _columnIds;
+        private List<double> _refunds;
 
         public CancelInscriptionPage()
         {
-            _competitionService = new CompetitionService();
+            _enrollService = new EnrollService(null);
             _athletesService = new AthletesService();
+            _competitionService = new CompetitionService();
             InitializeComponent();
         }
 
@@ -60,7 +65,7 @@ namespace Ui.Main.Pages.Inscriptions
 
                     PlaceData();
 
-                    //GetListCompetition();
+                    GetListCompetition();
 
                 }
                 catch (InvalidOperationException) { }
@@ -87,14 +92,61 @@ namespace Ui.Main.Pages.Inscriptions
             }
         }
 
+        private void GetListCompetition()
+        {
+            DataTable table = _enrollService.NotCanceledInscriptions(_athlete.Dni);
+            table.Columns[0].ColumnName = Properties.Resources.Competition_Id;
+            table.Columns[1].ColumnName = Properties.Resources.Competition_Name;
+            table.Columns[2].ColumnName = Properties.Resources.Competition_Status;
+            table.Columns[3].ColumnName = Properties.Resources.InscriptionDate;
+            table.Columns[4].ColumnName = Properties.Resources.Refund;
+            table.Columns[5].ColumnName = Properties.Resources.CancelFinishDate;
+
+            _columnIds = table.AsEnumerable()
+                .Select(dr => dr.Field<long>(Properties.Resources.Competition_Id)).ToList();
+
+            _refunds = table.AsEnumerable().Select(dr => dr.Field<double>(Properties.Resources.Refund)).ToList();
+
+            table.Columns.RemoveAt(0);
+
+            if (CompetitionsToCancel != null)
+                CompetitionsToCancel.ItemsSource = table.DefaultView;
+        }
+
         private void CompetitionsToCancel_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            int indexSeletected = CompetitionsToCancel.SelectedIndex;
 
+            if (indexSeletected != -1)
+            {
+                _competition = new CompetitionDto()
+                {
+                    ID = (int)_columnIds[indexSeletected]
+                };
+            }
         }
 
         private void BtCancel_Click(object sender, RoutedEventArgs e)
         {
+            if (CompetitionsToCancel.SelectedItem == null)
+            {
+                MessageBox.Show(Properties.Resources.NothingSelected);
+                return;
+            }
+            
+            _enrollService.UpdateInscriptionStatus(_athlete.Dni, _competition.ID, "CANCELED");
+            
+            MessageBox.Show(Properties.Resources.InscriptionCanceled + " " + CalcularDevolucion() + "€");
 
+            //actualizar la tabla
+            GetListCompetition();
+        }
+
+        private double CalcularDevolucion()
+        {
+            double precio = _competitionService.SelectCompetitionPrice(_athlete.Dni, _competition.ID);
+            double refund = _refunds[CompetitionsToCancel.SelectedIndex];
+            return precio * refund;
         }
     }
 }

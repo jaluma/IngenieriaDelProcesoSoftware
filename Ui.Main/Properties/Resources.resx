@@ -421,4 +421,16 @@
   <data name="CancelInscription" xml:space="preserve">
     <value>Cancelar inscripción</value>
   </data>
+  <data name="Refund" xml:space="preserve">
+    <value>Devolución</value>
+  </data>
+  <data name="CancelFinishDate" xml:space="preserve">
+    <value>Cancelación hasta:</value>
+  </data>
+  <data name="CancelInitialDate" xml:space="preserve">
+    <value>Inicio del plazo de cancelación</value>
+  </data>
+  <data name="InscriptionCanceled" xml:space="preserve">
+    <value>Se ha cancelado la inscripción. Cantidad a devolver: </value>
+  </data>
 </root>
