@@ -16,6 +16,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Logic.Db.Dto;
 using Logic.Db.Util.Services;
+using Control = System.Windows.Controls.Control;
+using Cursors = System.Windows.Input.Cursors;
+using MouseEventArgs = System.Windows.Input.MouseEventArgs;
 
 namespace Ui.Main.Pages.Inscriptions.InscriptionsPaidControl
 {
@@ -137,6 +140,16 @@ namespace Ui.Main.Pages.Inscriptions.InscriptionsPaidControl
             }
 
             TxActualizado.Text = stringBuilder.ToString();
+        }
+
+        private void OnMouseEnter(object sender, MouseEventArgs e) {
+            if (sender is Control component)
+                component.Cursor = Cursors.Hand;
+        }
+
+        private void OnMouseLeave(object sender, MouseEventArgs e) {
+            if (sender is Control component)
+                component.Cursor = null;
         }
     }
 }

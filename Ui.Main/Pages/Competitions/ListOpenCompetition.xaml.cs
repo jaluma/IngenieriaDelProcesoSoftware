@@ -19,6 +19,8 @@ using Logic.Db.Util;
 using Logic.Db.Properties;
 using System.IO;
 using System.Windows.Forms;
+using System.Windows.Input;
+using Button = System.Windows.Forms.Button;
 using DataGridTextColumn = FirstFloor.ModernUI.Windows.Controls.DataGridTextColumn;
 using MouseEventArgs = System.Windows.Forms.MouseEventArgs;
 
@@ -32,7 +34,6 @@ namespace Ui.Main.Pages.Competitions
         private readonly CompetitionService _service;
         private List<long> _columnIds;
         byte[] bytes;
-      
 
 
         public ListOpenCompetition()
@@ -72,33 +73,47 @@ namespace Ui.Main.Pages.Competitions
 
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        private void DataGridCompetition_OnMouseDoubleClick(object sender, MouseButtonEventArgs e) {
+
 
             int indexSeletected = DataGridCompetition.SelectedIndex;
 
             int id = (int)_columnIds[indexSeletected];
+
             CompetitionDto competition = new CompetitionDto()
-            { ID = id};
+                { ID = id};
 
             CompetitionService service = new CompetitionService();
             bytes = service.GetRules(competition);
 
             if (bytes != null)
             {
-                CompetitionService service1 = new CompetitionService();
-                string nombre = service1.SearchCompetitionById(competition).Name;
-                string filename = @"C:\Users\Public\Downloads\Reglamento de " + nombre + ".pdf";
-                for (int count = 0; File.Exists(filename); count++)
-                    filename = @"C:\Users\Public\Downloads\Reglamento de " + nombre + " (" + count + ").pdf";
+                using(var fbd = new FolderBrowserDialog())
+                {
+                    DialogResult result = fbd.ShowDialog();
 
-                BinaryWriter writer = new BinaryWriter(File.Open(filename, FileMode.CreateNew));
+                    if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                    {
+                        string path= fbd.SelectedPath;
+                        CompetitionService service1 = new CompetitionService();
+                        string nombre = service1.SearchCompetitionById(competition).Name;
+                        string filename = $"Reglamento de {nombre}.pdf";
 
-                writer.Write(bytes);
+                        string absolutePath = System.IO.Path.Combine(path, filename);
+                        for (int count = 1; File.Exists(absolutePath); count++) {
+                            filename = $"Reglamento de {nombre} (Copia {count}).pdf";
+                            absolutePath = System.IO.Path.Combine(path, filename);
+                        }
 
-                writer.Close();
+                        BinaryWriter writer = new BinaryWriter(File.Open(absolutePath, FileMode.CreateNew));
 
-                System.Diagnostics.Process.Start(@"C:\Users\Public\Downloads\Reglamento de " + nombre + ".pdf");
+                        writer.Write(bytes);
+
+                        writer.Close();
+
+                        System.Diagnostics.Process.Start(absolutePath);
+                    }
+                }
             }
 
 
@@ -118,8 +133,6 @@ namespace Ui.Main.Pages.Competitions
         {
             DataGridCompetition.Cursor = null;
         }
-
-
 
     }
 }

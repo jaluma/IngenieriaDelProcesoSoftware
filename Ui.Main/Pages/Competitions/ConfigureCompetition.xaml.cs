@@ -19,6 +19,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Ui.Main.Pages.Competitions.categories;
+using Control = System.Windows.Controls.Control;
+using Cursors = System.Windows.Input.Cursors;
+using MouseEventArgs = System.Windows.Forms.MouseEventArgs;
 using SelectionMode = System.Windows.Controls.SelectionMode;
 
 namespace Ui.Main.Pages.Competitions
@@ -46,15 +49,16 @@ namespace Ui.Main.Pages.Competitions
 
 
             OpenFileDialog dialog = new OpenFileDialog {
-                Filter = "PDF Files|*.pdf",
+                Filter = @"PDF Files|*.pdf",
                 Multiselect = false
             };
+
             if (dialog.ShowDialog() == DialogResult.OK) 
             {
-                String path = dialog.FileName;
+                string path = dialog.FileName;
                 using (StreamReader reader = new StreamReader(new FileStream(path, FileMode.Open), new UTF8Encoding())) 
                 {
-                    Reglamento.Text = dialog.SafeFileName;
+                    Reglamento.Text = dialog.SafeFileName ?? throw new InvalidOperationException();
                 }
 
                 bytes = File.ReadAllBytes(System.IO.Path.GetFullPath(path));
@@ -67,7 +71,7 @@ namespace Ui.Main.Pages.Competitions
             _competition.Date = (DateTime) FechaCompeticion.SelectedDate;
             _competition.Km =Double.Parse(Km.Text);
             _competition.Name = Nombre.Text;
-            if ((bool)RBMountain.IsChecked)
+            if (MountainIsChecked())
                 _competition.Type = TypeCompetition.Mountain;
             else
                 _competition.Type = TypeCompetition.Asphalt;
@@ -196,6 +200,25 @@ namespace Ui.Main.Pages.Competitions
                 Devolucion.Items.Add(c);
             }
            
+        }
+        private void OnMouseEnter(object sender, MouseEventArgs e) {
+            if (sender is Control component)
+                component.Cursor = Cursors.Hand;
+        }
+
+        private void OnMouseEnterBeam(object sender, System.Windows.Input.MouseEventArgs e) {
+            if (sender is Control component)
+                component.Cursor = Cursors.IBeam;
+        }
+
+        private void OnMouseLeave(object sender, MouseEventArgs e) {
+            if (sender is Control component)
+                component.Cursor = null;
+        }
+
+        private void OnMouseLeaveBeam(object sender, System.Windows.Input.MouseEventArgs e) {
+            if (sender is Control component)
+                component.Cursor = null;
         }
     }
 }

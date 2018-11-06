@@ -1,417 +1,415 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-    <!--
-      Microsoft ResX Schema
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
 
-      Version 2.0
-
-      The primary goals of this format is to allow a simple XML format
-      that is mostly human readable. The generation and parsing of the
-      various data types are done through the TypeConverter classes
-      associated with the data types.
-
-      Example:
-
-      ... ado.net/XML headers & schema ...
-      <resheader name="resmimetype">text/microsoft-resx</resheader>
-      <resheader name="version">2.0</resheader>
-      <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-      <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-      <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-      <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-      <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-          <value>[base64 mime encoded serialized .NET Framework object]</value>
-      </data>
-      <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-          <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-          <comment>This is a comment</comment>
-      </data>
-
-      There are any number of "resheader" rows that contain simple
-      name/value pairs.
-
-      Each data row contains a name, and value. The row also contains a
-      type or mimetype. Type corresponds to a .NET class that support
-      text/value conversion through the TypeConverter architecture.
-      Classes that don't support this are serialized and stored with the
-      mimetype set.
-
-      The mimetype is used for serialized objects, and tells the
-      ResXResourceReader how to depersist the object. This is currently not
-      extensible. For a given mimetype the value must be set accordingly:
-
-      Note - application/x-microsoft.net.object.binary.base64 is the format
-      that the ResXResourceWriter will generate, however the reader can
-      read any of the formats listed below.
-
-      mimetype: application/x-microsoft.net.object.binary.base64
-      value   : The object must be serialized with
-              : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-              : and then encoded with base64 encoding.
-
-      mimetype: application/x-microsoft.net.object.soap.base64
-      value   : The object must be serialized with
-              : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-              : and then encoded with base64 encoding.
-
-      mimetype: application/x-microsoft.net.object.bytearray.base64
-      value   : The object must be serialized into a byte array
-              : using a System.ComponentModel.TypeConverter
-              : and then encoded with base64 encoding.
-      -->
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-        <xsd:element name="root" msdata:IsDataSet="true">
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
             <xsd:complexType>
-                <xsd:choice maxOccurs="unbounded">
-                    <xsd:element name="metadata">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" use="required" type="xsd:string" />
-                            <xsd:attribute name="type" type="xsd:string" />
-                            <xsd:attribute name="mimetype" type="xsd:string" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="assembly">
-                        <xsd:complexType>
-                            <xsd:attribute name="alias" type="xsd:string" />
-                            <xsd:attribute name="name" type="xsd:string" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="data">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-                            <xsd:attribute ref="xml:space" />
-                        </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element name="resheader">
-                        <xsd:complexType>
-                            <xsd:sequence>
-                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                            </xsd:sequence>
-                            <xsd:attribute name="name" type="xsd:string" use="required" />
-                        </xsd:complexType>
-                    </xsd:element>
-                </xsd:choice>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
-        </xsd:element>
-    </xsd:schema>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>2.0</value>
-    </resheader>
-    <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-    </resheader>
-    <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-    <data name="athleticIco" type="System.Resources.ResXFileRef, System.Windows.Forms">
-        <value>..\Resources\athleticIco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    </data>
-    <data name="competitionIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-        <value>..\Resources\competitionIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    </data>
-    <data name="TileAthletes" xml:space="preserve">
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="athleticIco" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\athleticIco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="competitionIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\competitionIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TileAthletes" xml:space="preserve">
     <value>Atletas</value>
   </data>
-    <data name="TileCompetitionActive" xml:space="preserve">
+  <data name="TileCompetitionActive" xml:space="preserve">
     <value>Competiciones ins. abierta</value>
   </data>
-    <data name="TileCompetitionFinish" xml:space="preserve">
+  <data name="TileCompetitionFinish" xml:space="preserve">
     <value>Competiciones ins. finalizada</value>
   </data>
-    <data name="competitionFinishIco" type="System.Resources.ResXFileRef, System.Windows.Forms">
-        <value>..\Resources\competitionFinishIco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    </data>
-    <data name="Competition_Date" xml:space="preserve">
+  <data name="competitionFinishIco" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\competitionFinishIco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Competition_Date" xml:space="preserve">
     <value>Fecha</value>
   </data>
-    <data name="Competition_Id" xml:space="preserve">
+  <data name="Competition_Id" xml:space="preserve">
     <value>ID</value>
   </data>
-    <data name="Competition_Km" xml:space="preserve">
+  <data name="Competition_Km" xml:space="preserve">
     <value>KM</value>
   </data>
-    <data name="Competition_Name" xml:space="preserve">
+  <data name="Competition_Name" xml:space="preserve">
     <value>Nombre</value>
   </data>
-    <data name="Competition_Number" xml:space="preserve">
+  <data name="Competition_Number" xml:space="preserve">
     <value>Número de plazas</value>
   </data>
-    <data name="Competition_Price" xml:space="preserve">
+  <data name="Competition_Price" xml:space="preserve">
     <value>Precio inscripción</value>
   </data>
-    <data name="Competition_Status" xml:space="preserve">
+  <data name="Competition_Status" xml:space="preserve">
     <value>Estado</value>
   </data>
-    <data name="Competition_Type" xml:space="preserve">
+  <data name="Competition_Type" xml:space="preserve">
     <value>Tipo</value>
   </data>
-    <data name="TitleTimesCompetition" xml:space="preserve">
+  <data name="TitleTimesCompetition" xml:space="preserve">
     <value>Corredores</value>
   </data>
-    <data name="FemaleText" xml:space="preserve">
+  <data name="FemaleText" xml:space="preserve">
     <value>Femenina</value>
   </data>
-    <data name="MaleText" xml:space="preserve">
+  <data name="MaleText" xml:space="preserve">
     <value>Masculina</value>
   </data>
-    <data name="Category" xml:space="preserve">
+  <data name="Category" xml:space="preserve">
     <value>Categoría</value>
   </data>
-    <data name="AthleteDni" xml:space="preserve">
+  <data name="AthleteDni" xml:space="preserve">
     <value>DNI</value>
   </data>
-    <data name="AthleteDorsal" xml:space="preserve">
+  <data name="AthleteDorsal" xml:space="preserve">
     <value>Dorsal</value>
   </data>
-    <data name="AthleteGender" xml:space="preserve">
+  <data name="AthleteGender" xml:space="preserve">
     <value>Sexo</value>
   </data>
-    <data name="AthleteName" xml:space="preserve">
+  <data name="AthleteName" xml:space="preserve">
     <value>Nombre</value>
   </data>
-    <data name="AthleteSurname" xml:space="preserve">
+  <data name="AthleteSurname" xml:space="preserve">
     <value>Apellido</value>
   </data>
-    <data name="FinishTime" xml:space="preserve">
+  <data name="FinishTime" xml:space="preserve">
     <value>Tiempo final (s)</value>
   </data>
-    <data name="InitialTime" xml:space="preserve">
+  <data name="InitialTime" xml:space="preserve">
     <value>Tiempo inicial (s)</value>
   </data>
-    <data name="TileJoinCompetition" xml:space="preserve">
+  <data name="TileJoinCompetition" xml:space="preserve">
     <value>Listar corredores inscritos</value>
   </data>
-    <data name="BtSearch" xml:space="preserve">
+  <data name="BtSearch" xml:space="preserve">
     <value>Buscar</value>
   </data>
-    <data name="LbCompetitionID" xml:space="preserve">
+  <data name="LbCompetitionID" xml:space="preserve">
     <value>Introduzca ID de la competición: </value>
   </data>
-    <data name="BtInsertDorsals" xml:space="preserve">
+  <data name="BtInsertDorsals" xml:space="preserve">
     <value>Colocar dorsales a jugadores inscritos</value>
   </data>
-    <data name="dorsalsIco" type="System.Resources.ResXFileRef, System.Windows.Forms">
-        <value>..\Resources\dorsalsIco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    </data>
-    <data name="TileInscriptionDorsal" xml:space="preserve">
+  <data name="dorsalsIco" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dorsalsIco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TileInscriptionDorsal" xml:space="preserve">
     <value>Tiempos</value>
   </data>
-    <data name="ApplicationIco" type="System.Resources.ResXFileRef, System.Windows.Forms">
-        <value>..\Resources\ApplicationIco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    </data>
-    <data name="AthleteBirthDate" xml:space="preserve">
+  <data name="ApplicationIco" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ApplicationIco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AthleteBirthDate" xml:space="preserve">
     <value>Fecha de nacimiento</value>
   </data>
-    <data name="Next" xml:space="preserve">
+  <data name="Next" xml:space="preserve">
     <value>Siguiente</value>
   </data>
-    <data name="TileAthleteInscription" xml:space="preserve">
+  <data name="TileAthleteInscription" xml:space="preserve">
     <value>Inscribir atleta</value>
   </data>
-    <data name="Competition_Inscritos" xml:space="preserve">
+  <data name="Competition_Inscritos" xml:space="preserve">
     <value>Inscrito(s)</value>
   </data>
-    <data name="CategoryMenuActive" xml:space="preserve">
+  <data name="CategoryMenuActive" xml:space="preserve">
     <value>Activas</value>
   </data>
-    <data name="CategoryMenuFinish" xml:space="preserve">
+  <data name="CategoryMenuFinish" xml:space="preserve">
     <value>Finalizadas</value>
   </data>
-    <data name="AthleteMenuList" xml:space="preserve">
+  <data name="AthleteMenuList" xml:space="preserve">
     <value>Listar atletas</value>
   </data>
-    <data name="TileAthletesInscription" xml:space="preserve">
+  <data name="TileAthletesInscription" xml:space="preserve">
     <value>Atletas inscritos</value>
   </data>
-    <data name="TileCompetition" xml:space="preserve">
+  <data name="TileCompetition" xml:space="preserve">
     <value>Competiciones</value>
   </data>
-    <data name="TileTimes" xml:space="preserve">
+  <data name="TileTimes" xml:space="preserve">
     <value>Tiempos</value>
   </data>
-    <data name="InscriptionClose" xml:space="preserve">
+  <data name="InscriptionClose" xml:space="preserve">
     <value>Inscripción hasta</value>
   </data>
-    <data name="InscriptionOpen" xml:space="preserve">
+  <data name="InscriptionOpen" xml:space="preserve">
     <value>Inscripción desde</value>
   </data>
-    <data name="SubmenuAddDorsal" xml:space="preserve">
+  <data name="SubmenuAddDorsal" xml:space="preserve">
     <value>Añadir Dorsal</value>
   </data>
-    <data name="TileDorsal" xml:space="preserve">
+  <data name="TileDorsal" xml:space="preserve">
     <value>Dorsal</value>
   </data>
-    <data name="InscriptionDate" xml:space="preserve">
+  <data name="InscriptionDate" xml:space="preserve">
     <value>Fecha de inscripción</value>
   </data>
-    <data name="TitleSelectCompetition" xml:space="preserve">
+  <data name="TitleSelectCompetition" xml:space="preserve">
     <value>Seleccionar una competición</value>
   </data>
-    <data name="IncompleteFields" xml:space="preserve">
+  <data name="IncompleteFields" xml:space="preserve">
     <value>No se puede realizar la inscripción: campos incompletos.</value>
   </data>
-    <data name="FinishInscription" xml:space="preserve">
+  <data name="FinishInscription" xml:space="preserve">
     <value>Finalizar inscripción</value>
   </data>
-    <data name="NothingSelected" xml:space="preserve">
+  <data name="NothingSelected" xml:space="preserve">
     <value>No hay una competición seleccionada.</value>
   </data>
-    <data name="default_profile" type="System.Resources.ResXFileRef, System.Windows.Forms">
-        <value>..\Resources\default_profile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-    </data>
-    <data name="PersonalInfo" xml:space="preserve">
+  <data name="default_profile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\default_profile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PersonalInfo" xml:space="preserve">
     <value>Datos Personales</value>
   </data>
-    <data name="AthletePosition" xml:space="preserve">
+  <data name="AthletePosition" xml:space="preserve">
     <value>Posición</value>
   </data>
-    <data name="TileAthletesInscriptionCompetition" xml:space="preserve">
+  <data name="TileAthletesInscriptionCompetition" xml:space="preserve">
     <value>Inscribir en competición</value>
   </data>
-    <data name="InscriptionProof" xml:space="preserve">
+  <data name="InscriptionProof" xml:space="preserve">
     <value>Justificante de inscripción</value>
   </data>
-    <data name="PreviouslyEnrolled" xml:space="preserve">
+  <data name="PreviouslyEnrolled" xml:space="preserve">
     <value>Ya se inscribió anteriormente en esta competición.</value>
   </data>
-    <data name="MenuAthletesInscription" xml:space="preserve">
+  <data name="MenuAthletesInscription" xml:space="preserve">
     <value>Inscribir atleta</value>
   </data>
-    <data name="Man" xml:space="preserve">
+  <data name="Man" xml:space="preserve">
     <value>Hombre</value>
   </data>
-    <data name="Woman" xml:space="preserve">
+  <data name="Woman" xml:space="preserve">
     <value>Mujer</value>
   </data>
-    <data name="InvalidAge" xml:space="preserve">
+  <data name="InvalidAge" xml:space="preserve">
     <value>La fecha de nacimiento introducida no es válida.</value>
   </data>
-    <data name="InvalidDNI" xml:space="preserve">
+  <data name="InvalidDNI" xml:space="preserve">
     <value>El DNI introducido no es válido.</value>
   </data>
-    <data name="PaymentMethodSelection" xml:space="preserve">
+  <data name="PaymentMethodSelection" xml:space="preserve">
     <value>Seleccionar método de pago</value>
   </data>
-    <data name="WireTransfer" xml:space="preserve">
+  <data name="WireTransfer" xml:space="preserve">
     <value>Transferencia bancaria</value>
   </data>
-    <data name="BeneficiaryData" xml:space="preserve">
+  <data name="BeneficiaryData" xml:space="preserve">
     <value>Datos del beneficiario: Gestor de carreras populares</value>
   </data>
-    <data name="IBAN" xml:space="preserve">
+  <data name="IBAN" xml:space="preserve">
     <value>IBAN: ES11 2222 3333 4444 5555 6666</value>
   </data>
-    <data name="PaymentAmount" xml:space="preserve">
+  <data name="PaymentAmount" xml:space="preserve">
     <value>Cantidad a abonar:</value>
   </data>
-    <data name="PaymentTimeLimit" xml:space="preserve">
+  <data name="PaymentTimeLimit" xml:space="preserve">
     <value>Dispone de 48h para realizar la transferencia.</value>
   </data>
-    <data name="Close" xml:space="preserve">
+  <data name="Close" xml:space="preserve">
     <value>Cerrar</value>
   </data>
-    <data name="Competition" xml:space="preserve">
+  <data name="Competition" xml:space="preserve">
     <value>Competición</value>
   </data>
-    <data name="InscriptionsRegistered" xml:space="preserve">
+  <data name="InscriptionsRegistered" xml:space="preserve">
     <value>Inscripciones registradas</value>
   </data>
-    <data name="PersonalMenu" xml:space="preserve">
+  <data name="PersonalMenu" xml:space="preserve">
     <value>Área Personal</value>
   </data>
-    <data name="NoRegistered" xml:space="preserve">
+  <data name="NoRegistered" xml:space="preserve">
     <value>El usuario no está pre/inscrito a ninguna competición.</value>
   </data>
-    <data name="Time" xml:space="preserve">
+  <data name="Time" xml:space="preserve">
     <value>Tiempo</value>
   </data>
-    <data name="Absolute" xml:space="preserve">
+  <data name="Absolute" xml:space="preserve">
     <value>Absoluta</value>
   </data>
-    <data name="Age" xml:space="preserve">
+  <data name="Age" xml:space="preserve">
     <value>Edad</value>
   </data>
-    <data name="DocumentSelection" xml:space="preserve">
-    <value />
-
+  <data name="DocumentSelection" xml:space="preserve">
+    <value>Seleccione el extracto bancario a cargar</value>
   </data>
-    <data name="FinishInscriptions" xml:space="preserve">
-    <value />
-
+  <data name="FinishInscriptions" xml:space="preserve">
+    <value>Finalizar inscripciones</value>
   </data>
-    <data name="NotSelectedFile" xml:space="preserve">
+  <data name="NotSelectedFile" xml:space="preserve">
     <value>No se ha seleccionado ningún extracto bancario.</value>
   </data>
-    <data name="TilePayments" xml:space="preserve">
+  <data name="TilePayments" xml:space="preserve">
     <value>Pagos</value>
   </data>
-    <data name="TitleFinishPayment" xml:space="preserve">
+  <data name="TitleFinishPayment" xml:space="preserve">
     <value>Comprobar pagos de inscripción</value>
   </data>
-    <data name="UpdateInscriptionsState" xml:space="preserve">
+  <data name="UpdateInscriptionsState" xml:space="preserve">
     <value>Actualizar estado de las inscripciones</value>
   </data>
-    <data name="EmptyDocument" xml:space="preserve">
+  <data name="EmptyDocument" xml:space="preserve">
     <value>El extracto seleccionado está vacío.</value>
   </data>
-    <data name="InvalidDocument" xml:space="preserve">
+  <data name="InvalidDocument" xml:space="preserve">
     <value>El documento seleccionado no es válido.</value>
   </data>
-    <data name="TitleConfigureCompetition" xml:space="preserve">
+  <data name="TitleConfigureCompetition" xml:space="preserve">
     <value>Configurador de carreras</value>
   </data>
-    <data name="CompetitionName" xml:space="preserve">
+  <data name="CompetitionName" xml:space="preserve">
     <value>Nombre de la competición</value>
   </data>
-    <data name="Asfalto" xml:space="preserve">
+  <data name="Asfalto" xml:space="preserve">
     <value>Asfalto</value>
   </data>
-    <data name="Mountain" xml:space="preserve">
+  <data name="Mountain" xml:space="preserve">
     <value>Montaña</value>
   </data>
-    <data name="Add" xml:space="preserve">
+  <data name="Add" xml:space="preserve">
     <value>Añadir</value>
   </data>
-    <data name="FileSelect" xml:space="preserve">
+  <data name="FileSelect" xml:space="preserve">
     <value>Seleccione el pdf del reglamento...</value>
   </data>
-    <data name="Rules" xml:space="preserve">
+  <data name="Rules" xml:space="preserve">
     <value>Reglamento</value>
   </data>
-    <data name="Desnivel" xml:space="preserve">
+  <data name="Desnivel" xml:space="preserve">
     <value>Desnivel (metros)</value>
   </data>
-    <data name="NegativeDesnivel" xml:space="preserve">
+  <data name="NegativeDesnivel" xml:space="preserve">
     <value>D- (metros)</value>
   </data>
-    <data name="PositiveDesnivel" xml:space="preserve">
+  <data name="PositiveDesnivel" xml:space="preserve">
     <value>D+ (metros)</value>
   </data>
-    <data name="Categories" xml:space="preserve">
+  <data name="Categories" xml:space="preserve">
     <value>Categorías</value>
   </data>
-    <data name="Total" xml:space="preserve">
+  <data name="Total" xml:space="preserve">
     <value>Total</value>
   </data>
-    <data name="CreateNew" xml:space="preserve">
+  <data name="CreateNew" xml:space="preserve">
     <value>Añadir nueva </value>
   </data>
-    <data name="Predefined" xml:space="preserve">
+  <data name="Predefined" xml:space="preserve">
     <value>Categorías predefinidas</value>
   </data>
 </root>
