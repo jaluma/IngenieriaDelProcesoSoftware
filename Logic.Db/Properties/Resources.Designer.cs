@@ -374,6 +374,29 @@ namespace Logic.Db.Properties {
             }
         }
 
+        /// <summary>
+        ///   Busca una cadena traducida similar a select competition_rules from competitions where id=@COMPETITION_ID.
+        /// </summary>
+        internal static string SQL_SELECT_PARTIAL_TIMES
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_PARTIAL_TIMES", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a select competition_rules from competitions where id=@COMPETITION_ID.
+        /// </summary>
+        internal static string SQL_SELECT_ATHLETES_HAS_PARTICIPATED
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_ATHLETES_HAS_PARTICIPATED", resourceCulture);
+            }
+        }
+
+        
 
     }
 }

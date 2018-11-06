@@ -65,8 +65,10 @@
     <Compile Include="ActionObjects\AthleteLogic\Enroll\InsertAthletesInCompetitionLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\IsDorsalsByCompetition.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\IsCategoryInCompetitionLogic.cs" />
+    <Compile Include="ActionObjects\AthleteLogic\Enroll\SelectAthleteHasParticipated.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\SelectPreregisteredAthletes.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\UpdateInscriptionStatus.cs" />
+    <Compile Include="ActionObjects\AthleteLogic\SelectAthleteByDniObject.cs" />
     <Compile Include="ActionObjects\AthleteLogic\SelectCompParticipatedByAhtlete.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\GetRulesCompetitionLogic.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\SelectCategoriesPredefinied.cs" />
@@ -87,7 +89,9 @@
     <Compile Include="ActionObjects\CompetitionLogic\SelectCompetitionLogic.cs" />
     <Compile Include="ActionObjects\IActionObject.cs" />
     <Compile Include="ActionObjects\AthleteLogic\SelectAthleteLogic.cs" />
+    <Compile Include="ActionObjects\TimesLogic\SelectAllPartialTimes.cs" />
     <Compile Include="ActionObjects\TimesLogic\SelectCategoryByAbsolutCategory.cs" />
+    <Compile Include="ActionObjects\TimesLogic\SelectPartialTimes.cs" />
     <Compile Include="ActionObjects\TimesLogic\SelectCompetitionTimeLogic.cs" />
     <Compile Include="ActionObjects\TimesLogic\SelectHasParticipatedTimeLogicByCategory.cs" />
     <Compile Include="ActionObjects\TimesLogic\SelectHasParticipatedTimeLogic.cs" />
@@ -102,6 +106,7 @@
     <Compile Include="Dto\CategoryDto.cs" />
     <Compile Include="Dto\CompetitionDto.cs" />
     <Compile Include="Dto\HasParticipatedDto.cs" />
+    <Compile Include="Dto\PartialTimesDto.cs" />
     <Compile Include="Dto\PaymentDto.cs" />
     <Compile Include="Dto\InscriptionDatesDto.cs" />
     <Compile Include="Json\JsonDeserialize.cs" />

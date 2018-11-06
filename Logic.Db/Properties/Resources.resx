@@ -193,7 +193,7 @@ where COMPETITION_ID=@COMPETITION_ID and ATHLETE_DNI=@DNI and dorsal is null</va
     <value>select category_name from get_category_competition where competition_id=@COMPETITION_ID</value>
   </data>
   <data name="SQL_SELECT_OPEN_COMPETITION" xml:space="preserve">
-      <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, INITIAL_DATE, FINISH_DATE, COMPETITION_DATE, COMPETITION_RULES from Competition natural join CompetitionDates where (date('now') between INITIAL_DATE and FINISH_DATE) and  Competition.COMPETITION_STATUS='OPEN'</value>
+    <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, INITIAL_DATE, FINISH_DATE, COMPETITION_DATE, COMPETITION_RULES from Competition natural join CompetitionDates where (date('now') between INITIAL_DATE and FINISH_DATE) and  Competition.COMPETITION_STATUS='OPEN'</value>
   </data>
   <data name="SQL_SELECT_COMPETITION_FINISH_LIST" xml:space="preserve">
     <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, INITIAL_DATE, FINISH_DATE, COMPETITION_DATE from Competition natural join CompetitionDates
@@ -208,7 +208,7 @@ from Competition natural join CompetitionDates
 where date('now') BETWEEN INITIAL_DATE and FINISH_DATE and COMPETITION_STATUS&lt;&gt;'FINISH' and COMPETITION_NUMBER_PLACES &gt; (select count(*) from enroll group by competition_id) AND COMPETITION_ID not in (SELECT COMPETITION_ID FROM ENROLL WHERE ATHLETE_DNI=@DNI)</value>
   </data>
   <data name="SQL_SELECT_COMPETITION_BY_ID" xml:space="preserve">
-    <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, COMPETITION_DATE from Competition where COMPETITION_ID=@ID</value>
+    <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, COMPETITION_DATE,COMPETITION_RULES, COMPETITION_STATUS, COMPETITION_NUMBER_MILESTONE, COMPETITION_SLOPE from Competition where COMPETITION_ID=@ID</value>
   </data>
   <data name="SQL_SELECT_MAX_DORSAL" xml:space="preserve">
     <value>select max(dorsal) from enroll where COMPETITION_ID=@COMPETITION_ID</value>
@@ -262,5 +262,13 @@ WHERE CATEGORY_ID = @ID</value>
   </data>
   <data name="DefaultCategories" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DefaultCategories.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SQL_SELECT_PARTIAL_TIMES" xml:space="preserve">
+    <value>select ATHLETE_DNI, NUMBER_MILESTONE, TIME from HasParticipated natural join TimesCompetition
+where ATHLETE_DNI = @DNI and COMPETITION_ID = @COMPETITION_ID</value>
+  </data>
+  <data name="SQL_SELECT_ATHLETES_HAS_PARTICIPATED" xml:space="preserve">
+    <value>select ATHLETE_DNI, ATHLETE_NAME, ATHLETE_SURNAME, ATHLETE_BIRTH_DATE, ATHLETE_GENDER from Athlete natural join HasParticipated
+where COMPETITION_ID = @COMPETITION_ID</value>
   </data>
 </root>

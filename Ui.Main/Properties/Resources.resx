@@ -412,4 +412,16 @@
   <data name="Predefined" xml:space="preserve">
     <value>Categorías predefinidas</value>
   </data>
+  <data name="MilestoneNumber" xml:space="preserve">
+    <value>Hito nº</value>
+  </data>
+  <data name="SubMenuPartialTimes" xml:space="preserve">
+    <value>Tiempos parciales</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="TitleAddPartialTimes" xml:space="preserve">
+    <value>Insertar tiempos</value>
+  </data>
 </root>

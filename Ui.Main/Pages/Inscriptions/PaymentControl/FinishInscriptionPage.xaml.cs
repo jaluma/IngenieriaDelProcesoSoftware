@@ -38,9 +38,10 @@ namespace Ui.Main.Pages.Inscriptions.InscriptionsPaidControl
 
         private void BtSeleccionar_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openFile = new OpenFileDialog();
-            openFile.Filter = "*.csv|*.CSV";
-            openFile.Multiselect = false;
+            OpenFileDialog openFile = new OpenFileDialog {
+                Filter = @"*.csv|*.CSV",
+                Multiselect = false
+            };
             openFile.ShowDialog();
             _file = openFile.FileName;
             txFileName.Text = _file;

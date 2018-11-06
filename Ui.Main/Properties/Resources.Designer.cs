@@ -1065,6 +1065,40 @@ namespace Ui.Main.Properties {
             }
         }
 
+        /// <summary>
+        ///   Busca una cadena traducida similar a Hito nº.
+        /// </summary>
+        public static string MilestoneNumber {
+            get {
+                return ResourceManager.GetString("MilestoneNumber", resourceCulture);
+            }
+        }
 
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tiempos parciales.
+        /// </summary>
+        public static string SubMenuPartialTimes {
+            get {
+                return ResourceManager.GetString("SubMenuPartialTimes", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Borrar.
+        /// </summary>
+        public static string Remove {
+            get {
+                return ResourceManager.GetString("Remove", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Insertar tiempos.
+        /// </summary>
+        public static string TitleAddPartialTimes {
+            get {
+                return ResourceManager.GetString("TitleAddPartialTimes", resourceCulture);
+            }
+        }
     }
 }

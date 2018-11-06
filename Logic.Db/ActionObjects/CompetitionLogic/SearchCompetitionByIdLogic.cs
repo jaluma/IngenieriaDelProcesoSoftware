@@ -11,7 +11,7 @@ namespace Logic.Db.ActionObjects.CompetitionLogic
 {
     public class SearchCompetitionByIdLogic : IActionObject
     {
-        private readonly DBConnection _conn;
+        private DBConnection _conn;
         private readonly CompetitionDto _competitionDto;
         public CompetitionDto Competition;
 
@@ -37,7 +37,11 @@ namespace Logic.Db.ActionObjects.CompetitionLogic
                                 Name = reader.GetString(1),
                                 Km = reader.GetInt32(3),
                                 Price = reader.GetDouble(4),
-                                Date = reader.GetDateTime(5)                             
+                                Date = reader.GetDateTime(5),
+                                Rules = new GetRulesCompetitionLogic(ref _conn, _competitionDto).Execute(),
+                                //Status = reader.GetString(7),
+                                NumberMilestone = reader.GetInt32(8),
+                                //Slope = reader.GetDouble(9)
                             };
                             Enum.TryParse<TypeCompetition>(reader.GetString(2), out Competition.Type);
                         }

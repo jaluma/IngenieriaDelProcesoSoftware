@@ -37,6 +37,8 @@
         <mui:LinkGroup DisplayName="{x:Static properties:Resources.TileTimes}">
             <mui:LinkGroup.Links>
                 <mui:Link DisplayName="{x:Static properties:Resources.TitleTimesCompetition}" Source="/Pages/Competition.Times/TimesAthletes.xaml" />
+                <mui:Link DisplayName="{x:Static properties:Resources.TitleAddPartialTimes}" Source="/Pages/Competition.Times/LoadFilePartialTimes.xaml" />
+                <mui:Link DisplayName="{x:Static properties:Resources.SubMenuPartialTimes}" Source="/Pages/Competition.Times/PartialTimesAthletes.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
         <mui:LinkGroup DisplayName="{x:Static properties:Resources.TilePayments}">

@@ -20,5 +20,17 @@ namespace Logic.Db.Util.Services {
             selectCompetition.Execute();
             return selectCompetition.Table;
         }
+
+        public IEnumerable<PartialTimesDto> SelectPartialTimes(CompetitionDto competition) {
+            SelectAllPartialTimes partial = new SelectAllPartialTimes(ref _conn, competition);
+            partial.Execute();
+            return partial.List;
+        }
+
+        public PartialTimesDto SelectPartialTimesByAthlete(CompetitionDto competition, AthleteDto athlete) {
+            SelectPartialTimes partial = new SelectPartialTimes(ref _conn, athlete, competition);
+            partial.Execute();
+            return partial.PartialTimes;
+        }
     }
 }

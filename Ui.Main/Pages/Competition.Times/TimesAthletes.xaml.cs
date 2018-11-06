@@ -23,6 +23,7 @@ using FirstFloor.ModernUI.Windows.Controls;
 using Logic.Db;
 using Logic.Db.Dto;
 using Logic.Db.Util.Services;
+using Ui.Main.Pages.MenuInitial;
 using Xceed.Wpf.Toolkit.Core.Converters;
 
 namespace Ui.Main.Pages.Competition.Times
@@ -40,6 +41,7 @@ namespace Ui.Main.Pages.Competition.Times
         public static AbsoluteCategory CategorySelected;
         private readonly CompetitionService _competitionService;
         private readonly TimesService _service;
+        private AthleteDto Athlete;
 
         public TimesAthletes() {
             this.InitializeComponent();
@@ -232,6 +234,17 @@ namespace Ui.Main.Pages.Competition.Times
 
                 DataGridTimes.ItemsSource = _table.DefaultView;
             }
+        }
+
+        private void DataGridTimes_OnSelectionChanged(object sender, SelectionChangedEventArgs e) {
+            PartialTimesAthletes.Competition = Competition;
+            
+            List<AthleteDto> atleList = new AthletesService().SelectAthleteTable();
+
+            string dni = _table.Rows[DataGridTimes.SelectedIndex][2] as string;
+            PartialTimesAthletes.Athlete = atleList.First(a => a.Dni.ToUpper().Equals(dni.ToUpper()));
+
+            MainMenu.ChangeMenuSelected(Properties.Resources.TileTimes, Properties.Resources.SubMenuPartialTimes);
         }
     }
 }

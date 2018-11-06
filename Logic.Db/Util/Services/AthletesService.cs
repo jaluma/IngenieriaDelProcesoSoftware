@@ -38,6 +38,13 @@ namespace Logic.Db.Util.Services {
             return select.Table;
         }
 
+        public AthleteDto SelectAthleteByDniObject(string dni)
+        {
+            SelectAthleteByDniLogicObject select = new SelectAthleteByDniLogicObject(ref _conn, dni);
+            select.Execute();
+            return select.Athlete;
+        }
+
         public DataTable SelectParticipatedByDni(string dni)
         {
             SelectCompParticipatedByAhtlete select = new SelectCompParticipatedByAhtlete(ref _conn, dni);

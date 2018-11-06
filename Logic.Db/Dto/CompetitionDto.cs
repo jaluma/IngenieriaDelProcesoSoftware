@@ -14,6 +14,8 @@ namespace Logic.Db.Dto {
         public int NumberPlaces;
         public string Status; //can be null
         public byte[] Rules;
+        public int NumberMilestone;
+        public double Slope;
     }
 
     public enum TypeCompetition {

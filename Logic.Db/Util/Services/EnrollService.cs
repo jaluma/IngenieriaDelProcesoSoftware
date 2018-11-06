@@ -76,5 +76,11 @@ namespace Logic.Db.Util.Services {
             update.Execute();
         }
 
+        public IEnumerable<AthleteDto> SelectAthleteHasParticipated() {
+            SelectAthleteHasParticipated athleteHasParticipated = new SelectAthleteHasParticipated(ref _conn, _competition);
+            athleteHasParticipated.Execute();
+            return athleteHasParticipated.List;
+        }
+
     }
 }

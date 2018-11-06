@@ -51,10 +51,10 @@ namespace Ui.Main.Pages.Inscriptions
         }
 
         private void LoadData(string dni) {
-            List<AthleteDto> atleList = _athletesService.SelectAthleteTable();
-
             if (dni != null) {
                 try {
+                    List<AthleteDto> atleList = _athletesService.SelectAthleteTable();
+
                     _athlete = atleList.First(a => a.Dni.ToUpper().Equals(dni.ToUpper()));
 
                     PlaceData();
@@ -131,7 +131,7 @@ namespace Ui.Main.Pages.Inscriptions
         }
 
         private void CompetitionSelectionWindow_OnLoaded(object sender, RoutedEventArgs e) {
-            if (_athlete == null || _athlete.Dni == null || Dni==null ||!Dni.Equals(_athlete.Dni)) {
+            if (_athlete?.Dni == null || Dni==null || !Dni.Equals(_athlete.Dni)) {
                 LoadData(Dni);
             }
         }
