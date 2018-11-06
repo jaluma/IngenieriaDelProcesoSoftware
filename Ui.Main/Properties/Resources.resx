@@ -418,4 +418,7 @@
   <data name="Modify" xml:space="preserve">
     <value>Modificar</value>
   </data>
+  <data name="CancelInscription" xml:space="preserve">
+    <value>Cancelar inscripción</value>
+  </data>
 </root>

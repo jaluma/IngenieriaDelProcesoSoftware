@@ -1088,6 +1088,15 @@ namespace Ui.Main.Properties {
             }
         }
 
-
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cancelar inscripción.
+        /// </summary>
+        public static string CancelInscription
+        {
+            get
+            {
+                return ResourceManager.GetString("CancelInscription", resourceCulture);
+            }
+        }
     }
 }

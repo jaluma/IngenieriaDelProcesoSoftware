@@ -138,6 +138,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Inscriptions\CancelInscription.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Inscriptions\CompetitionInscription.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -193,6 +197,9 @@
     </Compile>
     <Compile Include="Pages\Competitions\categories\CategoriesDialog.xaml.cs">
       <DependentUpon>CategoriesDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Inscriptions\CancelInscription.xaml.cs">
+      <DependentUpon>CancelInscription.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Inscriptions\CompetitionInscription.xaml.cs">
       <DependentUpon>CompetitionInscription.xaml</DependentUpon>
