@@ -613,5 +613,14 @@ namespace Logic.Db.Properties
                 return ResourceManager.GetString("SQL_UPDATE_INSCRIPTION_STATUS", resourceCulture);
             }
         }
+
+        internal static string SQL_MAX_ID_DATES
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_MAX_ID_DATES", resourceCulture);
+            }
+        }
+        
     }
 }
