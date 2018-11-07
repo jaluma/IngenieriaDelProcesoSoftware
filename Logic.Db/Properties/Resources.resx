@@ -302,4 +302,13 @@ and date_refund in (select min(date_refund) from competitionrefund where Date('n
     <value>select competition_price from competitiondates natural join enroll
 where competition_id=@ID and athlete_dni=@DNI and date_inscription between initial_date and finish_date</value>
   </data>
+  <data name="SQL_INSERT_TIMES" xml:space="preserve">
+    <value>insert into HasParticipated values (@COMPETITION_ID, @DNI, 0, @TIME)</value>
+  </data>
+  <data name="SQL_SELECT_STATUS_ENROLL" xml:space="preserve">
+    <value>select status from Enroll where ATHLETE_DNI = @dni AND COMPETITION_ID = @COMPETITION_ID</value>
+  </data>
+  <data name="SQL_UPDATE_TIMES" xml:space="preserve">
+    <value>update HasParticipated set INITIAL_TIME=0, FINISH_TIME=@TIME where COMPETITION_ID=@COMPETITION_ID AND ATHLETE_DNI=@DNI</value>
+  </data>
 </root>
