@@ -96,17 +96,20 @@ namespace Ui.Main.Pages.Competition.Times
 
             GenerateTable(lista);
 
-            if (Athlete == null) {
-                Athlete = new AthletesService().SelectAthleteByDniObject(_table.Rows[0][0] as string);
+            //if (Athlete == null) {
+            //    Athlete = new AthletesService().SelectAthleteByDniObject(_table.Rows[0][0] as string);
+            //}
+
+            if (Athlete != null) {
+                LbNameSurname.Content = $"{Athlete.Name} {Athlete.Surname}";
+
+                var category = _competitionService.SelectCompetitionByAthleteAndCompetition(Competition, Athlete);
+                LbCategory.Content = $"{category.Name.Replace('_', ' ')} ({category.MinAge} - {category.MaxAge})";
+
+                HasParticipatedDto p = _service.SelectCompetitionHasParticipated(Competition, Athlete);
+                LbTiempoTotal.Content = PartialTimeString(p.FinishTime == 0 ? 0 : p.FinishTime - p.InitialTime);
             }
-
-            LbNameSurname.Content = $"{Athlete.Name} {Athlete.Surname}";
-
-            var category = _competitionService.SelectCompetitionByAthleteAndCompetition(Competition, Athlete);
-            LbCategory.Content = $"{category.Name.Replace('_', ' ')} ({category.MinAge} - {category.MaxAge})";
-
-            HasParticipatedDto p = _service.SelectCompetitionHasParticipated(Competition, Athlete);
-            LbTiempoTotal.Content = PartialTimeString(p.FinishTime == 0 ? 0 : p.FinishTime - p.InitialTime);
+            
         }
 
         private void GenerateTable(IEnumerable<PartialTimesDto> lista) {

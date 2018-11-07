@@ -235,15 +235,20 @@ namespace Ui.Main.Pages.Competition.Times
             }
         }
 
-        private void DataGridTimes_OnSelectionChanged(object sender, SelectionChangedEventArgs e) {
+        private void DataGridTimes_OnMouseDoubleClick(object sender, MouseButtonEventArgs e) {
             PartialTimesAthletes.Competition = Competition;
             
             List<AthleteDto> atleList = new AthletesService().SelectAthleteTable();
 
-            string dni = _table.Rows[DataGridTimes.SelectedIndex][2] as string;
-            PartialTimesAthletes.Athlete = atleList.First(a => a.Dni.ToUpper().Equals(dni.ToUpper()));
+            try {
+                string dni = _table.Rows[DataGridTimes.SelectedIndex][2] as string;
+                PartialTimesAthletes.Athlete = atleList.First(a => a.Dni.ToUpper().Equals(dni.ToUpper()));
 
-            MainMenu.ChangeMenuSelected(Properties.Resources.TileTimes, Properties.Resources.SubMenuPartialTimes);
+                DataGridTimes.SelectedIndex = -1;
+
+                MainMenu.ChangeMenuSelected(Properties.Resources.TileTimes, Properties.Resources.SubMenuPartialTimes);
+            } catch (IndexOutOfRangeException) { }
         }
+
     }
 }
