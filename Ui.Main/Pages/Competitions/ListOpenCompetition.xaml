@@ -7,7 +7,7 @@
       xmlns:properties="clr-namespace:Ui.Main.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="625" d:DesignWidth="1250"
-      Title="ListOpenCompetitions" Height="545">
+      Title="ListOpenCompetitions" Height="545" Loaded="ListOpenCompetition_OnLoaded">
     <DockPanel  Height="545" VerticalAlignment="Bottom">
         <Label FontSize="18"
                FontWeight="Bold"

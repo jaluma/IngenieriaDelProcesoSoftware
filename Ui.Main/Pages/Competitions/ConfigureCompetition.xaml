@@ -18,14 +18,14 @@
 
 
 
-        <xctk:WatermarkTextBox Watermark="{x:Static properties:Resources.Competition_Name}" x:Name="Nombre" HorizontalAlignment="Left" Height="30" Margin="285,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185"  MouseEnter="OnMouseEnterBeam" MouseLeave="OnMouseLeaveBeam" />
-        <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="{x:Static properties:Resources.CompetitionName}" Margin="80,86,0,424" Width="215" RenderTransformOrigin="0.473,1.057" />
+        <xctk:WatermarkTextBox Watermark="{x:Static properties:Resources.Competition_Name}" x:Name="Nombre" HorizontalAlignment="Left" Height="30" Margin="285,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185"  MouseEnter="OnMouseEnterBeam" MouseLeave="OnMouseLeaveBeam" />
+        <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="{x:Static properties:Resources.CompetitionName}" Margin="80,68,0,442" Width="215" RenderTransformOrigin="0.473,1.057" />
 
-        <xctk:WatermarkTextBox Watermark="{x:Static properties:Resources.Competition_Km}" x:Name="Km" HorizontalAlignment="Left" Height="28" Margin="640,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" RenderTransformOrigin="-3.8,0.286" MouseEnter="OnMouseEnterBeam" MouseLeave="OnMouseLeaveBeam"/>
+        <xctk:WatermarkTextBox Watermark="{x:Static properties:Resources.Competition_Km}" x:Name="Km" HorizontalAlignment="Left" Height="28" Margin="585,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" RenderTransformOrigin="-3.8,0.286" MouseEnter="OnMouseEnterBeam" MouseLeave="OnMouseLeaveBeam"/>
         <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="{x:Static properties:Resources.Competition_Km}" Margin="520,134,0,383" Width="75" RenderTransformOrigin="0.473,1.057" />
 
-        <DatePicker x:Name="FechaCompeticion" HorizontalAlignment="Left" Margin="285,130,0,0" VerticalAlignment="Top" Height="32" Width="185"/>
-        <Label FontSize="12" FontWeight="bold" x:Name="LbDate" Content="{x:Static properties:Resources.Competition_Date}" HorizontalAlignment="Left" Margin="80,135,0,0" VerticalAlignment="Top" Height="27" Width="52" RenderTransformOrigin="2.788,0.481" />
+        <DatePicker x:Name="FechaCompeticion" HorizontalAlignment="Left" Margin="285,149,0,0" VerticalAlignment="Top" Height="32" Width="185" LostFocus="FechaCompeticion_LostFocus"/>
+        <Label FontSize="12" FontWeight="bold" x:Name="LbDate" Content="{x:Static properties:Resources.Competition_Date}" HorizontalAlignment="Left" Margin="80,149,0,0" VerticalAlignment="Top" Height="27" Width="52" RenderTransformOrigin="2.788,0.481" />
 
         <RadioButton x:Name="RBMountain" Content="{x:Static properties:Resources.Mountain}" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" HorizontalAlignment="Left" Margin="695,83,0,0" VerticalAlignment="Top" IsChecked="False" GroupName="GroupType" Height="22" Width="74" FontSize="12" Click="CheckBox_OnClick"/>
         <RadioButton x:Name="RBAsphalt" Content="{x:Static properties:Resources.Asfalto}" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" HorizontalAlignment="Left" Margin="585,83,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="GroupType" Height="22" Width="75" FontSize="12" RenderTransformOrigin="0.2,0.682" Click="CheckBox_OnClick"/>
@@ -35,7 +35,7 @@
         <Button x:Name="BtAdd" Content="{x:Static properties:Resources.Add}" HorizontalAlignment="Left" Margin="520,480,0,0" VerticalAlignment="Top" Width="210" Height="30" FontSize="16" Click="BtAdd_Click"  MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" RenderTransformOrigin="0.19,0.667"/>
         <Label FontSize="12" FontWeight="bold" x:Name="LbReglamento" Content="{x:Static properties:Resources.Rules}" HorizontalAlignment="Left" Margin="80,435,0,0" VerticalAlignment="Top" Height="27" Width="165" RenderTransformOrigin="2.788,0.481" />
 
-        <Grid x:Name="GridMountain" MinWidth="1"  MinHeight="1"  Margin="810,82,35,319">
+        <Grid x:Name="GridMountain" MinWidth="1"  MinHeight="1"  Margin="790,50,55,357">
             <Grid.RowDefinitions>
                 <RowDefinition Height="84*"/>
                 <RowDefinition Height="85*"/>
@@ -54,19 +54,29 @@
         <ListBox Name="Categories" HorizontalAlignment="Left" Height="127" Margin="80,225,0,0" VerticalAlignment="Top" Width="390" Initialized="ComboBox_Initialized"/>
         <Button x:Name="BtModificar" Content="{x:Static properties:Resources.Modify}" HorizontalAlignment="Left" Margin="80,367,0,0" VerticalAlignment="Top" Width="165" Height="23" FontSize="9"  MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave"
                 Click="BtModificar_Click" RenderTransformOrigin="0.19,0.667"/>
-        <DatePicker x:Name="InicioPlazo" HorizontalAlignment="Left" Margin="950,226,0,0" VerticalAlignment="Top" Height="35" Width="170"/>
+        <DatePicker x:Name="InicioPlazo" HorizontalAlignment="Left" Margin="950,226,0,0" VerticalAlignment="Top" Height="35" Width="170" LostFocus="InicioPlazo_LostFocus" GotFocus="InicioPlazo_GotFocus" />
         <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="{x:Static properties:Resources.InscriptionDate}" Margin="520,193,0,317" Width="215" RenderTransformOrigin="0.473,1.057" />
         <ListBox x:Name="Plazos_list" HorizontalAlignment="Left" Height="127" Margin="520,225,0,0" VerticalAlignment="Top" Width="249" />
         <DatePicker x:Name="FinPlazo" HorizontalAlignment="Left" Margin="950,271,0,0" VerticalAlignment="Top" Height="35" Width="170"/>
-        <ComboBox IsEditable="True"  x:Name="Devolucion" HorizontalAlignment="Left" Height="28" Margin="950,323,0,0" VerticalAlignment="Top" Width="170" Initialized="Devolucion_Initialized" RenderTransformOrigin="0.471,0.464"/>
-        <Button x:Name="BtPlazo" Content="{x:Static properties:Resources.Add}" HorizontalAlignment="Left" Margin="520,367,0,0" VerticalAlignment="Top" Width="106" Height="23" FontSize="9" Click="BtPlazo_Click"  MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" RenderTransformOrigin="0.19,0.667"/>
+        <Button x:Name="BtPlazo" Content="{x:Static properties:Resources.Add}" HorizontalAlignment="Left" Margin="520,367,0,0" VerticalAlignment="Top" Width="115" Height="23" FontSize="9" Click="BtPlazo_Click"  MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" RenderTransformOrigin="0.19,0.667"/>
         <Button x:Name="BtReset" Content="{x:Static properties:Resources.Reset}" HorizontalAlignment="Left" Margin="305,367,0,0" VerticalAlignment="Top" Width="165" Height="23" FontSize="9"  MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Click="BtReset_Click"
             RenderTransformOrigin="0.19,0.667"/>
         <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="{x:Static properties:Resources.InscriptionOpen}" Margin="790,231,0,279" Width="140" RenderTransformOrigin="0.473,1.057" />
         <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="{x:Static properties:Resources.InscriptionClose}" Margin="790,276,0,234" Width="140" RenderTransformOrigin="0.473,1.057" />
-        <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="Política reembolso" Margin="790,323,0,187" Width="140" RenderTransformOrigin="0.473,1.057" />
 
-        <Button x:Name="BtBorrar" Content="Borrar" HorizontalAlignment="Left" Margin="663,367,0,0" VerticalAlignment="Top" Width="106" Height="23" FontSize="9" Click="BtBorrar_Click"  MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" RenderTransformOrigin="0.19,0.667"/>
+        <Button x:Name="BtBorrar" Content="Restablecer" HorizontalAlignment="Left" Margin="655,367,0,0" VerticalAlignment="Top" Width="114" Height="23" FontSize="9" Click="BtBorrar_Click"  MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" RenderTransformOrigin="0.19,0.667"/>
+        <xctk:WatermarkTextBox Watermark="{x:Static properties:Resources.Competition_Price}" x:Name="PrecioInscripcion" HorizontalAlignment="Left" Height="28" Margin="950,324,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" RenderTransformOrigin="-3.8,0.286" MouseEnter="OnMouseEnterBeam" MouseLeave="OnMouseLeaveBeam"/>
+        <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="{x:Static properties:Resources.Competition_Number}" Margin="80,112,0,405" Width="140" RenderTransformOrigin="0.473,1.057" />
+        <xctk:WatermarkTextBox Watermark="{x:Static properties:Resources.Competition_Number}" x:Name="NumeroPlazas" HorizontalAlignment="Left" Height="28" Margin="285,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" RenderTransformOrigin="-3.8,0.286" MouseEnter="OnMouseEnterBeam" MouseLeave="OnMouseLeaveBeam"/>
+        <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="Precio inscripción" Margin="790,328,0,182" Width="140" RenderTransformOrigin="0.473,1.057" />
+        <Button x:Name="BtRefund" Content="Configurar" HorizontalAlignment="Left" Margin="980,439,0,0" VerticalAlignment="Top" Width="140" Height="30" FontSize="16" Click="BtRefund_Click"  MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" RenderTransformOrigin="0.19,0.667"/>
+        <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="Políticas cancelación / reembolso" Margin="755,443,0,72" Width="210" RenderTransformOrigin="0.473,1.057" />
+        
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="60" Margin="60,415,0,0" VerticalAlignment="Top" Width="1085"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="207" Margin="480,193,0,0" VerticalAlignment="Top" Width="665"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="207" Margin="60,193,0,0" VerticalAlignment="Top" Width="415"/>
+        <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="Hitos" Margin="655,134,0,383" Width="75" RenderTransformOrigin="0.473,1.057" />
+        <xctk:WatermarkTextBox Watermark="Hitos" x:Name="Hitos" HorizontalAlignment="Left" Height="28" Margin="719,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" RenderTransformOrigin="-3.8,0.286" MouseEnter="OnMouseEnterBeam" MouseLeave="OnMouseLeaveBeam"/>
 
 
 

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Logic.Db.ActionObjects.AthleteLogic;
 using Logic.Db.ActionObjects.AthleteLogic.Enroll;
+using Logic.Db.ActionObjects.CompetitionLogic;
 using Logic.Db.Dto;
 
 namespace Logic.Db.Util.Services {
@@ -74,6 +75,24 @@ namespace Logic.Db.Util.Services {
         {
             UpdateInscriptionStatus update = new UpdateInscriptionStatus(ref _conn, dni, id, status);
             update.Execute();
+        }
+
+        public void EnrollCompetitionDates(long id, InscriptionDatesDto date)
+        {
+            EnrollDatesCompetition enroll = new EnrollDatesCompetition(ref _conn, id, date);
+            enroll.Execute();
+        }
+
+        public void EnrollAbsoluteCompetition(long id, long date)
+        {
+            EnrollAbsoluteCompetition enroll = new EnrollAbsoluteCompetition(ref _conn, id, date);
+            enroll.Execute();
+        }
+
+        public void EnrollRefundsCompetition(long id, DateTime date, double refund)
+        {
+            EnrollRefundsCompetition enroll = new EnrollRefundsCompetition(ref _conn, id, date, refund);
+            enroll.Execute();
         }
 
         public IEnumerable<AthleteDto> SelectAthleteHasParticipated() {

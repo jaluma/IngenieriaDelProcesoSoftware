@@ -21,6 +21,7 @@ using System.Windows.Shapes;
 using Ui.Main.Pages.Competitions.categories;
 using Control = System.Windows.Controls.Control;
 using Cursors = System.Windows.Input.Cursors;
+using MessageBox = System.Windows.Forms.MessageBox;
 using MouseEventArgs = System.Windows.Forms.MouseEventArgs;
 using SelectionMode = System.Windows.Controls.SelectionMode;
 
@@ -33,16 +34,23 @@ namespace Ui.Main.Pages.Competitions
     {
 
         private CompetitionService _serviceComp = new CompetitionService();
+        private EnrollService _serviceEnroll;
         private CompetitionService _serviceCompCat = new CompetitionService();
+        private CompetitionService _serviceCategories = new CompetitionService();
         private CompetitionDto _competition = new CompetitionDto();
+        public List<RefundDto> refundsList = new List<RefundDto>();
         byte[] bytes;
-       private IEnumerable<AbsoluteCategory> list;
+        private IEnumerable<AbsoluteCategory> list;
+        public List<AbsoluteCategory> absolutes = new List<AbsoluteCategory>();
 
         public ConfigureCompetition()
         {
             InitializeComponent();
             GridMountain.Visibility = Visibility.Collapsed;
-            
+            InicioPlazo.IsEnabled = false;
+            FinPlazo.IsEnabled = false;
+            FechaCompeticion.DisplayDateStart= DateTime.Now;
+
         }
 
         private void BtSearch_Click(object sender, RoutedEventArgs e)
@@ -128,9 +136,7 @@ namespace Ui.Main.Pages.Competitions
             else
                 GridMountain.Visibility = Visibility.Collapsed;
         }
-
         
-
         private void DPos_LostFocus(object sender, RoutedEventArgs e)
         {
             if (!DPos.IsFocused)
@@ -161,8 +167,9 @@ namespace Ui.Main.Pages.Competitions
         {
             if (Categories.SelectedItem != null)
             {
-                CategoriesDialog catD = new CategoriesDialog((AbsoluteCategory)Categories.SelectedItem);
+                CategoriesDialog catD = new CategoriesDialog((AbsoluteCategory)Categories.SelectedItem, absolutes);
                 catD.ShowDialog();
+                this.absolutes = catD.absolutes;
                 Categories.Items.Refresh();
             }
         }
@@ -181,67 +188,222 @@ namespace Ui.Main.Pages.Competitions
 
         private void BtPlazo_Click(object sender, RoutedEventArgs e)
         {
-            if (Devolucion.Text == "NO DEVOLUCIÓN")
-                Devolucion.Text = "0%";
+            
+            if (Plazos_list.SelectedItem == null)
+            {
+                try {
+                    InscriptionDatesDto plazos = new InscriptionDatesDto {
+                        fechaInicio = (DateTime) InicioPlazo.SelectedDate,
+                        fechaFin = (DateTime) FinPlazo.SelectedDate,
+                        
+                    };
+                    if (PrecioInscripcion.Text == "")
+                        plazos.precio = 0;
+                    else
+                        plazos.precio = Double.Parse(PrecioInscripcion.Text);
+                    Plazos_list.SelectionMode = SelectionMode.Single;
+                    Plazos_list.Items.Add(plazos);
+                    FinPlazo.SelectedDate = null;
+                    InicioPlazo.SelectedDate = plazos.fechaFin.AddDays(1);
+                    InicioPlazo.DisplayDateStart = plazos.fechaFin;
+                    PrecioInscripcion.Text = null;
+                    InicioPlazo.IsEnabled = false;
+                    FinPlazo.DisplayDateStart = InicioPlazo.SelectedDate;
+                } catch(Exception) {} 
 
-            InscriptionDatesDto plazos = new InscriptionDatesDto {
-                FechaInicio = (DateTime)InicioPlazo.SelectedDate,
-                FechaFin = (DateTime)FinPlazo.SelectedDate,
-                Devolucion = Double.Parse(Devolucion.Text.Replace("%",""))
-            };
-
-            Plazos_list.SelectionMode = SelectionMode.Single;
-            Plazos_list.Items.Add(plazos);
-
+            }
+        }
+        private void InicioPlazo_GotFocus(object sender, RoutedEventArgs e)
+        {
+             FinPlazo.SelectedDate = null;
+             FinPlazo.DisplayDateStart = InicioPlazo.SelectedDate;
            
+        }
+
+        private void InicioPlazo_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (InicioPlazo.SelectedDate != null)
+            {
+                FinPlazo.IsEnabled = true;
+                FinPlazo.DisplayDateStart = InicioPlazo.SelectedDate;
+            }
+        }
+
+        private void BtRefund_Click(object sender, RoutedEventArgs e)
+        {
+            if (Plazos_list.Items.Count > 0 && FechaCompeticion.SelectedDate!=null)
+            {
+                InscriptionDatesDto nuevo = new InscriptionDatesDto();
+                nuevo = (InscriptionDatesDto)Plazos_list.Items.GetItemAt(0);
+                nuevo.fechaFin = (DateTime)FechaCompeticion.SelectedDate;
+                RefundDialog refunds = new RefundDialog(nuevo);
+                refunds.ShowDialog();
+                refundsList = refunds.refunds;
+            }
+
+            else
+            {
+                MessageBox.Show("Por favor, introduzca primero los plazos de inscripción y la fecha de competición");
+                return;
+            }
+
+        }
+
+        private void FechaCompeticion_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (FechaCompeticion.SelectedDate != null && FechaCompeticion.Text != "")
+            {
+                InicioPlazo.IsEnabled = true;
+                InicioPlazo.DisplayDateStart = DateTime.Now;
+                InicioPlazo.DisplayDateEnd = FechaCompeticion.SelectedDate;
+                FinPlazo.DisplayDateEnd = FechaCompeticion.SelectedDate;
+            }            
+            else
+                InicioPlazo.IsEnabled = false;
 
         }
 
         private void BtBorrar_Click(object sender, RoutedEventArgs e)
         {
-            if (Plazos_list.SelectedItem != null)
-            {
-                Plazos_list.Items.Remove(Plazos_list.SelectedItem);
-            }
+            Plazos_list.Items.Clear();
+            InicioPlazo.SelectedDate = null;
+            FinPlazo.SelectedDate = null;
+            InicioPlazo.IsEnabled = true;
+            FinPlazo.IsEnabled = false;
+            InicioPlazo.DisplayDateStart = DateTime.Now;
+
         }
-
-
-        private void Devolucion_Initialized(object sender, EventArgs e)
-        {
-            List<string> devoluciones = new List<string> {
-                "NO DEVOLUCIÓN",
-                "100%",
-                "75%",
-                "50%",
-                "25%"
-            };
-
-
-
-            foreach (string c in devoluciones)
-            {
-                Devolucion.Items.Add(c);
-            }
-           
-        }
+       
         private void OnMouseEnter(object sender, MouseEventArgs e) {
             if (sender is Control component)
                 component.Cursor = Cursors.Hand;
         }
-
         private void OnMouseEnterBeam(object sender, System.Windows.Input.MouseEventArgs e) {
             if (sender is Control component)
                 component.Cursor = Cursors.IBeam;
         }
-
         private void OnMouseLeave(object sender, MouseEventArgs e) {
             if (sender is Control component)
                 component.Cursor = null;
         }
-
         private void OnMouseLeaveBeam(object sender, System.Windows.Input.MouseEventArgs e) {
             if (sender is Control component)
                 component.Cursor = null;
+        }
+        private void BtAdd_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (checkAll())
+            {
+
+                _competition.Date = (DateTime)FechaCompeticion.SelectedDate;
+                _competition.Km = Double.Parse(Km.Text);
+                _competition.Name = Nombre.Text;
+                _competition.Milestone = int.Parse(Hitos.Text);
+                if (MountainIsChecked())
+                {
+                    _competition.Type = TypeCompetition.Mountain;
+                    _competition.Slope = Double.Parse(DTotal.Text);
+                }
+                else
+                {
+                    _competition.Type = TypeCompetition.Asphalt;
+                }
+                _competition.NumberPlaces = int.Parse(NumeroPlazas.Text);
+                _competition.Rules = bytes;
+                _competition.Status = "OPEN";
+
+                //METER CATEGORIAS 
+                foreach (AbsoluteCategory c in Categories.Items) //modificar las categorias que te devuelve el dialogo no el listbox
+                {
+                    
+                    _serviceCategories.AddCategory(c.CategoryF);
+                    _serviceCategories.AddCategory(c.CategoryM);
+
+                }
+
+                //añadir absoluta categoria vincular
+
+                
+                foreach (var c in absolutes)
+                {
+                    CategoryDto idm = _serviceCategories.getCategory(c.CategoryM);
+                    CategoryDto idf = _serviceCategories.getCategory(c.CategoryF);
+                    AbsoluteCategory nueva = new AbsoluteCategory
+                    {
+                        Name = c.Name,
+                        CategoryF = idf,
+                        CategoryM = idm
+                    };
+
+                    _serviceCategories.AddAbsoluteCategory(nueva);
+                }
+
+                
+
+                _serviceComp.AddCompetition(_competition);
+                _competition.ID = _serviceComp.getIdCompetition(_competition);
+                _serviceEnroll = new EnrollService(_competition);
+
+                //vincular refunds y competicion
+                foreach (var c in refundsList)
+                {
+                    _serviceEnroll.EnrollRefundsCompetition(_competition.ID, c.date_refund, c.refund/100);
+                }
+
+                if (!absolutes.Any())
+                {
+
+                    foreach (var c in list)
+                        _serviceEnroll.EnrollAbsoluteCompetition(_competition.ID, c.Id);
+
+                }
+                else
+                {
+                    foreach (var c in absolutes)
+                    {
+                        long id = _serviceComp.getIdAbsolute((AbsoluteCategory)c);
+
+                        _serviceEnroll.EnrollAbsoluteCompetition(_competition.ID, id);
+
+                    }
+                }
+                //METER PLAZOS en inscription dates
+
+                foreach (InscriptionDatesDto p in Plazos_list.Items)
+                  _serviceComp.AddInscriptionDate(p, _competition);
+
+
+                //vincular competicion y plazos con precio
+                //
+                //foreach (InscriptionDatesDto c in Plazos_list.Items)
+                //{
+                //    _serviceEnroll.EnrollCompetitionDates(_competition.ID, c);
+
+
+                //}
+
+
+
+            }
+
+            else
+                MessageBox.Show("Por favor, revise que todos los campos se han introducido correctamente");
+                return;
+        }
+
+
+        private bool checkAll() {
+         
+            if (FechaCompeticion.SelectedDate == null | Km.Text == ("")   || Nombre.Text == ("") ||
+                (!MountainIsChecked() && !AsphaltIsChecked()) || (MountainIsChecked() && DTotal.Text == ("")) || NumeroPlazas.Text == ("") 
+                  || Plazos_list.Items.IsEmpty || refundsList.Count<=0 )
+                return false;
+
+            
+
+            return true;
+
         }
 
         

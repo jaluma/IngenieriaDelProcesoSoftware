@@ -10,7 +10,7 @@
       "Gender": "M"
     },
     "CategoryF": {
-      "Id": 1,
+      "Id": 2,
       "Name": "JUNIOR_F",
       "MinAge": 18,
       "MaxAge": 18,
@@ -18,17 +18,17 @@
     }
   },
   {
-    "Id": 1,
+    "Id": 2,
     "Name": "SENIOR",
     "CategoryM": {
-      "Id": 1,
+      "Id": 3,
       "Name": "SENIOR_M",
       "MinAge": 19,
       "MaxAge": 34,
       "Gender": "M"
     },
     "CategoryF": {
-      "Id": 1,
+      "Id": 4,
       "Name": "SENIOR_F",
       "MinAge": 19,
       "MaxAge": 34,
@@ -36,17 +36,17 @@
     }
   },
   {
-    "Id": 1,
+    "Id": 3,
     "Name": "VETERAN_A",
     "CategoryM": {
-      "Id": 1,
+      "Id": 5,
       "Name": "VETERAN_A_M",
       "MinAge": 35,
       "MaxAge": 44,
       "Gender": "M"
     },
     "CategoryF": {
-      "Id": 1,
+      "Id": 6,
       "Name": "VETERAN_A_F",
       "MinAge": 35,
       "MaxAge": 44,
@@ -54,17 +54,17 @@
     }
   },
   {
-    "Id": 1,
+    "Id": 4,
     "Name": "VETERAN_B",
     "CategoryM": {
-      "Id": 1,
+      "Id": 7,
       "Name": "VETERAN_B_M",
       "MinAge": 45,
       "MaxAge": 54,
       "Gender": "M"
     },
     "CategoryF": {
-      "Id": 1,
+      "Id": 8,
       "Name": "VETERAN_B_F",
       "MinAge": 45,
       "MaxAge": 54,
@@ -72,17 +72,17 @@
     }
   },
   {
-    "Id": 1,
+    "Id": 5,
     "Name": "VETERAN_C",
     "CategoryM": {
-      "Id": 1,
+      "Id": 9,
       "Name": "VETERAN_C_M",
       "MinAge": 55,
       "MaxAge": 2147483647,
       "Gender": "M"
     },
     "CategoryF": {
-      "Id": 1,
+      "Id": 10,
       "Name": "VETERAN_C_F",
       "MinAge": 55,
       "MaxAge": 2147483647,

@@ -31,16 +31,19 @@ namespace Ui.Main.Pages.Competitions
     /// </summary>
     public partial class ListOpenCompetition : Page
     {
-        private readonly CompetitionService _service;
+        private CompetitionService _service;
         private List<long> _columnIds;
         byte[] bytes;
 
 
-        public ListOpenCompetition()
-        {
+        public ListOpenCompetition() {
             //inicializamos los componentes
             InitializeComponent();
-           
+
+            GenerateTable();
+        }
+
+        private void GenerateTable() {
             _service = new CompetitionService();
             DataTable table = _service.ListOpenCompetitions();
             table.Columns[0].ColumnName = Properties.Resources.Competition_Id;
@@ -62,9 +65,8 @@ namespace Ui.Main.Pages.Competitions
             DataColumn column = new DataColumn(Properties.Resources.Rules, typeof(string));
             table.Columns.Add(column);
 
-            foreach (DataRow row in table.Rows)
-            {
-                if(row.Field<byte[]>("b")!=null)
+            foreach (DataRow row in table.Rows) {
+                if (row.Field<byte[]>("b") != null)
                     row.SetField<string>(column, "Descargar");
                 else if (row.Field<byte[]>("b") == null) {
                     row.SetField<string>(column, "No adjunto");
@@ -73,7 +75,6 @@ namespace Ui.Main.Pages.Competitions
 
 
             table.Columns.RemoveAt(7);
-
         }
 
         private void DataGridCompetition_OnMouseDoubleClick(object sender, MouseButtonEventArgs e) {
@@ -137,5 +138,8 @@ namespace Ui.Main.Pages.Competitions
             DataGridCompetition.Cursor = null;
         }
 
+        private void ListOpenCompetition_OnLoaded(object sender, RoutedEventArgs e) {
+            GenerateTable();
+        }
     }
 }
