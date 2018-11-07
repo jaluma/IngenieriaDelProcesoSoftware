@@ -23,8 +23,8 @@ namespace Logic.Db.ActionObjects.CompetitionLogic
         }
         public void Execute()
         {
-            string initial = _plazo.fechaInicio.ToString("yyyy-MM-dd");
-            string finish = _plazo.fechaFin.ToString("yyyy-MM-dd");
+            string initial = _plazo.FechaInicio.ToString("yyyy-MM-dd");
+            string finish = _plazo.FechaFin.ToString("yyyy-MM-dd");
             long max = 0;
             try {
 
@@ -71,12 +71,12 @@ namespace Logic.Db.ActionObjects.CompetitionLogic
                     new SQLiteCommand(Logic.Db.Properties.Resources.SQL_ENROLL_COMPETITION_DATES, _conn.DbConnection)) {
                     command.Parameters.AddWithValue("@ID", max+1);
                     command.Parameters.AddWithValue("@COMPETITION_ID", _competition.ID);
-                    command.Parameters.AddWithValue("@COMPETITION_PRICE", _plazo.precio);
+                    command.Parameters.AddWithValue("@COMPETITION_PRICE", _plazo.Devolucion);
 
                     command.ExecuteNonQuery();
                 }
 
-            } catch (SQLiteException e) {
+            } catch (SQLiteException) {
                     _conn.DbConnection?.Close();
                     throw;
             }

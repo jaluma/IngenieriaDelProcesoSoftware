@@ -31,18 +31,29 @@ namespace Logic.Db.ActionObjects.CompetitionLogic
                     {
                         if (reader.Read())
                         {
-                            Competition = new CompetitionDto()
-                            {
-                                ID = reader.GetInt32(0),
-                                Name = reader.GetString(1),
-                                Km = reader.GetInt32(3),
-                                Price = reader.GetDouble(4),
-                                Date = reader.GetDateTime(5),
-                                Rules = new GetRulesCompetitionLogic(ref _conn, _competitionDto).Execute(),
-                                Status = reader.GetString(7),
-                                NumberMilestone = reader.GetInt32(8),
-                                Slope = reader.GetDouble(8)
-                            };
+                            //Competition = new CompetitionDto()
+                            //{
+                            //    ID = reader.GetInt64(0),
+                            //    Name = reader.GetString(1),
+                            //    Km = reader.GetInt32(3),
+                            //    Price = reader.GetDouble(4),
+                            //    Date = reader.GetDateTime(5),
+                            //    //Rules = new GetRulesCompetitionLogic(ref _conn, _competitionDto).Execute(),
+                            //    Status = reader.GetString(7),
+                            //    NumberMilestone = reader.GetInt32(8),
+                            //    //Slope = reader.GetDouble(9)
+                            //};
+
+                            Competition = new CompetitionDto();
+                            Competition.ID = reader.GetInt64(0);
+                            Competition.Name = reader.GetString(1);
+                            Competition.Km = reader.GetInt32(3);
+                            Competition.Price = reader.GetDouble(4);
+                            Competition.Date = reader.GetDateTime(5);
+                            Competition.Rules = new GetRulesCompetitionLogic(ref _conn, _competitionDto).Execute();
+                            Competition.Status = reader.GetString(7);
+                            Competition.NumberMilestone = reader.GetInt32(8);
+                            Competition.Slope = reader.IsDBNull(9) ? 0 : reader.GetDouble(9);
                             Enum.TryParse<TypeCompetition>(reader.GetString(2), out Competition.Type);
                         }
                     }

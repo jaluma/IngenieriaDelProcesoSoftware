@@ -30,9 +30,9 @@ namespace Logic.Db.ActionObjects.CompetitionLogic
                 {
 
                     command.Parameters.AddWithValue("@COMPETITION_ID", _competition);
-                    command.Parameters.AddWithValue("@INITIAL_DATE", _date.fechaInicio.ToString("yyyy-MM-dd"));
-                    command.Parameters.AddWithValue("@FINISH_DATE", _date.fechaFin.ToString("yyyy-MM-dd"));
-                    command.Parameters.AddWithValue("@COMPETITION_PRICE", _date.precio);                 
+                    command.Parameters.AddWithValue("@INITIAL_DATE", _date.FechaInicio.ToString("yyyy-MM-dd"));
+                    command.Parameters.AddWithValue("@FINISH_DATE", _date.FechaFin.ToString("yyyy-MM-dd"));
+                    command.Parameters.AddWithValue("@COMPETITION_PRICE", _date.Devolucion);                 
 
                     command.ExecuteNonQuery();
                 }

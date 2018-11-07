@@ -621,6 +621,102 @@ namespace Logic.Db.Properties
                 return ResourceManager.GetString("SQL_MAX_ID_DATES", resourceCulture);
             }
         }
+
+        internal static string SQL_SELECT_ATHLETES_HAS_PARTICIPATED
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_ATHLETES_HAS_PARTICIPATED", resourceCulture);
+            }
+        }
+
+        internal static string SQL_SELECT_DNI_FROM_DORSAL
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_DNI_FROM_DORSAL", resourceCulture);
+            }
+        }
+
+        internal static string SQL_SELECT_NOT_CANCELED_INSCRIPTIONS
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_NOT_CANCELED_INSCRIPTIONS", resourceCulture);
+            }
+        }
+
+        internal static string SQL_INSERT_TIMES
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_INSERT_TIMES", resourceCulture);
+            }
+        }
+
+        internal static string SQL_UPDATE_TIMES
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_UPDATE_TIMES", resourceCulture);
+            }
+        }
+
+        internal static string SQL_SELECT_COMPETITION_PRICE
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_COMPETITION_PRICE", resourceCulture);
+            }
+        }
+
+        internal static string SQL_SELECT_CATEGORY_BY_COMP_AND_ATHLETE
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_CATEGORY_BY_COMP_AND_ATHLETE", resourceCulture);
+            }
+        }
+
+        internal static string SQL_INSERT_PARTIAL_TIMES
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_INSERT_PARTIAL_TIMES", resourceCulture);
+            }
+        }
+            
+        internal static string SQL_SELECT_HAS_PARTICIPATED
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_HAS_PARTICIPATED", resourceCulture);
+            }
+        }
+
+        internal static string SQL_SELECT_PARTIAL_TIMES
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_PARTIAL_TIMES", resourceCulture);
+            }
+        }
+
+        internal static string SQL_UPDATE_PARTIAL_TIMES
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_UPDATE_PARTIAL_TIMES", resourceCulture);
+            }
+        }
+
+        
+
+            
+
+            
+
+            
         
     }
 }

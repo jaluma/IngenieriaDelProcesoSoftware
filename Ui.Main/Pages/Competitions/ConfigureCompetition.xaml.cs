@@ -73,25 +73,6 @@ namespace Ui.Main.Pages.Competitions
                 bytes = File.ReadAllBytes(System.IO.Path.GetFullPath(path));
             }
         }
-        
-        private void BtAdd_Click(object sender, RoutedEventArgs e)
-        {
-           
-            _competition.Date = (DateTime) FechaCompeticion.SelectedDate;
-            _competition.Km =Double.Parse(Km.Text);
-            _competition.Name = Nombre.Text;
-            if (MountainIsChecked())
-                _competition.Type = TypeCompetition.Mountain;
-            else
-                _competition.Type = TypeCompetition.Asphalt;
-            _competition.NumberPlaces = 150;
-            //_competition.Price = 100;
-            _competition.Rules = bytes;
-            _competition.Status = "OPEN";
-
-            _serviceComp.AddCompetition(_competition);
-
-        }
 
         private void OnMouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
         {
@@ -193,19 +174,19 @@ namespace Ui.Main.Pages.Competitions
             {
                 try {
                     InscriptionDatesDto plazos = new InscriptionDatesDto {
-                        fechaInicio = (DateTime) InicioPlazo.SelectedDate,
-                        fechaFin = (DateTime) FinPlazo.SelectedDate,
+                        FechaInicio = (DateTime) InicioPlazo.SelectedDate,
+                        FechaFin = (DateTime) FinPlazo.SelectedDate,
                         
                     };
                     if (PrecioInscripcion.Text == "")
-                        plazos.precio = 0;
+                        plazos.Devolucion = 0;
                     else
-                        plazos.precio = Double.Parse(PrecioInscripcion.Text);
+                        plazos.Devolucion = Double.Parse(PrecioInscripcion.Text);
                     Plazos_list.SelectionMode = SelectionMode.Single;
                     Plazos_list.Items.Add(plazos);
                     FinPlazo.SelectedDate = null;
-                    InicioPlazo.SelectedDate = plazos.fechaFin.AddDays(1);
-                    InicioPlazo.DisplayDateStart = plazos.fechaFin;
+                    InicioPlazo.SelectedDate = plazos.FechaFin.AddDays(1);
+                    InicioPlazo.DisplayDateStart = plazos.FechaFin;
                     PrecioInscripcion.Text = null;
                     InicioPlazo.IsEnabled = false;
                     FinPlazo.DisplayDateStart = InicioPlazo.SelectedDate;
@@ -235,7 +216,7 @@ namespace Ui.Main.Pages.Competitions
             {
                 InscriptionDatesDto nuevo = new InscriptionDatesDto();
                 nuevo = (InscriptionDatesDto)Plazos_list.Items.GetItemAt(0);
-                nuevo.fechaFin = (DateTime)FechaCompeticion.SelectedDate;
+                nuevo.FechaFin = (DateTime)FechaCompeticion.SelectedDate;
                 RefundDialog refunds = new RefundDialog(nuevo);
                 refunds.ShowDialog();
                 refundsList = refunds.refunds;
@@ -293,13 +274,13 @@ namespace Ui.Main.Pages.Competitions
         private void BtAdd_Click(object sender, RoutedEventArgs e)
         {
 
-            if (checkAll())
+            if (CheckAll())
             {
 
                 _competition.Date = (DateTime)FechaCompeticion.SelectedDate;
                 _competition.Km = Double.Parse(Km.Text);
                 _competition.Name = Nombre.Text;
-                _competition.Milestone = int.Parse(Hitos.Text);
+                _competition.NumberMilestone = int.Parse(Hitos.Text);
                 if (MountainIsChecked())
                 {
                     _competition.Type = TypeCompetition.Mountain;
@@ -327,8 +308,8 @@ namespace Ui.Main.Pages.Competitions
                 
                 foreach (var c in absolutes)
                 {
-                    CategoryDto idm = _serviceCategories.getCategory(c.CategoryM);
-                    CategoryDto idf = _serviceCategories.getCategory(c.CategoryF);
+                    CategoryDto idm = _serviceCategories.GetCategory(c.CategoryM);
+                    CategoryDto idf = _serviceCategories.GetCategory(c.CategoryF);
                     AbsoluteCategory nueva = new AbsoluteCategory
                     {
                         Name = c.Name,
@@ -342,7 +323,7 @@ namespace Ui.Main.Pages.Competitions
                 
 
                 _serviceComp.AddCompetition(_competition);
-                _competition.ID = _serviceComp.getIdCompetition(_competition);
+                _competition.ID = _serviceComp.GetIdCompetition(_competition);
                 _serviceEnroll = new EnrollService(_competition);
 
                 //vincular refunds y competicion
@@ -362,7 +343,7 @@ namespace Ui.Main.Pages.Competitions
                 {
                     foreach (var c in absolutes)
                     {
-                        long id = _serviceComp.getIdAbsolute((AbsoluteCategory)c);
+                        long id = _serviceComp.GetIdAbsolute((AbsoluteCategory)c);
 
                         _serviceEnroll.EnrollAbsoluteCompetition(_competition.ID, id);
 
@@ -393,7 +374,7 @@ namespace Ui.Main.Pages.Competitions
         }
 
 
-        private bool checkAll() {
+        private bool CheckAll() {
          
             if (FechaCompeticion.SelectedDate == null | Km.Text == ("")   || Nombre.Text == ("") ||
                 (!MountainIsChecked() && !AsphaltIsChecked()) || (MountainIsChecked() && DTotal.Text == ("")) || NumeroPlazas.Text == ("") 

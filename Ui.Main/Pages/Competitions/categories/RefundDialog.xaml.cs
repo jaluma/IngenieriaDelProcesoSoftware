@@ -38,8 +38,8 @@ namespace Ui.Main.Pages.Competitions.categories
         {
             InitializeComponent();
             this.limites = limites;
-            Limite.DisplayDateEnd = limites.fechaFin;
-            Limite.DisplayDateStart = limites.fechaInicio;
+            Limite.DisplayDateEnd = limites.FechaFin;
+            Limite.DisplayDateStart = limites.FechaInicio;
             CloseButton.Visibility = Visibility.Collapsed;
 
         }
@@ -62,7 +62,7 @@ namespace Ui.Main.Pages.Competitions.categories
                 };
                 Plazos_list.Items.Add(nuevoRefund);
                 Limite.SelectedDate = null;
-                if (nuevoRefund.date_refund.Date.Year == limites.fechaFin.Date.Year && nuevoRefund.date_refund.Date.Month == limites.fechaFin.Date.Month && nuevoRefund.date_refund.Date.Day == limites.fechaFin.Date.Day)
+                if (nuevoRefund.date_refund.Date.Year == limites.FechaFin.Date.Year && nuevoRefund.date_refund.Date.Month == limites.FechaFin.Date.Month && nuevoRefund.date_refund.Date.Day == limites.FechaFin.Date.Day)
                     Limite.IsEnabled = false;
               
                 else
@@ -78,8 +78,8 @@ namespace Ui.Main.Pages.Competitions.categories
         private void BtModificar_Click(object sender, RoutedEventArgs e)
         {
             Plazos_list.Items.Clear();
-            Limite.DisplayDateEnd = limites.fechaFin;
-            Limite.DisplayDateStart = limites.fechaInicio;
+            Limite.DisplayDateEnd = limites.FechaFin;
+            Limite.DisplayDateStart = limites.FechaInicio;
             Limite.IsEnabled = true;
             Refund.ItemsSource = devoluciones;
 

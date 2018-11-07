@@ -60,7 +60,6 @@ namespace Ui.Main.Pages.Competitions
                 .Select(dr => dr.Field<long>(Properties.Resources.Competition_Id)).ToList();
 
             table.Columns.RemoveAt(0);
-            DataGridCompetition.ItemsSource = table.DefaultView;
 
             DataColumn column = new DataColumn(Properties.Resources.Rules, typeof(string));
             table.Columns.Add(column);
@@ -73,8 +72,8 @@ namespace Ui.Main.Pages.Competitions
                 }
             }
 
-
             table.Columns.RemoveAt(7);
+            DataGridCompetition.ItemsSource = table.DefaultView;
         }
 
         private void DataGridCompetition_OnMouseDoubleClick(object sender, MouseButtonEventArgs e) {

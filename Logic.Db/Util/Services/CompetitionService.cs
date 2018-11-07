@@ -106,7 +106,7 @@ namespace Logic.Db.Util.Services {
             return cat.List;
         }
 
-        public CategoryDto getCategory(CategoryDto c)
+        public CategoryDto GetCategory(CategoryDto c)
         {
             SearchCategoryChild search = new SearchCategoryChild(ref _conn, c);
             search.Execute();
@@ -114,7 +114,7 @@ namespace Logic.Db.Util.Services {
 
         }
 
-        public int getIdCompetition(CompetitionDto c)
+        public int GetIdCompetition(CompetitionDto c)
         {
             GetIdCompetition search = new GetIdCompetition(ref _conn, c);
             search.Execute();
@@ -122,7 +122,7 @@ namespace Logic.Db.Util.Services {
 
         }
 
-        public int getIdAbsolute(AbsoluteCategory c)
+        public int GetIdAbsolute(AbsoluteCategory c)
         {
             GetAbsoluteCategory search = new GetAbsoluteCategory(ref _conn, c);
             search.Execute();
