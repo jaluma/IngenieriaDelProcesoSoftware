@@ -176,9 +176,12 @@ namespace Ui.Main.Pages.Competitions
                     InscriptionDatesDto plazos = new InscriptionDatesDto {
                         fechaInicio = (DateTime) InicioPlazo.SelectedDate,
                         fechaFin = (DateTime) FinPlazo.SelectedDate,
-                        precio = Double.Parse(PrecioInscripcion.Text)
+                        
                     };
-
+                    if (PrecioInscripcion.Text == "")
+                        plazos.precio = 0;
+                    else
+                        plazos.precio = Double.Parse(PrecioInscripcion.Text);
                     Plazos_list.SelectionMode = SelectionMode.Single;
                     Plazos_list.Items.Add(plazos);
                     FinPlazo.SelectedDate = null;
@@ -303,6 +306,7 @@ namespace Ui.Main.Pages.Competitions
 
                 //añadir absoluta categoria vincular
 
+                
                 foreach (var c in absolutes)
                 {
                     CategoryDto idm = _serviceCategories.getCategory(c.CategoryM);
@@ -317,41 +321,51 @@ namespace Ui.Main.Pages.Competitions
                     _serviceCategories.AddAbsoluteCategory(nueva);
                 }
 
-                //vincular competicion y categorias
-                foreach (var c in absolutes)
-                {
-                    long id = _serviceComp.getIdAbsolute((AbsoluteCategory)c);
-
-                    _serviceEnroll.EnrollAbsoluteCompetition(_competition.ID, id);
-
-                }
-
                 
-                //vincular refunds y competicion
-                foreach (var c in refundsList)
-                {
-                    _serviceEnroll.EnrollRefundsCompetition(_competition.ID, c.date_refund, c.refund);
-                }
-
-                //añadir competicion
 
                 _serviceComp.AddCompetition(_competition);
                 _competition.ID = _serviceComp.getIdCompetition(_competition);
+                _serviceEnroll = new EnrollService(_competition);
 
+                //vincular refunds y competicion
+                foreach (var c in refundsList)
+                {
+                    _serviceEnroll.EnrollRefundsCompetition(_competition.ID, c.date_refund, c.refund/100);
+                }
+
+                if (!absolutes.Any())
+                {
+
+                    foreach (var c in list)
+                        _serviceEnroll.EnrollAbsoluteCompetition(_competition.ID, c.Id);
+
+                }
+                else
+                {
+                    foreach (var c in absolutes)
+                    {
+                        long id = _serviceComp.getIdAbsolute((AbsoluteCategory)c);
+
+                        _serviceEnroll.EnrollAbsoluteCompetition(_competition.ID, id);
+
+                    }
+                }
                 //METER PLAZOS en inscription dates
 
-                foreach (InscriptionDatesDto p in Plazos_list.Items)
-                    _serviceComp.AddInscriptionDate(p, _competition);
+                // foreach (InscriptionDatesDto p in Plazos_list.Items)
+                //   _serviceComp.AddInscriptionDate(p, _competition);
 
 
                 //vincular competicion y plazos con precio
-                //_serviceEnroll = new EnrollService(_competition);
+                //
                 //foreach (InscriptionDatesDto c in Plazos_list.Items)
                 //{
                 //    _serviceEnroll.EnrollCompetitionDates(_competition.ID, c);
 
 
                 //}
+
+
 
             }
 
@@ -362,12 +376,10 @@ namespace Ui.Main.Pages.Competitions
 
 
         private bool checkAll() {
-            double result;
-            int resut;
-
-            if (FechaCompeticion.SelectedDate == null | Km.Text == ("") || !Double.TryParse(Km.Text, out result) || result <0 || Nombre.Text == ("") ||
-                (!MountainIsChecked() && !AsphaltIsChecked()) || (MountainIsChecked() && DTotal.Text == ("")) || NumeroPlazas.Text == ("") || !int.TryParse(NumeroPlazas.Text, out resut) 
-                || Plazos_list.Items.IsEmpty || !Double.TryParse(PrecioInscripcion.Text, out result) || result <0)
+         
+            if (FechaCompeticion.SelectedDate == null | Km.Text == ("")   || Nombre.Text == ("") ||
+                (!MountainIsChecked() && !AsphaltIsChecked()) || (MountainIsChecked() && DTotal.Text == ("")) || NumeroPlazas.Text == ("") 
+                  || Plazos_list.Items.IsEmpty || refundsList.Count<=0 )
                 return false;
 
             

@@ -279,7 +279,7 @@ WHERE CATEGORY_ID = @ID</value>
     <value>insert into competitionRefund values (@COMPETITION_ID,@DATE_REFUND,@REFUND)</value>
   </data>
   <data name="SQL_GET_ABSOLUTE_ID" xml:space="preserve">
-    <value>select * from category where category_name = @CATEGORY_NAME and  category_min_age = @CATEGORY_MIN_AGEand category_max_age = @CATEGORY_MAX_AGE and gender = @GENDER</value>
+    <value>select * from absolutcategories where name = @NAME and  id_m = @ID_M and id_f = @ID_F </value>
   </data>
   <data name="SQL_GET_COMPETITION_ID" xml:space="preserve">
     <value>SELECT * FROM COMPETITION WHERE COMPETITION_NAME =@COMPETITION_NAME and COMPETITION_DATE =@COMPETITION_DATE</value>
