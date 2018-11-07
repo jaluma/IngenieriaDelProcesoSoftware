@@ -44,7 +44,7 @@ namespace Ui.Main.Pages.Inscriptions.PaymentControl
             using (StreamReader readFile = new StreamReader(file))
             {
                 string line;
-                string[] row = new string[5];
+                string[] row = new string[6];
 
                 while ((line = readFile.ReadLine()) != null)
                 {
@@ -87,7 +87,8 @@ namespace Ui.Main.Pages.Inscriptions.PaymentControl
                         Name = s[1],
                         Surname = s[2],
                         Date = DateTime.Parse(s[3]),
-                        Amount = double.Parse(s[4])
+                        Amount = double.Parse(s[4]),
+                        Id = int.Parse(s[5])
                     };
                     extracto.Add(dto);
                 }catch (Exception)
@@ -108,7 +109,7 @@ namespace Ui.Main.Pages.Inscriptions.PaymentControl
                 bool pago = false;
                 foreach (PaymentDto payment in extracto)
                 {
-                    if (prereg.Dni.Equals(payment.Dni))
+                    if (prereg.Dni.Equals(payment.Dni) && prereg.Id == payment.Id)
                     {
                         pago = true;
                         TimeSpan time = payment.Date.Subtract(prereg.Date);
