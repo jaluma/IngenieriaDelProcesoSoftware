@@ -419,5 +419,23 @@ namespace Logic.Db.Properties {
                 return ResourceManager.GetString("SQL_SELECT_DNI_FROM_DORSAL", resourceCulture);
             }
         }
+
+        internal static string SQL_INSERT_PARTIAL_TIMES
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_INSERT_PARTIAL_TIMES", resourceCulture);
+            }
+        }
+
+
+        internal static string SQL_UPDATE_PARTIAL_TIMES
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_UPDATE_PARTIAL_TIMES", resourceCulture);
+            }
+        }
+        
     }
 }

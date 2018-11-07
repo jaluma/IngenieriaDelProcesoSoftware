@@ -15,9 +15,11 @@ using System.Windows.Shapes;
 using Logic.Db;
 using Logic.Db.Csv;
 using Logic.Db.Csv.Object;
+using Logic.Db.Dto;
 using Logic.Db.Util.Services;
 using Control = System.Windows.Controls.Control;
 using Cursors = System.Windows.Input.Cursors;
+using MessageBox = System.Windows.MessageBox;
 using MouseEventArgs = System.Windows.Input.MouseEventArgs;
 
 namespace Ui.Main.Pages.Competition.Times {
@@ -51,26 +53,54 @@ namespace Ui.Main.Pages.Competition.Times {
                     dnis[i] = service.SelectDniFromDorsal(objects.ElementAt(i).Dorsal, objects.ElementAt(i).CompetitionId);
                 }
 
+                int index = 0;
+                IList<PartialTimesDto> noInserted = new List<PartialTimesDto>();
+                PartialTimesDto dto = null;
+                int countI = 0;
+                int countU = 0;
+                string notes = "";
                 foreach (PartialTimesObjects times in objects) {
-                    int countI = 0;
-                    int countU = 0;
-                    IList<PartialTimesObjects> noInserted = new List<PartialTimesObjects>();
-                    for (int i = 0; i < dnis.Length; i++) {
-                        try {
-                            timesService.InsertPartialTime(dnis[i], objects.ElementAt(i).Times);
-                            countI++;
-                        } catch (InvalidOperationException) {
-                            noInserted.Add(objects.ElementAt(i));
-                        }
+                    try {
+                         dto = new PartialTimesDto() {
+                            CompetitionDto = new CompetitionService().SearchCompetitionById(new CompetitionDto() {
+                                ID = times.CompetitionId
+                            }),
+                            Time =  times.Times
 
+                        };
+                        if (dto.CompetitionDto.Status.Equals("FINISH")) {
+                            timesService.InsertPartialTime(dnis[index], dto);
+                            countI++;
+                        } else {
+                            notes = $"Linea {index}: La competicion {dto.CompetitionDto.Name} no esta finalizada. \n";
+                        }
+                    } catch (InvalidOperationException) {
+                        if (dto != null)
+                            noInserted.Add(dto);
                     }
-                    printInsert(countI, countU);
+                    index++;
                 }
+
+                if (noInserted.Count > 0) {
+                    MessageBoxResult  result = MessageBoxResult.None;
+                    string message = "¿Quiere sobreescribir los tiempos?";
+                    result = MessageBox.Show(message, "Error", MessageBoxButton.YesNo);
+
+                    if (result == MessageBoxResult.Yes) {
+                        index = 0;
+                        foreach (var noInsert in noInserted) {
+                            timesService.UpdateAthleteRegisteredDorsal(dnis[index++], noInsert);
+                            countU++;
+                        }
+                    } 
+                }
+
+                PrintInsert(notes, countI, countU);
                 
             }
         }
 
-        private void printInsert(int countI, int countU) {
+        private void PrintInsert(string notes, int countI, int countU) {
             string str = "";
             if (countI != 0 && countU == 0) {
                 str = $"Se han insertado correctamente {countI} elementos.";
@@ -79,6 +109,8 @@ namespace Ui.Main.Pages.Competition.Times {
             } else {
                 str = $"Se han insertado {countI} elementos y actualizado {countU} elementos.";
             }
+
+            str += "\n" + notes;
 
             LbUpdate.Content = str;
             LbUpdate.IsEnabled = true;

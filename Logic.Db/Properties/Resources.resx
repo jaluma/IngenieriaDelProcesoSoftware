@@ -281,7 +281,13 @@ from HasParticipated
 where COMPETITION_ID=@COMPETITION_ID AND ATHLETE_DNI=@DNI</value>
   </data>
   <data name="SQL_SELECT_DNI_FROM_DORSAL" xml:space="preserve">
-    <value>select ATHLETE_DNI from Enroll
+    <value>select * from Enroll
 where dorsal = @DORSAL AND COMPETITION_ID = @COMPETITION_ID</value>
+  </data>
+  <data name="SQL_INSERT_PARTIAL_TIMES" xml:space="preserve">
+    <value>insert into TimesCompetition values (@COMPETITION_ID, @DNI, @MILESTONE, @TIME)</value>
+  </data>
+  <data name="SQL_UPDATE_PARTIAL_TIMES" xml:space="preserve">
+    <value>UPDATE TimesCompetition SET TIME=@TIME WHERE COMPETITION_ID = @COMPETITION_ID AND ATHLETE_DNI = @DNI AND NUMBER_MILESTONE = @MILESTONE</value>
   </data>
 </root>

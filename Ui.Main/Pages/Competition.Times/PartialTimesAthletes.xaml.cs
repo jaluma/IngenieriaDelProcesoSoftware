@@ -119,15 +119,12 @@ namespace Ui.Main.Pages.Competition.Times
             foreach (var partialTime in lista) {
                 object[] row = new object[Competition.NumberMilestone+1];
                 row[0] = partialTime.Athlete.Dni;
-                if (Athlete == null) {
-                    GeneratePartialTimes(partialTime, row);
-                } else {
-                    if (Athlete.Dni.Equals(row[0] as string)) {
-                        GeneratePartialTimes(partialTime, row);
-                    }
-                }
+                GeneratePartialTimes(partialTime, row);
+                GeneratePartialTimes(partialTime, row);
 
-                _table.Rows.Add(row);
+                if (Athlete == null || Athlete.Dni.Equals(row[0] as string)) {
+                    _table.Rows.Add(row);
+                }
             }
 
             DataGridTimes.ItemsSource = _table.DefaultView;
@@ -178,6 +175,7 @@ namespace Ui.Main.Pages.Competition.Times
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e) {
+            Athlete = null;
             TxDni.Text = "";
             LbNameSurname.Content = "";
             LbCategory.Content = "";

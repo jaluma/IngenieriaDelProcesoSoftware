@@ -23,8 +23,8 @@ namespace Logic.Db.Csv {
                     times[i-2] = long.Parse(enumerable.ElementAt(row)[i]);
                 }
                     PartialTimesObjects partial = new PartialTimesObjects() {
-                        Dorsal = int.Parse(enumerable.ElementAt(row)[0]),
-                        CompetitionId = int.Parse(enumerable.ElementAt(row)[1]),
+                        Dorsal = int.Parse(enumerable.ElementAt(row)[1]),
+                        CompetitionId = int.Parse(enumerable.ElementAt(row)[0]),
                         Times = times
                     };
 

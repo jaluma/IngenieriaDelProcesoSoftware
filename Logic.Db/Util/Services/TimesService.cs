@@ -4,6 +4,7 @@ using System.Data;
 using System.Text;
 using System.Threading.Tasks;
 using Logic.Db.ActionObjects.TimesLogic;
+using Logic.Db.Csv.Object;
 using Logic.Db.Dto;
 
 namespace Logic.Db.Util.Services {
@@ -39,8 +40,14 @@ namespace Logic.Db.Util.Services {
             return partial.PartialTimes;
         }
 
-        public void InsertPartialTime(string dni, long[] times) {
-            // algo
+        public void InsertPartialTime(string dni, PartialTimesDto partialTimes) {
+            InsertPartialTimes insert = new InsertPartialTimes(ref _conn, dni, partialTimes);
+            insert.Execute();
+        }
+
+        public void UpdateAthleteRegisteredDorsal(string dni, PartialTimesDto noInsert) {
+            UpdatePartialTimes insert = new UpdatePartialTimes(ref _conn, dni, noInsert);
+            insert.Execute();
         }
     }
 }

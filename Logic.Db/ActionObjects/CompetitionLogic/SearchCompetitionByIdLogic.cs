@@ -39,9 +39,9 @@ namespace Logic.Db.ActionObjects.CompetitionLogic
                                 //Price = reader.GetDouble(4),
                                 Date = reader.GetDateTime(4),
                                 Rules = new GetRulesCompetitionLogic(ref _conn, _competitionDto).Execute(),
-                                //Status = reader.GetString(7),
+                                Status = reader.GetString(6),
                                 NumberMilestone = reader.GetInt32(7),
-                                //Slope = reader.GetDouble(9)
+                                //Slope = reader.GetDouble(8)
                             };
                             Enum.TryParse<TypeCompetition>(reader.GetString(2), out Competition.Type);
                         }
