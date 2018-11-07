@@ -31,6 +31,7 @@ namespace Ui.Main.Pages.Competition.Times {
         private string _file;
         private readonly AthletesService service;
         private readonly TimesService timesService;
+        private PartialTimesDto _dto;
         public LoadFilePartialTimes() {
             service = new AthletesService();
             timesService = new TimesService();
@@ -55,28 +56,49 @@ namespace Ui.Main.Pages.Competition.Times {
 
                 int index = 0;
                 IList<PartialTimesDto> noInserted = new List<PartialTimesDto>();
-                PartialTimesDto dto = null;
                 int countI = 0;
                 int countU = 0;
                 string notes = "";
                 foreach (PartialTimesObjects times in objects) {
                     try {
-                         dto = new PartialTimesDto() {
+                         _dto = new PartialTimesDto() {
                             CompetitionDto = new CompetitionService().SearchCompetitionById(new CompetitionDto() {
                                 ID = times.CompetitionId
                             }),
                             Time =  times.Times
 
                         };
-                        if (dto.CompetitionDto.Status.Equals("FINISH")) {
-                            timesService.InsertPartialTime(dnis[index], dto);
+
+                        string status = new EnrollService(_dto.CompetitionDto).SelectStatusEnroll(dnis[index]);
+
+                        if (_dto.CompetitionDto.Status.Equals("FINISH") || status.Equals("REGISTERED")) {
+                            timesService.InsertPartialTime(dnis[index], _dto);
+                            new EnrollService(_dto.CompetitionDto).InsertHasRegisteredTimes(dnis[index],
+                                _dto.Time[_dto.Time.Length - 1]);
                             countI++;
-                        } else {
-                            notes = $"Linea {index}: La competicion {dto.CompetitionDto.Name} no esta finalizada. \n";
+                            
+                        } 
+                        if (!status.Equals("REGISTERED")) {
+                            string s = $"El atleta {dnis[index]} no esta registrado. \n";
+                            if (notes.Contains(s)) {
+                                notes += s;
+                            } else {
+                                notes = $"Linea {index}: {s}";
+                            }
+                        }
+                        if (!_dto.CompetitionDto.Status.Equals("FINISH")) {
+                            string s = $"La competicion {_dto.CompetitionDto.Name} no esta finalizada. \n";
+                            if (notes.Contains(s)) {
+                                notes += s;
+                            } else {
+                                notes = $"Linea {index}: {s}";
+                            }
+                            
+
                         }
                     } catch (InvalidOperationException) {
-                        if (dto != null)
-                            noInserted.Add(dto);
+                        if (_dto != null)
+                            noInserted.Add(_dto);
                     }
                     index++;
                 }
@@ -90,8 +112,11 @@ namespace Ui.Main.Pages.Competition.Times {
                         index = 0;
                         foreach (var noInsert in noInserted) {
                             timesService.UpdateAthleteRegisteredDorsal(dnis[index++], noInsert);
+                            new EnrollService(_dto.CompetitionDto).InsertHasRegisteredTimes(dnis[index],
+                                _dto.Time[_dto.Time.Length - 1]);
                             countU++;
                         }
+
                     } 
                 }
 
@@ -103,11 +128,13 @@ namespace Ui.Main.Pages.Competition.Times {
         private void PrintInsert(string notes, int countI, int countU) {
             string str = "";
             if (countI != 0 && countU == 0) {
-                str = $"Se han insertado correctamente {countI} elementos.";
+                str = $"Se han insertado correctamente {countI} elemento(s).";
             } else if (countI == 0 && countU != 0) {
-                str = $"Se han actualizado correctamente {countU} elementos.";
+                str = $"Se han actualizado correctamente {countU} elemento(s).";
+            } else if (countI == 0 && countU != 0) {
+                str = $"No se ha insertado o actualizado ningún registro.";
             } else {
-                str = $"Se han insertado {countI} elementos y actualizado {countU} elementos.";
+                str = $"Se han insertado {countI} elemento(s) y actualizado {countU} elemento(s).";
             }
 
             str += "\n" + notes;

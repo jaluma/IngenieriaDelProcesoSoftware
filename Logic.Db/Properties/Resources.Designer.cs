@@ -452,5 +452,21 @@ namespace Logic.Db.Properties {
                 return ResourceManager.GetString("SQL_SELECT_COMPETITION_PRICE", resourceCulture);
             }
         }
+
+        internal static string SQL_UPDATE_TIMES
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_UPDATE_TIMES", resourceCulture);
+            }
+        }
+
+        internal static string SQL_INSERT_TIMES
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_INSERT_TIMES", resourceCulture);
+            }
+        }
     }
 }

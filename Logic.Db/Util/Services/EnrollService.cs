@@ -88,5 +88,19 @@ namespace Logic.Db.Util.Services {
             select.Execute();
             return select.Table;
         }
+
+        public string SelectStatusEnroll(string dni)
+        {
+            SelectStatusEnroll status = new SelectStatusEnroll(ref _conn, _competition, dni);
+            status.Execute();
+            return status.Return;
+        }
+
+        public void InsertHasRegisteredTimes(string dni, long time)
+        {
+            UpdateHasRegisteredTimes update = new UpdateHasRegisteredTimes(ref _conn, dni, _competition.ID, time);
+            update.Execute();
+        }
+        
     }
 }
