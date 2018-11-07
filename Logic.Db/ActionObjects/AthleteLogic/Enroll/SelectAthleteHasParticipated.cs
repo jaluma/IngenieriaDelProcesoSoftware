@@ -9,9 +9,9 @@ using Logic.Db.Dto;
 
 namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
     public class SelectAthleteHasParticipated : IActionObject {
-        private DBConnection _conn;
-        private CompetitionDto _competition;
-        public List<AthleteDto> List;
+        private readonly DBConnection _conn;
+        private readonly CompetitionDto _competition;
+        public readonly List<AthleteDto> List;
 
         public SelectAthleteHasParticipated(ref DBConnection conn, CompetitionDto competition) {
             _conn = conn;

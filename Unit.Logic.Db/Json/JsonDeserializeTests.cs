@@ -1,8 +1,9 @@
-﻿using Logic.Db.Dto;
+﻿using System;
+using Logic.Db.Dto;
+using Logic.Db.Json;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
-namespace Logic.Db.Json.Tests {
+namespace Unit.Logic.Db.Json {
     [TestClass()]
     public class JsonDeserializeTests {
         [TestMethod()]

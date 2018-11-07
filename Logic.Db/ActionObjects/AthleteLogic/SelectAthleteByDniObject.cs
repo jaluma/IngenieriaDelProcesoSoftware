@@ -5,7 +5,7 @@ using Logic.Db.Dto;
 
 namespace Logic.Db.ActionObjects.AthleteLogic
 {
-    class SelectAthleteByDniLogicObject
+    public class SelectAthleteByDniLogicObject
     {
 
         private readonly DBConnection _conn;

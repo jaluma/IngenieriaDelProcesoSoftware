@@ -185,9 +185,9 @@ namespace Ui.Main.Pages.Competitions
                 Devolucion.Text = "0%";
 
             InscriptionDatesDto plazos = new InscriptionDatesDto {
-                fechaInicio = (DateTime)InicioPlazo.SelectedDate,
-                fechaFin = (DateTime)FinPlazo.SelectedDate,
-                devolucion = Double.Parse(Devolucion.Text.Replace("%",""))
+                FechaInicio = (DateTime)InicioPlazo.SelectedDate,
+                FechaFin = (DateTime)FinPlazo.SelectedDate,
+                Devolucion = Double.Parse(Devolucion.Text.Replace("%",""))
             };
 
             Plazos_list.SelectionMode = SelectionMode.Single;

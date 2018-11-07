@@ -8,18 +8,18 @@ namespace Logic.Db.Dto
 {
     public class InscriptionDatesDto
     {
-        public DateTime fechaInicio;
-        public DateTime fechaFin;
-        public double devolucion;
+        public DateTime FechaInicio;
+        public DateTime FechaFin;
+        public double Devolucion;
 
 
 
         public override string ToString()
         {
-            if(devolucion > 0)
-                return this.fechaInicio.ToShortDateString() + " - " + this.fechaFin.ToShortDateString()+ " " +devolucion.ToString() + "% REFUND";
+            if(Devolucion > 0)
+                return FechaInicio.ToShortDateString() + " - " + FechaFin.ToShortDateString()+ " " +Devolucion + "% REFUND";
             else
-                return this.fechaInicio.ToShortDateString() + " - " + this.fechaFin.ToShortDateString() + " NO REFUND";
+                return FechaInicio.ToShortDateString() + " - " + FechaFin.ToShortDateString() + " NO REFUND";
 
         }
     }

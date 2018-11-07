@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Logic.Db.Csv.Object;
 
-namespace Logic.Db {
+namespace Logic.Db.Csv {
     public abstract class CsvLoader {
 
         private readonly string[] _fileNamesCsv;
@@ -14,7 +12,7 @@ namespace Logic.Db {
         public IEnumerable<CsvObject>  Returned { get; private set; }
 
         protected CsvLoader(string[] fileNames) {
-            this._fileNamesCsv = fileNames;
+            _fileNamesCsv = fileNames;
             LoadFiles();
         }
 

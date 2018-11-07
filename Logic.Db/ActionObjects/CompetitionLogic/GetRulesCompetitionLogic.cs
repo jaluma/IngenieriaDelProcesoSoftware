@@ -14,7 +14,7 @@ namespace Logic.Db.ActionObjects.CompetitionLogic
     {
        
             private readonly DBConnection _conn;
-            public readonly CompetitionDto _competition =new CompetitionDto();
+        private readonly CompetitionDto _competition =new CompetitionDto();
 
 
         public GetRulesCompetitionLogic(ref DBConnection conn, CompetitionDto com)

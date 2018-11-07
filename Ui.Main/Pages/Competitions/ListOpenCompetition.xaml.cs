@@ -47,11 +47,11 @@ namespace Ui.Main.Pages.Competitions
             table.Columns[1].ColumnName = Properties.Resources.Competition_Name;
             table.Columns[2].ColumnName = Properties.Resources.Competition_Type;
             table.Columns[3].ColumnName = Properties.Resources.Competition_Km;
-            //table.Columns[4].ColumnName = Properties.Resources.Competition_Price;
-            table.Columns[4].ColumnName = Properties.Resources.InscriptionOpen;
-            table.Columns[5].ColumnName = Properties.Resources.InscriptionClose;
-            table.Columns[6].ColumnName = Properties.Resources.Competition_Date;
-            table.Columns[7].ColumnName = "b";
+            table.Columns[4].ColumnName = Properties.Resources.Competition_Price;
+            table.Columns[5].ColumnName = Properties.Resources.InscriptionOpen;
+            table.Columns[6].ColumnName = Properties.Resources.InscriptionClose;
+            table.Columns[7].ColumnName = Properties.Resources.Competition_Date;
+            table.Columns[8].ColumnName = "b";
 
             _columnIds = table.AsEnumerable()
                 .Select(dr => dr.Field<long>(Properties.Resources.Competition_Id)).ToList();
@@ -66,10 +66,13 @@ namespace Ui.Main.Pages.Competitions
             {
                 if(row.Field<byte[]>("b")!=null)
                     row.SetField<string>(column, "Descargar");
+                else if (row.Field<byte[]>("b") == null) {
+                    row.SetField<string>(column, "No adjunto");
+                }
             }
 
 
-            table.Columns.RemoveAt(6);
+            table.Columns.RemoveAt(7);
 
         }
 

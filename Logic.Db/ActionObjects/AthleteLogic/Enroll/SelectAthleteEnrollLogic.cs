@@ -9,7 +9,7 @@ namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
 
         private readonly DBConnection _conn;
         private readonly CompetitionDto _competition;
-        public DataTable Table;
+        public readonly DataTable Table;
 
         public SelectAthleteEnrollLogic(ref DBConnection conn, CompetitionDto competitionP) {
             _conn = conn;

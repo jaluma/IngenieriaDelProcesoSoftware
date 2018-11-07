@@ -31,8 +31,8 @@ namespace Ui.Main.Pages.Inscriptions.Payment
             _athlete = athlete;
             _competition = competition;
 
-            //string cont = Properties.Resources.PaymentAmount +" " + _competition.Price + " €";
-           // LbPaymentAmount.Content = cont;
+            string cont = Properties.Resources.PaymentAmount +" " + _competition.Price + " €";
+            LbPaymentAmount.Content = cont;
         }
 
         private void BtNext_Click(object sender, RoutedEventArgs e) {

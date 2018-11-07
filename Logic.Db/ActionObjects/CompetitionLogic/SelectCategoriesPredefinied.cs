@@ -25,7 +25,7 @@ namespace Logic.Db.ActionObjects.CompetitionLogic
             {
             try
             {
-                Json.JsonDeserialize<AbsoluteCategory> defaultDeserialize = new JsonDeserialize<AbsoluteCategory>(JsonDeserialize<AbsoluteCategory>.DEFAULT_CATEGORIES_FILENAME);
+                Json.JsonDeserialize<AbsoluteCategory> defaultDeserialize = new JsonDeserialize<AbsoluteCategory>(JsonDeserialize<AbsoluteCategory>.DefaultCategoriesFilename);
                 List = defaultDeserialize.ListJson();
                 //using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_ALL_CATEGORIES, _conn.DbConnection))
 

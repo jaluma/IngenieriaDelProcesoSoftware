@@ -1,26 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Forms;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Logic.Db.Dto;
 using Logic.Db.Util.Services;
 using Control = System.Windows.Controls.Control;
 using Cursors = System.Windows.Input.Cursors;
 using MouseEventArgs = System.Windows.Input.MouseEventArgs;
 
-namespace Ui.Main.Pages.Inscriptions.InscriptionsPaidControl
+namespace Ui.Main.Pages.Inscriptions.PaymentControl
 {
     /// <summary>
     /// Lógica de interacción para FinishInscriptionPage.xaml

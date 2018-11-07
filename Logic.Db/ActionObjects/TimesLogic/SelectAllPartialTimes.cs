@@ -13,7 +13,7 @@ namespace Logic.Db.ActionObjects.TimesLogic {
 
         private DBConnection _conn;
         private readonly CompetitionDto _competition;
-        public IList<PartialTimesDto> List;
+        public readonly IList<PartialTimesDto> List;
 
         public SelectAllPartialTimes(ref DBConnection conn, CompetitionDto competitionP) {
             _conn = conn;

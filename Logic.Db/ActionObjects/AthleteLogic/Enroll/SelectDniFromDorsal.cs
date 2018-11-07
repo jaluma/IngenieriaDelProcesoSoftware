@@ -10,9 +10,9 @@ using Logic.Db.Dto;
 namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
 
     public class SelectDniFromDorsal : IActionObject {
-        private DBConnection _conn;
-        private long _competitionId;
-        private int _dorsal;
+        private readonly DBConnection _conn;
+        private readonly long _competitionId;
+        private readonly int _dorsal;
         public string Dni;
 
         public SelectDniFromDorsal(ref DBConnection conn, long competitionId, int dorsal) {
