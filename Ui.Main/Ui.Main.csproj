@@ -130,6 +130,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Competitions\categories\RefundDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Competitions\ConfigureCompetition.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -187,6 +191,9 @@
     </Compile>
     <Compile Include="Pages\Competition.Times\TimesAthletes.xaml.cs">
       <DependentUpon>TimesAthletes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Competitions\categories\RefundDialog.xaml.cs">
+      <DependentUpon>RefundDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Competitions\ConfigureCompetition.xaml.cs">
       <DependentUpon>ConfigureCompetition.xaml</DependentUpon>

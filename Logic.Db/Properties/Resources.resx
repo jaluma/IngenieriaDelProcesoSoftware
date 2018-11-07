@@ -144,7 +144,7 @@
     <comment>sql command for insert values into table Athletes</comment>
   </data>
   <data name="SQL_INSERT_COMPETITION" xml:space="preserve">
-    <value />
+    <value>insert into Competition values(null, @COMPETITION_NAME, @COMPETITION_TYPE,@COMPETITION_KM,  @COMPETITION_DATE,@COMPETITION_NUMBER_PLACES ,@COMPETITION_STATUS,@COMPETITION_RULES,@COMPETITION_SLOPE, 5)</value>
   </data>
   <data name="SQL_SELECT_ATHLETE" xml:space="preserve">
     <value>SELECT ATHLETE_DNI, ATHLETE_NAME, ATHLETE_SURNAME, ATHLETE_BIRTH_DATE, ATHLETE_GENDER FROM Athlete</value>
@@ -193,7 +193,7 @@ where COMPETITION_ID=@COMPETITION_ID and ATHLETE_DNI=@DNI and dorsal is null</va
     <value>select category_name from get_category_competition where competition_id=@COMPETITION_ID</value>
   </data>
   <data name="SQL_SELECT_OPEN_COMPETITION" xml:space="preserve">
-      <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, INITIAL_DATE, FINISH_DATE, COMPETITION_DATE, COMPETITION_RULES from Competition natural join CompetitionDates where (date('now') between INITIAL_DATE and FINISH_DATE) and  Competition.COMPETITION_STATUS='OPEN'</value>
+    <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, INITIAL_DATE, FINISH_DATE, COMPETITION_DATE, COMPETITION_RULES from Competition natural join CompetitionDates where (date('now') between INITIAL_DATE and FINISH_DATE) and  Competition.COMPETITION_STATUS='OPEN'</value>
   </data>
   <data name="SQL_SELECT_COMPETITION_FINISH_LIST" xml:space="preserve">
     <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, INITIAL_DATE, FINISH_DATE, COMPETITION_DATE from Competition natural join CompetitionDates
@@ -262,5 +262,32 @@ WHERE CATEGORY_ID = @ID</value>
   </data>
   <data name="DefaultCategories" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DefaultCategories.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SQL_INSERT_CATEGORY" xml:space="preserve">
+    <value>insert into Category values (null,@CATEGORY_NAME, @CATEGORY_MIN_AGE,@CATEGORY_MAX_AGE,@GENDER)</value>
+  </data>
+  <data name="SQL_INSERT_INSCRIPTION_DATE" xml:space="preserve">
+    <value>insert into DateInscription values(@INITIAL_DATE, @FINISH_DATE)</value>
+  </data>
+  <data name="SQL_ENROLL_ABSOLUTE_COMPETITION" xml:space="preserve">
+    <value>insert into competitionCategory values (@COMPETITION_ID, @ABSOLUT_CATEGORY_ID)</value>
+  </data>
+  <data name="SQL_ENROLL_COMPETITION_DATES" xml:space="preserve">
+    <value>insert into competitionDates values (@COMPETITION_ID, @INITIAL_DATE, @FINISH_DATE, @COMPETITION_PRICE)</value>
+  </data>
+  <data name="SQL_ENROLL_REFUNDS_COMPETITION" xml:space="preserve">
+    <value>insert into competitionRefund values (@COMPETITION_ID,@DATE_REFUND,@REFUND)</value>
+  </data>
+  <data name="SQL_GET_ABSOLUTE_ID" xml:space="preserve">
+    <value>select * from category where category_name = @CATEGORY_NAME and  category_min_age = @CATEGORY_MIN_AGEand category_max_age = @CATEGORY_MAX_AGE and gender = @GENDER</value>
+  </data>
+  <data name="SQL_GET_COMPETITION_ID" xml:space="preserve">
+    <value>SELECT * FROM COMPETITION WHERE COMPETITION_NAME =@COMPETITION_NAME AND COMPETITION_TYPE = @COMPETITION_TYPE AND COMPETITION_KM =@COMPETITION_KM AND COMPETITION_DATE =@COMPETITION_DATE AND COMPETITION_NUMBER_PLACES =@COMPETITION_NUMBER AND COMPETITION_STATUS =@COMPETITION_STATUS AND COMPETITION_RULES =@COMPETITION_RULES AND COMPETITION_SLOPE =@COMPETITION_SLOPE</value>
+  </data>
+  <data name="SQL_INSERT_ABSOLUTE" xml:space="preserve">
+    <value>insert into absolutCategories values (null, @NAME, @ID_M,@ID_F)</value>
+  </data>
+  <data name="SQL_SELECT_CATEGORY_CHILD" xml:space="preserve">
+    <value>SELECT * FROM CATEGORY WHERE CATEGORY_NAME =@CATEGORY_NAME AND  CATEGORY_MIN_AGE =@CATEGORY_MIN_AGE AND CATEGORY_MAX_AGE =@CATEGORY_MAX_AGE AND GENDER =@GENDER</value>
   </data>
 </root>

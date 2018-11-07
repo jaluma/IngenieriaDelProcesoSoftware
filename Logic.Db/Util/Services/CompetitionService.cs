@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Data;
+using Logic.Db.ActionObjects.CategoriesLogic;
 using System.Linq;
 using Logic.Db.ActionObjects.CompetitionLogic;
 using Logic.Db.ActionObjects.TimesLogic;
 using Logic.Db.Dto;
+using System;
 
 namespace Logic.Db.Util.Services {
     public class CompetitionService : ServiceAdapter {
@@ -67,6 +69,18 @@ namespace Logic.Db.Util.Services {
             add.Execute();
         }
 
+        public void AddCategory(CategoryDto category)
+        {
+            AddCategoryLogic add = new AddCategoryLogic(ref _conn, category);
+            add.Execute();
+        }
+
+        public void AddInscriptionDate(InscriptionDatesDto plazo)
+        {
+            AddInscriptionDates add = new AddInscriptionDates(ref _conn, plazo);
+            add.Execute();
+        }
+
         public byte[] GetRules(CompetitionDto competition)
         {
             GetRulesCompetitionLogic rules = new GetRulesCompetitionLogic(ref _conn, competition);
@@ -78,6 +92,36 @@ namespace Logic.Db.Util.Services {
             SelectCategoriesPredefinied cat = new SelectCategoriesPredefinied(ref _conn);
             cat.Execute();
             return cat.List;
+        }
+
+        public CategoryDto getCategory(CategoryDto c)
+        {
+            SearchCategoryChild search = new SearchCategoryChild(ref _conn, c);
+            search.Execute();
+            return search.Child;
+
+        }
+
+        public int getIdCompetition(CompetitionDto c)
+        {
+            GetIdCompetition search = new GetIdCompetition(ref _conn, c);
+            search.Execute();
+            return search.id;
+
+        }
+
+        public int getIdAbsolute(AbsoluteCategory c)
+        {
+            GetAbsoluteCategory search = new GetAbsoluteCategory(ref _conn, c);
+            search.Execute();
+            return search.id;
+
+        }
+
+        public void AddAbsoluteCategory(AbsoluteCategory category)
+        {
+            AddAbsoluteCategory add = new AddAbsoluteCategory(ref _conn, category);
+            add.Execute();
         }
 
         //public void InsertAthletesTable(AthleteDto athleteP) {
@@ -114,5 +158,7 @@ namespace Logic.Db.Util.Services {
             categories.Execute();
             return categories.Categories;
         }
+
+        
     }
 }

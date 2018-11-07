@@ -22,8 +22,8 @@ namespace Logic.Db.ActionObjects.CompetitionLogic {
                     
                     command.Parameters.AddWithValue("@COMPETITION_NAME", _competition.Name);
                     command.Parameters.AddWithValue("@COMPETITION_KM", _competition.Km);
-                    command.Parameters.AddWithValue("@COMPETITION_PRICE", _competition.Price);
-                    command.Parameters.AddWithValue("@COMPETITION_DATE", _competition.Date);
+                    command.Parameters.AddWithValue("@COMPETITION_SLOPE", _competition.Slope);
+                    command.Parameters.AddWithValue("@COMPETITION_DATE", _competition.Date.ToString("yyyy-MM-dd"));
                     command.Parameters.AddWithValue("@COMPETITION_STATUS", _competition.Status);
                     command.Parameters.AddWithValue("@COMPETITION_NUMBER_PLACES", _competition.NumberPlaces);
                     command.Parameters.AddWithValue("@COMPETITION_RULES", _competition.Rules);

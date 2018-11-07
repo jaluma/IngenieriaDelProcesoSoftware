@@ -26,12 +26,14 @@ namespace Ui.Main.Pages.Competitions.categories
         public AbsoluteCategory cat = new AbsoluteCategory();
         public CategoryDto femenino = new CategoryDto();
         public CategoryDto masculino = new CategoryDto();
+        public List<AbsoluteCategory> absolutes;
 
 
-        public CategoriesDialog(AbsoluteCategory category)
+        public CategoriesDialog(AbsoluteCategory category, List<AbsoluteCategory> absolutes)
         {
             InitializeComponent();
             this.cat = category;
+            this.absolutes = absolutes;
             Nombre.Text = category.Name;
             DesdeF.Text = category.CategoryF.MinAge.ToString();
             HastaF.Text = category.CategoryF.MaxAge.ToString();
@@ -43,20 +45,24 @@ namespace Ui.Main.Pages.Competitions.categories
         {
             if (int.Parse(DesdeF.Text)> int.Parse(HastaF.Text) || int.Parse(DesdeM.Text)> int.Parse(HastaM.Text))
             {
-                MessageBox.Show(Properties.Resources.InvalidDNI);
+                MessageBox.Show("Edades incoherentes");
                 return;
             }
 
             femenino.MinAge = int.Parse(DesdeF.Text);
             femenino.MaxAge = int.Parse(HastaF.Text);
             femenino.Gender = "F";
+            femenino.Name = cat.Name + "_F";
 
             masculino.MinAge = int.Parse(DesdeM.Text);
             masculino.MaxAge = int.Parse(HastaM.Text);
             masculino.Gender = "M";
+            masculino.Name = cat.Name + "_M";
 
             cat.CategoryF = femenino;
             cat.CategoryM = masculino;
+
+            absolutes.Add(cat);
 
             Close();
                                            
