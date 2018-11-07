@@ -33,6 +33,7 @@ namespace Ui.Main.Pages.Inscriptions
         private CompetitionDto _competition;
         private List<long> _columnIds;
         private List<double> _refunds;
+        private List<string> _status;
 
         public CancelInscriptionPage()
         {
@@ -107,6 +108,8 @@ namespace Ui.Main.Pages.Inscriptions
 
             _refunds = table.AsEnumerable().Select(dr => dr.Field<double>(Properties.Resources.Refund)).ToList();
 
+            _status = table.AsEnumerable().Select(dr => dr.Field<string>(Properties.Resources.Competition_Status)).ToList();
+
             table.Columns.RemoveAt(0);
 
             if (CompetitionsToCancel != null)
@@ -145,8 +148,11 @@ namespace Ui.Main.Pages.Inscriptions
 
         private double CalcularDevolucion()
         {
+            int index = CompetitionsToCancel.SelectedIndex;
+            if (_status[index] != "REGISTERED")
+                return 0;
             double precio = _competitionService.SelectCompetitionPrice(_athlete.Dni, _competition.ID);
-            double refund = _refunds[CompetitionsToCancel.SelectedIndex];
+            double refund = _refunds[index];
             return precio * refund;
         }
     }
