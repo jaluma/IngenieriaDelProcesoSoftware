@@ -280,7 +280,7 @@ namespace Ui.Main.Pages.Competitions
                 _competition.Date = (DateTime)FechaCompeticion.SelectedDate;
                 _competition.Km = Double.Parse(Km.Text);
                 _competition.Name = Nombre.Text;
-                _competition.Milestone = 5;
+                _competition.Milestone = int.Parse(Hitos.Text);
                 if (MountainIsChecked())
                 {
                     _competition.Type = TypeCompetition.Mountain;
@@ -291,7 +291,6 @@ namespace Ui.Main.Pages.Competitions
                     _competition.Type = TypeCompetition.Asphalt;
                 }
                 _competition.NumberPlaces = int.Parse(NumeroPlazas.Text);
-                // _competition.Price = 100;
                 _competition.Rules = bytes;
                 _competition.Status = "OPEN";
 
@@ -352,8 +351,8 @@ namespace Ui.Main.Pages.Competitions
                 }
                 //METER PLAZOS en inscription dates
 
-                // foreach (InscriptionDatesDto p in Plazos_list.Items)
-                //   _serviceComp.AddInscriptionDate(p, _competition);
+                foreach (InscriptionDatesDto p in Plazos_list.Items)
+                  _serviceComp.AddInscriptionDate(p, _competition);
 
 
                 //vincular competicion y plazos con precio
