@@ -141,8 +141,6 @@ namespace Ui.Main.Pages.Inscriptions
                 return;
             }
             
-            _enrollService.UpdateInscriptionStatus(_athlete.Dni, _competition.ID, "CANCELED");
-            
             MessageBox.Show(Properties.Resources.InscriptionCanceled + " " + CalcularDevolucion() + "€");
             _enrollService.UpdateInscriptionStatus(_athlete.Dni, _competition.ID, "CANCELED");
 

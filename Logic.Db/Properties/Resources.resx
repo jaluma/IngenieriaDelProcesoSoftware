@@ -252,7 +252,7 @@ WHERE COMPETITION_ID=@COMPETITION_ID AND ATHLETE_DNI=GET_AGE_NOW.ATHLETE_DNI  AN
 WHERE CATEGORY_ID = @ID</value>
   </data>
   <data name="SQL_SELECT_PREREGISTERED" xml:space="preserve">
-    <value>select ATHLETE_DNI, COMPETITION_ID, COMPETITION_PRICE, DATE_INSCRIPTION 
+    <value>select ATHLETE_DNI, COMPETITION_ID,  COMPETITION_PRICE, DATE_INSCRIPTION 
 from Enroll natural join Competition natural join CompetitionDates
 where status in ('PRE-REGISTERED', 'PREREGISTERED','CANCELED') and date_inscription between initial_date and finish_date</value>
   </data>

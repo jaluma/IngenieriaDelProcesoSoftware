@@ -14,5 +14,6 @@ namespace Logic.Db.Dto
         public DateTime Date;
         public double Amount;
         public int Id;
+        public string CompetitionName;
     }
 }
