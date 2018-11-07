@@ -35,7 +35,7 @@
         <Button x:Name="BtAdd" Content="{x:Static properties:Resources.Add}" HorizontalAlignment="Left" Margin="520,480,0,0" VerticalAlignment="Top" Width="210" Height="30" FontSize="16" Click="BtAdd_Click"  MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" RenderTransformOrigin="0.19,0.667"/>
         <Label FontSize="12" FontWeight="bold" x:Name="LbReglamento" Content="{x:Static properties:Resources.Rules}" HorizontalAlignment="Left" Margin="80,435,0,0" VerticalAlignment="Top" Height="27" Width="165" RenderTransformOrigin="2.788,0.481" />
 
-        <Grid x:Name="GridMountain" MinWidth="1"  MinHeight="1"  Margin="810,82,35,319">
+        <Grid x:Name="GridMountain" MinWidth="1"  MinHeight="1"  Margin="790,50,55,357">
             <Grid.RowDefinitions>
                 <RowDefinition Height="84*"/>
                 <RowDefinition Height="85*"/>
@@ -71,6 +71,10 @@
         <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="Precio inscripción" Margin="790,328,0,182" Width="140" RenderTransformOrigin="0.473,1.057" />
         <Button x:Name="BtRefund" Content="Configurar" HorizontalAlignment="Left" Margin="980,439,0,0" VerticalAlignment="Top" Width="140" Height="30" FontSize="16" Click="BtRefund_Click"  MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" RenderTransformOrigin="0.19,0.667"/>
         <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="Políticas cancelación / reembolso" Margin="755,443,0,72" Width="210" RenderTransformOrigin="0.473,1.057" />
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="138" Margin="60,50,0,0" VerticalAlignment="Top" Width="1085"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="60" Margin="60,415,0,0" VerticalAlignment="Top" Width="1085"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="207" Margin="480,193,0,0" VerticalAlignment="Top" Width="665"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="207" Margin="60,193,0,0" VerticalAlignment="Top" Width="415"/>
 
 
 

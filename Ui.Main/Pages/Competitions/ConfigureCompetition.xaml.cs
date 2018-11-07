@@ -359,9 +359,16 @@ namespace Ui.Main.Pages.Competitions
 
 
         private bool checkAll() {
-            if (FechaCompeticion.SelectedDate == null | Km.Text == null || Nombre.Text == null ||
-                (!MountainIsChecked() && !AsphaltIsChecked()) || (MountainIsChecked() && DTotal.Text == null) || NumeroPlazas.Text == null || Plazos_list.Items.IsEmpty)
+            double result;
+            int resut;
+
+            if (FechaCompeticion.SelectedDate == null | Km.Text == ("") || !Double.TryParse(Km.Text, out result) || result <0 || Nombre.Text == ("") ||
+                (!MountainIsChecked() && !AsphaltIsChecked()) || (MountainIsChecked() && DTotal.Text == ("")) || NumeroPlazas.Text == ("") || !int.TryParse(NumeroPlazas.Text, out resut) 
+                || Plazos_list.Items.IsEmpty || !Double.TryParse(PrecioInscripcion.Text, out result) || result <0)
                 return false;
+
+            
+
             return true;
 
         }
