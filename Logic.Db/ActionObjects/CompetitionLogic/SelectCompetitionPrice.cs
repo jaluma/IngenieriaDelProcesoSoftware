@@ -28,10 +28,14 @@ namespace Logic.Db.ActionObjects.CompetitionLogic
             try
             {
                 using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_COMPETITION_PRICE, _conn.DbConnection))
-                using (SQLiteDataReader reader = command.ExecuteReader())
                 {
-                    if (reader.Read())
-                        Price = reader.GetDouble(0);
+                    command.Parameters.AddWithValue("@ID", _id);
+                    command.Parameters.AddWithValue("@DNI", _dni);
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                            Price = reader.GetDouble(0);
+                    }
                 }
             }
             catch (SQLiteException)

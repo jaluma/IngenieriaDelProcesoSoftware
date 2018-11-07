@@ -32,8 +32,6 @@ namespace Logic.Db.Properties {
         internal Resources() {
         }
 
-        public static string SQL_SELECT_COMPETITION_PRICE { get; internal set; }
-
         /// <summary>
         ///   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
         /// </summary>
@@ -381,6 +379,14 @@ namespace Logic.Db.Properties {
             get
             {
                 return ResourceManager.GetString("SQL_SELECT_NOT_CANCELED_INSCRIPTIONS", resourceCulture);
+            }
+        }
+
+        internal static string SQL_SELECT_COMPETITION_PRICE
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_COMPETITION_PRICE", resourceCulture);
             }
         }
     }

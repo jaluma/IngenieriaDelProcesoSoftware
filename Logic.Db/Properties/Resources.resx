@@ -208,7 +208,7 @@ from Competition natural join CompetitionDates
 where date('now') BETWEEN INITIAL_DATE and FINISH_DATE and COMPETITION_STATUS&lt;&gt;'FINISH' and COMPETITION_NUMBER_PLACES &gt; (select count(*) from enroll group by competition_id) AND COMPETITION_ID not in (SELECT COMPETITION_ID FROM ENROLL WHERE ATHLETE_DNI=@DNI)</value>
   </data>
   <data name="SQL_SELECT_COMPETITION_BY_ID" xml:space="preserve">
-    <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, COMPETITION_DATE from Competition where COMPETITION_ID=@ID</value>
+    <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, COMPETITION_DATE from Competition natural join CompetitionDates where COMPETITION_ID=@ID and date('now') BETWEEN INITIAL_DATE and FINISH_DATE</value>
   </data>
   <data name="SQL_SELECT_MAX_DORSAL" xml:space="preserve">
     <value>select max(dorsal) from enroll where COMPETITION_ID=@COMPETITION_ID</value>
@@ -252,7 +252,9 @@ WHERE COMPETITION_ID=@COMPETITION_ID AND ATHLETE_DNI=GET_AGE_NOW.ATHLETE_DNI  AN
 WHERE CATEGORY_ID = @ID</value>
   </data>
   <data name="SQL_SELECT_PREREGISTERED" xml:space="preserve">
-    <value>select ATHLETE_DNI, COMPETITION_ID, COMPETITION_PRICE, DATE_INSCRIPTION from Enroll natural join Competition where status in ('PRE-REGISTERED', 'PREREGISTERED','CANCELED')</value>
+    <value>select ATHLETE_DNI, COMPETITION_ID, COMPETITION_PRICE, DATE_INSCRIPTION 
+from Enroll natural join Competition natural join CompetitionDates
+where status in ('PRE-REGISTERED', 'PREREGISTERED','CANCELED') and date_inscription between initial_date and finish_date</value>
   </data>
   <data name="SQL_UPDATE_INSCRIPTION_STATUS" xml:space="preserve">
     <value>update Enroll set status=@STATUS where competition_id=@COMPETITION_ID and athlete_dni=@DNI</value>
@@ -269,8 +271,8 @@ from enroll natural join competition natural join competitionrefund
 where athlete_dni=@DNI and status&lt;&gt;'CANCELED' 
 and date_refund in (select min(date_refund) from competitionrefund where Date('now') &lt; date_refund group by competition_id)</value>
   </data>
-  <data name="SELECT_COMPETITION_PRICE" xml:space="preserve">
+  <data name="SQL_SELECT_COMPETITION_PRICE" xml:space="preserve">
     <value>select competition_price from competitiondates natural join enroll
-where competition_id=100 and athlete_dni=@DNI and date_inscription between initial_date and finish_date</value>
+where competition_id=@ID and athlete_dni=@DNI and date_inscription between initial_date and finish_date</value>
   </data>
 </root>
