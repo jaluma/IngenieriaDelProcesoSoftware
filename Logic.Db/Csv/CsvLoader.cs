@@ -23,12 +23,15 @@ namespace Logic.Db.Csv {
         }
 
         private void LoadData(string filename) {
-            var query = File.ReadLines(filename)
-                .SelectMany(line => line.Split('\n'))
-                .Where(csvLine => !string.IsNullOrWhiteSpace(csvLine))
-                .Select(csvLine => csvLine.Split(','));
+            if (filename != null && !filename.Equals("")) {
+                var query = File.ReadLines(filename)
+                    .SelectMany(line => line.Split('\n'))
+                    .Where(csvLine => !string.IsNullOrWhiteSpace(csvLine))
+                    .Select(csvLine => csvLine.Split(','));
 
-            Returned = CreateObjects(query);
+                Returned = CreateObjects(query);
+            }
+            
         }
 
         protected abstract IEnumerable<CsvObject> CreateObjects(IEnumerable<String[]> lines);

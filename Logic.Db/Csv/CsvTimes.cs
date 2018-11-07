@@ -16,7 +16,7 @@ namespace Logic.Db.Csv {
             IEnumerable<string[]> enumerable = lines as string[][] ?? lines.ToArray();
             for (int row = 0; row < enumerable.Count(); row++) 
             {
-                //try {
+                try {
 
                 long[] times = new long[enumerable.ElementAt(row).Length - 2];
                 for (int i = 2; i < enumerable.ElementAt(row).Length; i++) {
@@ -29,7 +29,7 @@ namespace Logic.Db.Csv {
                     };
 
                     _times.Add(partial);
-                //} catch (Exception) { }
+                } catch (FormatException) { }
             }
             return _times;
         }

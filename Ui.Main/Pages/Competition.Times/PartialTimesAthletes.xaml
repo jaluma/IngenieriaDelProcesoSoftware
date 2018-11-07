@@ -45,7 +45,7 @@
         </StackPanel>
 
         <Grid DockPanel.Dock="Right"  Margin="20,27,0,18" Width="725" HorizontalAlignment="Right">
-            <DataGrid x:Name="DataGridTimes" AutoGenerateColumns="True" ColumnWidth="*" Width="700" IsReadOnly="True" HorizontalAlignment="Right" Height="480" VerticalAlignment="Top" Margin="0,10,10,0" />
+            <DataGrid x:Name="DataGridTimes" SelectionMode="Single" AutoGenerateColumns="True" ColumnWidth="*" Width="700" IsReadOnly="True" HorizontalAlignment="Right" Height="480" VerticalAlignment="Top" Margin="0,10,10,0" />
         </Grid>
 
     </DockPanel>

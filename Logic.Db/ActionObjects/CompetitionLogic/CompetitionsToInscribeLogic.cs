@@ -14,6 +14,7 @@ namespace Logic.Db.ActionObjects.CompetitionLogic
     {
         private readonly DBConnection _conn;
         public readonly DataTable Table;
+        public List<CompetitionDto> Competitions;
         private readonly AthleteDto _athlete;
 
         public CompetitionsToInscribeLogic(ref DBConnection conn, AthleteDto athlete)
@@ -21,6 +22,7 @@ namespace Logic.Db.ActionObjects.CompetitionLogic
             _conn = conn;
             Table = new DataTable();
             _athlete = athlete;
+            Competitions = new List<CompetitionDto>();
         }
         public void Execute()
         {
@@ -30,6 +32,17 @@ namespace Logic.Db.ActionObjects.CompetitionLogic
                     command.Parameters.AddWithValue("@DNI", _athlete.Dni);
                     SQLiteDataAdapter da = new SQLiteDataAdapter(command);
                     da.Fill(Table);
+                    using (SQLiteDataReader reader = command.ExecuteReader()) {
+                        while (reader.Read()) {
+                            CompetitionDto competitionDto = new CompetitionDto() {
+                                ID = reader.GetInt64(0),
+                                Name = reader.GetString(1),
+                                Km = reader.GetDouble(3),
+                                Price = reader.GetDouble(4),
+                            };
+                            Competitions.Add(competitionDto);
+                        }
+                    }
                 }
             }
             catch (SQLiteException)

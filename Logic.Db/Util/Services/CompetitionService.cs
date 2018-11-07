@@ -40,6 +40,12 @@ namespace Logic.Db.Util.Services {
             competitions.Execute();
             return competitions.Table;
         }
+        public List<CompetitionDto> ListCompetitionsToInscribeObject(AthleteDto athlete)
+        {
+            CompetitionsToInscribeLogic competitions = new CompetitionsToInscribeLogic(ref _conn, athlete);
+            competitions.Execute();
+            return competitions.Competitions;
+        }
 
         public DataTable SelectAllCompetitions()
         {

@@ -80,9 +80,9 @@ namespace Ui.Main.Pages.Inscriptions
                 return;
             }
             
-            try
-            {
-                _competition = _competitionService.SearchCompetitionById(_competition);
+            try {
+                _competition = _competitionService.ListCompetitionsToInscribeObject(_athlete)
+                    .ElementAt(CompetitionsToSelect.SelectedIndex);
                 new DialogPayment(_athlete, _competition).ShowDialog();
                 LoadData(TxDni.Text);
 

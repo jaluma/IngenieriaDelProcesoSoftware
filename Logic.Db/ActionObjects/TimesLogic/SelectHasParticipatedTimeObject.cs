@@ -29,11 +29,13 @@ namespace Logic.Db.ActionObjects.TimesLogic {
 
                     using (SQLiteDataReader reader = command.ExecuteReader()) {
                         reader.Read();
-                        
-                        HasParticipated.Competition = _competition;
-                        HasParticipated.Athlete = _athlete;
-                        HasParticipated.InitialTime = reader.GetInt64(2);
-                        HasParticipated.FinishTime = reader.IsDBNull(3) ? 0 : reader.GetInt64(3);
+
+                        try {
+                            HasParticipated.Competition = _competition;
+                            HasParticipated.Athlete = _athlete;
+                            HasParticipated.InitialTime = reader.GetInt64(2);
+                            HasParticipated.FinishTime = reader.IsDBNull(3) ? 0 : reader.GetInt64(3);
+                        } catch (InvalidOperationException) { }
                     }
                 }
             } catch (SQLiteException) {
