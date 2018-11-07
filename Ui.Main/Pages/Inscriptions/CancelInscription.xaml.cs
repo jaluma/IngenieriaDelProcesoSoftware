@@ -78,6 +78,10 @@ namespace Ui.Main.Pages.Inscriptions
         {
             if (e.PropertyType == typeof(System.DateTime))
                 ((DataGridTextColumn)e.Column).Binding.StringFormat = "dd/MM/yyyy";
+
+            if (e.PropertyType == typeof(double)) {
+                ((DataGridTextColumn) e.Column).Binding.StringFormat = "{0:P2}";
+            }
         }
 
         private void TxDni_TextChanged(object sender, TextChangedEventArgs e)

@@ -127,13 +127,18 @@ namespace Ui.Main.Pages.PersonalMenuAthlete
             _tableResult.Columns[1].ColumnName = Properties.Resources.FinishTime;
             _tableResult.Columns[2].ColumnName = Properties.Resources.Competition;
             _tableResult.Columns[3].ColumnName = Properties.Resources.AthleteGender;
+            _tableResult.Columns.Add(Properties.Resources.Time, typeof(string));
+
+            foreach (DataRow row in _tableResult.Rows) {
+                row[4] = PartialTimeString(row[1] is long ? (long) row[1] : 0);
+            }
 
 
 
             DataGridResults.ItemsSource = _tableResult.DefaultView;
-            if (DataGridResults.Columns.Count >= 1)
-            {
-               DataGridResults.Columns.ElementAt(3).Visibility = Visibility.Collapsed;                
+            if (DataGridResults.Columns.Count >= 1) {
+                DataGridResults.Columns.ElementAt(1).Visibility = Visibility.Collapsed;
+                DataGridResults.Columns.ElementAt(3).Visibility = Visibility.Collapsed;
             }
         }
 
@@ -216,6 +221,16 @@ namespace Ui.Main.Pages.PersonalMenuAthlete
         private void DataGridResults_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
 
+        }
+
+        private static object PartialTimeString(long time) {
+            if (time == 0) {
+                return "---";
+            } else {
+                var seconds = time;
+                var timespan = TimeSpan.FromSeconds(seconds);
+                return timespan.ToString(@"hh\:mm\:ss");
+            }
         }
     }
 }

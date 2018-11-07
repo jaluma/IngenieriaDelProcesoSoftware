@@ -229,7 +229,7 @@ Athlete.ATHLETE_SURNAME,
 and Competition.COMPETITION_ID = Enroll.COMPETITION_ID</value>
   </data>
   <data name="SQL_SELECT_COMPETITIONS_PARTICIPATED" xml:space="preserve">
-    <value>select  Competition.COMPETITION_NAME,Athlete.athlete_gender from Competition, hasparticipated, athlete where Competition.COMPETITION_ID= hasparticipated.COMPETITION_ID and hasparticipated.athlete_dni = @DNI and athlete.athlete_dni = @DNI</value>
+    <value>select  HasParticipated.FINISH_TIME, Competition.COMPETITION_NAME, Athlete.athlete_gender from Competition, hasparticipated, athlete where Competition.COMPETITION_ID= hasparticipated.COMPETITION_ID and hasparticipated.athlete_dni = @DNI and athlete.athlete_dni = @DNI</value>
   </data>
   <data name="SQL_SELECT_COUNT_DORSALS_BY_COMPETITION" xml:space="preserve">
     <value>select COUNT(*) from Competition natural join Enroll
