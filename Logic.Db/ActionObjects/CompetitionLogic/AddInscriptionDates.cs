@@ -11,33 +11,57 @@ namespace Logic.Db.ActionObjects.CompetitionLogic
 
         private readonly DBConnection _conn;
         private readonly InscriptionDatesDto _plazo;
+        private readonly CompetitionDto _competition;
 
 
-        public AddInscriptionDates(ref DBConnection conn, InscriptionDatesDto plazo)
+        public AddInscriptionDates(ref DBConnection conn, InscriptionDatesDto plazo, CompetitionDto competition)
         {
             _plazo= plazo;
             _conn = conn;
+            _competition = competition;
 
         }
         public void Execute()
         {
-            try
-            {
-                using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_INSERT_INSCRIPTION_DATE, _conn.DbConnection))
-                {
+            string initial = _plazo.fechaInicio.ToString("yyyy-MM-dd");
+            string finish = _plazo.fechaFin.ToString("yyyy-MM-dd");
+            try {
 
-                    command.Parameters.AddWithValue("@INITIAL_DATE", _plazo.fechaInicio.ToString("yyyy-MM-dd"));
-                    command.Parameters.AddWithValue("@FINISH_DATE", _plazo.fechaFin.ToString("yyyy-MM-dd"));                   
+                using (SQLiteCommand command =
+                    new SQLiteCommand(Logic.Db.Properties.Resources.SQL_INSERT_INSCRIPTION_DATE, _conn.DbConnection)) {
+
+                    command.Parameters.AddWithValue("@INITIAL_DATE", initial);
+                    command.Parameters.AddWithValue("@FINISH_DATE", finish);
 
                     command.ExecuteNonQuery();
                 }
-            }
-            catch (SQLiteException)
+            } catch (SQLiteException e)
             {
-                _conn.DbConnection?.Close();
-                throw;
+                if (e.ErrorCode != 19) {
+                    _conn.DbConnection?.Close();
+                    throw;
+                }
+                
+            }
+
+            try {
+                using (SQLiteCommand command =
+                    new SQLiteCommand(Logic.Db.Properties.Resources.SQL_ENROLL_COMPETITION_DATES, _conn.DbConnection)) {
+
+                    command.Parameters.AddWithValue("@COMPETITION_ID", _competition);
+                    command.Parameters.AddWithValue("@INITIAL_DATE", initial);
+                    command.Parameters.AddWithValue("@FINISH_DATE", finish);
+                    command.Parameters.AddWithValue("@COMPETITION_PRICE", _plazo.precio);
+
+                    command.ExecuteNonQuery();
+                }
+
+            } catch (SQLiteException e) {
+                    _conn.DbConnection?.Close();
+                    throw;
             }
         }
+
 
     }
 

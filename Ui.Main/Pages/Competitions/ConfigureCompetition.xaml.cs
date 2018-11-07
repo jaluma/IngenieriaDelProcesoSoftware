@@ -172,22 +172,22 @@ namespace Ui.Main.Pages.Competitions
             
             if (Plazos_list.SelectedItem == null)
             {
+                try {
+                    InscriptionDatesDto plazos = new InscriptionDatesDto {
+                        fechaInicio = (DateTime) InicioPlazo.SelectedDate,
+                        fechaFin = (DateTime) FinPlazo.SelectedDate,
+                        precio = Double.Parse(PrecioInscripcion.Text)
+                    };
 
-                InscriptionDatesDto plazos = new InscriptionDatesDto
-                {
-                    fechaInicio = (DateTime)InicioPlazo.SelectedDate,
-                    fechaFin = (DateTime)FinPlazo.SelectedDate,
-                    precio = Double.Parse(PrecioInscripcion.Text)
-                };
-
-                Plazos_list.SelectionMode = SelectionMode.Single;
-                Plazos_list.Items.Add(plazos);
-                FinPlazo.SelectedDate = null;
-                InicioPlazo.SelectedDate = plazos.fechaFin.AddDays(1);
-                InicioPlazo.DisplayDateStart = plazos.fechaFin;
-                PrecioInscripcion.Text = null;
-                InicioPlazo.IsEnabled = false;
-                FinPlazo.DisplayDateStart = InicioPlazo.SelectedDate;
+                    Plazos_list.SelectionMode = SelectionMode.Single;
+                    Plazos_list.Items.Add(plazos);
+                    FinPlazo.SelectedDate = null;
+                    InicioPlazo.SelectedDate = plazos.fechaFin.AddDays(1);
+                    InicioPlazo.DisplayDateStart = plazos.fechaFin;
+                    PrecioInscripcion.Text = null;
+                    InicioPlazo.IsEnabled = false;
+                    FinPlazo.DisplayDateStart = InicioPlazo.SelectedDate;
+                } catch(Exception) {} 
 
             }
         }
@@ -292,11 +292,6 @@ namespace Ui.Main.Pages.Competitions
                 _competition.Rules = bytes;
                 _competition.Status = "OPEN";
 
-                //METER PLAZOS en inscription dates
-
-                foreach (InscriptionDatesDto p in Plazos_list.Items)
-                    _serviceComp.AddInscriptionDate(p);
-
                 //METER CATEGORIAS 
                 foreach (AbsoluteCategory c in Categories.Items) //modificar las categorias que te devuelve el dialogo no el listbox
                 {
@@ -322,21 +317,6 @@ namespace Ui.Main.Pages.Competitions
                     _serviceCategories.AddAbsoluteCategory(nueva);
                 }
 
-                //añadir competicion
-
-                _serviceComp.AddCompetition(_competition);
-
-
-                //vincular competicion y plazos con precio
-
-                _competition.ID = _serviceComp.getIdCompetition(_competition);
-                _serviceEnroll = new EnrollService(_competition);
-                foreach (var c in Plazos_list.Items)
-                {
-                    _serviceEnroll.EnrollCompetitionDates(_competition.ID, (InscriptionDatesDto)c);
-
-
-                }
                 //vincular competicion y categorias
                 foreach (var c in absolutes)
                 {
@@ -345,11 +325,34 @@ namespace Ui.Main.Pages.Competitions
                     _serviceEnroll.EnrollAbsoluteCompetition(_competition.ID, id);
 
                 }
+
+                
                 //vincular refunds y competicion
                 foreach (var c in refundsList)
                 {
                     _serviceEnroll.EnrollRefundsCompetition(_competition.ID, c.date_refund, c.refund);
                 }
+
+                //añadir competicion
+
+                _serviceComp.AddCompetition(_competition);
+                _competition.ID = _serviceComp.getIdCompetition(_competition);
+
+                //METER PLAZOS en inscription dates
+
+                foreach (InscriptionDatesDto p in Plazos_list.Items)
+                    _serviceComp.AddInscriptionDate(p, _competition);
+
+
+                //vincular competicion y plazos con precio
+                //_serviceEnroll = new EnrollService(_competition);
+                //foreach (InscriptionDatesDto c in Plazos_list.Items)
+                //{
+                //    _serviceEnroll.EnrollCompetitionDates(_competition.ID, c);
+
+
+                //}
+
             }
 
             else

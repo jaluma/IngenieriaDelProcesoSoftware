@@ -27,13 +27,13 @@ namespace Logic.Db.ActionObjects.CompetitionLogic
                 using (SQLiteCommand command = new SQLiteCommand(Properties.Resources.SQL_GET_COMPETITION_ID, _conn.DbConnection))
                 {
                     command.Parameters.AddWithValue("@COMPETITION_NAME", _competitionDto.Name);
-                    command.Parameters.AddWithValue("@COMPETITION_TYPE", _competitionDto.Type);
-                    command.Parameters.AddWithValue("@COMPETITION_KM", _competitionDto.Km);
+                    //command.Parameters.AddWithValue("@COMPETITION_TYPE", _competitionDto.Type);
+                    //command.Parameters.AddWithValue("@COMPETITION_KM", _competitionDto.Km);
                     command.Parameters.AddWithValue("@COMPETITION_DATE", _competitionDto.Date.ToString("yyyy-MM-dd"));
-                    command.Parameters.AddWithValue("@COMPETITION_NUMBER", _competitionDto.NumberPlaces);
-                    command.Parameters.AddWithValue("@COMPETITION_STATUS", _competitionDto.Status);
-                    command.Parameters.AddWithValue("@COMPETITION_RULES", _competitionDto.Rules);
-                    command.Parameters.AddWithValue("@COMPETITION_SLOPE", _competitionDto.Slope);
+                    //command.Parameters.AddWithValue("@COMPETITION_NUMBER", _competitionDto.NumberPlaces);
+                    //command.Parameters.AddWithValue("@COMPETITION_STATUS", _competitionDto.Status);
+                    //command.Parameters.AddWithValue("@COMPETITION_RULES", _competitionDto.Rules);
+                    //command.Parameters.AddWithValue("@COMPETITION_SLOPE", _competitionDto.Slope);
                     //command.Parameters.AddWithValue("@COMPETITION_NUMBER_MILESTONE", _competitionDto.Milestone);
                     using (SQLiteDataReader reader = command.ExecuteReader())
                     {

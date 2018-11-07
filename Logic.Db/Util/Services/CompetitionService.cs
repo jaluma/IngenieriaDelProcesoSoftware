@@ -75,9 +75,9 @@ namespace Logic.Db.Util.Services {
             add.Execute();
         }
 
-        public void AddInscriptionDate(InscriptionDatesDto plazo)
+        public void AddInscriptionDate(InscriptionDatesDto plazo, CompetitionDto competition)
         {
-            AddInscriptionDates add = new AddInscriptionDates(ref _conn, plazo);
+            AddInscriptionDates add = new AddInscriptionDates(ref _conn, plazo, competition);
             add.Execute();
         }
 
