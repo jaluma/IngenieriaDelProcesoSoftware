@@ -427,4 +427,25 @@
   <data name="DocumentSelectionTime" xml:space="preserve">
     <value>Seleccione el fichero de tiempos parciales</value>
   </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Restablecer todo</value>
+  </data>
+  <data name="Modify" xml:space="preserve">
+    <value>Modificar</value>
+  </data>
+  <data name="CancelInscription" xml:space="preserve">
+    <value>Cancelar inscripción</value>
+  </data>
+  <data name="Refund" xml:space="preserve">
+    <value>Devolución</value>
+  </data>
+  <data name="CancelFinishDate" xml:space="preserve">
+    <value>Cancelación hasta:</value>
+  </data>
+  <data name="CancelInitialDate" xml:space="preserve">
+    <value>Inicio del plazo de cancelación</value>
+  </data>
+  <data name="InscriptionCanceled" xml:space="preserve">
+    <value>Se ha cancelado la inscripción. Cantidad a devolver: </value>
+  </data>
 </root>

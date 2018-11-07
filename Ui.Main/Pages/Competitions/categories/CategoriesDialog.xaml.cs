@@ -23,28 +23,56 @@ namespace Ui.Main.Pages.Competitions.categories
     public partial class CategoriesDialog : ModernDialog
     {
 
-        public CategoryDto cat = new CategoryDto();
+        public AbsoluteCategory cat = new AbsoluteCategory();
+        public CategoryDto femenino = new CategoryDto();
+        public CategoryDto masculino = new CategoryDto();
 
-        public CategoriesDialog()
+
+        public CategoriesDialog(AbsoluteCategory category)
         {
             InitializeComponent();
-            
+            this.cat = category;
+            Nombre.Text = category.Name;
+            DesdeF.Text = category.CategoryF.MinAge.ToString();
+            HastaF.Text = category.CategoryF.MaxAge.ToString();
+            DesdeM.Text = category.CategoryM.MinAge.ToString();
+            HastaM.Text = category.CategoryM.MaxAge.ToString();
         }
 
         private void BtNueva_Click(object sender, RoutedEventArgs e)
         {
-            
-            
-            cat.Name = Nombre.Text;
-            //cat.Min_Age = int.Parse(Desde.Text);
-            //cat.Min_Age = int.Parse(Hasta.Text);
+            if (int.Parse(DesdeF.Text)> int.Parse(HastaF.Text) || int.Parse(DesdeM.Text)> int.Parse(HastaM.Text))
+            {
+                MessageBox.Show(Properties.Resources.InvalidDNI);
+                return;
+            }
+
+            femenino.MinAge = int.Parse(DesdeF.Text);
+            femenino.MaxAge = int.Parse(HastaF.Text);
+            femenino.Gender = "F";
+
+            masculino.MinAge = int.Parse(DesdeM.Text);
+            masculino.MaxAge = int.Parse(HastaM.Text);
+            masculino.Gender = "M";
+
+            cat.CategoryF = femenino;
+            cat.CategoryM = masculino;
+
             Close();
                                            
         }
 
-        
-
-        
+        private void HastaF_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if(HastaF.Text=="")
+                HastaF.Text = cat.CategoryF.MaxAge.ToString();
+            if(DesdeF.Text=="")
+                DesdeF.Text = cat.CategoryF.MinAge.ToString();
+            if(HastaM.Text=="")
+                HastaM.Text = cat.CategoryM.MaxAge.ToString();
+            if (DesdeM.Text == "")
+                DesdeM.Text = cat.CategoryM.MinAge.ToString();
+        }
     }
     }
 

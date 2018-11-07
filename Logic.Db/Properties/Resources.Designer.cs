@@ -31,7 +31,7 @@ namespace Logic.Db.Properties {
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-        
+
         /// <summary>
         ///   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
         /// </summary>
@@ -437,5 +437,20 @@ namespace Logic.Db.Properties {
             }
         }
         
+        internal static string SQL_SELECT_NOT_CANCELED_INSCRIPTIONS
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_NOT_CANCELED_INSCRIPTIONS", resourceCulture);
+            }
+        }
+
+        internal static string SQL_SELECT_COMPETITION_PRICE
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_COMPETITION_PRICE", resourceCulture);
+            }
+        }
     }
 }

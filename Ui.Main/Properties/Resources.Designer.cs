@@ -47,6 +47,17 @@ namespace Ui.Main.Properties {
         }
 
         /// <summary>
+        ///   Busca una cadena traducida similar a Modificar.
+        /// </summary>
+        public static string Modify
+        {
+            get
+            {
+                return ResourceManager.GetString("Modify", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Busca una cadena traducida similar a Área Personal.
         /// </summary>
         public static string PersonalMenu
@@ -54,6 +65,18 @@ namespace Ui.Main.Properties {
             get
             {
                 return ResourceManager.GetString("PersonalMenu", resourceCulture);
+            }
+        }
+
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Restablecer.
+        /// </summary>
+        public static string Reset
+        {
+            get
+            {
+                return ResourceManager.GetString("Reset", resourceCulture);
             }
         }
 
@@ -1066,6 +1089,49 @@ namespace Ui.Main.Properties {
         }
 
         /// <summary>
+        ///   Busca una cadena traducida similar a Cancelar inscripción.
+        /// </summary>
+        public static string CancelInscription
+        {
+            get
+            {
+                return ResourceManager.GetString("CancelInscription", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Devolución.
+        /// </summary>
+        public static string Refund
+        {
+            get
+            {
+                return ResourceManager.GetString("Refund", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Final del plazo de cancelación.
+        /// </summary>
+        public static string CancelFinishDate
+        {
+            get
+            {
+                return ResourceManager.GetString("CancelFinishDate", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Inicio del plazo de cancelación.
+        /// </summary>
+        public static string CancelInitialDate
+        {
+            get
+            {
+                return ResourceManager.GetString("CancelInitialDate", resourceCulture);
+            }
+        }
+        /// <summary>
         ///   Busca una cadena traducida similar a Hito nº.
         /// </summary>
         public static string MilestoneNumber {
@@ -1107,6 +1173,16 @@ namespace Ui.Main.Properties {
         public static string DocumentSelectionTime {
             get {
                 return ResourceManager.GetString("DocumentSelectionTime", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Busca una cadena traducida similar a Se ha cancelado la inscripción..
+        /// </summary>
+        public static string InscriptionCanceled
+        {
+            get
+            {
+                return ResourceManager.GetString("InscriptionCanceled", resourceCulture);
             }
         }
     }

@@ -96,7 +96,7 @@ namespace Ui.Main.Pages.Inscriptions.InscriptionsPaidControl
                         Name = s[1],
                         Surname = s[2],
                         Date = DateTime.Parse(s[3]),
-                        Amount = float.Parse(s[4])
+                        Amount = double.Parse(s[4])
                     };
                     extracto.Add(dto);
                 }catch (Exception)
@@ -113,7 +113,7 @@ namespace Ui.Main.Pages.Inscriptions.InscriptionsPaidControl
             StringBuilder stringBuilder = new StringBuilder();
             foreach (PaymentDto prereg in preregistered)
             {
-                float cantidadPagada = 0;
+                double cantidadPagada = 0;
                 bool pago = false;
                 foreach (PaymentDto payment in extracto)
                 {

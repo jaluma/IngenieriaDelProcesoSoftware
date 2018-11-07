@@ -9,19 +9,17 @@
       d:DesignHeight="625" d:DesignWidth="1250"
       Title="FinishInscriptionPage">
 
-    <Grid>
-        <DockPanel Height="525" VerticalAlignment="Bottom">
-            <Label FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalAlignment="Center"
+    <DockPanel Height="525" VerticalAlignment="Bottom">
+        <Label FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalAlignment="Center"
                 Content="{x:Static properties:Resources.FinishInscriptions}" DockPanel.Dock="Top" Height="40" />
-            <Button Name="BtSeleccionar" Content="{x:Static properties:Resources.DocumentSelection}" FontSize="18" Margin="420,40,420,380" Click="BtSeleccionar_Click" DockPanel.Dock="Top" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave"/>
-            <TextBox Height="35" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="240,-347,240,0" Name="txFileName" Background="{x:Null}" HorizontalContentAlignment="Center" DockPanel.Dock="Top" IsReadOnly="True" />
-            <Button Name="BtActualizar" FontSize="18" Height="35" VerticalAlignment="Top" Margin="400,-275,400,0" DockPanel.Dock="Top" Content="{x:Static properties:Resources.UpdateInscriptionsState}" Click="BtActualizar_Click" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave"/>
-            <TextBlock x:Name="TxActualizado" FontSize="16" Height="200" TextWrapping="Wrap" VerticalAlignment="Top" Margin="240,-210,240,0" DockPanel.Dock="Top">
+        <Button Name="BtSeleccionar" Content="{x:Static properties:Resources.DocumentSelection}" FontSize="18" Margin="420,40,420,380" Click="BtSeleccionar_Click" DockPanel.Dock="Top" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave"/>
+        <TextBox Height="35" VerticalContentAlignment="Center" VerticalAlignment="Top" Margin="240,-347,240,0" Name="txFileName" Background="{x:Null}" HorizontalContentAlignment="Center" DockPanel.Dock="Top" IsReadOnly="True" />
+        <Button Name="BtActualizar" FontSize="18" Height="35" VerticalAlignment="Top" Margin="400,-275,400,0" DockPanel.Dock="Top" Content="{x:Static properties:Resources.UpdateInscriptionsState}" Click="BtActualizar_Click" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave"/>
+        <TextBlock x:Name="TxActualizado" FontSize="16" Height="200" TextWrapping="Wrap" VerticalAlignment="Top" Margin="240,-210,240,0" DockPanel.Dock="Top">
                 <InlineUIContainer>
                     <ScrollBar Height="200" Width="18" Margin="754,0"/>
                 </InlineUIContainer>
-            </TextBlock>
+        </TextBlock>
 
-        </DockPanel>
-    </Grid>
+    </DockPanel>
 </Page>

@@ -35,9 +35,9 @@ namespace Logic.Db.ActionObjects.AthleteLogic.Enroll
                             PaymentDto payment = new PaymentDto()
                             {
                                 Dni = reader.GetString(0),
-                                Amount = reader.GetFloat(2),
-                                Date = reader.GetDateTime(3),
-                                Id = reader.GetInt32(1)
+                                Id = reader.GetInt32(1),
+                                Amount = reader.GetDouble(2),
+                                Date = reader.GetDateTime(3)
                             };
                             Preregistered.Add(payment);
                         }
