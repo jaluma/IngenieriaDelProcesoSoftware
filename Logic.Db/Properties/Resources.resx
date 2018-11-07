@@ -267,13 +267,13 @@ WHERE CATEGORY_ID = @ID</value>
     <value>insert into Category values (null,@CATEGORY_NAME, @CATEGORY_MIN_AGE,@CATEGORY_MAX_AGE,@GENDER)</value>
   </data>
   <data name="SQL_INSERT_INSCRIPTION_DATE" xml:space="preserve">
-    <value>insert into DateInscription values(@INITIAL_DATE, @FINISH_DATE)</value>
+    <value>insert into DateInscription values(@ID, @INITIAL_DATE, @FINISH_DATE)</value>
   </data>
   <data name="SQL_ENROLL_ABSOLUTE_COMPETITION" xml:space="preserve">
     <value>insert into competitionCategory values (@COMPETITION_ID, @ABSOLUT_CATEGORY_ID)</value>
   </data>
   <data name="SQL_ENROLL_COMPETITION_DATES" xml:space="preserve">
-    <value>insert into competitionDates values (@COMPETITION_ID, @INITIAL_DATE, @FINISH_DATE, @COMPETITION_PRICE)</value>
+    <value>insert into competitionDates values (@COMPETITION_ID, @ID,@COMPETITION_PRICE)</value>
   </data>
   <data name="SQL_ENROLL_REFUNDS_COMPETITION" xml:space="preserve">
     <value>insert into competitionRefund values (@COMPETITION_ID,@DATE_REFUND,@REFUND)</value>
@@ -289,5 +289,8 @@ WHERE CATEGORY_ID = @ID</value>
   </data>
   <data name="SQL_SELECT_CATEGORY_CHILD" xml:space="preserve">
     <value>SELECT * FROM CATEGORY WHERE CATEGORY_NAME =@CATEGORY_NAME AND  CATEGORY_MIN_AGE =@CATEGORY_MIN_AGE AND CATEGORY_MAX_AGE =@CATEGORY_MAX_AGE AND GENDER =@GENDER</value>
+  </data>
+  <data name="SQL_MAX_ID_DATES" xml:space="preserve">
+    <value>SELECT MAX(DATE_ID) FROM DateInscription</value>
   </data>
 </root>

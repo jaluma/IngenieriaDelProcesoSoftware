@@ -365,10 +365,10 @@ namespace Ui.Main.Pages.Competitions
             double result;
             int resut;
 
-            if (FechaCompeticion.SelectedDate == null | Km.Text == ("") || !Double.TryParse(Km.Text, out result) || result <0 || Nombre.Text == ("") ||
-                (!MountainIsChecked() && !AsphaltIsChecked()) || (MountainIsChecked() && DTotal.Text == ("")) || NumeroPlazas.Text == ("") || !int.TryParse(NumeroPlazas.Text, out resut) 
-                || Plazos_list.Items.IsEmpty || !Double.TryParse(PrecioInscripcion.Text, out result) || result <0)
-                return false;
+            //if (FechaCompeticion.SelectedDate == null | Km.Text == ("") || !Double.TryParse(Km.Text, out result) || result <0 || Nombre.Text == ("") ||
+            //    (!MountainIsChecked() && !AsphaltIsChecked()) || (MountainIsChecked() && DTotal.Text == ("")) || NumeroPlazas.Text == ("") || !int.TryParse(NumeroPlazas.Text, out resut) 
+            //    || Plazos_list.Items.IsEmpty || !Double.TryParse(PrecioInscripcion.Text, out result) || result <0)
+            //    return false;
 
             
 
