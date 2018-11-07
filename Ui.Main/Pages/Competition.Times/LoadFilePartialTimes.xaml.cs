@@ -44,19 +44,44 @@ namespace Ui.Main.Pages.Competition.Times {
             _file = openFile.FileName;
 
             CsvLoader loader = new CsvTimes(new string[] {_file});
-            PartialTimesObjects times = loader.Returned as PartialTimesObjects;
 
-            if (times != null) {
-                string[] dnis = new string[times.Times.Length];
-                for (int i = 0; i < times.Times.Length; i++) {
-                    dnis[i] = service.SelectDniFromDorsal(times.Dorsal);
+            if (loader.Returned is IEnumerable<PartialTimesObjects> objects) {
+                string[] dnis = new string[objects.Count()];
+                for (int i = 0; i < objects.Count(); i++) {
+                    dnis[i] = service.SelectDniFromDorsal(objects.ElementAt(i).Dorsal, objects.ElementAt(i).CompetitionId);
                 }
 
-                for (int i = 0; i < dnis.Length; i++) {
-                    timesService.InsertPartialTime(dnis[i], times.Times);
-                    // algo que imprimir
+                foreach (PartialTimesObjects times in objects) {
+                    int countI = 0;
+                    int countU = 0;
+                    IList<PartialTimesObjects> noInserted = new List<PartialTimesObjects>();
+                    for (int i = 0; i < dnis.Length; i++) {
+                        try {
+                            timesService.InsertPartialTime(dnis[i], objects.ElementAt(i).Times);
+                            countI++;
+                        } catch (InvalidOperationException) {
+                            noInserted.Add(objects.ElementAt(i));
+                        }
+
+                    }
+                    printInsert(countI, countU);
                 }
+                
             }
+        }
+
+        private void printInsert(int countI, int countU) {
+            string str = "";
+            if (countI != 0 && countU == 0) {
+                str = $"Se han insertado correctamente {countI} elementos.";
+            } else if (countI == 0 && countU != 0) {
+                str = $"Se han actualizado correctamente {countU} elementos.";
+            } else {
+                str = $"Se han insertado {countI} elementos y actualizado {countU} elementos.";
+            }
+
+            LbUpdate.Content = str;
+            LbUpdate.IsEnabled = true;
         }
 
         private void OnMouseEnter(object sender, MouseEventArgs e) {

@@ -76,7 +76,7 @@ namespace Ui.Main.Pages.Competitions
             else
                 _competition.Type = TypeCompetition.Asphalt;
             _competition.NumberPlaces = 150;
-            _competition.Price = 100;
+            //_competition.Price = 100;
             _competition.Rules = bytes;
             _competition.Status = "OPEN";
 

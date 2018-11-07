@@ -66,6 +66,7 @@
     <Compile Include="ActionObjects\AthleteLogic\Enroll\IsDorsalsByCompetition.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\IsCategoryInCompetitionLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\SelectAthleteHasParticipated.cs" />
+    <Compile Include="ActionObjects\AthleteLogic\Enroll\SelectDniFromDorsal.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\SelectPreregisteredAthletes.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\UpdateInscriptionStatus.cs" />
     <Compile Include="ActionObjects\AthleteLogic\SelectAthleteByDniObject.cs" />

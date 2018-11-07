@@ -43,8 +43,8 @@ namespace Ui.Main.Pages.Inscriptions
             EnrollService enrollService = new EnrollService(_competition);
             enrollService.InsertAthleteInCompetition(_athlete, _competition);
 
-            TxJustificante.Text = "Atleta: " + _athlete.Name + " " + _athlete.Surname + "\nCompetición: " + _competition.Name +
-                "\nCategoría: " + category + "\nFecha de inscripción: " + DateTime.Now.ToShortDateString() + "\nPrecio de la inscripción: " +_competition.Price + " €";
+            //TxJustificante.Text = "Atleta: " + _athlete.Name + " " + _athlete.Surname + "\nCompetición: " + _competition.Name +
+                //"\nCategoría: " + category + "\nFecha de inscripción: " + DateTime.Now.ToShortDateString() + "\nPrecio de la inscripción: " +_competition.Price + " €";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {

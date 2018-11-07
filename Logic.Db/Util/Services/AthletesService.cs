@@ -4,6 +4,7 @@ using Logic.Db.ActionObjects.AthleteLogic;
 using Logic.Db.Connection;
 using Logic.Db.Dto;
 using System.Data;
+using Logic.Db.ActionObjects.AthleteLogic.Enroll;
 
 namespace Logic.Db.Util.Services {
     public class AthletesService : ServiceAdapter {
@@ -56,9 +57,10 @@ namespace Logic.Db.Util.Services {
             Console.WriteLine(string.Join("\n", list));
         }
 
-        public string SelectDniFromDorsal(int dorsal) {
-            // algo
-            return null;
+        public string SelectDniFromDorsal(int dorsal, long competitionId) {
+            SelectDniFromDorsal select = new SelectDniFromDorsal(ref _conn, competitionId, dorsal);
+            select.Execute();
+            return select.Dni;
         }
 
         //public static void PrintAthletes(IEnumerable<Athlete> list) {

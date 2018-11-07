@@ -11,7 +11,7 @@ namespace Logic.Db {
 
         private readonly string[] _fileNamesCsv;
 
-        public CsvObject Returned { get; private set; }
+        public IEnumerable<CsvObject>  Returned { get; private set; }
 
         protected CsvLoader(string[] fileNames) {
             this._fileNamesCsv = fileNames;
@@ -26,14 +26,14 @@ namespace Logic.Db {
 
         private void LoadData(string filename) {
             var query = File.ReadLines(filename)
-                .SelectMany(line => line.Split(';'))
+                .SelectMany(line => line.Split('\n'))
                 .Where(csvLine => !string.IsNullOrWhiteSpace(csvLine))
                 .Select(csvLine => csvLine.Split(','));
 
             Returned = CreateObjects(query);
         }
 
-        protected abstract CsvObject CreateObjects(IEnumerable<String[]> lines);
+        protected abstract IEnumerable<CsvObject> CreateObjects(IEnumerable<String[]> lines);
 
     }
 }

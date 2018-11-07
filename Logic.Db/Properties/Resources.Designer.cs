@@ -411,5 +411,13 @@ namespace Logic.Db.Properties {
                 return ResourceManager.GetString("SQL_SELECT_HAS_PARTICIPATED", resourceCulture);
             }
         }
+
+        internal static string SQL_SELECT_DNI_FROM_DORSAL
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_DNI_FROM_DORSAL", resourceCulture);
+            }
+        }
     }
 }

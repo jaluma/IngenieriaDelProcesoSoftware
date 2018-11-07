@@ -9,7 +9,7 @@ namespace Logic.Db.Dto {
         public string Name;
         public TypeCompetition Type;
         public double Km;
-        public double Price;
+        //public double Price;
         public DateTime Date;
         public int NumberPlaces;
         public string Status; //can be null

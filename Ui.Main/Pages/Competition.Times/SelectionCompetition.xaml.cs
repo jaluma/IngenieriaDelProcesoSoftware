@@ -29,10 +29,10 @@ namespace Ui.Main.Pages.Competition.Times
             table.Columns[1].ColumnName = Properties.Resources.Competition_Name;
             table.Columns[2].ColumnName = Properties.Resources.Competition_Type;
             table.Columns[3].ColumnName = Properties.Resources.Competition_Km;
-            table.Columns[4].ColumnName = Properties.Resources.Competition_Price;
-            table.Columns[5].ColumnName = Properties.Resources.Competition_Date;
-            table.Columns[6].ColumnName = Properties.Resources.Competition_Status;
-            table.Columns[7].ColumnName = Properties.Resources.Competition_Inscritos;
+            //table.Columns[4].ColumnName = Properties.Resources.Competition_Price;
+            table.Columns[4].ColumnName = Properties.Resources.Competition_Date;
+            table.Columns[5].ColumnName = Properties.Resources.Competition_Status;
+            table.Columns[6].ColumnName = Properties.Resources.Competition_Inscritos;
 
             //columnIds = table.Columns[0];
             _columnIds = table.AsEnumerable()

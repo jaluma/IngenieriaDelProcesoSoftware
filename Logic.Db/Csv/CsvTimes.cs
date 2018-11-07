@@ -7,18 +7,29 @@ using Logic.Db.Csv.Object;
 
 namespace Logic.Db.Csv {
     public class CsvTimes : CsvLoader {
-        private readonly PartialTimesObjects _times;
+        private IList<PartialTimesObjects> _times;
 
         public CsvTimes(string[] fileNames) : base(fileNames) {
-            _times = new PartialTimesObjects();
         }
-        protected override CsvObject CreateObjects(IEnumerable<string[]> lines) {
-            foreach (string[] line in lines) {
-                _times.Dorsal = int.Parse(line[0]);
-                _times.Times = new int[line.Length - 1];
-                for (int i = 1; i < line.Length; i++) {
-                    _times.Times[i - 1] = int.Parse(line[i]);
+        protected override IEnumerable<CsvObject> CreateObjects(IEnumerable<string[]> lines) {
+            _times = new List<PartialTimesObjects>();
+            IEnumerable<string[]> enumerable = lines as string[][] ?? lines.ToArray();
+            for (int row = 0; row < enumerable.Count(); row++) 
+            {
+                //try {
+
+                long[] times = new long[enumerable.ElementAt(row).Length - 2];
+                for (int i = 2; i < enumerable.ElementAt(row).Length; i++) {
+                    times[i-2] = long.Parse(enumerable.ElementAt(row)[i]);
                 }
+                    PartialTimesObjects partial = new PartialTimesObjects() {
+                        Dorsal = int.Parse(enumerable.ElementAt(row)[0]),
+                        CompetitionId = int.Parse(enumerable.ElementAt(row)[1]),
+                        Times = times
+                    };
+
+                    _times.Add(partial);
+                //} catch (Exception) { }
             }
             return _times;
         }

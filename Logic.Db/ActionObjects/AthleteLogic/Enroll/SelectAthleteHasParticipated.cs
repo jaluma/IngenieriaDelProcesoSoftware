@@ -8,7 +8,7 @@ using Logic.Db.Connection;
 using Logic.Db.Dto;
 
 namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
-    class SelectAthleteHasParticipated : IActionObject {
+    public class SelectAthleteHasParticipated : IActionObject {
         private DBConnection _conn;
         private CompetitionDto _competition;
         public List<AthleteDto> List;
@@ -22,7 +22,7 @@ namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
         public void Execute() {
             try {
                 using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_ATHLETES_HAS_PARTICIPATED, _conn.DbConnection)) {
-                    command.Parameters.AddWithValue("COMPETITION_ID", _competition.ID);
+                    command.Parameters.AddWithValue("@COMPETITION_ID", _competition.ID);
 
                     using (SQLiteDataReader reader = command.ExecuteReader()) {
                         while (reader.Read()) {

@@ -13,7 +13,9 @@
         <DockPanel Height="525" VerticalAlignment="Bottom">
             <Label FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalAlignment="Center"
                    Content="{x:Static properties:Resources.TitleAddPartialTimes}" DockPanel.Dock="Top" Height="40" />
-            <Button Name="BtSeleccionar" Content="{x:Static properties:Resources.DocumentSelectionTime}" FontSize="18" Margin="420,40,420,380" Click="BtSeleccionar_OnClick" DockPanel.Dock="Top" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave"/>
+            <Button Name="BtSeleccionar" Content="{x:Static properties:Resources.DocumentSelectionTime}" FontSize="18" Margin="350,40,350,350" Click="BtSeleccionar_OnClick" DockPanel.Dock="Top" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Height="55"/>
+            <Label Name="LbUpdate" Content="" IsEnabled="False" Height="145" VerticalAlignment="Top" Margin="210,-210,420,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="22" Width="840" />
+
         </DockPanel>
     </Grid>
 </Page>
