@@ -276,7 +276,7 @@ namespace Ui.Main.Pages.Competitions
         private void BtAdd_Click(object sender, RoutedEventArgs e)
         {
 
-          if (checkAll())
+          if (CheckAll())
                    {
 
                   _competition.Date = (DateTime)FechaCompeticion.SelectedDate;
@@ -287,7 +287,7 @@ namespace Ui.Main.Pages.Competitions
                 }
                 
                   _competition.Name = Nombre.Text;
-                if (!int.TryParse(Hitos.Text, out _competition.Milestone) || int.Parse(Hitos.Text)<0)
+                if (!int.TryParse(Hitos.Text, out _competition.NumberMilestone) || int.Parse(Hitos.Text)<0)
                 {
                     MessageBox.Show("Por favor, introduzca un número de hitos válido.");
                     return;
@@ -343,7 +343,7 @@ namespace Ui.Main.Pages.Competitions
 
                 //añadir absoluta categoria vincular
                 _serviceComp.AddCompetition(_competition);
-                _competition.ID = _serviceComp.getIdCompetition(_competition);
+                _competition.ID = _serviceComp.GetIdCompetition(_competition);
                 _serviceEnroll = new EnrollService(_competition);
                 foreach (AbsoluteCategory c in Categories.Items)
                 {
@@ -357,7 +357,7 @@ namespace Ui.Main.Pages.Competitions
                     };
 
                     _serviceCategories.AddAbsoluteCategory(nueva);
-                   long id = _serviceComp.getIdAbsolute(nueva);
+                   long id = _serviceComp.GetIdAbsolute(nueva);
                    
                     _serviceEnroll.EnrollAbsoluteCompetition(_competition.ID, id);
 
