@@ -27,6 +27,8 @@ namespace Ui.Main.Pages.Competitions.categories
         public CategoryDto femenino = new CategoryDto();
         public CategoryDto masculino = new CategoryDto();
         public List<AbsoluteCategory> absolutes;
+        public int nuevoM;
+        public int nuevoF;
 
 
         public CategoriesDialog(AbsoluteCategory category, List<AbsoluteCategory> absolutes)
@@ -35,10 +37,14 @@ namespace Ui.Main.Pages.Competitions.categories
             this.cat = category;
             this.absolutes = absolutes;
             Nombre.Text = category.Name;
+           
             DesdeF.Text = category.CategoryF.MinAge.ToString();
             HastaF.Text = category.CategoryF.MaxAge.ToString();
             DesdeM.Text = category.CategoryM.MinAge.ToString();
             HastaM.Text = category.CategoryM.MaxAge.ToString();
+            
+            
+            
         }
 
         private void BtNueva_Click(object sender, RoutedEventArgs e)

@@ -42,6 +42,7 @@ namespace Ui.Main.Pages.Competitions
         byte[] bytes;
         private IEnumerable<AbsoluteCategory> list;
         public List<AbsoluteCategory> absolutes = new List<AbsoluteCategory>();
+        int count = 0;
 
         public ConfigureCompetition()
         {
@@ -150,8 +151,9 @@ namespace Ui.Main.Pages.Competitions
             {
                 CategoriesDialog catD = new CategoriesDialog((AbsoluteCategory)Categories.SelectedItem, absolutes);
                 catD.ShowDialog();
-                this.absolutes = catD.absolutes;
+                this.absolutes = catD.absolutes;                
                 Categories.Items.Refresh();
+                
             }
         }
         private void BtReset_Click(object sender, RoutedEventArgs e)
@@ -274,39 +276,76 @@ namespace Ui.Main.Pages.Competitions
         private void BtAdd_Click(object sender, RoutedEventArgs e)
         {
 
-            if (CheckAll())
-            {
+          if (checkAll())
+                   {
 
-                _competition.Date = (DateTime)FechaCompeticion.SelectedDate;
-                _competition.Km = Double.Parse(Km.Text);
-                _competition.Name = Nombre.Text;
-                _competition.NumberMilestone = int.Parse(Hitos.Text);
+                  _competition.Date = (DateTime)FechaCompeticion.SelectedDate;
+                if (!Double.TryParse(Km.Text, out _competition.Km) || Double.Parse(Km.Text) < 0)
+                {
+                    MessageBox.Show("Por favor, introduzca un número de km válido.");
+                    return;
+                }
+                
+                  _competition.Name = Nombre.Text;
+                if (!int.TryParse(Hitos.Text, out _competition.Milestone) || int.Parse(Hitos.Text)<0)
+                {
+                    MessageBox.Show("Por favor, introduzca un número de hitos válido.");
+                    return;
+                }
                 if (MountainIsChecked())
-                {
+                  {
                     _competition.Type = TypeCompetition.Mountain;
-                    _competition.Slope = Double.Parse(DTotal.Text);
-                }
-                else
+                      _competition.Slope = Double.Parse(DTotal.Text);
+                  }
+                  else
+                  {
+                      _competition.Type = TypeCompetition.Asphalt;
+                  }
+
+                if (!int.TryParse(NumeroPlazas.Text, out _competition.NumberPlaces) || int.Parse(NumeroPlazas.Text) < 0)
                 {
-                    _competition.Type = TypeCompetition.Asphalt;
+                    MessageBox.Show("Por favor, introduzca un número de plazas válido.");
+                    return;
                 }
-                _competition.NumberPlaces = int.Parse(NumeroPlazas.Text);
-                _competition.Rules = bytes;
-                _competition.Status = "OPEN";
+               
+                  _competition.Rules = bytes;
+                  _competition.Status = "OPEN";
 
                 //METER CATEGORIAS 
+                
+
+                    for (int i = 0; i < Categories.Items.Count-1; i++) {
+
+                        AbsoluteCategory a = Categories.Items.GetItemAt(i) as AbsoluteCategory;
+                        AbsoluteCategory b = Categories.Items.GetItemAt(i+1) as AbsoluteCategory;
+
+                        if (a.CategoryF.MaxAge != (b.CategoryF.MinAge)-1)
+                        {
+                            MessageBox.Show("Por favor, compruebe que no queda ningún tramo de edades sin incorporar para la competición.");
+                            return;
+                        }
+                                               
+                        else if (a.CategoryM.MaxAge != (b.CategoryM.MinAge) - 1)
+                        {
+                            MessageBox.Show("Por favor, compruebe que no queda ningún tramo de edades sin incorporar para la competición.");
+                            return;
+                        }
+
+                    }
+
                 foreach (AbsoluteCategory c in Categories.Items) //modificar las categorias que te devuelve el dialogo no el listbox
                 {
-                    
+
                     _serviceCategories.AddCategory(c.CategoryF);
                     _serviceCategories.AddCategory(c.CategoryM);
 
                 }
 
                 //añadir absoluta categoria vincular
-
-                
-                foreach (var c in absolutes)
+                _serviceComp.AddCompetition(_competition);
+                _competition.ID = _serviceComp.getIdCompetition(_competition);
+                _serviceEnroll = new EnrollService(_competition);
+                foreach (AbsoluteCategory c in Categories.Items)
                 {
                     CategoryDto idm = _serviceCategories.GetCategory(c.CategoryM);
                     CategoryDto idf = _serviceCategories.GetCategory(c.CategoryF);
@@ -318,13 +357,17 @@ namespace Ui.Main.Pages.Competitions
                     };
 
                     _serviceCategories.AddAbsoluteCategory(nueva);
-                }
+                   long id = _serviceComp.getIdAbsolute(nueva);
+                   
+                    _serviceEnroll.EnrollAbsoluteCompetition(_competition.ID, id);
 
+                }
                 
 
-                _serviceComp.AddCompetition(_competition);
-                _competition.ID = _serviceComp.GetIdCompetition(_competition);
-                _serviceEnroll = new EnrollService(_competition);
+
+               
+              
+              
 
                 //vincular refunds y competicion
                 foreach (var c in refundsList)
@@ -332,43 +375,20 @@ namespace Ui.Main.Pages.Competitions
                     _serviceEnroll.EnrollRefundsCompetition(_competition.ID, c.date_refund, c.refund/100);
                 }
 
-                if (!absolutes.Any())
-                {
-
-                    foreach (var c in list)
-                        _serviceEnroll.EnrollAbsoluteCompetition(_competition.ID, c.Id);
-
-                }
-                else
-                {
-                    foreach (var c in absolutes)
-                    {
-                        long id = _serviceComp.GetIdAbsolute((AbsoluteCategory)c);
-
-                        _serviceEnroll.EnrollAbsoluteCompetition(_competition.ID, id);
-
-                    }
-                }
+                
                 //METER PLAZOS en inscription dates
 
                 foreach (InscriptionDatesDto p in Plazos_list.Items)
                   _serviceComp.AddInscriptionDate(p, _competition);
 
 
-                //vincular competicion y plazos con precio
-                //
-                //foreach (InscriptionDatesDto c in Plazos_list.Items)
-                //{
-                //    _serviceEnroll.EnrollCompetitionDates(_competition.ID, c);
-
-
-                //}
+               
 
 
 
-            }
+           }
 
-            else
+           else
                 MessageBox.Show("Por favor, revise que todos los campos se han introducido correctamente");
                 return;
         }
