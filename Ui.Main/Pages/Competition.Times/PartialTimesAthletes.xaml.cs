@@ -26,8 +26,7 @@ using Logic.Db.Dto;
 using Logic.Db.Util.Services;
 using Xceed.Wpf.Toolkit.Core.Converters;
 
-namespace Ui.Main.Pages.Competition.Times
-{
+namespace Ui.Main.Pages.Competition.Times {
     /// <summary>
     /// Lógica de interacción para TimesAthletes.xaml
     /// </summary>
@@ -81,7 +80,7 @@ namespace Ui.Main.Pages.Competition.Times
 
         private void PartialTimesAthletes_OnLoaded(object sender, RoutedEventArgs e) {
             Initialize();
-            
+
             if (Competition != null) {
                 CompetitionList.SelectedIndex = _ids.IndexOf(Competition.ID);
             }
@@ -115,7 +114,7 @@ namespace Ui.Main.Pages.Competition.Times
                 HasParticipatedDto p = _service.SelectCompetitionHasParticipated(Competition, Athlete);
                 LbTiempoTotal.Content = PartialTimeString(p.FinishTime == 0 ? 0 : p.FinishTime - p.InitialTime);
             }
-            
+
         }
 
         private void GenerateTable(IEnumerable<PartialTimesDto> lista) {
@@ -126,7 +125,7 @@ namespace Ui.Main.Pages.Competition.Times
             }
 
             foreach (var partialTime in lista) {
-                object[] row = new object[Competition.NumberMilestone+1];
+                object[] row = new object[Competition.NumberMilestone + 1];
                 row[0] = partialTime.Athlete.Dni;
                 GeneratePartialTimes(partialTime, row);
                 GeneratePartialTimes(partialTime, row);
@@ -141,7 +140,7 @@ namespace Ui.Main.Pages.Competition.Times
 
         private static void GeneratePartialTimes(PartialTimesDto partialTime, object[] row) {
             for (int i = 1; i <= Competition.NumberMilestone; i++) {
-                row[i] = PartialTimeString(partialTime.Time[i-1]);
+                row[i] = PartialTimeString(partialTime.Time[i - 1]);
             }
         }
 
@@ -172,14 +171,14 @@ namespace Ui.Main.Pages.Competition.Times
                     HasParticipatedDto p = _service.SelectCompetitionHasParticipated(Competition, Athlete);
                     LbTiempoTotal.Content = PartialTimeString(p.FinishTime == 0 ? 0 : p.FinishTime - p.InitialTime);
 
-                    PartialTimesDto partial  = _service.SelectPartialTimesByAthlete(Competition, Athlete);
+                    PartialTimesDto partial = _service.SelectPartialTimesByAthlete(Competition, Athlete);
 
                     IEnumerable<PartialTimesDto> lista = new List<PartialTimesDto>() {
                         partial
                     };
                     GenerateTable(lista);
 
-                } catch(InvalidOperationException) { }
+                } catch (InvalidOperationException) { }
             }
         }
 
@@ -192,5 +191,5 @@ namespace Ui.Main.Pages.Competition.Times
             CompetitionList_SelectionChanged(null, null);
         }
     }
-    
+
 }

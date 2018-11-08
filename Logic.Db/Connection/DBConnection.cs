@@ -10,7 +10,7 @@ namespace Logic.Db.Connection {
         private static readonly string DestFile = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) ?? throw new InvalidOperationException(), Logic.Db.Properties.Resources.DbFileName);
 
         private static SQLiteConnection _dbConnection;
-        
+
         public SQLiteConnection DbConnection {
             get {
                 if (_dbConnection == null) {

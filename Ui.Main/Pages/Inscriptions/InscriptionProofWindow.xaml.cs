@@ -15,21 +15,18 @@ using FirstFloor.ModernUI.Windows.Controls;
 using Logic.Db.Dto;
 using Logic.Db.Util.Services;
 
-namespace Ui.Main.Pages.Inscriptions
-{
+namespace Ui.Main.Pages.Inscriptions {
     /// <summary>
     /// Lógica de interacción para InscriptionProofWindow.xaml
     /// </summary>
-    public partial class InscriptionProofWindow : Page
-    {
+    public partial class InscriptionProofWindow : Page {
         private readonly CompetitionService _competitionService;
         private readonly EnrollService _enrollService;
         private readonly AthleteDto _athlete;
         private readonly CompetitionDto _competition;
-      
 
-        public InscriptionProofWindow(AthleteDto athlete, CompetitionDto competition)
-        {
+
+        public InscriptionProofWindow(AthleteDto athlete, CompetitionDto competition) {
             _athlete = athlete;
             _competition = competition;
 

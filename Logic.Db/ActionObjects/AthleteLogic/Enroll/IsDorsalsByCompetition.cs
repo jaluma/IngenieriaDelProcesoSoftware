@@ -9,13 +9,13 @@ using Logic.Db.Connection;
 using Logic.Db.Dto;
 
 namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
-    public class IsDorsalsByCompetition : IActionObject{
+    public class IsDorsalsByCompetition : IActionObject {
 
         private readonly DBConnection _conn;
         private readonly CompetitionDto _competition;
         public bool IsDorsals;
 
-        public  IsDorsalsByCompetition(ref DBConnection conn, CompetitionDto competitionP) {
+        public IsDorsalsByCompetition(ref DBConnection conn, CompetitionDto competitionP) {
             _conn = conn;
             _competition = competitionP;
             IsDorsals = false;
@@ -39,7 +39,7 @@ namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
                 _conn.DbConnection?.Close();
                 throw;
             }
-            
+
         }
     }
 }

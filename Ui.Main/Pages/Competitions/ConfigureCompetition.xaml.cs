@@ -25,13 +25,11 @@ using MessageBox = System.Windows.Forms.MessageBox;
 using MouseEventArgs = System.Windows.Forms.MouseEventArgs;
 using SelectionMode = System.Windows.Controls.SelectionMode;
 
-namespace Ui.Main.Pages.Competitions
-{
+namespace Ui.Main.Pages.Competitions {
     /// <summary>
     /// Lógica de interacción para ConfigureCompetition.xaml
     /// </summary>
-    public partial class ConfigureCompetition : Page
-    {
+    public partial class ConfigureCompetition : Page {
 
         private CompetitionService _serviceComp = new CompetitionService();
         private EnrollService _serviceEnroll;
@@ -44,18 +42,16 @@ namespace Ui.Main.Pages.Competitions
         public List<AbsoluteCategory> absolutes = new List<AbsoluteCategory>();
         int count = 0;
 
-        public ConfigureCompetition()
-        {
+        public ConfigureCompetition() {
             InitializeComponent();
             GridMountain.Visibility = Visibility.Collapsed;
             InicioPlazo.IsEnabled = false;
             FinPlazo.IsEnabled = false;
-            FechaCompeticion.DisplayDateStart= DateTime.Now;
+            FechaCompeticion.DisplayDateStart = DateTime.Now;
 
         }
 
-        private void BtSearch_Click(object sender, RoutedEventArgs e)
-        {
+        private void BtSearch_Click(object sender, RoutedEventArgs e) {
 
 
             OpenFileDialog dialog = new OpenFileDialog {
@@ -63,11 +59,9 @@ namespace Ui.Main.Pages.Competitions
                 Multiselect = false
             };
 
-            if (dialog.ShowDialog() == DialogResult.OK) 
-            {
+            if (dialog.ShowDialog() == DialogResult.OK) {
                 string path = dialog.FileName;
-                using (StreamReader reader = new StreamReader(new FileStream(path, FileMode.Open), new UTF8Encoding())) 
-                {
+                using (StreamReader reader = new StreamReader(new FileStream(path, FileMode.Open), new UTF8Encoding())) {
                     Reglamento.Text = dialog.SafeFileName ?? throw new InvalidOperationException();
                 }
 
@@ -75,26 +69,22 @@ namespace Ui.Main.Pages.Competitions
             }
         }
 
-        private void OnMouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
-        {
+        private void OnMouseEnter(object sender, System.Windows.Input.MouseEventArgs e) {
             if (sender is System.Windows.Controls.Control component)
                 component.Cursor = System.Windows.Input.Cursors.Hand;
         }
 
-        private void OnMouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
-        {
+        private void OnMouseLeave(object sender, System.Windows.Input.MouseEventArgs e) {
             if (sender is System.Windows.Controls.Control component)
                 component.Cursor = null;
         }
 
-        private bool MountainIsChecked()
-        {
-            return (bool)RBMountain.IsChecked;
+        private bool MountainIsChecked() {
+            return (bool) RBMountain.IsChecked;
         }
 
-        private bool AsphaltIsChecked()
-        {
-            return (bool)RBAsphalt.IsChecked;
+        private bool AsphaltIsChecked() {
+            return (bool) RBAsphalt.IsChecked;
         }
 
         private void CalculateDesnivel() {
@@ -106,40 +96,35 @@ namespace Ui.Main.Pages.Competitions
 
 
 
-            double cant= (Double.Parse(DPos.Text) - Double.Parse(DNeg.Text));
+            double cant = (Double.Parse(DPos.Text) - Double.Parse(DNeg.Text));
             DTotal.Text = cant.ToString();
 
         }
 
-        private void CheckBox_OnClick(object sender, RoutedEventArgs e)
-        {
+        private void CheckBox_OnClick(object sender, RoutedEventArgs e) {
             if (MountainIsChecked())
-            
-                GridMountain.Visibility = Visibility.Visible;               
-            
+
+                GridMountain.Visibility = Visibility.Visible;
+
             else
                 GridMountain.Visibility = Visibility.Collapsed;
         }
-        
-        private void DPos_LostFocus(object sender, RoutedEventArgs e)
-        {
+
+        private void DPos_LostFocus(object sender, RoutedEventArgs e) {
             if (!DPos.IsFocused)
                 CalculateDesnivel();
         }
 
-        private void DNeg_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if(!DNeg.IsFocused)
-            CalculateDesnivel();
+        private void DNeg_LostFocus(object sender, RoutedEventArgs e) {
+            if (!DNeg.IsFocused)
+                CalculateDesnivel();
         }
 
-        private void ComboBox_Initialized(object sender, EventArgs e)
-        { 
-            
-            list= _serviceCompCat.SelectAllCategories();
+        private void ComboBox_Initialized(object sender, EventArgs e) {
 
-            foreach (var c in list)
-            {
+            list = _serviceCompCat.SelectAllCategories();
+
+            foreach (var c in list) {
 
                 Categories.SelectionMode = SelectionMode.Single;
                 Categories.Items.Add(c);
@@ -147,40 +132,34 @@ namespace Ui.Main.Pages.Competitions
 
         }
 
-        private void BtModificar_Click(object sender, RoutedEventArgs e)
-        {
-            if (Categories.SelectedItem != null)
-            {
-                CategoriesDialog catD = new CategoriesDialog((AbsoluteCategory)Categories.SelectedItem, absolutes);
+        private void BtModificar_Click(object sender, RoutedEventArgs e) {
+            if (Categories.SelectedItem != null) {
+                CategoriesDialog catD = new CategoriesDialog((AbsoluteCategory) Categories.SelectedItem, absolutes);
                 catD.ShowDialog();
-                this.absolutes = catD.absolutes;                
+                this.absolutes = catD.absolutes;
                 Categories.Items.Refresh();
-                
+
             }
         }
-        private void BtReset_Click(object sender, RoutedEventArgs e)
-        {
+        private void BtReset_Click(object sender, RoutedEventArgs e) {
             list = _serviceCompCat.SelectAllCategories();
 
             Categories.Items.Clear();
-            
-            foreach (var c in list)
-            {
+
+            foreach (var c in list) {
                 Categories.SelectionMode = SelectionMode.Single;
                 Categories.Items.Add(c);
             }
         }
 
-        private void BtPlazo_Click(object sender, RoutedEventArgs e)
-        {
-            
-            if (Plazos_list.SelectedItem == null)
-            {
+        private void BtPlazo_Click(object sender, RoutedEventArgs e) {
+
+            if (Plazos_list.SelectedItem == null) {
                 try {
                     InscriptionDatesDto plazos = new InscriptionDatesDto {
                         FechaInicio = (DateTime) InicioPlazo.SelectedDate,
                         FechaFin = (DateTime) FinPlazo.SelectedDate,
-                        
+
                     };
                     if (PrecioInscripcion.Text == "")
                         plazos.precio = 0;
@@ -194,62 +173,50 @@ namespace Ui.Main.Pages.Competitions
                     PrecioInscripcion.Text = null;
                     InicioPlazo.IsEnabled = false;
                     FinPlazo.DisplayDateStart = InicioPlazo.SelectedDate;
-                } catch(Exception) {} 
+                } catch (Exception) { }
 
             }
         }
-        private void InicioPlazo_GotFocus(object sender, RoutedEventArgs e)
-        {
-             FinPlazo.SelectedDate = null;
-             FinPlazo.DisplayDateStart = InicioPlazo.SelectedDate;
-           
+        private void InicioPlazo_GotFocus(object sender, RoutedEventArgs e) {
+            FinPlazo.SelectedDate = null;
+            FinPlazo.DisplayDateStart = InicioPlazo.SelectedDate;
+
         }
 
-        private void InicioPlazo_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (InicioPlazo.SelectedDate != null)
-            {
+        private void InicioPlazo_LostFocus(object sender, RoutedEventArgs e) {
+            if (InicioPlazo.SelectedDate != null) {
                 FinPlazo.IsEnabled = true;
                 FinPlazo.DisplayDateStart = InicioPlazo.SelectedDate;
             }
         }
 
-        private void BtRefund_Click(object sender, RoutedEventArgs e)
-        {
-            if (Plazos_list.Items.Count > 0 && FechaCompeticion.SelectedDate!=null)
-            {
+        private void BtRefund_Click(object sender, RoutedEventArgs e) {
+            if (Plazos_list.Items.Count > 0 && FechaCompeticion.SelectedDate != null) {
                 InscriptionDatesDto nuevo = new InscriptionDatesDto();
-                nuevo = (InscriptionDatesDto)Plazos_list.Items.GetItemAt(0);
-                nuevo.FechaFin = (DateTime)FechaCompeticion.SelectedDate;
+                nuevo = (InscriptionDatesDto) Plazos_list.Items.GetItemAt(0);
+                nuevo.FechaFin = (DateTime) FechaCompeticion.SelectedDate;
                 RefundDialog refunds = new RefundDialog(nuevo);
                 refunds.ShowDialog();
                 refundsList = refunds.refunds;
-            }
-
-            else
-            {
+            } else {
                 MessageBox.Show("Por favor, introduzca primero los plazos de inscripción y la fecha de competición");
                 return;
             }
 
         }
 
-        private void FechaCompeticion_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (FechaCompeticion.SelectedDate != null && FechaCompeticion.Text != "")
-            {
+        private void FechaCompeticion_LostFocus(object sender, RoutedEventArgs e) {
+            if (FechaCompeticion.SelectedDate != null && FechaCompeticion.Text != "") {
                 InicioPlazo.IsEnabled = true;
                 InicioPlazo.DisplayDateStart = DateTime.Now;
                 InicioPlazo.DisplayDateEnd = FechaCompeticion.SelectedDate;
                 FinPlazo.DisplayDateEnd = FechaCompeticion.SelectedDate;
-            }            
-            else
+            } else
                 InicioPlazo.IsEnabled = false;
 
         }
 
-        private void BtBorrar_Click(object sender, RoutedEventArgs e)
-        {
+        private void BtBorrar_Click(object sender, RoutedEventArgs e) {
             Plazos_list.Items.Clear();
             InicioPlazo.SelectedDate = null;
             FinPlazo.SelectedDate = null;
@@ -258,7 +225,7 @@ namespace Ui.Main.Pages.Competitions
             InicioPlazo.DisplayDateStart = DateTime.Now;
 
         }
-       
+
         private void OnMouseEnter(object sender, MouseEventArgs e) {
             if (sender is Control component)
                 component.Cursor = Cursors.Hand;
@@ -275,65 +242,53 @@ namespace Ui.Main.Pages.Competitions
             if (sender is Control component)
                 component.Cursor = null;
         }
-        private void BtAdd_Click(object sender, RoutedEventArgs e)
-        {
+        private void BtAdd_Click(object sender, RoutedEventArgs e) {
 
-          if (CheckAll())
-                   {
+            if (CheckAll()) {
 
-                  _competition.Date = (DateTime)FechaCompeticion.SelectedDate;
-                if (!Double.TryParse(Km.Text, out _competition.Km) || Double.Parse(Km.Text) < 0)
-                {
+                _competition.Date = (DateTime) FechaCompeticion.SelectedDate;
+                if (!Double.TryParse(Km.Text, out _competition.Km) || Double.Parse(Km.Text) < 0) {
                     MessageBox.Show("Por favor, introduzca un número de km válido.");
                     return;
                 }
-                
-                  _competition.Name = Nombre.Text;
-                if (!int.TryParse(Hitos.Text, out _competition.NumberMilestone) || int.Parse(Hitos.Text)<0)
-                {
+
+                _competition.Name = Nombre.Text;
+                if (!int.TryParse(Hitos.Text, out _competition.NumberMilestone) || int.Parse(Hitos.Text) < 0) {
                     MessageBox.Show("Por favor, introduzca un número de hitos válido.");
                     return;
                 }
-                if (MountainIsChecked())
-                  {
+                if (MountainIsChecked()) {
                     _competition.Type = TypeCompetition.Mountain;
-                      _competition.Slope = Double.Parse(DTotal.Text);
-                  }
-                  else
-                  {
-                      _competition.Type = TypeCompetition.Asphalt;
-                  }
+                    _competition.Slope = Double.Parse(DTotal.Text);
+                } else {
+                    _competition.Type = TypeCompetition.Asphalt;
+                }
 
-                if (!int.TryParse(NumeroPlazas.Text, out _competition.NumberPlaces) || int.Parse(NumeroPlazas.Text) < 0)
-                {
+                if (!int.TryParse(NumeroPlazas.Text, out _competition.NumberPlaces) || int.Parse(NumeroPlazas.Text) < 0) {
                     MessageBox.Show("Por favor, introduzca un número de plazas válido.");
                     return;
                 }
-               
-                  _competition.Rules = bytes;
-                  _competition.Status = "OPEN";
+
+                _competition.Rules = bytes;
+                _competition.Status = "OPEN";
 
                 //METER CATEGORIAS 
-                
 
-                    for (int i = 0; i < Categories.Items.Count-1; i++) {
 
-                        AbsoluteCategory a = Categories.Items.GetItemAt(i) as AbsoluteCategory;
-                        AbsoluteCategory b = Categories.Items.GetItemAt(i+1) as AbsoluteCategory;
+                for (int i = 0; i < Categories.Items.Count - 1; i++) {
 
-                        if (a.CategoryF.MaxAge != (b.CategoryF.MinAge)-1)
-                        {
-                            MessageBox.Show("Por favor, compruebe que no queda ningún tramo de edades sin incorporar para la competición.");
-                            return;
-                        }
-                                               
-                        else if (a.CategoryM.MaxAge != (b.CategoryM.MinAge) - 1)
-                        {
-                            MessageBox.Show("Por favor, compruebe que no queda ningún tramo de edades sin incorporar para la competición.");
-                            return;
-                        }
+                    AbsoluteCategory a = Categories.Items.GetItemAt(i) as AbsoluteCategory;
+                    AbsoluteCategory b = Categories.Items.GetItemAt(i + 1) as AbsoluteCategory;
 
+                    if (a.CategoryF.MaxAge != (b.CategoryF.MinAge) - 1) {
+                        MessageBox.Show("Por favor, compruebe que no queda ningún tramo de edades sin incorporar para la competición.");
+                        return;
+                    } else if (a.CategoryM.MaxAge != (b.CategoryM.MinAge) - 1) {
+                        MessageBox.Show("Por favor, compruebe que no queda ningún tramo de edades sin incorporar para la competición.");
+                        return;
                     }
+
+                }
 
                 foreach (AbsoluteCategory c in Categories.Items) //modificar las categorias que te devuelve el dialogo no el listbox
                 {
@@ -347,63 +302,58 @@ namespace Ui.Main.Pages.Competitions
                 _serviceComp.AddCompetition(_competition);
                 _competition.ID = _serviceComp.GetIdCompetition(_competition);
                 _serviceEnroll = new EnrollService(_competition);
-                foreach (AbsoluteCategory c in Categories.Items)
-                {
+                foreach (AbsoluteCategory c in Categories.Items) {
                     CategoryDto idm = _serviceCategories.GetCategory(c.CategoryM);
                     CategoryDto idf = _serviceCategories.GetCategory(c.CategoryF);
-                    AbsoluteCategory nueva = new AbsoluteCategory
-                    {
+                    AbsoluteCategory nueva = new AbsoluteCategory {
                         Name = c.Name,
                         CategoryF = idf,
                         CategoryM = idm
                     };
 
                     _serviceCategories.AddAbsoluteCategory(nueva);
-                   long id = _serviceComp.GetIdAbsolute(nueva);
-                   
+                    long id = _serviceComp.GetIdAbsolute(nueva);
+
                     _serviceEnroll.EnrollAbsoluteCompetition(_competition.ID, id);
 
                 }
-                
-                
+
+
                 //vincular refunds y competicion
-                foreach (var c in refundsList)
-                {
-                    _serviceEnroll.EnrollRefundsCompetition(_competition.ID, c.date_refund, c.refund/100);
+                foreach (var c in refundsList) {
+                    _serviceEnroll.EnrollRefundsCompetition(_competition.ID, c.date_refund, c.refund / 100);
                 }
 
-                
+
                 //METER PLAZOS en inscription dates
 
                 foreach (InscriptionDatesDto p in Plazos_list.Items)
-                  _serviceComp.AddInscriptionDate(p, _competition);
+                    _serviceComp.AddInscriptionDate(p, _competition);
 
 
-               
 
-                       MessageBox.Show("Competicion agregada correctamente.");
 
-           }
+                MessageBox.Show("Competicion agregada correctamente.");
 
-           else
+            } else
                 MessageBox.Show("Por favor, revise que todos los campos se han introducido correctamente");
-                return;
+            return;
         }
 
 
         private bool CheckAll() {
-         
-            if (FechaCompeticion.SelectedDate == null | Km.Text == ("")   || Nombre.Text == ("") ||
-                (!MountainIsChecked() && !AsphaltIsChecked()) || (MountainIsChecked() && DTotal.Text == ("")) || NumeroPlazas.Text == ("") 
-                  || Plazos_list.Items.IsEmpty || refundsList.Count<=0 )
+
+            if (FechaCompeticion.SelectedDate == null | Km.Text == ("") || Nombre.Text == ("") ||
+                (!MountainIsChecked() && !AsphaltIsChecked()) || (MountainIsChecked() && DTotal.Text == ("")) || NumeroPlazas.Text == ("")
+                  || Plazos_list.Items.IsEmpty || refundsList.Count <= 0)
                 return false;
 
-            
+
 
             return true;
 
         }
 
-        
+
     }
 }

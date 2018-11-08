@@ -9,14 +9,14 @@ using Logic.Db.Connection;
 using Logic.Db.Dto;
 
 namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
-    public class IsCategoryInCompetitionLogic : IActionObject{
+    public class IsCategoryInCompetitionLogic : IActionObject {
 
         private readonly DBConnection _conn;
         private readonly CompetitionDto _competition;
         private readonly AthleteDto _athlete;
         public bool IsCorrect;
 
-        public  IsCategoryInCompetitionLogic(ref DBConnection conn, CompetitionDto competitionP, AthleteDto athlete) {
+        public IsCategoryInCompetitionLogic(ref DBConnection conn, CompetitionDto competitionP, AthleteDto athlete) {
             _conn = conn;
             _competition = competitionP;
             _athlete = athlete;
@@ -54,7 +54,7 @@ namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
                 _conn.DbConnection?.Close();
                 throw;
             }
-            
+
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Unit.Logic.Db {
                 BirthDate = new DateTime(2010, 09, 11),
                 Gender = AthleteDto.MALE
             };
-            
+
             AthletesService service = new AthletesService();
             AthletesService.PrintAthletes(service.SelectAthleteTable());
         }

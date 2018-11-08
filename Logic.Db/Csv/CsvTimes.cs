@@ -14,18 +14,17 @@ namespace Logic.Db.Csv {
         protected override IEnumerable<CsvObject> CreateObjects(IEnumerable<string[]> lines) {
             _times = new List<PartialTimesObjects>();
             IEnumerable<string[]> enumerable = lines as string[][] ?? lines.ToArray();
-            for (int row = 0; row < enumerable.Count(); row++) 
-            {
-                
+            for (int row = 0; row < enumerable.Count(); row++) {
+
 
                 long[] times = new long[enumerable.ElementAt(row).Length - 2];
                 for (int i = 2; i < enumerable.ElementAt(row).Length; i++) {
                     try {
-                        times[i-2] = long.Parse(enumerable.ElementAt(row)[i]);
+                        times[i - 2] = long.Parse(enumerable.ElementAt(row)[i]);
                     } catch (FormatException) {
                         times[i - 2] = 0;
                     }
-                    
+
                 }
                 try {
                     PartialTimesObjects partial = new PartialTimesObjects() {

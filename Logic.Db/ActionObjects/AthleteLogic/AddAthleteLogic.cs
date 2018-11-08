@@ -21,7 +21,7 @@ namespace Logic.Db.ActionObjects.AthleteLogic {
                     command.Parameters.AddWithValue("@NAME", _athleteAdd.Name);
                     command.Parameters.AddWithValue("@SURNAME", _athleteAdd.Surname);
                     command.Parameters.AddWithValue("@BIRTH_DATE", _athleteAdd.BirthDate.ToString("yyyy-MM-dd"));
-                    command.Parameters.AddWithValue("@GENDER", new string((char)_athleteAdd.Gender, 1));
+                    command.Parameters.AddWithValue("@GENDER", new string((char) _athleteAdd.Gender, 1));
                     command.ExecuteNonQuery();
                 }
             } catch (SQLiteException) {

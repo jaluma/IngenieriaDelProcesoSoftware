@@ -16,13 +16,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Ui.Main.Pages.Inscriptions
-{
+namespace Ui.Main.Pages.Inscriptions {
     /// <summary>
     /// Lógica de interacción para CancelInscriptionPage.xaml
     /// </summary>
-    public partial class CancelInscriptionPage : Page
-    {
+    public partial class CancelInscriptionPage : Page {
         public static string Dni;
 
         private readonly EnrollService _enrollService;
@@ -35,16 +33,14 @@ namespace Ui.Main.Pages.Inscriptions
         private List<double> _refunds;
         private List<string> _status;
 
-        public CancelInscriptionPage()
-        {
+        public CancelInscriptionPage() {
             _enrollService = new EnrollService(null);
             _athletesService = new AthletesService();
             _competitionService = new CompetitionService();
             InitializeComponent();
         }
 
-        private void PlaceData()
-        {
+        private void PlaceData() {
             TxDni.Text = _athlete.Dni;
             LbNameSurname.Content = _athlete.Name + " " + _athlete.Surname;
             LbBirthDate.Content = _athlete.BirthDate.ToShortDateString();
@@ -54,51 +50,42 @@ namespace Ui.Main.Pages.Inscriptions
                 LbGender.Content = Properties.Resources.Woman;
         }
 
-        private void LoadData(string dni)
-        {
+        private void LoadData(string dni) {
             List<AthleteDto> atleList = _athletesService.SelectAthleteTable();
 
-            if (dni != null)
-            {
-                try
-                {
+            if (dni != null) {
+                try {
                     _athlete = atleList.First(a => a.Dni.ToUpper().Equals(dni.ToUpper()));
 
                     PlaceData();
 
                     GetListCompetition();
 
-                }
-                catch (InvalidOperationException) { }
+                } catch (InvalidOperationException) { }
             }
 
         }
 
-        private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
-        {
+        private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e) {
             if (e.PropertyType == typeof(System.DateTime))
-                ((DataGridTextColumn)e.Column).Binding.StringFormat = "dd/MM/yyyy";
+                ((DataGridTextColumn) e.Column).Binding.StringFormat = "dd/MM/yyyy";
 
             if (e.PropertyType == typeof(double)) {
                 ((DataGridTextColumn) e.Column).Binding.StringFormat = "{0:P2}";
             }
         }
 
-        private void TxDni_TextChanged(object sender, TextChangedEventArgs e)
-        {
+        private void TxDni_TextChanged(object sender, TextChangedEventArgs e) {
             LoadData(TxDni.Text);
         }
 
-        private void CancelInscription_OnLoaded(object sender, RoutedEventArgs e)
-        {
-            if (_athlete == null || _athlete.Dni == null || Dni == null || !Dni.Equals(_athlete.Dni))
-            {
+        private void CancelInscription_OnLoaded(object sender, RoutedEventArgs e) {
+            if (_athlete == null || _athlete.Dni == null || Dni == null || !Dni.Equals(_athlete.Dni)) {
                 LoadData(Dni);
             }
         }
 
-        private void GetListCompetition()
-        {
+        private void GetListCompetition() {
             DataTable table = _enrollService.NotCanceledInscriptions(_athlete.Dni);
             table.Columns[0].ColumnName = Properties.Resources.Competition_Id;
             table.Columns[1].ColumnName = Properties.Resources.Competition_Name;
@@ -120,27 +107,22 @@ namespace Ui.Main.Pages.Inscriptions
                 CompetitionsToCancel.ItemsSource = table.DefaultView;
         }
 
-        private void CompetitionsToCancel_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        private void CompetitionsToCancel_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             int indexSeletected = CompetitionsToCancel.SelectedIndex;
 
-            if (indexSeletected != -1)
-            {
-                _competition = new CompetitionDto()
-                {
-                    ID = (int)_columnIds[indexSeletected]
+            if (indexSeletected != -1) {
+                _competition = new CompetitionDto() {
+                    ID = (int) _columnIds[indexSeletected]
                 };
             }
         }
 
-        private void BtCancel_Click(object sender, RoutedEventArgs e)
-        {
-            if (CompetitionsToCancel.SelectedItem == null)
-            {
+        private void BtCancel_Click(object sender, RoutedEventArgs e) {
+            if (CompetitionsToCancel.SelectedItem == null) {
                 MessageBox.Show(Properties.Resources.NothingSelected);
                 return;
             }
-            
+
             MessageBox.Show(Properties.Resources.InscriptionCanceled + " " + CalcularDevolucion() + "€");
             _enrollService.UpdateInscriptionStatus(_athlete.Dni, _competition.ID, "CANCELED");
 
@@ -148,8 +130,7 @@ namespace Ui.Main.Pages.Inscriptions
             GetListCompetition();
         }
 
-        private double CalcularDevolucion()
-        {
+        private double CalcularDevolucion() {
             int index = CompetitionsToCancel.SelectedIndex;
             if (_status[index] != "REGISTERED")
                 return 0;

@@ -8,7 +8,7 @@ using Logic.Db.Csv.Object;
 using Logic.Db.Dto;
 
 namespace Logic.Db.Util.Services {
-    public class TimesService  : ServiceAdapter {
+    public class TimesService : ServiceAdapter {
 
         public DataTable SelectCompetitionTimes(CompetitionDto competition) {
             SelectHasParticipatedTimeLogic selectCompetition = new SelectHasParticipatedTimeLogic(ref _conn, competition);

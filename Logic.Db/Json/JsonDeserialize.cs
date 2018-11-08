@@ -28,16 +28,14 @@ namespace Logic.Db.Json {
         }
 
         public IEnumerable<T> ListJson() {
-            using (StreamReader file = File.OpenText(_fileName))
-            {
+            using (StreamReader file = File.OpenText(_fileName)) {
                 return JsonConvert.DeserializeObject<List<T>>(file.ReadToEnd());
             }
         }
 
         public void Serialize(IEnumerable<T> list) {
-            using (StreamWriter file = File.CreateText(_fileName))
-            {
-                _serializer.Serialize(file, list);   
+            using (StreamWriter file = File.CreateText(_fileName)) {
+                _serializer.Serialize(file, list);
             }
         }
     }

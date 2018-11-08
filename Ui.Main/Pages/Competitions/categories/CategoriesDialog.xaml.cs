@@ -15,13 +15,11 @@ using System.Windows.Shapes;
 using System.Windows;
 using Logic.Db.Dto;
 
-namespace Ui.Main.Pages.Competitions.categories
-{
+namespace Ui.Main.Pages.Competitions.categories {
     /// <summary>
     /// Lógica de interacción para NewCategoriesDialog.xaml
     /// </summary>
-    public partial class CategoriesDialog : ModernDialog
-    {
+    public partial class CategoriesDialog : ModernDialog {
 
         public AbsoluteCategory cat = new AbsoluteCategory();
         public CategoryDto femenino = new CategoryDto();
@@ -31,26 +29,23 @@ namespace Ui.Main.Pages.Competitions.categories
         public int nuevoF;
 
 
-        public CategoriesDialog(AbsoluteCategory category, List<AbsoluteCategory> absolutes)
-        {
+        public CategoriesDialog(AbsoluteCategory category, List<AbsoluteCategory> absolutes) {
             InitializeComponent();
             this.cat = category;
             this.absolutes = absolutes;
             Nombre.Text = category.Name;
-           
+
             DesdeF.Text = category.CategoryF.MinAge.ToString();
             HastaF.Text = category.CategoryF.MaxAge.ToString();
             DesdeM.Text = category.CategoryM.MinAge.ToString();
             HastaM.Text = category.CategoryM.MaxAge.ToString();
-            
-            
-            
+
+
+
         }
 
-        private void BtNueva_Click(object sender, RoutedEventArgs e)
-        {
-            if (int.Parse(DesdeF.Text)> int.Parse(HastaF.Text) || int.Parse(DesdeM.Text)> int.Parse(HastaM.Text))
-            {
+        private void BtNueva_Click(object sender, RoutedEventArgs e) {
+            if (int.Parse(DesdeF.Text) > int.Parse(HastaF.Text) || int.Parse(DesdeM.Text) > int.Parse(HastaM.Text)) {
                 MessageBox.Show("Edades incoherentes");
                 return;
             }
@@ -71,20 +66,19 @@ namespace Ui.Main.Pages.Competitions.categories
             absolutes.Add(cat);
 
             Close();
-                                           
+
         }
 
-        private void HastaF_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if(HastaF.Text=="")
+        private void HastaF_LostFocus(object sender, RoutedEventArgs e) {
+            if (HastaF.Text == "")
                 HastaF.Text = cat.CategoryF.MaxAge.ToString();
-            if(DesdeF.Text=="")
+            if (DesdeF.Text == "")
                 DesdeF.Text = cat.CategoryF.MinAge.ToString();
-            if(HastaM.Text=="")
+            if (HastaM.Text == "")
                 HastaM.Text = cat.CategoryM.MaxAge.ToString();
             if (DesdeM.Text == "")
                 DesdeM.Text = cat.CategoryM.MinAge.ToString();
         }
     }
-    }
+}
 

@@ -21,8 +21,7 @@ using Cursors = System.Windows.Input.Cursors;
 using MessageBox = System.Windows.MessageBox;
 using MouseEventArgs = System.Windows.Input.MouseEventArgs;
 
-namespace Ui.Main.Pages.Inscriptions.HasRegistered
-{
+namespace Ui.Main.Pages.Inscriptions.HasRegistered {
     /// <summary>
     /// Lógica de interacción para AddDorsalsAndRegisteredInCompetition.xaml
     /// </summary>
@@ -33,8 +32,7 @@ namespace Ui.Main.Pages.Inscriptions.HasRegistered
         private DataTable _table;
         private List<int> _ids;
 
-        public Dorsals()
-        {
+        public Dorsals() {
             InitializeComponent();
 
             _competitionService = new CompetitionService();
@@ -75,7 +73,7 @@ namespace Ui.Main.Pages.Inscriptions.HasRegistered
             try {
                 bool dorsals = _enroll.IsDorsalsInCompetition(_competition);
 
-                MessageBoxResult  result = MessageBoxResult.None;
+                MessageBoxResult result = MessageBoxResult.None;
                 if (dorsals) {
                     string message = "¿Quiere sobreescribir los dorsales?";
                     result = MessageBox.Show(message, "Error", MessageBoxButton.YesNo);
@@ -86,7 +84,7 @@ namespace Ui.Main.Pages.Inscriptions.HasRegistered
                     _enroll.UpdateAthleteRegisteredDorsal(_competition);
                 }
 
-                
+
 
                 GenerateTable();
 
@@ -105,10 +103,9 @@ namespace Ui.Main.Pages.Inscriptions.HasRegistered
             GenerateTable();
         }
 
-        private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
-        {
+        private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e) {
             if (e.PropertyType == typeof(System.DateTime))
-                ((System.Windows.Controls.DataGridTextColumn)e.Column).Binding.StringFormat = "dd/MM/yyyy";
+                ((System.Windows.Controls.DataGridTextColumn) e.Column).Binding.StringFormat = "dd/MM/yyyy";
         }
     }
 }

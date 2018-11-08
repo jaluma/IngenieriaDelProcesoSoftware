@@ -13,7 +13,7 @@ namespace Logic.Db.Dto {
 
         public override string ToString() {
 
-            if (CategoryF.MaxAge > 100 && CategoryM.MaxAge>100)
+            if (CategoryF.MaxAge > 100 && CategoryM.MaxAge > 100)
 
                 return Name + "_" + CategoryF.Gender + " (" + CategoryF.MinAge + "-SIN LIMITE) "
             + Name + "_" + CategoryM.Gender + " (" + CategoryM.MinAge + "-SIN LIMITE) ";
@@ -33,17 +33,17 @@ namespace Logic.Db.Dto {
                 return Name + "_" + CategoryF.Gender + " (" + CategoryF.MinAge + "-" + CategoryF.MaxAge + ") "
                      + Name + "_" + CategoryM.Gender + " (" + CategoryM.MinAge + ") ";
 
-            if (CategoryF.MaxAge>100)
+            if (CategoryF.MaxAge > 100)
 
-           return Name+ "_"+ CategoryF.Gender+ " (" + CategoryF.MinAge+ "-SIN LIMITE) "
-            + Name + "_" + CategoryM.Gender + " (" + CategoryM.MinAge + "-" + CategoryM.MaxAge + ") ";
+                return Name + "_" + CategoryF.Gender + " (" + CategoryF.MinAge + "-SIN LIMITE) "
+                 + Name + "_" + CategoryM.Gender + " (" + CategoryM.MinAge + "-" + CategoryM.MaxAge + ") ";
 
             if (CategoryM.MaxAge > 100)
 
                 return Name + "_" + CategoryF.Gender + " (" + CategoryF.MinAge + "-" + CategoryF.MaxAge + ") "
-                     + Name + "_" + CategoryM.Gender + " (" + CategoryM.MinAge +"-SIN LIMITE) ";
+                     + Name + "_" + CategoryM.Gender + " (" + CategoryM.MinAge + "-SIN LIMITE) ";
 
-           else
+            else
 
                 return Name + "_" + CategoryF.Gender + " (" + CategoryF.MinAge + "-" + CategoryF.MaxAge + ") "
                      + Name + "_" + CategoryM.Gender + " (" + CategoryM.MinAge + "-" + CategoryM.MaxAge + ") ";

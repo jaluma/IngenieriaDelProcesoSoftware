@@ -45,14 +45,12 @@ namespace Logic.Db.Util.Services {
             return isCategory.IsCorrect;
         }
 
-        public void InsertAthleteInCompetition(AthleteDto athlete, CompetitionDto competition)
-        {
+        public void InsertAthleteInCompetition(AthleteDto athlete, CompetitionDto competition) {
             InsertAthletesInCompetitionLogic insertAthletesInCompetition = new InsertAthletesInCompetitionLogic(ref _conn, athlete, competition);
             insertAthletesInCompetition.Execute();
         }
 
-        public string GetCategory(AthleteDto athlete, CompetitionDto competition)
-        {
+        public string GetCategory(AthleteDto athlete, CompetitionDto competition) {
             GetCategoryLogic getCategory = new GetCategoryLogic(ref _conn, competition, athlete);
             getCategory.Execute();
             return getCategory.Category;
@@ -64,33 +62,28 @@ namespace Logic.Db.Util.Services {
             return dorsals.IsDorsals;
         }
 
-        public List<PaymentDto> SelectPreregisteredAthletes()
-        {
+        public List<PaymentDto> SelectPreregisteredAthletes() {
             SelectPreregisteredAthletes select = new SelectPreregisteredAthletes(ref _conn);
             select.Execute();
             return select.Preregistered;
         }
 
-        public void UpdateInscriptionStatus(string dni, long id, string status)
-        {
+        public void UpdateInscriptionStatus(string dni, long id, string status) {
             UpdateInscriptionStatus update = new UpdateInscriptionStatus(ref _conn, dni, id, status);
             update.Execute();
         }
 
-        public void EnrollCompetitionDates(long id, InscriptionDatesDto date)
-        {
+        public void EnrollCompetitionDates(long id, InscriptionDatesDto date) {
             EnrollDatesCompetition enroll = new EnrollDatesCompetition(ref _conn, id, date);
             enroll.Execute();
         }
 
-        public void EnrollAbsoluteCompetition(long id, long date)
-        {
+        public void EnrollAbsoluteCompetition(long id, long date) {
             EnrollAbsoluteCompetition enroll = new EnrollAbsoluteCompetition(ref _conn, id, date);
             enroll.Execute();
         }
 
-        public void EnrollRefundsCompetition(long id, DateTime date, double refund)
-        {
+        public void EnrollRefundsCompetition(long id, DateTime date, double refund) {
             EnrollRefundsCompetition enroll = new EnrollRefundsCompetition(ref _conn, id, date, refund);
             enroll.Execute();
         }
@@ -101,25 +94,22 @@ namespace Logic.Db.Util.Services {
             return athleteHasParticipated.List;
         }
 
-        public DataTable NotCanceledInscriptions(string dni)
-        {
+        public DataTable NotCanceledInscriptions(string dni) {
             SelectNotCanceledInscriptions select = new SelectNotCanceledInscriptions(ref _conn, dni);
             select.Execute();
             return select.Table;
         }
 
-        public string SelectStatusEnroll(string dni)
-        {
+        public string SelectStatusEnroll(string dni) {
             SelectStatusEnroll status = new SelectStatusEnroll(ref _conn, _competition, dni);
             status.Execute();
             return status.Return;
         }
 
-        public void InsertHasRegisteredTimes(string dni, long time)
-        {
+        public void InsertHasRegisteredTimes(string dni, long time) {
             UpdateHasRegisteredTimes update = new UpdateHasRegisteredTimes(ref _conn, dni, _competition.ID, time);
             update.Execute();
         }
-        
+
     }
 }

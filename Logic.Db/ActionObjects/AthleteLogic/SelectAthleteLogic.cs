@@ -18,7 +18,7 @@ namespace Logic.Db.ActionObjects.AthleteLogic {
             try {
                 using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_ATHLETE, _conn.DbConnection)) {
                     using (SQLiteDataReader reader = command.ExecuteReader()) {
-                        
+
                         while (reader.Read()) {
                             AthleteDto athlete = new AthleteDto() {
                                 Dni = reader.GetString(0),

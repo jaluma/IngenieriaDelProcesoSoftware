@@ -24,13 +24,11 @@ using Button = System.Windows.Forms.Button;
 using DataGridTextColumn = FirstFloor.ModernUI.Windows.Controls.DataGridTextColumn;
 using MouseEventArgs = System.Windows.Forms.MouseEventArgs;
 
-namespace Ui.Main.Pages.Competitions
-{
+namespace Ui.Main.Pages.Competitions {
     /// <summary>
     /// Lógica de interacción para ListOpenCompetition.xaml
     /// </summary>
-    public partial class ListOpenCompetition : Page
-    {
+    public partial class ListOpenCompetition : Page {
         private CompetitionService _service;
         private List<long> _columnIds;
         byte[] bytes;
@@ -81,23 +79,19 @@ namespace Ui.Main.Pages.Competitions
 
             int indexSeletected = DataGridCompetition.SelectedIndex;
 
-            int id = (int)_columnIds[indexSeletected];
+            int id = (int) _columnIds[indexSeletected];
 
-            CompetitionDto competition = new CompetitionDto()
-                { ID = id};
+            CompetitionDto competition = new CompetitionDto() { ID = id };
 
             CompetitionService service = new CompetitionService();
             bytes = service.GetRules(competition);
 
-            if (bytes != null)
-            {
-                using(var fbd = new FolderBrowserDialog())
-                {
+            if (bytes != null) {
+                using (var fbd = new FolderBrowserDialog()) {
                     DialogResult result = fbd.ShowDialog();
 
-                    if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-                    {
-                        string path= fbd.SelectedPath;
+                    if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath)) {
+                        string path = fbd.SelectedPath;
                         CompetitionService service1 = new CompetitionService();
                         string nombre = service1.SearchCompetitionById(competition).Name;
                         string filename = $"Reglamento de {nombre}.pdf";
@@ -122,18 +116,15 @@ namespace Ui.Main.Pages.Competitions
 
         }
 
-        private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
-        {
+        private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e) {
             if (e.PropertyType == typeof(System.DateTime))
-                ((System.Windows.Controls.DataGridTextColumn)e.Column).Binding.StringFormat = "dd/MM/yyyy";
+                ((System.Windows.Controls.DataGridTextColumn) e.Column).Binding.StringFormat = "dd/MM/yyyy";
         }
-        private void DataGridCompetition_OnMouseEnter(object sender, MouseEventArgs e)
-        {
+        private void DataGridCompetition_OnMouseEnter(object sender, MouseEventArgs e) {
             DataGridCompetition.Cursor = System.Windows.Input.Cursors.Hand;
         }
 
-        private void DataGridCompetition_OnMouseLeave(object sender, MouseEventArgs e)
-        {
+        private void DataGridCompetition_OnMouseLeave(object sender, MouseEventArgs e) {
             DataGridCompetition.Cursor = null;
         }
 

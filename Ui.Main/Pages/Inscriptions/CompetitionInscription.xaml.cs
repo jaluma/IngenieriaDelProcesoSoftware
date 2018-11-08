@@ -17,8 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Ui.Main.Pages.Inscriptions.Payment;
 
-namespace Ui.Main.Pages.Inscriptions
-{
+namespace Ui.Main.Pages.Inscriptions {
     /// <summary>
     /// Lógica de interacción para CompetitionSelectionPage.xaml
     /// </summary>
@@ -33,8 +32,7 @@ namespace Ui.Main.Pages.Inscriptions
 
         private List<long> _columnIds;
 
-        public CompetitionInscription()
-        {
+        public CompetitionInscription() {
             _competitionService = new CompetitionService();
             _athletesService = new AthletesService();
             InitializeComponent();
@@ -61,46 +59,40 @@ namespace Ui.Main.Pages.Inscriptions
 
                     GetListCompetition();
 
-                } catch(InvalidOperationException) { }
+                } catch (InvalidOperationException) { }
             }
-            
+
         }
 
-        private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
-        {
+        private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e) {
             if (e.PropertyType == typeof(System.DateTime))
-                ((DataGridTextColumn)e.Column).Binding.StringFormat = "dd/MM/yyyy";
+                ((DataGridTextColumn) e.Column).Binding.StringFormat = "dd/MM/yyyy";
         }
 
-        private void BtFinish_Click(object sender, RoutedEventArgs e)
-        {
-            if (CompetitionsToSelect.SelectedItem == null)
-            {
+        private void BtFinish_Click(object sender, RoutedEventArgs e) {
+            if (CompetitionsToSelect.SelectedItem == null) {
                 MessageBox.Show(Properties.Resources.NothingSelected);
                 return;
             }
-            
+
             try {
                 _competition = _competitionService.ListCompetitionsToInscribeObject(_athlete)
                     .ElementAt(CompetitionsToSelect.SelectedIndex);
                 new DialogPayment(_athlete, _competition).ShowDialog();
                 LoadData(TxDni.Text);
 
-            } catch (ApplicationException)
-            {
+            } catch (ApplicationException) {
                 MessageBox.Show(Properties.Resources.PreviouslyEnrolled);
             }
-            
+
         }
 
-        private void CompetitionsToSelect_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        private void CompetitionsToSelect_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             int indexSeletected = CompetitionsToSelect.SelectedIndex;
 
             if (indexSeletected != -1) {
-                _competition = new CompetitionDto()
-                {
-                    ID = (int)_columnIds[indexSeletected]
+                _competition = new CompetitionDto() {
+                    ID = (int) _columnIds[indexSeletected]
                 };
             }
 
@@ -131,7 +123,7 @@ namespace Ui.Main.Pages.Inscriptions
         }
 
         private void CompetitionSelectionWindow_OnLoaded(object sender, RoutedEventArgs e) {
-            if (_athlete?.Dni == null || Dni==null || !Dni.Equals(_athlete.Dni)) {
+            if (_athlete?.Dni == null || Dni == null || !Dni.Equals(_athlete.Dni)) {
                 LoadData(Dni);
             }
         }

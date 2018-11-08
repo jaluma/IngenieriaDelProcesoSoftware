@@ -7,39 +7,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Logic.Db.ActionObjects.AthleteLogic.Enroll
-{
-    public class GetCategoryLogic : IActionObject
-    {
+namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
+    public class GetCategoryLogic : IActionObject {
         private readonly DBConnection _conn;
         private readonly CompetitionDto _competition;
         private readonly AthleteDto _athlete;
 
-        public string Category
-        {
+        public string Category {
             get; private set;
         }
 
 
-        public GetCategoryLogic(ref DBConnection conn, CompetitionDto competitionP, AthleteDto athlete)
-        {
+        public GetCategoryLogic(ref DBConnection conn, CompetitionDto competitionP, AthleteDto athlete) {
             _conn = conn;
             _competition = competitionP;
             _athlete = athlete;
         }
 
-        public void Execute()
-        {
-            try
-            {
-                using (SQLiteCommand command = new SQLiteCommand(Properties.Resources.SQL_SELECT_CATEGORY_IN_COMPETITION, _conn.DbConnection))
-                {
+        public void Execute() {
+            try {
+                using (SQLiteCommand command = new SQLiteCommand(Properties.Resources.SQL_SELECT_CATEGORY_IN_COMPETITION, _conn.DbConnection)) {
                     command.Parameters.AddWithValue("@DNI", _athlete.Dni);
                     command.Parameters.AddWithValue("@COMPETITION_ID", _competition.ID);
-                    using (SQLiteDataReader reader = command.ExecuteReader())
-                    {
-                        if (!reader.HasRows)
-                        {
+                    using (SQLiteDataReader reader = command.ExecuteReader()) {
+                        if (!reader.HasRows) {
                             throw new SQLiteException();
                         }
 
@@ -48,10 +39,8 @@ namespace Logic.Db.ActionObjects.AthleteLogic.Enroll
                     }
                 }
 
-                
-            }
-            catch (SQLiteException)
-            {
+
+            } catch (SQLiteException) {
                 _conn.DbConnection?.Close();
                 throw;
             }

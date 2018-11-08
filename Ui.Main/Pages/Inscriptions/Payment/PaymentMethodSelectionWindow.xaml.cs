@@ -13,18 +13,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Ui.Main.Pages.Inscriptions.Payment
-{
+namespace Ui.Main.Pages.Inscriptions.Payment {
     /// <summary>
     /// Lógica de interacción para PaymentMethodSelection.xaml
     /// </summary>
-    public partial class PaymentMethodSelectionWindow : Page
-    {
+    public partial class PaymentMethodSelectionWindow : Page {
         private readonly AthleteDto _athlete;
         private readonly CompetitionDto _competition;
 
-        public PaymentMethodSelectionWindow(AthleteDto athlete, CompetitionDto competition)
-        {
+        public PaymentMethodSelectionWindow(AthleteDto athlete, CompetitionDto competition) {
             InitializeComponent();
 
             _athlete = athlete;
@@ -32,10 +29,8 @@ namespace Ui.Main.Pages.Inscriptions.Payment
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if ((bool)RBWireTransfer.IsChecked)
-            {
+        private void Button_Click(object sender, RoutedEventArgs e) {
+            if ((bool) RBWireTransfer.IsChecked) {
                 Window parentWindow = Window.GetWindow(this);
                 if (parentWindow != null)
                     parentWindow.Content = new WireTransferWindow(_athlete, _competition);

@@ -12,14 +12,14 @@ namespace Ui.Main {
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
     public partial class MainWindow : ModernWindow {
-    //public partial class MainWindow : MetroWindow {
+        //public partial class MainWindow : MetroWindow {
         public MainWindow() {
             InitializeComponent();
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
 
             AppearanceManager.Current.AccentColor = Colors.BlueViolet;
             ContentSource = MenuLinkGroups.First().Links.First().Source;
-           
+
         }
     }
 }

@@ -8,26 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using Logic.Db.Dto;
 
-namespace Logic.Db.ActionObjects.CompetitionLogic
-{
-    public class CompetitionsToInscribeLogic : IActionObject
-    {
+namespace Logic.Db.ActionObjects.CompetitionLogic {
+    public class CompetitionsToInscribeLogic : IActionObject {
         private readonly DBConnection _conn;
         public readonly DataTable Table;
         public List<CompetitionDto> Competitions;
         private readonly AthleteDto _athlete;
 
-        public CompetitionsToInscribeLogic(ref DBConnection conn, AthleteDto athlete)
-        {
+        public CompetitionsToInscribeLogic(ref DBConnection conn, AthleteDto athlete) {
             _conn = conn;
             Table = new DataTable();
             _athlete = athlete;
             Competitions = new List<CompetitionDto>();
         }
-        public void Execute()
-        {
-            try
-            {
+        public void Execute() {
+            try {
                 using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_COMPETITION_TO_INSCRIBE, _conn.DbConnection)) {
                     command.Parameters.AddWithValue("@DNI", _athlete.Dni);
                     SQLiteDataAdapter da = new SQLiteDataAdapter(command);
@@ -44,9 +39,7 @@ namespace Logic.Db.ActionObjects.CompetitionLogic
                         }
                     }
                 }
-            }
-            catch (SQLiteException)
-            {
+            } catch (SQLiteException) {
                 _conn.DbConnection?.Close();
                 throw;
             }

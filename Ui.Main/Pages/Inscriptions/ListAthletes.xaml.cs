@@ -4,8 +4,7 @@ using System.Windows.Controls;
 using Logic.Db.Dto;
 using Logic.Db.Util.Services;
 
-namespace Ui.Main.Pages.Inscriptions
-{
+namespace Ui.Main.Pages.Inscriptions {
     /// <summary>
     /// Lógica de interacción para ListAthletes.xaml
     /// </summary>
@@ -16,8 +15,7 @@ namespace Ui.Main.Pages.Inscriptions
         private DataTable _table;
         private List<int> _ids;
 
-        public ListAthletes()
-        {
+        public ListAthletes() {
             InitializeComponent();
 
             _competitionService = new CompetitionService();
@@ -38,8 +36,7 @@ namespace Ui.Main.Pages.Inscriptions
                 CompetitionList.SelectedIndex = 0;
         }
 
-        private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
-        {
+        private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e) {
             if (e.PropertyType == typeof(System.DateTime))
                 ((DataGridTextColumn) e.Column).Binding.StringFormat = "dd/MM/yyyy";
         }

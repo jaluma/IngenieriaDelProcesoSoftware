@@ -46,7 +46,7 @@ namespace Ui.Main.Pages.Competition.Times {
             openFile.ShowDialog();
             _file = openFile.FileName;
 
-            CsvLoader loader = new CsvTimes(new string[] {_file});
+            CsvLoader loader = new CsvTimes(new string[] { _file });
 
             if (loader.Returned is IEnumerable<PartialTimesObjects> objects) {
                 string[] dnis = new string[objects.Count()];
@@ -61,11 +61,11 @@ namespace Ui.Main.Pages.Competition.Times {
                 string notes = "";
                 foreach (PartialTimesObjects times in objects) {
                     try {
-                         _dto = new PartialTimesDto() {
+                        _dto = new PartialTimesDto() {
                             CompetitionDto = new CompetitionService().SearchCompetitionById(new CompetitionDto() {
                                 ID = times.CompetitionId
                             }),
-                            Time =  times.Times
+                            Time = times.Times
 
                         };
 
@@ -76,14 +76,14 @@ namespace Ui.Main.Pages.Competition.Times {
                             new EnrollService(_dto.CompetitionDto).InsertHasRegisteredTimes(dnis[index],
                                 _dto.Time[_dto.Time.Length - 1]);
                             countI++;
-                            
-                        } 
+
+                        }
                         if (!status.Equals("REGISTERED")) {
                             string s = $"El atleta {dnis[index]} no esta registrado. \n";
                             if (notes.Contains(s)) {
                                 notes += s;
                             } else {
-                                notes += $"Linea {index+1}: {s}";
+                                notes += $"Linea {index + 1}: {s}";
                             }
                         }
                         //if (!_dto.CompetitionDto.Status.Equals("FINISH")) {
@@ -93,7 +93,7 @@ namespace Ui.Main.Pages.Competition.Times {
                         //    } else {
                         //        notes += $"Linea {index+1}: {s}";
                         //    }
-                            
+
 
                         //}
                     } catch (InvalidOperationException) {
@@ -104,7 +104,7 @@ namespace Ui.Main.Pages.Competition.Times {
                 }
 
                 if (noInserted.Count > 0) {
-                    MessageBoxResult  result = MessageBoxResult.None;
+                    MessageBoxResult result = MessageBoxResult.None;
                     string message = "¿Quiere sobreescribir los tiempos?";
                     result = MessageBox.Show(message, "Error", MessageBoxButton.YesNo);
 
@@ -117,11 +117,11 @@ namespace Ui.Main.Pages.Competition.Times {
                             countU++;
                         }
 
-                    } 
+                    }
                 }
 
                 PrintInsert(notes, countI, countU);
-                
+
             }
         }
 

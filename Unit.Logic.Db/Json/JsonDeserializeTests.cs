@@ -9,9 +9,9 @@ namespace Unit.Logic.Db.Json {
         [TestMethod()]
         public void GeneratorDefaultCategoriesTest() {
             JsonDeserialize<AbsoluteCategory> json = new JsonDeserialize<AbsoluteCategory>("DefaultCategories.json");
-            string[] categorias = {"JUNIOR", "SENIOR", "VETERAN_A", "VETERAN_B", "VETERAN_C"};
-            int[] agem = {18, 19, 35, 45, 55};
-            int[] ageM = {18, 34, 44, 54, int.MaxValue};
+            string[] categorias = { "JUNIOR", "SENIOR", "VETERAN_A", "VETERAN_B", "VETERAN_C" };
+            int[] agem = { 18, 19, 35, 45, 55 };
+            int[] ageM = { 18, 34, 44, 54, int.MaxValue };
             AbsoluteCategory[] categories = new AbsoluteCategory[categorias.Length];
             for (int i = 0; i < categories.Length; i++) {
                 string str = categorias[i];

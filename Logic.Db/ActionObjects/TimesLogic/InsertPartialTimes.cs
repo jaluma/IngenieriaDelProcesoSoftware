@@ -13,13 +13,13 @@ namespace Logic.Db.ActionObjects.TimesLogic {
         private readonly DBConnection _conn;
         private readonly PartialTimesDto _partial;
         private readonly string _dni;
-       
+
 
         public InsertPartialTimes(ref DBConnection conn, string dni, PartialTimesDto partial) {
             _partial = partial;
             _dni = dni;
             _conn = conn;
-           
+
         }
         public void Execute() {
             SQLiteConnection conn = null;

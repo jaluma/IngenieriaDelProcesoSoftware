@@ -9,7 +9,7 @@ namespace Logic.Db.Csv {
 
         private readonly string[] _fileNamesCsv;
 
-        public IEnumerable<CsvObject>  Returned { get; private set; }
+        public IEnumerable<CsvObject> Returned { get; private set; }
 
         protected CsvLoader(string[] fileNames) {
             _fileNamesCsv = fileNames;
@@ -31,7 +31,7 @@ namespace Logic.Db.Csv {
 
                 Returned = CreateObjects(query);
             }
-            
+
         }
 
         protected abstract IEnumerable<CsvObject> CreateObjects(IEnumerable<String[]> lines);

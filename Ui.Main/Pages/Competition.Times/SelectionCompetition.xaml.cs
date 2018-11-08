@@ -8,8 +8,7 @@ using Logic.Db.Dto;
 using Logic.Db.Util.Services;
 using Ui.Main.Pages.MenuInitial;
 
-namespace Ui.Main.Pages.Competition.Times
-{
+namespace Ui.Main.Pages.Competition.Times {
     /// <summary>
     /// Lógica de interacción para SelectionCompetition.xaml
     /// </summary>
@@ -17,8 +16,7 @@ namespace Ui.Main.Pages.Competition.Times
         private readonly CompetitionService _service;
         private List<long> _columnIds;
 
-        public SelectionCompetition()
-        {
+        public SelectionCompetition() {
             InitializeComponent();
             // change title window
 
@@ -68,10 +66,9 @@ namespace Ui.Main.Pages.Competition.Times
             DataGridCompetition.Cursor = null;
         }
 
-        private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
-        {
+        private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e) {
             if (e.PropertyType == typeof(System.DateTime))
-                ((System.Windows.Controls.DataGridTextColumn)e.Column).Binding.StringFormat = "dd/MM/yyyy";
+                ((System.Windows.Controls.DataGridTextColumn) e.Column).Binding.StringFormat = "dd/MM/yyyy";
         }
     }
 }

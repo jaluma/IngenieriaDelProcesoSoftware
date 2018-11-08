@@ -3,29 +3,23 @@ using System.Data.SQLite;
 using Logic.Db.Connection;
 using Logic.Db.Dto;
 
-namespace Logic.Db.ActionObjects.AthleteLogic
-{
-    public class SelectAthleteByDniLogicObject
-    {
+namespace Logic.Db.ActionObjects.AthleteLogic {
+    public class SelectAthleteByDniLogicObject {
 
         private readonly DBConnection _conn;
         private readonly string _dni;
         public AthleteDto Athlete;
 
 
-        public SelectAthleteByDniLogicObject(ref DBConnection conn, string dni)
-        {
-           _conn = conn;
-           _dni = dni;
+        public SelectAthleteByDniLogicObject(ref DBConnection conn, string dni) {
+            _conn = conn;
+            _dni = dni;
 
         }
 
-        public void Execute()
-        {
-            try
-            {
-                using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_ATHLETE_BY_DNI, _conn.DbConnection))
-                {
+        public void Execute() {
+            try {
+                using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_ATHLETE_BY_DNI, _conn.DbConnection)) {
                     command.Parameters.AddWithValue("@DNI", _dni);
 
                     using (SQLiteDataReader reader = command.ExecuteReader()) {
@@ -43,10 +37,8 @@ namespace Logic.Db.ActionObjects.AthleteLogic
                         }
                     }
 
-                }   
-            }
-            catch (SQLiteException)
-            {
+                }
+            } catch (SQLiteException) {
                 _conn.DbConnection?.Close();
                 throw;
             }

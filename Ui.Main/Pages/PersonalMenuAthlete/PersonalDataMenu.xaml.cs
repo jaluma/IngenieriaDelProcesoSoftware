@@ -20,13 +20,11 @@ using Logic.Db.Util.Services;
 using Logic.Db.Properties;
 
 
-namespace Ui.Main.Pages.PersonalMenuAthlete
-{
+namespace Ui.Main.Pages.PersonalMenuAthlete {
     /// <summary>
     /// Lógica de interacción para PersonalDataMenu.xaml
     /// </summary>
-    public partial class PersonalDataMenu : Page
-    {
+    public partial class PersonalDataMenu : Page {
 
 
         private AthletesService _serviceAthlete;
@@ -37,25 +35,21 @@ namespace Ui.Main.Pages.PersonalMenuAthlete
         private DataTable _tableResult;
 
 
-        public PersonalDataMenu()
-        {
+        public PersonalDataMenu() {
             InitializeComponent();
 
         }
 
-        private void BtSearch_Click(object sender, RoutedEventArgs e)
-        {
+        private void BtSearch_Click(object sender, RoutedEventArgs e) {
 
 
-            if (!ComprobarDNI(Dni.Text))
-            {
+            if (!ComprobarDNI(Dni.Text)) {
                 MessageBox.Show(Properties.Resources.InvalidDNI);
                 return;
             }
             _serviceAthlete = new AthletesService();
             DataTable table = _serviceAthlete.SelectAthleteByDni(Dni.Text.ToUpper());
-            if (table.Rows.Count == 0)
-            {
+            if (table.Rows.Count == 0) {
                 MessageBox.Show(Properties.Resources.NoRegistered);
                 return;
             }
@@ -65,8 +59,7 @@ namespace Ui.Main.Pages.PersonalMenuAthlete
 
         }
 
-        private void GeneratePersonalDataTable()
-        {
+        private void GeneratePersonalDataTable() {
             _serviceAthlete = new AthletesService();
 
             _tablePersonal = _serviceAthlete.SelectAthleteByDni(Dni.Text.ToUpper());
@@ -79,18 +72,18 @@ namespace Ui.Main.Pages.PersonalMenuAthlete
 
 
             for (int i = 1; i < _tablePersonal.Rows.Count; i++) {
-                _tablePersonal.Rows.RemoveAt(i); }
+                _tablePersonal.Rows.RemoveAt(i);
+            }
 
             _tablePersonal.Columns.RemoveAt(3);
-            
+
             DataGridDataPersonal.ItemsSource = _tablePersonal.DefaultView;
             GenerateInscriptionsDataTable();
 
 
         }
 
-        private void GenerateInscriptionsDataTable()
-        {
+        private void GenerateInscriptionsDataTable() {
             _serviceComp = new CompetitionService();
 
             _tableInscripcion = _serviceComp.SelectAllCompetitionsInscripted(Dni.Text.ToUpper());
@@ -104,14 +97,11 @@ namespace Ui.Main.Pages.PersonalMenuAthlete
 
         }
 
-        private void GenerateResultsDataTable()
-
-        {
+        private void GenerateResultsDataTable() {
             _serviceAthleteResult = new AthletesService();
             _tableResult = new DataTable();
 
-            DataColumn column = new DataColumn(Properties.Resources.AthletePosition, typeof(string))
-            {
+            DataColumn column = new DataColumn(Properties.Resources.AthletePosition, typeof(string)) {
                 AllowDBNull = true
             };
             _tableResult.Columns.Add(column);
@@ -122,8 +112,8 @@ namespace Ui.Main.Pages.PersonalMenuAthlete
 
             _tableResult.Merge(_serviceAthleteResult.SelectParticipatedByDni(Dni.Text.ToUpper()));
 
-          
-           
+
+
             _tableResult.Columns[1].ColumnName = Properties.Resources.FinishTime;
             _tableResult.Columns[2].ColumnName = Properties.Resources.Competition;
             _tableResult.Columns[3].ColumnName = Properties.Resources.AthleteGender;
@@ -142,48 +132,36 @@ namespace Ui.Main.Pages.PersonalMenuAthlete
             }
         }
 
-        private void CheckBox_OnClick(object sender, RoutedEventArgs e)
-        {
+        private void CheckBox_OnClick(object sender, RoutedEventArgs e) {
             _tableResult.DefaultView.RowFilter = GenerateFilter();
             DataGridResults.ItemsSource = _tableResult.DefaultView;
         }
 
-        private string GenerateFilter()
-        {
+        private string GenerateFilter() {
             string filter = string.Empty;
 
-            if (MaleIsChecked() && FemaleIsChecked())
-            {
+            if (MaleIsChecked() && FemaleIsChecked()) {
                 filter = null;
-            }
-            else if (MaleIsChecked())
-            {
+            } else if (MaleIsChecked()) {
                 filter = $" {Properties.Resources.AthleteGender} = 'M'";
-            }
-            else if (FemaleIsChecked())
-            {
+            } else if (FemaleIsChecked()) {
                 filter = $"{Properties.Resources.AthleteGender}= 'F'";
-            }
-            else
-            {
+            } else {
                 filter = $"{Properties.Resources.AthleteGender} <> 'F' and {Properties.Resources.AthleteGender} <> 'M'";
             }
 
             return filter;
         }
 
-        private bool MaleIsChecked()
-        {
-            return (bool)MaleCheckBox.IsChecked;
+        private bool MaleIsChecked() {
+            return (bool) MaleCheckBox.IsChecked;
         }
 
-        private bool FemaleIsChecked()
-        {
-            return (bool)FemaleCheckBox.IsChecked;
+        private bool FemaleIsChecked() {
+            return (bool) FemaleCheckBox.IsChecked;
         }
 
-        private bool ComprobarDNI(string dni)
-        {
+        private bool ComprobarDNI(string dni) {
             if (!(dni.Length == 9))
                 return false;
 
@@ -197,29 +175,25 @@ namespace Ui.Main.Pages.PersonalMenuAthlete
             return true;
         }
 
-        private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
-        {
+        private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e) {
             if (e.PropertyType == typeof(System.DateTime))
-                ((DataGridTextColumn)e.Column).Binding.StringFormat = "dd/MM/yyyy";
+                ((DataGridTextColumn) e.Column).Binding.StringFormat = "dd/MM/yyyy";
 
 
 
         }
 
-        private void OnMouseEnter(object sender, MouseEventArgs e)
-        {
+        private void OnMouseEnter(object sender, MouseEventArgs e) {
             if (sender is Control component)
                 component.Cursor = Cursors.Hand;
         }
 
-        private void OnMouseLeave(object sender, MouseEventArgs e)
-        {
+        private void OnMouseLeave(object sender, MouseEventArgs e) {
             if (sender is Control component)
                 component.Cursor = null;
         }
 
-        private void DataGridResults_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
-        {
+        private void DataGridResults_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e) {
 
         }
 

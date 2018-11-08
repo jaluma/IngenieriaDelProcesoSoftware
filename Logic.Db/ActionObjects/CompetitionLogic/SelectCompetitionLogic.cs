@@ -17,7 +17,7 @@ namespace Logic.Db.ActionObjects.CompetitionLogic {
             try {
                 using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_COMPETITION, _conn.DbConnection)) {
                     using (SQLiteDataReader reader = command.ExecuteReader()) {
-                        
+
                         while (reader.Read()) {
                             CompetitionDto competition = new CompetitionDto() {
                                 ID = reader.GetInt32(0),

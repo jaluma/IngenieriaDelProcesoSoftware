@@ -25,29 +25,25 @@ namespace Logic.Db.Util.Services {
             delete.Execute();
         }
 
-        public int CountAthleteByDni(string dni)
-        {
+        public int CountAthleteByDni(string dni) {
             CountAthleteByDniLogic search = new CountAthleteByDniLogic(ref _conn, dni);
             search.Execute();
             return search.Contador;
         }
 
-        public DataTable SelectAthleteByDni(string dni)
-        {
+        public DataTable SelectAthleteByDni(string dni) {
             SelectAthleteByDniLogic select = new SelectAthleteByDniLogic(ref _conn, dni);
             select.Execute();
             return select.Table;
         }
 
-        public AthleteDto SelectAthleteByDniObject(string dni)
-        {
+        public AthleteDto SelectAthleteByDniObject(string dni) {
             SelectAthleteByDniLogicObject select = new SelectAthleteByDniLogicObject(ref _conn, dni);
             select.Execute();
             return select.Athlete;
         }
 
-        public DataTable SelectParticipatedByDni(string dni)
-        {
+        public DataTable SelectParticipatedByDni(string dni) {
             SelectCompParticipatedByAhtlete select = new SelectCompParticipatedByAhtlete(ref _conn, dni);
             select.Execute();
             return select.Table;

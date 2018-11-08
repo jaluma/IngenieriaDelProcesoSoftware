@@ -9,22 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using Logic.Db.Json;
 
-namespace Logic.Db.ActionObjects.CompetitionLogic
-{
-    
-        class SelectCategoriesPredefinied : IActionObject
-        {
-            private readonly DBConnection _conn;
-            public IEnumerable<AbsoluteCategory> List;
+namespace Logic.Db.ActionObjects.CompetitionLogic {
 
-            public SelectCategoriesPredefinied(ref DBConnection conn)
-            {
-                _conn = conn;
-            }
-            public void Execute()
-            {
-            try
-            {
+    class SelectCategoriesPredefinied : IActionObject {
+        private readonly DBConnection _conn;
+        public IEnumerable<AbsoluteCategory> List;
+
+        public SelectCategoriesPredefinied(ref DBConnection conn) {
+            _conn = conn;
+        }
+        public void Execute() {
+            try {
                 Json.JsonDeserialize<AbsoluteCategory> defaultDeserialize = new JsonDeserialize<AbsoluteCategory>(JsonDeserialize<AbsoluteCategory>.DefaultCategoriesFilename);
                 List = defaultDeserialize.ListJson();
                 //using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_ALL_CATEGORIES, _conn.DbConnection))
@@ -45,13 +40,11 @@ namespace Logic.Db.ActionObjects.CompetitionLogic
                 //        list.Add(cat);
                 //    }
                 //}
-            }
-            catch (SQLiteException)
-            {
+            } catch (SQLiteException) {
                 _conn.DbConnection?.Close();
                 throw;
             }
-            }
         }
     }
+}
 

@@ -10,8 +10,8 @@
 
 namespace Ui.Main.Properties {
     using System;
-    
-    
+
+
     /// <summary>
     ///   Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
     /// </summary>
@@ -23,15 +23,15 @@ namespace Ui.Main.Properties {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
-        
+
         private static global::System.Resources.ResourceManager resourceMan;
-        
+
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
+
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-        
+
         /// <summary>
         ///   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
         /// </summary>
@@ -49,10 +49,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Modificar.
         /// </summary>
-        public static string Modify
-        {
-            get
-            {
+        public static string Modify {
+            get {
                 return ResourceManager.GetString("Modify", resourceCulture);
             }
         }
@@ -60,10 +58,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Área Personal.
         /// </summary>
-        public static string PersonalMenu
-        {
-            get
-            {
+        public static string PersonalMenu {
+            get {
                 return ResourceManager.GetString("PersonalMenu", resourceCulture);
             }
         }
@@ -72,10 +68,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Restablecer.
         /// </summary>
-        public static string Reset
-        {
-            get
-            {
+        public static string Reset {
+            get {
                 return ResourceManager.GetString("Reset", resourceCulture);
             }
         }
@@ -83,31 +77,25 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Competición.
         /// </summary>
-        public static string Competition
-        {
-            get
-            {
+        public static string Competition {
+            get {
                 return ResourceManager.GetString("Competition", resourceCulture);
             }
         }
         /// <summary>
         ///   Busca una cadena traducida similar a Inscripción hasta.
         /// </summary>
-        public static string InscriptionClose
-        {
-            get
-            {
+        public static string InscriptionClose {
+            get {
                 return ResourceManager.GetString("InscriptionClose", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Busca una cadena traducida similar a Inscripción desde.
         /// </summary>
-        public static string InscriptionOpen
-        {
-            get
-            {
+        public static string InscriptionOpen {
+            get {
                 return ResourceManager.GetString("InscriptionOpen", resourceCulture);
             }
         }
@@ -115,10 +103,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Inscripciones registradas.
         /// </summary>
-        public static string InscriptionsRegistered
-        {
-            get
-            {
+        public static string InscriptionsRegistered {
+            get {
                 return ResourceManager.GetString("InscriptionsRegistered", resourceCulture);
             }
         }
@@ -126,10 +112,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Introduzca su dni.
         /// </summary>
-        public static string InsertDni
-        {
-            get
-            {
+        public static string InsertDni {
+            get {
                 return ResourceManager.GetString("InsertDni", resourceCulture);
             }
         }
@@ -137,10 +121,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a El atleta no está registrado en ninguna competición..
         /// </summary>
-        public static string NoRegistrado
-        {
-            get
-            {
+        public static string NoRegistrado {
+            get {
                 return ResourceManager.GetString("NoRegistrado", resourceCulture);
             }
         }
@@ -165,10 +147,10 @@ namespace Ui.Main.Properties {
         public static System.Drawing.Bitmap ApplicationIco {
             get {
                 object obj = ResourceManager.GetObject("ApplicationIco", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((System.Drawing.Bitmap) (obj));
             }
         }
-        
+
         /// <summary>
         ///   Busca una cadena traducida similar a .
         /// </summary>
@@ -177,7 +159,7 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("AthleteDni", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Busca una cadena traducida similar a .
         /// </summary>
@@ -186,7 +168,7 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("AthleteDorsal", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Busca una cadena traducida similar a .
         /// </summary>
@@ -197,7 +179,7 @@ namespace Ui.Main.Properties {
         }
 
 
-        
+
         /// <summary>
         ///   Busca una cadena traducida similar a .
         /// </summary>
@@ -206,7 +188,7 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("AthleteName", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Busca una cadena traducida similar a .
         /// </summary>
@@ -215,24 +197,22 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("AthleteSurname", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap athleticIco {
             get {
                 object obj = ResourceManager.GetObject("athleticIco", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((System.Drawing.Bitmap) (obj));
             }
         }
 
         /// <summary>
         ///   Busca una cadena traducida similar a Categoría.
         /// </summary>
-        public static string Category
-        {
-            get
-            {
+        public static string Category {
+            get {
                 return ResourceManager.GetString("Category", resourceCulture);
             }
         }
@@ -245,7 +225,7 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("Competition_Date", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Busca una cadena traducida similar a Id.
         /// </summary>
@@ -254,7 +234,7 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("Competition_Id", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Busca una cadena traducida similar a KM.
         /// </summary>
@@ -263,7 +243,7 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("Competition_Km", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Busca una cadena traducida similar a Nombre.
         /// </summary>
@@ -272,7 +252,7 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("Competition_Name", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Busca una cadena traducida similar a Número de plazas.
         /// </summary>
@@ -281,7 +261,7 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("Competition_Number", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Busca una cadena traducida similar a Precio inscripción.
         /// </summary>
@@ -290,7 +270,7 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("Competition_Price", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Busca una cadena traducida similar a Estado.
         /// </summary>
@@ -299,7 +279,7 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("Competition_Status", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Busca una cadena traducida similar a Tipo.
         /// </summary>
@@ -308,27 +288,27 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("Competition_Type", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap competitionFinishIco {
             get {
                 object obj = ResourceManager.GetObject("competitionFinishIco", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((System.Drawing.Bitmap) (obj));
             }
         }
-        
+
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap competitionIcon {
             get {
                 object obj = ResourceManager.GetObject("competitionIcon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((System.Drawing.Bitmap) (obj));
             }
         }
-        
+
         /// <summary>
         ///   Busca una cadena traducida similar a Femenina.
         /// </summary>
@@ -337,7 +317,7 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("FemaleText", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Busca una cadena traducida similar a Masculina.
         /// </summary>
@@ -346,7 +326,7 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("MaleText", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Busca una cadena traducida similar a Atletas inscritos.
         /// </summary>
@@ -355,7 +335,7 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("TileAthletes", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Busca una cadena traducida similar a Competiciones activas.
         /// </summary>
@@ -364,7 +344,7 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("TileCompetition", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Busca una cadena traducida similar a Competiciones finalizadas.
         /// </summary>
@@ -373,7 +353,7 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("TileCompetitionFinish", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Busca una cadena traducida similar a Corredores.
         /// </summary>
@@ -450,10 +430,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Inscripción hasta.
         /// </summary>
-        public static string LimitInscription
-        {
-            get
-            {
+        public static string LimitInscription {
+            get {
                 return ResourceManager.GetString("LimitInscription", resourceCulture);
             }
         }
@@ -464,7 +442,7 @@ namespace Ui.Main.Properties {
         public static System.Drawing.Bitmap dorsalsIco {
             get {
                 object obj = ResourceManager.GetObject("dorsalsIco", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((System.Drawing.Bitmap) (obj));
             }
         }
 
@@ -500,7 +478,7 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("CategoryMenuActive", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Busca una cadena traducida similar a Finalizadas.
         /// </summary>
@@ -585,18 +563,14 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Seleccionar una competición.
         /// </summary>
-        public static string TitleSelectCompetition
-        {
-            get
-            {
+        public static string TitleSelectCompetition {
+            get {
                 return ResourceManager.GetString("TitleSelectCompetition", resourceCulture);
             }
         }
 
-        public static string IncompleteFields
-        {
-            get
-            {
+        public static string IncompleteFields {
+            get {
                 return ResourceManager.GetString("IncompleteFields", resourceCulture);
             }
         }
@@ -604,10 +578,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Finalizar inscripción.
         /// </summary>
-        public static string FinishInscription
-        {
-            get
-            {
+        public static string FinishInscription {
+            get {
                 return ResourceManager.GetString("FinishInscription", resourceCulture);
             }
         }
@@ -615,10 +587,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a No hay una competición seleccionada..
         /// </summary>
-        public static string NothingSelected
-        {
-            get
-            {
+        public static string NothingSelected {
+            get {
                 return ResourceManager.GetString("NothingSelected", resourceCulture);
             }
         }
@@ -629,7 +599,7 @@ namespace Ui.Main.Properties {
         public static System.Drawing.Bitmap default_profile {
             get {
                 object obj = ResourceManager.GetObject("default_profile", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ((System.Drawing.Bitmap) (obj));
             }
         }
 
@@ -663,10 +633,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Justificante de inscripción.
         /// </summary>
-        public static string InscriptionProof
-        {
-            get
-            {
+        public static string InscriptionProof {
+            get {
                 return ResourceManager.GetString("InscriptionProof", resourceCulture);
             }
         }
@@ -674,10 +642,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Ya se inscribió anteriormente en esta competición..
         /// </summary>
-        public static string PreviouslyEnrolled
-        {
-            get
-            {
+        public static string PreviouslyEnrolled {
+            get {
                 return ResourceManager.GetString("PreviouslyEnrolled", resourceCulture);
             }
         }
@@ -712,10 +678,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a La edad mínima de inscripción es de 18 años..
         /// </summary>
-        public static string InvalidAge
-        {
-            get
-            {
+        public static string InvalidAge {
+            get {
                 return ResourceManager.GetString("InvalidAge", resourceCulture);
             }
         }
@@ -723,10 +687,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a El usuario no está pre/inscrito a ninguna competición..
         /// </summary>
-        public static string NoRegistered
-        {
-            get
-            {
+        public static string NoRegistered {
+            get {
                 return ResourceManager.GetString("NoRegistered", resourceCulture);
             }
         }
@@ -734,10 +696,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a El DNI introducido no es válido..
         /// </summary>
-        public static string InvalidDNI
-        {
-            get
-            {
+        public static string InvalidDNI {
+            get {
                 return ResourceManager.GetString("InvalidDNI", resourceCulture);
             }
         }
@@ -754,10 +714,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Seleccionar método de pago.
         /// </summary>
-        public static string PaymentMethodSelection
-        {
-            get
-            {
+        public static string PaymentMethodSelection {
+            get {
                 return ResourceManager.GetString("PaymentMethodSelection", resourceCulture);
             }
         }
@@ -765,10 +723,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Transferencia bancaria.
         /// </summary>
-        public static string WireTransfer
-        {
-            get
-            {
+        public static string WireTransfer {
+            get {
                 return ResourceManager.GetString("WireTransfer", resourceCulture);
             }
         }
@@ -776,10 +732,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Datos del beneficiario: Gestor de carreras populares.
         /// </summary>
-        public static string BeneficiaryData
-        {
-            get
-            {
+        public static string BeneficiaryData {
+            get {
                 return ResourceManager.GetString("BeneficiaryData", resourceCulture);
             }
         }
@@ -787,10 +741,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a IBAN: ES11 2222 3333 4444 5555 6666.
         /// </summary>
-        public static string IBAN
-        {
-            get
-            {
+        public static string IBAN {
+            get {
                 return ResourceManager.GetString("IBAN", resourceCulture);
             }
         }
@@ -798,10 +750,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Cantidad a abonar:.
         /// </summary>
-        public static string PaymentAmount
-        {
-            get
-            {
+        public static string PaymentAmount {
+            get {
                 return ResourceManager.GetString("PaymentAmount", resourceCulture);
             }
         }
@@ -809,10 +759,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Dispone de 48h para realizar la transferencia..
         /// </summary>
-        public static string PaymentTimeLimit
-        {
-            get
-            {
+        public static string PaymentTimeLimit {
+            get {
                 return ResourceManager.GetString("PaymentTimeLimit", resourceCulture);
             }
         }
@@ -820,10 +768,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Datos para la transferencia.
         /// </summary>
-        public static string TransferData
-        {
-            get
-            {
+        public static string TransferData {
+            get {
                 return ResourceManager.GetString("TransferData", resourceCulture);
             }
         }
@@ -848,10 +794,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Finalizar inscripciones.
         /// </summary>
-        public static string FinishInscriptions
-        {
-            get
-            {
+        public static string FinishInscriptions {
+            get {
                 return ResourceManager.GetString("FinishInscriptions", resourceCulture);
             }
         }
@@ -859,22 +803,18 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Seleccionar extracto bancario.
         /// </summary>
-        public static string DocumentSelection
-        {
-            get
-            {
+        public static string DocumentSelection {
+            get {
                 return ResourceManager.GetString("DocumentSelection", resourceCulture);
             }
         }
 
-        
+
         /// <summary>
         ///   Busca una cadena traducida similar a Pagos.
         /// </summary>
-        public static string TilePayments
-        {
-            get
-            {
+        public static string TilePayments {
+            get {
                 return ResourceManager.GetString("TilePayments", resourceCulture);
             }
         }
@@ -882,10 +822,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Comprobar pagos de inscripción.
         /// </summary>
-        public static string TitleFinishPayment
-        {
-            get
-            {
+        public static string TitleFinishPayment {
+            get {
                 return ResourceManager.GetString("TitleFinishPayment", resourceCulture);
             }
         }
@@ -893,10 +831,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Actualizar estado de las inscripciones.
         /// </summary>
-        public static string UpdateInscriptionsState
-        {
-            get
-            {
+        public static string UpdateInscriptionsState {
+            get {
                 return ResourceManager.GetString("UpdateInscriptionsState", resourceCulture);
             }
         }
@@ -904,10 +840,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a No se ha seleccionado ningún extracto bancario..
         /// </summary>
-        public static string NotSelectedFile
-        {
-            get
-            {
+        public static string NotSelectedFile {
+            get {
                 return ResourceManager.GetString("NotSelectedFile", resourceCulture);
             }
         }
@@ -915,10 +849,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a El extracto seleccionado está vacío..
         /// </summary>
-        public static string EmptyDocument
-        {
-            get
-            {
+        public static string EmptyDocument {
+            get {
                 return ResourceManager.GetString("EmptyDocument", resourceCulture);
             }
         }
@@ -926,21 +858,17 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a El documento seleccionado no es válido..
         /// </summary>
-        public static string InvalidDocument
-        {
-            get
-            {
+        public static string InvalidDocument {
+            get {
                 return ResourceManager.GetString("InvalidDocument", resourceCulture);
             }
         }
 
- /// <summary>
+        /// <summary>
         ///   Busca una cadena traducida similar a D+.
         /// </summary>
-        public static string PositiveDesnivel
-        {
-            get
-            {
+        public static string PositiveDesnivel {
+            get {
                 return ResourceManager.GetString("PositiveDesnivel", resourceCulture);
             }
         }
@@ -948,10 +876,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Categorías predefinidas.
         /// </summary>
-        public static string Predefined
-        {
-            get
-            {
+        public static string Predefined {
+            get {
                 return ResourceManager.GetString("Predefined", resourceCulture);
             }
         }
@@ -959,20 +885,16 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Añadir nueva .
         /// </summary>
-        public static string CreateNew
-        {
-            get
-            {
+        public static string CreateNew {
+            get {
                 return ResourceManager.GetString("CreateNew", resourceCulture);
             }
         }
         /// <summary>
         ///   Busca una cadena traducida similar a D-.
         /// </summary>
-        public static string NegativeDesnivel
-        {
-            get
-            {
+        public static string NegativeDesnivel {
+            get {
                 return ResourceManager.GetString("NegativeDesnivel", resourceCulture);
             }
         }
@@ -980,10 +902,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Categorías.
         /// </summary>
-        public static string Categories
-        {
-            get
-            {
+        public static string Categories {
+            get {
                 return ResourceManager.GetString("Categories", resourceCulture);
             }
         }
@@ -991,10 +911,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Añadir.
         /// </summary>
-        public static string Add
-        {
-            get
-            {
+        public static string Add {
+            get {
                 return ResourceManager.GetString("Add", resourceCulture);
             }
         }
@@ -1002,10 +920,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Total.
         /// </summary>
-        public static string Total
-        {
-            get
-            {
+        public static string Total {
+            get {
                 return ResourceManager.GetString("Total", resourceCulture);
             }
         }
@@ -1013,10 +929,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Desnivel.
         /// </summary>
-        public static string Desnivel
-        {
-            get
-            {
+        public static string Desnivel {
+            get {
                 return ResourceManager.GetString("Desnivel", resourceCulture);
             }
         }
@@ -1024,10 +938,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Reglamento.
         /// </summary>
-        public static string Rules
-        {
-            get
-            {
+        public static string Rules {
+            get {
                 return ResourceManager.GetString("Rules", resourceCulture);
             }
         }
@@ -1035,10 +947,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Seleccione el pdf del reglamento....
         /// </summary>
-        public static string FileSelect
-        {
-            get
-            {
+        public static string FileSelect {
+            get {
                 return ResourceManager.GetString("FileSelect", resourceCulture);
             }
         }
@@ -1046,10 +956,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Configurador de carreras.
         /// </summary>
-        public static string TitleConfigureCompetition
-        {
-            get
-            {
+        public static string TitleConfigureCompetition {
+            get {
                 return ResourceManager.GetString("TitleConfigureCompetition", resourceCulture);
             }
         }
@@ -1057,10 +965,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Montaña.
         /// </summary>
-        public static string Mountain
-        {
-            get
-            {
+        public static string Mountain {
+            get {
                 return ResourceManager.GetString("Mountain", resourceCulture);
             }
         }
@@ -1069,10 +975,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Asfalto.
         /// </summary>
-        public static string Asfalto
-        {
-            get
-            {
+        public static string Asfalto {
+            get {
                 return ResourceManager.GetString("Asfalto", resourceCulture);
             }
         }
@@ -1080,10 +984,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Nombre de la competición.
         /// </summary>
-        public static string CompetitionName
-        {
-            get
-            {
+        public static string CompetitionName {
+            get {
                 return ResourceManager.GetString("CompetitionName", resourceCulture);
             }
         }
@@ -1091,10 +993,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Cancelar inscripción.
         /// </summary>
-        public static string CancelInscription
-        {
-            get
-            {
+        public static string CancelInscription {
+            get {
                 return ResourceManager.GetString("CancelInscription", resourceCulture);
             }
         }
@@ -1102,10 +1002,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Devolución.
         /// </summary>
-        public static string Refund
-        {
-            get
-            {
+        public static string Refund {
+            get {
                 return ResourceManager.GetString("Refund", resourceCulture);
             }
         }
@@ -1113,10 +1011,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Final del plazo de cancelación.
         /// </summary>
-        public static string CancelFinishDate
-        {
-            get
-            {
+        public static string CancelFinishDate {
+            get {
                 return ResourceManager.GetString("CancelFinishDate", resourceCulture);
             }
         }
@@ -1124,10 +1020,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Inicio del plazo de cancelación.
         /// </summary>
-        public static string CancelInitialDate
-        {
-            get
-            {
+        public static string CancelInitialDate {
+            get {
                 return ResourceManager.GetString("CancelInitialDate", resourceCulture);
             }
         }
@@ -1178,10 +1072,8 @@ namespace Ui.Main.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Se ha cancelado la inscripción..
         /// </summary>
-        public static string InscriptionCanceled
-        {
-            get
-            {
+        public static string InscriptionCanceled {
+            get {
                 return ResourceManager.GetString("InscriptionCanceled", resourceCulture);
             }
         }

@@ -8,17 +8,16 @@ using Logic.Db.Connection;
 using Logic.Db.Dto;
 
 namespace Logic.Db.ActionObjects.TimesLogic {
-    public class SelectCategoryByAbsolutCategory :IActionObject {
+    public class SelectCategoryByAbsolutCategory : IActionObject {
 
         private readonly int[] _id;
         private readonly DBConnection _conn;
 
         public CategoryDto[] Categories;
 
-        public SelectCategoryByAbsolutCategory(ref DBConnection conn, int[] id)
-        {
+        public SelectCategoryByAbsolutCategory(ref DBConnection conn, int[] id) {
             _conn = conn;
-            _id =id;
+            _id = id;
         }
 
         public void Execute() {

@@ -26,8 +26,7 @@ using Logic.Db.Util.Services;
 using Ui.Main.Pages.MenuInitial;
 using Xceed.Wpf.Toolkit.Core.Converters;
 
-namespace Ui.Main.Pages.Competition.Times
-{
+namespace Ui.Main.Pages.Competition.Times {
     /// <summary>
     /// Lógica de interacción para TimesAthletes.xaml
     /// </summary>
@@ -68,7 +67,7 @@ namespace Ui.Main.Pages.Competition.Times
 
             CompetitionList.ItemsSource = _list;
 
-            
+
         }
 
 
@@ -153,7 +152,7 @@ namespace Ui.Main.Pages.Competition.Times
 
                 bt.FontWeight = FontWeights.Bold;
                 bt.Background = Brushes.AliceBlue;
-                
+
 
                 CategorySelected = _categories.ElementAt((int) bt.Tag);
 
@@ -221,7 +220,7 @@ namespace Ui.Main.Pages.Competition.Times
 
                 foreach (DataRow row in _table.Rows) {
                     object[] dr = row.ItemArray as object[];
-                    if (dr[6] is DBNull || dr[7] is DBNull || (long)dr[7] == 0) {
+                    if (dr[6] is DBNull || dr[7] is DBNull || (long) dr[7] == 0) {
                         dr[6] = "---";
                     } else {
                         var seconds = (long) dr[7] - (long) dr[6];
@@ -245,7 +244,7 @@ namespace Ui.Main.Pages.Competition.Times
 
         private void DataGridTimes_OnMouseDoubleClick(object sender, MouseButtonEventArgs e) {
             PartialTimesAthletes.Competition = Competition;
-            
+
             List<AthleteDto> atleList = new AthletesService().SelectAthleteTable();
 
             try {
