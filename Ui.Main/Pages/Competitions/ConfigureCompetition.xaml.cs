@@ -104,6 +104,8 @@ namespace Ui.Main.Pages.Competitions
             if (DNeg.Text == "")
                 DNeg.Text = "0";
 
+
+
             double cant= (Double.Parse(DPos.Text) - Double.Parse(DNeg.Text));
             DTotal.Text = cant.ToString();
 
@@ -379,7 +381,7 @@ namespace Ui.Main.Pages.Competitions
 
                
 
-
+                       MessageBox.Show("Competicion agregada correctamente.");
 
            }
 
