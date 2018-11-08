@@ -79,13 +79,14 @@ namespace Ui.Main.Pages.Inscriptions.HasRegistered
                 if (dorsals) {
                     string message = "¿Quiere sobreescribir los dorsales?";
                     result = MessageBox.Show(message, "Error", MessageBoxButton.YesNo);
-                }
-
-                if (result == MessageBoxResult.Yes) {
-                    // insertar
-                } else if (result == MessageBoxResult.No) {
+                    if (result == MessageBoxResult.Yes) {
+                        _enroll.UpdateAthleteRegisteredDorsal(_competition);
+                    }
+                } else {
                     _enroll.UpdateAthleteRegisteredDorsal(_competition);
                 }
+
+                
 
                 GenerateTable();
 

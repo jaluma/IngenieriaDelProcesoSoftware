@@ -193,24 +193,24 @@ where COMPETITION_ID=@COMPETITION_ID and ATHLETE_DNI=@DNI and dorsal is null</va
     <value>select category_name from get_category_competition where competition_id=@COMPETITION_ID</value>
   </data>
   <data name="SQL_SELECT_OPEN_COMPETITION" xml:space="preserve">
-      <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, INITIAL_DATE, FINISH_DATE, COMPETITION_DATE, COMPETITION_RULES from Competition natural join CompetitionDates natural join DateInscription where (date('now') between INITIAL_DATE and FINISH_DATE) and  Competition.COMPETITION_STATUS='OPEN'</value>
+    <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, INITIAL_DATE, FINISH_DATE, COMPETITION_DATE, COMPETITION_RULES from Competition natural join CompetitionDates natural join DateInscription where (date('now') between INITIAL_DATE and FINISH_DATE) and  Competition.COMPETITION_STATUS='OPEN'</value>
   </data>
   <data name="SQL_SELECT_COMPETITION_FINISH_LIST" xml:space="preserve">
-    <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE,  INITIAL_DATE, FINISH_DATE, COMPETITION_DATE from Competition natural join CompetitionDates
+    <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE,  INITIAL_DATE, FINISH_DATE, COMPETITION_DATE from Competition natural join CompetitionDates natural join DateInscription
 where date('now') not BETWEEN INITIAL_DATE and FINISH_DATE and date('now') &lt; COMPETITION_DATE</value>
   </data>
   <data name="SQL_COUNT_ATHLETE_BY_DNI" xml:space="preserve">
     <value>SELECT count(*) FROM Athlete WHERE ATHLETE_DNI=@DNI</value>
   </data>
   <data name="SQL_SELECT_COMPETITION_TO_INSCRIBE" xml:space="preserve">
-      <value>
+    <value>
           select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, INITIAL_DATE, FINISH_DATE, COMPETITION_DATE
           from Competition natural join CompetitionDates natural join DateInscription
           where date('now') BETWEEN INITIAL_DATE and FINISH_DATE and COMPETITION_STATUS&lt;&gt;'FINISH' and COMPETITION_NUMBER_PLACES &gt; (select count(*) from enroll group by competition_id) AND COMPETITION_ID not in (SELECT COMPETITION_ID FROM ENROLL WHERE ATHLETE_DNI=@DNI)
       </value>
   </data>
   <data name="SQL_SELECT_COMPETITION_BY_ID" xml:space="preserve">
-    <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, COMPETITION_DATE, COMPETITION_RULES, COMPETITION_STATUS, COMPETITION_NUMBER_MILESTONE, COMPETITION_SLOPE from Competition natural join CompetitionDates where COMPETITION_ID=@ID</value>
+    <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, COMPETITION_DATE, COMPETITION_RULES, COMPETITION_STATUS, COMPETITION_NUMBER_MILESTONE, COMPETITION_SLOPE from Competition natural join CompetitionDates natural join DateInscription where COMPETITION_ID=@ID</value>
   </data>
   <data name="SQL_SELECT_MAX_DORSAL" xml:space="preserve">
     <value>select max(dorsal) from enroll where COMPETITION_ID=@COMPETITION_ID</value>
@@ -255,7 +255,7 @@ WHERE CATEGORY_ID = @ID</value>
   </data>
   <data name="SQL_SELECT_PREREGISTERED" xml:space="preserve">
     <value>select ATHLETE_DNI, COMPETITION_ID,  COMPETITION_PRICE, DATE_INSCRIPTION 
-from Enroll natural join Competition natural join CompetitionDates
+from Enroll natural join Competition natural join CompetitionDates natural join DateInscription
 where status in ('PRE-REGISTERED', 'PREREGISTERED','CANCELED') and date_inscription between initial_date and finish_date</value>
   </data>
   <data name="SQL_UPDATE_INSCRIPTION_STATUS" xml:space="preserve">
@@ -301,7 +301,7 @@ where athlete_dni=@DNI and status&lt;&gt;'CANCELED'
 and date_refund in (select min(date_refund) from competitionrefund where Date('now') &lt; date_refund group by competition_id)</value>
   </data>
   <data name="SQL_SELECT_COMPETITION_PRICE" xml:space="preserve">
-    <value>select competition_price from competitiondates natural join enroll
+    <value>select competition_price from competitiondates natural join enroll natural join DateInscription
 where competition_id=@ID and athlete_dni=@DNI and date_inscription between initial_date and finish_date</value>
   </data>
   <data name="SQL_INSERT_TIMES" xml:space="preserve">
