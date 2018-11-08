@@ -71,7 +71,7 @@ namespace Logic.Db.ActionObjects.CompetitionLogic
                     new SQLiteCommand(Logic.Db.Properties.Resources.SQL_ENROLL_COMPETITION_DATES, _conn.DbConnection)) {
                     command.Parameters.AddWithValue("@ID", max+1);
                     command.Parameters.AddWithValue("@COMPETITION_ID", _competition.ID);
-                    command.Parameters.AddWithValue("@COMPETITION_PRICE", _plazo.Devolucion);
+                    command.Parameters.AddWithValue("@COMPETITION_PRICE", _plazo.precio);
 
                     command.ExecuteNonQuery();
                 }

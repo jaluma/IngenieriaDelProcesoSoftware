@@ -12,14 +12,15 @@ namespace Logic.Db.Dto
         public DateTime FechaFin;
         public double Devolucion;
 
+        public double precio;
+
 
 
         public override string ToString()
         {
-            if(Devolucion > 0)
-                return FechaInicio.ToShortDateString() + " - " + FechaFin.ToShortDateString()+ " " +Devolucion + "% REFUND";
-            else
-                return FechaInicio.ToShortDateString() + " - " + FechaFin.ToShortDateString() + " NO REFUND";
+           
+                return FechaInicio.ToShortDateString() + " - " + FechaFin.ToShortDateString()+ " " +precio + "€";
+            
 
         }
     }

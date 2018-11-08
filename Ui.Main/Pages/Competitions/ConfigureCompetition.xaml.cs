@@ -181,9 +181,9 @@ namespace Ui.Main.Pages.Competitions
                         
                     };
                     if (PrecioInscripcion.Text == "")
-                        plazos.Devolucion = 0;
+                        plazos.precio = 0;
                     else
-                        plazos.Devolucion = Double.Parse(PrecioInscripcion.Text);
+                        plazos.precio = Double.Parse(PrecioInscripcion.Text);
                     Plazos_list.SelectionMode = SelectionMode.Single;
                     Plazos_list.Items.Add(plazos);
                     FinPlazo.SelectedDate = null;
@@ -363,12 +363,7 @@ namespace Ui.Main.Pages.Competitions
 
                 }
                 
-
-
-               
-              
-              
-
+                
                 //vincular refunds y competicion
                 foreach (var c in refundsList)
                 {
