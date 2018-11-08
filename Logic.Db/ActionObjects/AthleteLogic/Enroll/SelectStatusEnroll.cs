@@ -20,7 +20,7 @@ namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
 
         public void Execute() {
             try {
-                using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_ATHLETE_INSCRIPTION, _conn.DbConnection)) {
+                using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_STATUS_ENROLL, _conn.DbConnection)) {
                     //command.Parameters.AddWithValue("@STATUS", TypesStatus.Registered.ToString().ToUpper());
                     command.Parameters.AddWithValue("@COMPETITION_ID", _competition.ID);
                     command.Parameters.AddWithValue("@DNI", _dni);

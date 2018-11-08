@@ -343,4 +343,7 @@ where competition_id=@ID and athlete_dni=@DNI and date_inscription between initi
   <data name="SQL_MAX_ID_DATES" xml:space="preserve">
     <value>SELECT MAX(DATE_ID) FROM DateInscription</value>
   </data>
+  <data name="SQL_FINISH_COMPETITION" xml:space="preserve">
+    <value>UPDATE Competition SET COMPETITION_STATUS='FINISH' WHERE COMPETITION_ID = @COMPETITION_ID</value>
+  </data>
 </root>

@@ -28,6 +28,11 @@ namespace Logic.Db.ActionObjects.AthleteLogic.Enroll
         {
             try
             {
+                using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_FINISH_COMPETITION, _conn.DbConnection)) {
+                    command.Parameters.AddWithValue("@COMPETITION_ID", _id);
+                    command.ExecuteNonQuery();
+                }
+
                 using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_INSERT_TIMES, _conn.DbConnection)) {
                     command.Parameters.AddWithValue("@DNI", _dni);
                     command.Parameters.AddWithValue("@COMPETITION_ID", _id);

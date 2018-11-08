@@ -38,13 +38,17 @@ namespace Ui.Main.Pages.Competition.Times
         private List<string> _list;
         public static CompetitionDto Competition;
         public static AbsoluteCategory CategorySelected;
-        private readonly CompetitionService _competitionService;
-        private readonly TimesService _service;
+        private CompetitionService _competitionService;
+        private TimesService _service;
         public static AthleteDto Athlete;
 
         public PartialTimesAthletes() {
             this.InitializeComponent();
 
+            Initialize();
+        }
+
+        private void Initialize() {
             _service = new TimesService();
 
             _competitionService = new CompetitionService();
@@ -76,6 +80,8 @@ namespace Ui.Main.Pages.Competition.Times
         }
 
         private void PartialTimesAthletes_OnLoaded(object sender, RoutedEventArgs e) {
+            Initialize();
+            
             if (Competition != null) {
                 CompetitionList.SelectedIndex = _ids.IndexOf(Competition.ID);
             }

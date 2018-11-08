@@ -71,7 +71,7 @@ namespace Ui.Main.Pages.Competition.Times {
 
                         string status = new EnrollService(_dto.CompetitionDto).SelectStatusEnroll(dnis[index]);
 
-                        if (_dto.CompetitionDto.Status.Equals("FINISH") || status.Equals("REGISTERED")) {
+                        if (status.Equals("REGISTERED")) {
                             timesService.InsertPartialTime(dnis[index], _dto);
                             new EnrollService(_dto.CompetitionDto).InsertHasRegisteredTimes(dnis[index],
                                 _dto.Time[_dto.Time.Length - 1]);
@@ -83,19 +83,19 @@ namespace Ui.Main.Pages.Competition.Times {
                             if (notes.Contains(s)) {
                                 notes += s;
                             } else {
-                                notes = $"Linea {index}: {s}";
+                                notes += $"Linea {index+1}: {s}";
                             }
                         }
-                        if (!_dto.CompetitionDto.Status.Equals("FINISH")) {
-                            string s = $"La competicion {_dto.CompetitionDto.Name} no esta finalizada. \n";
-                            if (notes.Contains(s)) {
-                                notes += s;
-                            } else {
-                                notes = $"Linea {index}: {s}";
-                            }
+                        //if (!_dto.CompetitionDto.Status.Equals("FINISH")) {
+                        //    string s = $"La competicion {_dto.CompetitionDto.Name} no esta finalizada. \n";
+                        //    if (notes.Contains(s)) {
+                        //        notes += s;
+                        //    } else {
+                        //        notes += $"Linea {index+1}: {s}";
+                        //    }
                             
 
-                        }
+                        //}
                     } catch (InvalidOperationException) {
                         if (_dto != null)
                             noInserted.Add(_dto);

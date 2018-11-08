@@ -710,11 +710,23 @@ namespace Logic.Db.Properties
             }
         }
 
+        internal static string SQL_FINISH_COMPETITION
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_FINISH_COMPETITION", resourceCulture);
+            }
+        }
         
+         
 
-            
-
-            
+        internal static string SQL_SELECT_STATUS_ENROLL
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_STATUS_ENROLL", resourceCulture);
+            }
+        }
 
             
         
