@@ -71,12 +71,13 @@
         <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="Precio inscripción" Margin="790,328,0,182" Width="140" RenderTransformOrigin="0.473,1.057" />
         <Button x:Name="BtRefund" Content="Configurar" HorizontalAlignment="Left" Margin="980,439,0,0" VerticalAlignment="Top" Width="140" Height="30" FontSize="16" Click="BtRefund_Click"  MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" RenderTransformOrigin="0.19,0.667"/>
         <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="Políticas cancelación / reembolso" Margin="755,443,0,72" Width="210" RenderTransformOrigin="0.473,1.057" />
-        
+
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="60" Margin="60,415,0,0" VerticalAlignment="Top" Width="1085"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="207" Margin="480,193,0,0" VerticalAlignment="Top" Width="665"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="207" Margin="60,193,0,0" VerticalAlignment="Top" Width="415"/>
         <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="Hitos" Margin="655,134,0,383" Width="75" RenderTransformOrigin="0.473,1.057" />
         <xctk:WatermarkTextBox Watermark="Hitos" x:Name="Hitos" HorizontalAlignment="Left" Height="28" Margin="719,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" RenderTransformOrigin="-3.8,0.286" MouseEnter="OnMouseEnterBeam" MouseLeave="OnMouseLeaveBeam"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="138" Margin="60,50,0,0" VerticalAlignment="Top" Width="1085"/>
 
 
 
