@@ -39,12 +39,19 @@ namespace Ui.Main.Pages.Competition.Times
         private IEnumerable<AbsoluteCategory> _categories;
         public static CompetitionDto Competition;
         public static AbsoluteCategory CategorySelected;
-        private readonly CompetitionService _competitionService;
-        private readonly TimesService _service;
+        private CompetitionService _competitionService;
+        private TimesService _service;
 
         public TimesAthletes() {
             this.InitializeComponent();
 
+            GenerateList();
+
+            if (_list.Count > 0)
+                CompetitionList.SelectedIndex = 0;
+        }
+
+        private void GenerateList() {
             _service = new TimesService();
 
             _competitionService = new CompetitionService();
@@ -61,8 +68,7 @@ namespace Ui.Main.Pages.Competition.Times
 
             CompetitionList.ItemsSource = _list;
 
-            if (_list.Count > 0)
-                CompetitionList.SelectedIndex = 0;
+            
         }
 
 
@@ -130,6 +136,8 @@ namespace Ui.Main.Pages.Competition.Times
             if (Competition != null) {
                 CompetitionList.SelectedIndex = _ids.IndexOf(Competition.ID);
             }
+
+            GenerateList();
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e) {
@@ -213,7 +221,7 @@ namespace Ui.Main.Pages.Competition.Times
 
                 foreach (DataRow row in _table.Rows) {
                     object[] dr = row.ItemArray as object[];
-                    if (dr[6] is DBNull || dr[7] is DBNull) {
+                    if (dr[6] is DBNull || dr[7] is DBNull || (long)dr[7] == 0) {
                         dr[6] = "---";
                     } else {
                         var seconds = (long) dr[7] - (long) dr[6];

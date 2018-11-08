@@ -29,7 +29,7 @@ namespace Logic.Db.ActionObjects.TimesLogic {
                         PartialTimes.Athlete = _athlete;
                         PartialTimes.Time = new long[_competition.NumberMilestone];
                         int count = 0;
-                        while (reader.Read()) {
+                        while (reader.Read() && count < _competition.NumberMilestone) {
                             PartialTimes.Time[count] = reader.GetInt64(2);
                             count++;
                         }

@@ -16,12 +16,18 @@ namespace Logic.Db.Csv {
             IEnumerable<string[]> enumerable = lines as string[][] ?? lines.ToArray();
             for (int row = 0; row < enumerable.Count(); row++) 
             {
-                try {
+                
 
                 long[] times = new long[enumerable.ElementAt(row).Length - 2];
                 for (int i = 2; i < enumerable.ElementAt(row).Length; i++) {
-                    times[i-2] = long.Parse(enumerable.ElementAt(row)[i]);
+                    try {
+                        times[i-2] = long.Parse(enumerable.ElementAt(row)[i]);
+                    } catch (FormatException) {
+                        times[i - 2] = 0;
+                    }
+                    
                 }
+                try {
                     PartialTimesObjects partial = new PartialTimesObjects() {
                         Dorsal = int.Parse(enumerable.ElementAt(row)[1]),
                         CompetitionId = int.Parse(enumerable.ElementAt(row)[0]),
