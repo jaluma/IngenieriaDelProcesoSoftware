@@ -12,6 +12,7 @@ namespace Logic.Db.Dto {
 
     public enum TypesStatus {
         PreRegistered,
+        Outstanding,
         Registered,
         PendientPayment
     }

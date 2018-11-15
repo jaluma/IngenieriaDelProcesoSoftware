@@ -26,7 +26,7 @@ namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
                     new SQLiteCommand(Properties.Resources.SQL_INSERT_ENROLL, _conn.DbConnection)) {
                     command.Parameters.AddWithValue("@DNI", _athlete.Dni.ToUpper());
                     command.Parameters.AddWithValue("@COMPETITION_ID", _competition.ID);
-                    command.Parameters.AddWithValue("@STATUS", TypesStatus.PreRegistered.ToString().ToUpper());
+                    command.Parameters.AddWithValue("@STATUS", TypesStatus.Outstanding.ToString().ToUpper());
                     command.ExecuteNonQuery();
                 }
             } catch (SQLiteException) {
