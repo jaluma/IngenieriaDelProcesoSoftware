@@ -485,9 +485,9 @@ namespace Logic.Db.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a select ATHLETE_DNI, COMPETITION_ID, COMPETITION_PRICE, DATE_INSCRIPTION from Enroll natural join Competition where status in (&apos;PRE-REGISTERED&apos;, &apos;PREREGISTERED&apos;,&apos;CANCELED&apos;).
         /// </summary>
-        internal static string SQL_SELECT_PREREGISTERED {
+        internal static string SQL_SELECT_OUTSTANDING {
             get {
-                return ResourceManager.GetString("SQL_SELECT_PREREGISTERED", resourceCulture);
+                return ResourceManager.GetString("SQL_SELECT_OUTSTANDING", resourceCulture);
             }
         }
 

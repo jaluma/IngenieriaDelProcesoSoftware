@@ -62,8 +62,8 @@ namespace Logic.Db.Util.Services {
             return dorsals.IsDorsals;
         }
 
-        public List<PaymentDto> SelectPreregisteredAthletes() {
-            SelectPreregisteredAthletes select = new SelectPreregisteredAthletes(ref _conn);
+        public List<PaymentDto> SelectOutstandingAthletes() {
+            SelectOutstandingAthletes select = new SelectOutstandingAthletes(ref _conn);
             select.Execute();
             return select.Preregistered;
         }

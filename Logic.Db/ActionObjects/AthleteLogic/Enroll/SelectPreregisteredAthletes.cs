@@ -8,12 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
-    public class SelectPreregisteredAthletes : IActionObject {
+    public class SelectOutstandingAthletes : IActionObject {
 
         private readonly DBConnection _conn;
         public readonly List<PaymentDto> Preregistered;
 
-        public SelectPreregisteredAthletes(ref DBConnection conn) {
+        public SelectOutstandingAthletes(ref DBConnection conn) {
             _conn = conn;
             Preregistered = new List<PaymentDto>();
         }
@@ -21,7 +21,7 @@ namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
         public void Execute() {
             try {
                 using (SQLiteCommand command =
-                    new SQLiteCommand(Properties.Resources.SQL_SELECT_PREREGISTERED, _conn.DbConnection)) {
+                    new SQLiteCommand(Properties.Resources.SQL_SELECT_OUTSTANDING, _conn.DbConnection)) {
                     using (SQLiteDataReader reader = command.ExecuteReader()) {
                         while (reader.Read()) {
                             PaymentDto payment = new PaymentDto() {

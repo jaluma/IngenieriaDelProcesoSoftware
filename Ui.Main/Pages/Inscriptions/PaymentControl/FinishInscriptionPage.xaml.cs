@@ -84,7 +84,7 @@ namespace Ui.Main.Pages.Inscriptions.PaymentControl {
 
             }
 
-            List<PaymentDto> preregistered = _enrollService.SelectPreregisteredAthletes();
+            List<PaymentDto> preregistered = _enrollService.SelectOutstandingAthletes();
 
             //comprobaciones
             StringBuilder stringBuilder = new StringBuilder();
