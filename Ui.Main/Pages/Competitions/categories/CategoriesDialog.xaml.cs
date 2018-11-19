@@ -49,6 +49,7 @@ namespace Ui.Main.Pages.Competitions.categories {
                 MessageBox.Show("Edades incoherentes");
                 return;
             }
+            cat.Name = Nombre.Text;
 
             femenino.MinAge = int.Parse(DesdeF.Text);
             femenino.MaxAge = int.Parse(HastaF.Text);

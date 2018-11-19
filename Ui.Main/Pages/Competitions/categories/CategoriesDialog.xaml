@@ -15,7 +15,7 @@
         <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="{x:Static Properties:Resources.Competition_Name}" Margin="40,38,0,297" Width="75" RenderTransformOrigin="0.473,1.057" />
 
 
-        <xctk:WatermarkTextBox  x:Name="Nombre" HorizontalAlignment="Left" Height="30" Margin="165,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" IsReadOnly="True" Focusable="False" />
+        <xctk:WatermarkTextBox  x:Name="Nombre" HorizontalAlignment="Left" Height="30" Margin="165,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185"  />
         <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="Edad F" Margin="40,132,0,206" Width="75" RenderTransformOrigin="0.473,1.057" />
         <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="Edad M" Margin="40,184,0,154" Width="75" RenderTransformOrigin="0.473,1.057" />
         <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="Desde" Margin="165,85,0,254" Width="55" RenderTransformOrigin="0.473,1.057" />

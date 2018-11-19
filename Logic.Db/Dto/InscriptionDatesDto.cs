@@ -9,14 +9,17 @@ namespace Logic.Db.Dto {
         public DateTime FechaInicio;
         public DateTime FechaFin;
         public double Devolucion;
-
         public double precio;
 
 
 
         public override string ToString() {
 
-            return FechaInicio.ToShortDateString() + " - " + FechaFin.ToShortDateString() + " " + precio + "€";
+            if(precio!=0)
+
+                return FechaInicio.ToShortDateString() + " - " + FechaFin.ToShortDateString() + " " + precio + "€";
+            else
+                return FechaInicio.ToShortDateString() + " - " + FechaFin.ToShortDateString();
 
 
         }

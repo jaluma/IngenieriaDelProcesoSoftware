@@ -40,11 +40,12 @@ namespace Ui.Main.Pages.Competitions {
         byte[] bytes;
         private IEnumerable<AbsoluteCategory> list;
         public List<AbsoluteCategory> absolutes = new List<AbsoluteCategory>();
-        int count = 0;
+      
 
         public ConfigureCompetition() {
             InitializeComponent();
             GridMountain.Visibility = Visibility.Collapsed;
+            GridInscription.Visibility = Visibility.Visible;
             InicioPlazo.IsEnabled = false;
             FinPlazo.IsEnabled = false;
             FechaCompeticion.DisplayDateStart = DateTime.Now;
@@ -86,6 +87,15 @@ namespace Ui.Main.Pages.Competitions {
         private bool AsphaltIsChecked() {
             return (bool) RBAsphalt.IsChecked;
         }
+
+        private bool PreinscriptionIsChecked()
+        {
+            return (bool)RBPreinscripcion.IsChecked;
+        }
+
+
+
+        
 
         private void CalculateDesnivel() {
 
@@ -152,30 +162,90 @@ namespace Ui.Main.Pages.Competitions {
             }
         }
 
-        private void BtPlazo_Click(object sender, RoutedEventArgs e) {
+        private void RBPreinscripcion_Click(object sender, RoutedEventArgs e)
+        {
 
-            if (Plazos_list.SelectedItem == null) {
-                try {
-                    InscriptionDatesDto plazos = new InscriptionDatesDto {
-                        FechaInicio = (DateTime) InicioPlazo.SelectedDate,
-                        FechaFin = (DateTime) FinPlazo.SelectedDate,
+            if (PreinscriptionIsChecked())
+            {
 
-                    };
-                    if (PrecioInscripcion.Text == "")
-                        plazos.precio = 0;
-                    else
-                        plazos.precio = Double.Parse(PrecioInscripcion.Text);
-                    Plazos_list.SelectionMode = SelectionMode.Single;
-                    Plazos_list.Items.Add(plazos);
-                    FinPlazo.SelectedDate = null;
-                    InicioPlazo.SelectedDate = plazos.FechaFin.AddDays(1);
-                    InicioPlazo.DisplayDateStart = plazos.FechaFin;
-                    PrecioInscripcion.Text = null;
-                    InicioPlazo.IsEnabled = false;
-                    FinPlazo.DisplayDateStart = InicioPlazo.SelectedDate;
-                } catch (Exception) { }
+                PrecioInscripcion.Watermark = "días";
+                LBLPrecio.Content = "Días para formalización";
+                LBLPreinscripcion.Content = "Plazo Preinscripción";
+                BtBorrar_Click(sender, e);
+                FechaCompeticion_LostFocus(sender, e);
+
 
             }
+            else
+            {
+                PrecioInscripcion.Visibility = Visibility.Visible;
+                LBLPrecio.Visibility = Visibility.Visible;
+                LBLPreinscripcion.Content = "Fecha de Inscripción";
+                BtBorrar_Click(sender, e);
+                FechaCompeticion_LostFocus(sender, e);
+            }
+        }
+
+
+       
+
+        private void BtPlazo_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (PreinscriptionIsChecked())
+            {
+                if (Plazos_list.Items.Count == 0)
+                {
+                    try
+                    {
+                        InscriptionDatesDto plazos = new InscriptionDatesDto
+                        {
+                            FechaInicio = (DateTime)InicioPlazo.SelectedDate,
+                            FechaFin = (DateTime)FinPlazo.SelectedDate,
+                            precio = 0,
+
+                        };
+                        Plazos_list.SelectionMode = SelectionMode.Single;
+                        Plazos_list.Items.Add(plazos);
+                        FinPlazo.IsEnabled = false;
+                        InicioPlazo.IsEnabled = false;
+                        BtPlazo.IsEnabled = false;
+
+
+                    }
+                    catch (Exception) { }
+                }
+            }
+            else
+            {
+                if (Plazos_list.SelectedItem == null)
+                {
+                    try
+                    {
+                        InscriptionDatesDto plazos = new InscriptionDatesDto
+                        {
+                            FechaInicio = (DateTime)InicioPlazo.SelectedDate,
+                            FechaFin = (DateTime)FinPlazo.SelectedDate,
+
+                        };
+                        if (PrecioInscripcion.Text == "")
+                            plazos.precio = 0;
+                        else
+                            plazos.precio = Double.Parse(PrecioInscripcion.Text);
+                        Plazos_list.SelectionMode = SelectionMode.Single;
+                        Plazos_list.Items.Add(plazos);
+                        FinPlazo.SelectedDate = null;
+                        InicioPlazo.SelectedDate = plazos.FechaFin.AddDays(1);
+                        InicioPlazo.DisplayDateStart = plazos.FechaFin;
+                        PrecioInscripcion.Text = null;
+                        InicioPlazo.IsEnabled = false;
+                        FinPlazo.DisplayDateStart = InicioPlazo.SelectedDate;
+                    }
+                    catch (Exception) { }
+
+                }
+            }
+            
         }
         private void InicioPlazo_GotFocus(object sender, RoutedEventArgs e) {
             FinPlazo.SelectedDate = null;
@@ -223,6 +293,7 @@ namespace Ui.Main.Pages.Competitions {
             InicioPlazo.IsEnabled = true;
             FinPlazo.IsEnabled = false;
             InicioPlazo.DisplayDateStart = DateTime.Now;
+            BtPlazo.IsEnabled = true;
 
         }
 
@@ -246,49 +317,12 @@ namespace Ui.Main.Pages.Competitions {
 
             if (CheckAll()) {
 
-                _competition.Date = (DateTime) FechaCompeticion.SelectedDate;
-                if (!Double.TryParse(Km.Text, out _competition.Km) || Double.Parse(Km.Text) < 0) {
-                    MessageBox.Show("Por favor, introduzca un número de km válido.");
-                    return;
-                }
-
-                _competition.Name = Nombre.Text;
-                if (!int.TryParse(Hitos.Text, out _competition.NumberMilestone) || int.Parse(Hitos.Text) < 0) {
-                    MessageBox.Show("Por favor, introduzca un número de hitos válido.");
-                    return;
-                }
-                if (MountainIsChecked()) {
-                    _competition.Type = TypeCompetition.Mountain;
-                    _competition.Slope = Double.Parse(DTotal.Text);
-                } else {
-                    _competition.Type = TypeCompetition.Asphalt;
-                }
-
-                if (!int.TryParse(NumeroPlazas.Text, out _competition.NumberPlaces) || int.Parse(NumeroPlazas.Text) < 0) {
-                    MessageBox.Show("Por favor, introduzca un número de plazas válido.");
-                    return;
-                }
+                checkFields();
 
                 _competition.Rules = bytes;
                 _competition.Status = "OPEN";
 
-                //METER CATEGORIAS 
-
-
-                for (int i = 0; i < Categories.Items.Count - 1; i++) {
-
-                    AbsoluteCategory a = Categories.Items.GetItemAt(i) as AbsoluteCategory;
-                    AbsoluteCategory b = Categories.Items.GetItemAt(i + 1) as AbsoluteCategory;
-
-                    if (a.CategoryF.MaxAge != (b.CategoryF.MinAge) - 1) {
-                        MessageBox.Show("Por favor, compruebe que no queda ningún tramo de edades sin incorporar para la competición.");
-                        return;
-                    } else if (a.CategoryM.MaxAge != (b.CategoryM.MinAge) - 1) {
-                        MessageBox.Show("Por favor, compruebe que no queda ningún tramo de edades sin incorporar para la competición.");
-                        return;
-                    }
-
-                }
+                checkAges();
 
                 foreach (AbsoluteCategory c in Categories.Items) //modificar las categorias que te devuelve el dialogo no el listbox
                 {
@@ -355,5 +389,66 @@ namespace Ui.Main.Pages.Competitions {
         }
 
 
+
+        private void checkAges() {
+            for (int i = 0; i < Categories.Items.Count - 1; i++)
+            {
+
+                AbsoluteCategory a = Categories.Items.GetItemAt(i) as AbsoluteCategory;
+                AbsoluteCategory b = Categories.Items.GetItemAt(i + 1) as AbsoluteCategory;
+
+                if (a.CategoryF.MaxAge != (b.CategoryF.MinAge) - 1)
+                {
+                    MessageBox.Show("Por favor, compruebe que los rangos de edades se acoplan correctamente y no queda ninguna edad sin incorporar");
+                    return;
+                }
+                else if (a.CategoryM.MaxAge != (b.CategoryM.MinAge) - 1)
+                {
+                    MessageBox.Show("Por favor, compruebe que los rangos de edades se acoplan correctamente y no queda ninguna edad sin incorporar");
+                    return;
+                }
+
+            }
+
+        }
+
+
+        private void checkFields() {
+            _competition.Date = (DateTime)FechaCompeticion.SelectedDate;
+            if (!Double.TryParse(Km.Text, out _competition.Km) || Double.Parse(Km.Text) < 0)
+            {
+                MessageBox.Show("Por favor, introduzca un número de km válido.");
+                return;
+            }
+
+            _competition.Name = Nombre.Text;
+            if (!int.TryParse(Hitos.Text, out _competition.NumberMilestone) || int.Parse(Hitos.Text) < 0)
+            {
+                MessageBox.Show("Por favor, introduzca un número de hitos válido.");
+                return;
+            }
+            if (MountainIsChecked())
+            {
+                _competition.Type = TypeCompetition.Mountain;
+                _competition.Slope = Double.Parse(DTotal.Text);
+            }
+            else
+            {
+                _competition.Type = TypeCompetition.Asphalt;
+            }
+
+            if (!int.TryParse(NumeroPlazas.Text, out _competition.NumberPlaces) || int.Parse(NumeroPlazas.Text) < 0)
+            {
+                MessageBox.Show("Por favor, introduzca un número de plazas válido.");
+                return;
+            }
+        }
+
+        private void BtValidar_Click(object sender, RoutedEventArgs e)
+        {
+            checkAges();
+        }
+
+       
     }
 }
