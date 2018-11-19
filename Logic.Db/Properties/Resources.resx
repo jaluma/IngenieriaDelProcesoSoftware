@@ -144,7 +144,7 @@
     <comment>sql command for insert values into table Athletes</comment>
   </data>
   <data name="SQL_INSERT_COMPETITION" xml:space="preserve">
-    <value>insert into Competition values(null, @COMPETITION_NAME, @COMPETITION_TYPE,@COMPETITION_KM,  @COMPETITION_DATE,@COMPETITION_NUMBER_PLACES ,@COMPETITION_STATUS,@COMPETITION_RULES,@COMPETITION_SLOPE, 5)</value>
+    <value>insert into Competition values(null, @COMPETITION_NAME, @COMPETITION_TYPE,@COMPETITION_KM,  @COMPETITION_DATE,@COMPETITION_NUMBER_PLACES ,@COMPETITION_STATUS,@COMPETITION_RULES,@COMPETITION_SLOPE, @COMPETITION_MILESTONES, @COMPETITION_PREINSCRIPTION, @COMPETITION_DAYS_PREINSCRIPTION)</value>
   </data>
   <data name="SQL_SELECT_ATHLETE" xml:space="preserve">
     <value>SELECT ATHLETE_DNI, ATHLETE_NAME, ATHLETE_SURNAME, ATHLETE_BIRTH_DATE, ATHLETE_GENDER FROM Athlete</value>
@@ -254,7 +254,7 @@ WHERE COMPETITION_ID=@COMPETITION_ID AND ATHLETE_DNI=GET_AGE_NOW.ATHLETE_DNI  AN
 WHERE CATEGORY_ID = @ID</value>
   </data>
   <data name="SQL_SELECT_OUTSTANDING" xml:space="preserve">
-      <value>
+    <value>
           select ATHLETE_DNI, COMPETITION_ID,  COMPETITION_PRICE, DATE_INSCRIPTION
           from Enroll natural join Competition natural join CompetitionDates natural join DateInscription
           where status='OUTSTANDING' and date_inscription between initial_date and finish_date

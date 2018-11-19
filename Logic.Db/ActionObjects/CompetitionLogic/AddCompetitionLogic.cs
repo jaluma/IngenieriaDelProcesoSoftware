@@ -46,6 +46,9 @@ namespace Logic.Db.ActionObjects.CompetitionLogic {
 
                     command.Parameters.AddWithValue("@COMPETITION_RULES", _competition.Rules);
                     command.Parameters.AddWithValue("@COMPETITION_SLOPE", _competition.Slope);
+                    command.Parameters.AddWithValue("@COMPETITION_MILESTONES", _competition.NumberMilestone);
+                    command.Parameters.AddWithValue("@COMPETITION_PREINSCRIPTION", _competition.Preinscription);
+                    command.Parameters.AddWithValue("@COMPETITION_DAYS_PREINSCRIPTION", _competition.days_Preinscription);
 
                     command.ExecuteNonQuery();
                 }

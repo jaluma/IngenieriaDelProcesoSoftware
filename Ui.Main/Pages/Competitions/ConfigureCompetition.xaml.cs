@@ -321,7 +321,13 @@ namespace Ui.Main.Pages.Competitions {
 
                 _competition.Rules = bytes;
                 _competition.Status = "OPEN";
-
+                if (PreinscriptionIsChecked())
+                {
+                    _competition.Preinscription = true;
+                    _competition.days_Preinscription = Int32.Parse(PrecioInscripcion.Text);
+                }
+                else
+                    _competition.Preinscription = false;
                 checkAges();
 
                 foreach (AbsoluteCategory c in Categories.Items) //modificar las categorias que te devuelve el dialogo no el listbox
