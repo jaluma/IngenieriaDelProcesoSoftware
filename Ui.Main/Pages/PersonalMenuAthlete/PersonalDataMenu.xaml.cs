@@ -18,7 +18,8 @@ using Logic.Db.Dto;
 using Logic.Db.Util;
 using Logic.Db.Util.Services;
 using Logic.Db.Properties;
-
+using Ui.Main.Pages.Competition.Times;
+using Ui.Main.Pages.MenuInitial;
 
 namespace Ui.Main.Pages.PersonalMenuAthlete {
     /// <summary>
@@ -33,6 +34,7 @@ namespace Ui.Main.Pages.PersonalMenuAthlete {
         private DataTable _tablePersonal;
         private DataTable _tableInscripcion;
         private DataTable _tableResult;
+        public static CompetitionDto Competition = new CompetitionDto();
 
 
         public PersonalDataMenu() {
@@ -72,10 +74,12 @@ namespace Ui.Main.Pages.PersonalMenuAthlete {
 
 
             for (int i = 1; i < _tablePersonal.Rows.Count; i++) {
-                _tablePersonal.Rows.RemoveAt(i);
+               _tablePersonal.Rows.RemoveAt(i);
             }
 
-            _tablePersonal.Columns.RemoveAt(3);
+            _tablePersonal.Columns.RemoveAt(0);
+            _tablePersonal.Columns.RemoveAt(2);
+            _tablePersonal.Columns.RemoveAt(2);
 
             DataGridDataPersonal.ItemsSource = _tablePersonal.DefaultView;
             GenerateInscriptionsDataTable();
@@ -92,6 +96,8 @@ namespace Ui.Main.Pages.PersonalMenuAthlete {
             _tableInscripcion.Columns[2].ColumnName = Properties.Resources.Competition_Date;
             _tableInscripcion.Columns[3].ColumnName = Properties.Resources.AthleteDorsal;
 
+
+
             DataGridInscriptions.ItemsSource = _tableInscripcion.DefaultView;
             GenerateResultsDataTable();
 
@@ -100,66 +106,33 @@ namespace Ui.Main.Pages.PersonalMenuAthlete {
         private void GenerateResultsDataTable() {
             _serviceAthleteResult = new AthletesService();
             _tableResult = new DataTable();
+            _tableResult= _serviceAthleteResult.SelectParticipatedByDni(Dni.Text.ToUpper());
 
-            DataColumn column = new DataColumn(Properties.Resources.AthletePosition, typeof(string)) {
-                AllowDBNull = true
-            };
-            _tableResult.Columns.Add(column);
-
-            _tableResult.Columns[Properties.Resources.AthletePosition].AutoIncrement = true;
-            _tableResult.Columns[Properties.Resources.AthletePosition].AutoIncrementSeed = 1;
-            _tableResult.Columns[Properties.Resources.AthletePosition].AutoIncrementStep = 1;
-
-            _tableResult.Merge(_serviceAthleteResult.SelectParticipatedByDni(Dni.Text.ToUpper()));
-
-
-
+            _tableResult.Columns[0].ColumnName = Properties.Resources.Competition_Id;
             _tableResult.Columns[1].ColumnName = Properties.Resources.FinishTime;
             _tableResult.Columns[2].ColumnName = Properties.Resources.Competition;
             _tableResult.Columns[3].ColumnName = Properties.Resources.AthleteGender;
-            _tableResult.Columns.Add(Properties.Resources.Time, typeof(string));
+            _tableResult.Columns.Add(Properties.Resources.Time+"(s)", typeof(string));
 
+            _tableResult.Columns.RemoveAt(3);
+            
             foreach (DataRow row in _tableResult.Rows) {
-                row[4] = PartialTimeString(row[1] is long ? (long) row[1] : 0);
+               row[3] = PartialTimeString(row[1] is long ? (long) row[1] : 0);
             }
 
+            _tableResult.Columns.RemoveAt(1);
 
+            
 
             DataGridResults.ItemsSource = _tableResult.DefaultView;
-            if (DataGridResults.Columns.Count >= 1) {
-                DataGridResults.Columns.ElementAt(1).Visibility = Visibility.Collapsed;
-                DataGridResults.Columns.ElementAt(3).Visibility = Visibility.Collapsed;
-            }
+           
         }
 
-        private void CheckBox_OnClick(object sender, RoutedEventArgs e) {
-            _tableResult.DefaultView.RowFilter = GenerateFilter();
-            DataGridResults.ItemsSource = _tableResult.DefaultView;
-        }
+       
 
-        private string GenerateFilter() {
-            string filter = string.Empty;
+        
 
-            if (MaleIsChecked() && FemaleIsChecked()) {
-                filter = null;
-            } else if (MaleIsChecked()) {
-                filter = $" {Properties.Resources.AthleteGender} = 'M'";
-            } else if (FemaleIsChecked()) {
-                filter = $"{Properties.Resources.AthleteGender}= 'F'";
-            } else {
-                filter = $"{Properties.Resources.AthleteGender} <> 'F' and {Properties.Resources.AthleteGender} <> 'M'";
-            }
-
-            return filter;
-        }
-
-        private bool MaleIsChecked() {
-            return (bool) MaleCheckBox.IsChecked;
-        }
-
-        private bool FemaleIsChecked() {
-            return (bool) FemaleCheckBox.IsChecked;
-        }
+       
 
         private bool ComprobarDNI(string dni) {
             if (!(dni.Length == 9))
@@ -206,6 +179,39 @@ namespace Ui.Main.Pages.PersonalMenuAthlete {
                 return timespan.ToString(@"hh\:mm\:ss");
             }
         }
+
+        private void DataGridInscriptions_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void DataGridDataPersonal_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void DataGridResults_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            string id = _tableResult.Rows[DataGridResults.SelectedIndex].ItemArray.ElementAt(0).ToString();
+            Competition.ID = long.Parse(id);
+            PartialTimesAthletes.Competition = Competition;
+            
+
+            List<AthleteDto> atleList = new AthletesService().SelectAthleteTable();
+
+            try
+            {
+                
+                PartialTimesAthletes.Athlete = atleList.First(a => a.Dni.ToUpper().Equals(Dni.Text.ToUpper()));
+
+               
+
+                MainMenu.ChangeMenuSelected(Properties.Resources.TileTimes, Properties.Resources.SubMenuPartialTimes);
+            }
+            catch (IndexOutOfRangeException) { }
+        }
+
     }
 }
+
 

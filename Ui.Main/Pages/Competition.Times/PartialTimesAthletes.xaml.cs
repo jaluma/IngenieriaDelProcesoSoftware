@@ -64,7 +64,7 @@ namespace Ui.Main.Pages.Competition.Times {
 
             CompetitionList.ItemsSource = _list;
 
-            if (_list.Count > 0)
+            if (_list.Count > 0 && Competition==null)
                 CompetitionList.SelectedIndex = 0;
         }
 
