@@ -33,6 +33,8 @@ namespace Ui.Main.Pages.Competition.Times {
     public partial class TimesAthletes : Page {
 
         private DataTable _table;
+        public static AthleteDto Athlete;
+        private List<string> _columnDNI;
         private List<long> _ids;
         private List<string> _list;
         private IEnumerable<AbsoluteCategory> _categories;
@@ -46,7 +48,7 @@ namespace Ui.Main.Pages.Competition.Times {
 
             GenerateList();
 
-            if (_list.Count > 0)
+            if (_list.Count > 0 && Competition==null)
                 CompetitionList.SelectedIndex = 0;
         }
 
@@ -239,6 +241,12 @@ namespace Ui.Main.Pages.Competition.Times {
                 _table = dtClone;
 
                 DataGridTimes.ItemsSource = _table.DefaultView;
+
+                _columnDNI = _table.AsEnumerable()
+              .Select(dr => dr.Field<string>(Properties.Resources.AthleteDni)).ToList();
+
+                if (Athlete!=null)
+                    DataGridTimes.SelectedIndex = _columnDNI.IndexOf(_columnDNI.First(a => a.Equals(Athlete.Dni)));
             }
         }
 

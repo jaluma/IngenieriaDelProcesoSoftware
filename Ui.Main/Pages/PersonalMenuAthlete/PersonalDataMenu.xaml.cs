@@ -34,6 +34,7 @@ namespace Ui.Main.Pages.PersonalMenuAthlete {
         private DataTable _tablePersonal;
         private DataTable _tableInscripcion;
         private DataTable _tableResult;
+        private DataTable _tableCat;
         public static CompetitionDto Competition = new CompetitionDto();
 
 
@@ -122,17 +123,52 @@ namespace Ui.Main.Pages.PersonalMenuAthlete {
 
             _tableResult.Columns.RemoveAt(1);
 
-            
-
             DataGridResults.ItemsSource = _tableResult.DefaultView;
-           
+
+            if (DataGridResults.Columns.Count >= 1)
+            {
+                DataGridResults.Columns.ElementAt(0).Visibility = Visibility.Collapsed;
+            }
+
+            GenerateCategoriasDataTable();
+
+
+
+
         }
 
-       
 
-        
 
-       
+        private void GenerateCategoriasDataTable()
+        {
+            _serviceAthleteResult = new AthletesService();
+            _tableCat = new DataTable();
+            _tableCat = _serviceAthleteResult.SelectParticipatedByDni(Dni.Text.ToUpper());
+
+            _tableCat.Columns[0].ColumnName = Properties.Resources.Competition_Id;
+            _tableCat.Columns[1].ColumnName = Properties.Resources.FinishTime;
+            _tableCat.Columns[2].ColumnName = Properties.Resources.Competition;
+            _tableCat.Columns[3].ColumnName = Properties.Resources.AthleteGender;
+
+
+            _tableCat.Columns.RemoveAt(3);
+
+            _tableCat.Columns.RemoveAt(1);
+
+            DataGridPosiciones.ItemsSource = _tableCat.DefaultView;
+
+            if (DataGridPosiciones.Columns.Count >= 1)
+            {
+                DataGridPosiciones.Columns.ElementAt(0).Visibility = Visibility.Collapsed;
+            }
+
+
+
+
+
+        }
+
+
 
         private bool ComprobarDNI(string dni) {
             if (!(dni.Length == 9))
@@ -211,6 +247,31 @@ namespace Ui.Main.Pages.PersonalMenuAthlete {
             catch (IndexOutOfRangeException) { }
         }
 
+        private void DataGridPosiciones_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void DataGridPosiciones_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            string id = _tableCat.Rows[DataGridPosiciones.SelectedIndex].ItemArray.ElementAt(0).ToString();
+            Competition.ID = long.Parse(id);
+            TimesAthletes.Competition = Competition;
+
+
+            List<AthleteDto> atleList = new AthletesService().SelectAthleteTable();
+
+            try
+            {
+
+               TimesAthletes.Athlete= atleList.First(a => a.Dni.ToUpper().Equals(Dni.Text.ToUpper()));
+
+
+
+                MainMenu.ChangeMenuSelected(Properties.Resources.TileTimes, Properties.Resources.TitleTimesCompetition);
+            }
+            catch (IndexOutOfRangeException) { }
+        }
     }
 }
 
