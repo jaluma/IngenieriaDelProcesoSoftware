@@ -448,4 +448,7 @@
   <data name="InscriptionCanceled" xml:space="preserve">
     <value>Se ha cancelado la inscripción. Cantidad a devolver: </value>
   </data>
+  <data name="Raffle" xml:space="preserve">
+    <value>Sorteo plazas</value>
+  </data>
 </root>

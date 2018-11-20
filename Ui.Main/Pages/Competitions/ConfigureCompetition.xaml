@@ -77,7 +77,7 @@
 
         <Button x:Name="BtRefund" Content="Configurar" HorizontalAlignment="Left" Margin="980,439,0,0" VerticalAlignment="Top" Width="140" Height="30" FontSize="16" Click="BtRefund_Click"  MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" RenderTransformOrigin="0.19,0.667"/>
         <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="Políticas cancelación / reembolso" Margin="755,443,0,72" Width="210" RenderTransformOrigin="0.473,1.057" />
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="60" Margin="60,415,0,0" VerticalAlignment="Top" Width="1085"/>
+        <Border  BorderBrush="DarkGray" BorderThickness="1" HorizontalAlignment="Left" Height="60" Margin="60,415,0,0" VerticalAlignment="Top" Width="1085"/>
         <Label FontSize="12" FontWeight="bold" HorizontalAlignment="Left" Content="Hitos" Margin="655,154,0,363" Width="75" RenderTransformOrigin="0.473,1.057" />
         <xctk:WatermarkTextBox Watermark="Hitos" x:Name="Hitos" HorizontalAlignment="Left" Height="28" Margin="719,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" RenderTransformOrigin="-3.8,0.286" MouseEnter="OnMouseEnterBeam" MouseLeave="OnMouseLeaveBeam"/>
         <Button x:Name="BtValidar" Content="Validar" HorizontalAlignment="Left" Margin="200,367,0,0" VerticalAlignment="Top" Width="121" Height="24" FontSize="9"  MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Click="BtValidar_Click"
@@ -87,9 +87,9 @@
         <Label FontSize="12" FontWeight="bold"  x:Name="Preinscripcion" Content="Competición con preinscripción" HorizontalAlignment="Left" Margin="520,68,0,0" VerticalAlignment="Top" Height="27" Width="190" />
         <RadioButton x:Name="RBPreinscripcion" Content="Si" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" HorizontalAlignment="Left" Margin="715,68,0,0" VerticalAlignment="Top" IsChecked="False" GroupName="GroupPreinscription" Height="22" Width="36" FontSize="12" RenderTransformOrigin="0.2,0.682" Click="RBPreinscripcion_Click"/>
         <RadioButton x:Name="RBPreinscripcionNo" Content="No" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" HorizontalAlignment="Left" Margin="764,68,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="GroupPreinscription" Height="22" Width="36" FontSize="12" RenderTransformOrigin="0.2,0.682" Click="RBPreinscripcion_Click" />
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="129" Margin="60,55,0,0" VerticalAlignment="Top" Width="1085"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="207" Margin="60,189,0,0" VerticalAlignment="Top" Width="435"/>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="207" Margin="500,189,0,0" VerticalAlignment="Top" Width="645"/>
+        <Border  BorderBrush="DarkGray" BorderThickness="1" HorizontalAlignment="Left" Height="129" Margin="60,55,0,0" VerticalAlignment="Top" Width="1085"/>
+        <Border BorderBrush="DarkGray" BorderThickness="1" HorizontalAlignment="Left" Height="207" Margin="60,189,0,0" VerticalAlignment="Top" Width="435"/>
+        <Border  BorderBrush="DarkGray" BorderThickness="1" HorizontalAlignment="Left" Height="207" Margin="500,189,0,0" VerticalAlignment="Top" Width="645"/>
 
 
 
