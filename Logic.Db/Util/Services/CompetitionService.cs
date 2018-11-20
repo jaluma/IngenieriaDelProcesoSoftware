@@ -22,6 +22,13 @@ namespace Logic.Db.Util.Services {
             return listOpenCompetition.Table;
         }
 
+        public DataTable ListPreInscriptionCompetitions()
+        {
+            ListPreInscriptionCompetitionLogic listPreCompetition = new ListPreInscriptionCompetitionLogic(ref _conn);
+            listPreCompetition.Execute();
+            return listPreCompetition.Table;
+        }
+
         public DataTable ListNotRealizedCompetitions() {
             ListNotRealizedCompetitionLogic listCompetition = new ListNotRealizedCompetitionLogic(ref _conn);
             listCompetition.Execute();

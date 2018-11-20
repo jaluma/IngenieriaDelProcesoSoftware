@@ -33,6 +33,7 @@
                 <mui:Link DisplayName="{x:Static properties:Resources.CategoryMenuActive}" Source="/Pages/Competitions/ListOpenCompetition.xaml" />
                 <mui:Link DisplayName="{x:Static properties:Resources.CategoryMenuFinish}" Source="/Pages/Competition.Times/SelectionCompetition.xaml" />
                 <mui:Link DisplayName="{x:Static properties:Resources.SubmenuAddDorsal}" Source="/Pages/Inscriptions/HasRegistered/Dorsals.xaml" />
+                <mui:Link DisplayName="{x:Static properties:Resources.Raffle}" Source="/Pages/Competitions/Raffle.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
         <mui:LinkGroup DisplayName="{x:Static properties:Resources.TileTimes}">
