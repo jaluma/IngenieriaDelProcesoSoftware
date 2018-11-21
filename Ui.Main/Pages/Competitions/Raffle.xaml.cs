@@ -60,14 +60,7 @@ namespace Ui.Main.Pages.Competitions
             DataGridResults.ItemsSource = table.DefaultView;
         }
 
-        private void DataGridResults_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-
-
-            
-
-
-        }
+       
 
 
 
@@ -88,7 +81,15 @@ namespace Ui.Main.Pages.Competitions
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (DataGridResults.SelectedItem != null) {
 
+
+
+
+
+
+
+            }
         }
 
         private void Imprimir_Click(object sender, RoutedEventArgs e)
