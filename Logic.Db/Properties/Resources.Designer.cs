@@ -72,6 +72,17 @@ namespace Logic.Db.Properties {
         }
 
         /// <summary>
+        ///   Busca una cadena traducida similar a select Athlete_dni from enroll join competition where enroll.competition_id =@COMPETITION_ID and competition.competition_id= enroll.competition_id and competition_preinscription=1 and enroll.status = &apos;PRE-REGISTERED&apos;.
+        /// </summary>
+        internal static string SQL_SELECT_ATHLETE_PREINSCRIPTION
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_ATHLETE_PREINSCRIPTION", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Busca una cadena traducida similar a bb.
         /// </summary>
         internal static string bb {
@@ -434,13 +445,16 @@ namespace Logic.Db.Properties {
             }
         }
 
+
         /// <summary>
-        ///   Busca una cadena traducida similar a SELECT COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, COMPETITION_DATE, COMPETITION_STATUS, count(*) as INSCRITOS FROM Competition natural join Enroll
+        ///   Busca una cadena traducida similar a SELECT COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_DATE, COMPETITION_STATUS, count(*) as INSCRITOS FROM Competition natural join Enroll
         ///WHERE COMPETITION_STATUS=@STATUS
         ///group by COMPETITION_ID.
         /// </summary>
-        internal static string SQL_SELECT_COMPETITION_STATUS {
-            get {
+        internal static string SQL_SELECT_COMPETITION_STATUS
+        {
+            get
+            {
                 return ResourceManager.GetString("SQL_SELECT_COMPETITION_STATUS", resourceCulture);
             }
         }
