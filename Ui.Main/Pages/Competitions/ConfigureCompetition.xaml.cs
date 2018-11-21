@@ -385,7 +385,7 @@ namespace Ui.Main.Pages.Competitions {
 
             if (FechaCompeticion.SelectedDate == null | Km.Text == ("") || Nombre.Text == ("") ||
                 (!MountainIsChecked() && !AsphaltIsChecked()) || (MountainIsChecked() && DTotal.Text == ("")) || NumeroPlazas.Text == ("")
-                  || Plazos_list.Items.IsEmpty)
+                  || Plazos_list.Items.IsEmpty || refundsList.Count <= 0)
                 return false;
 
 
@@ -414,9 +414,6 @@ namespace Ui.Main.Pages.Competitions {
                     return;
                 }
 
-              
-                    
-
             }
 
         }
@@ -431,13 +428,10 @@ namespace Ui.Main.Pages.Competitions {
             }
 
             _competition.Name = Nombre.Text;
-            if (Hitos.Text != "")
+            if (!int.TryParse(Hitos.Text, out _competition.NumberMilestone) || int.Parse(Hitos.Text) < 0)
             {
-                if (!int.TryParse(Hitos.Text, out _competition.NumberMilestone))
-                {
-                    MessageBox.Show("Por favor, introduzca un número de hitos válido.");
-                    return;
-                }
+                MessageBox.Show("Por favor, introduzca un número de hitos válido.");
+                return;
             }
             if (MountainIsChecked())
             {
@@ -459,7 +453,6 @@ namespace Ui.Main.Pages.Competitions {
         private void BtValidar_Click(object sender, RoutedEventArgs e)
         {
             checkAges();
-            MessageBox.Show("Todo correcto!");
         }
 
        

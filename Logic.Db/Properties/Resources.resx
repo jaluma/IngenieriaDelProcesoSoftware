@@ -176,7 +176,7 @@ ORDER BY DATE_INSCRIPTION</value>
   <data name="SQL_SELECT_ATHLETE_INSCRIPTION" xml:space="preserve">
     <value>SELECT * FROM ENROLL
 WHERE COMPETITION_ID=@COMPETITION_ID
-ORDER BY  DATE_INSCRIPTION, STATUS</value>
+ORDER BY DATE_INSCRIPTION, STATUS</value>
   </data>
   <data name="SQL_UPDATE_DORSAL" xml:space="preserve">
     <value>update Enroll
@@ -193,7 +193,7 @@ where COMPETITION_ID=@COMPETITION_ID and ATHLETE_DNI=@DNI and dorsal is null</va
     <value>select category_name from get_category_competition where competition_id=@COMPETITION_ID</value>
   </data>
   <data name="SQL_SELECT_OPEN_COMPETITION" xml:space="preserve">
-    <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, COMPETITION_SLOPE,INITIAL_DATE, FINISH_DATE, COMPETITION_DATE, COMPETITION_RULES from Competition natural join CompetitionDates natural join DateInscription where (date('now') between INITIAL_DATE and FINISH_DATE) and  Competition.COMPETITION_STATUS='OPEN' and Competition.COMPETITION_PREINSCRIPTION = 0</value>
+    <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, INITIAL_DATE, FINISH_DATE, COMPETITION_DATE, COMPETITION_RULES from Competition natural join CompetitionDates natural join DateInscription where (date('now') between INITIAL_DATE and FINISH_DATE) and  Competition.COMPETITION_STATUS='OPEN'</value>
   </data>
   <data name="SQL_SELECT_COMPETITION_FINISH_LIST" xml:space="preserve">
     <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE,  INITIAL_DATE, FINISH_DATE, COMPETITION_DATE from Competition natural join CompetitionDates natural join DateInscription
@@ -347,11 +347,5 @@ where competition_id=@ID and athlete_dni=@DNI and date_inscription between initi
   </data>
   <data name="SQL_FINISH_COMPETITION" xml:space="preserve">
     <value>UPDATE Competition SET COMPETITION_STATUS='FINISH' WHERE COMPETITION_ID = @COMPETITION_ID</value>
-  </data>
-  <data name="SQL_SELECT_PREINSCRIPTION_COMPETITION" xml:space="preserve">
-    <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_SLOPE,INITIAL_DATE, FINISH_DATE, COMPETITION_DATE, COMPETITION_RULES from Competition natural join CompetitionDates natural join DateInscription where (date('now') between INITIAL_DATE and FINISH_DATE) and  Competition.COMPETITION_STATUS='OPEN' and Competition.COMPETITION_PREINSCRIPTION = 1</value>
-  </data>
-  <data name="SQL_SELECT_ATHLETE_PREINSCRIPTION" xml:space="preserve">
-    <value>select Athlete_dni from enroll join competition where enroll.competition_id =@COMPETITION_ID and competition.competition_id= enroll.competition_id and competition_preinscription=1 and enroll.status = 'PRE-REGISTERED'</value>
   </data>
 </root>

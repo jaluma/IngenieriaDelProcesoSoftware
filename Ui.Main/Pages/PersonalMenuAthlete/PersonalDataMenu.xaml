@@ -39,10 +39,10 @@
                FontWeight="Bold"
                HorizontalAlignment="Left"
                Content="{x:Static properties:Resources.PersonalMenu}" RenderTransformOrigin="0.517,0.417" Margin="25,17,0,494"/>
-            <Border  BorderBrush="DarkGray" BorderThickness="1" HorizontalAlignment="Left" Height="495" Margin="10,10,0,0" VerticalAlignment="Top" Width="280"/>
-            <Border  BorderBrush="DarkGray" BorderThickness="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="106" Margin="320,10,0,0" VerticalAlignment="Top" Width="810"/>
-            <Border  BorderBrush="DarkGray" BorderThickness="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="201" Margin="320,121,0,0" VerticalAlignment="Top" Width="810"/>
-            <Border  BorderBrush="DarkGray" BorderThickness="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="178" Margin="320,327,0,0" VerticalAlignment="Top" Width="810"/>
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="495" Margin="10,10,0,0" VerticalAlignment="Top" Width="280"/>
+            <Border BorderBrush="Black" BorderThickness="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="106" Margin="320,10,0,0" VerticalAlignment="Top" Width="810"/>
+            <Border BorderBrush="Black" BorderThickness="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="201" Margin="320,121,0,0" VerticalAlignment="Top" Width="810"/>
+            <Border BorderBrush="Black" BorderThickness="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="178" Margin="320,327,0,0" VerticalAlignment="Top" Width="810"/>
 
 
         </Grid>

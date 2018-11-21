@@ -7,14 +7,14 @@
       xmlns:properties="clr-namespace:Ui.Main.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="625" d:DesignWidth="1250"
-      Title="ListOpenCompetitions" >
-    <Grid  Height="605" VerticalAlignment="Bottom" Margin="10,0,10,10">
+      Title="ListOpenCompetitions" Height="545" Loaded="ListOpenCompetition_OnLoaded">
+    <DockPanel  Height="545" VerticalAlignment="Bottom">
+        <Label FontSize="18"
+               FontWeight="Bold"
+               HorizontalAlignment="Center"
+                Content="{x:Static properties:Resources.TileCompetition}" DockPanel.Dock="Top"/>
+        <DataGrid x:Name="DataGridCompetition"  MinWidth="800" AutoGeneratingColumn="OnAutoGeneratingColumn" MinHeight="450"  VerticalAlignment="Top" ColumnWidth="*" Height="511" DockPanel.Dock="Bottom" IsReadOnly="True" MouseDoubleClick="DataGridCompetition_OnMouseDoubleClick"/>
+    </DockPanel>
 
-        <DataGrid x:Name="DataGridCompetition"   AutoGeneratingColumn="OnAutoGeneratingColumn"   ColumnWidth="*"  IsReadOnly="True" MouseDoubleClick="DataGridCompetition_OnMouseDoubleClick" Margin="0,155,10,255" />
-        <DataGrid x:Name="DataGridCompetition_P"   AutoGeneratingColumn="OnAutoGeneratingColumn"   ColumnWidth="*"  IsReadOnly="True" MouseDoubleClick="DataGridCompetition_P_MouseDoubleClick" Margin="10,400,0,10" />
-        <Label Content="Competiciones con preinscripción abierta" HorizontalAlignment="Left" Height="25" Margin="480,370,0,0" VerticalAlignment="Top" Width="330" FontWeight="Bold" FontSize="15"/>
-        <Label Content="Competiciones activas" HorizontalAlignment="Left" Height="25" Margin="530,110,0,0" VerticalAlignment="Top" Width="220" FontWeight="Bold" FontSize="15"/>
 
-
-    </Grid>
 </Page>

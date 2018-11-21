@@ -47,17 +47,6 @@ namespace Ui.Main.Properties {
         }
 
         /// <summary>
-        ///   Busca una cadena traducida similar a Sorteo plazas.
-        /// </summary>
-        public static string Raffle
-        {
-            get
-            {
-                return ResourceManager.GetString("Raffle", resourceCulture);
-            }
-        }
-
-        /// <summary>
         ///   Busca una cadena traducida similar a Modificar.
         /// </summary>
         public static string Modify {

@@ -89,7 +89,6 @@
     <Compile Include="ActionObjects\CompetitionLogic\GetIdCompetition.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\GetRulesCompetitionLogic.cs" />
     <Compile Include="ActionObjects\CategoriesLogic\SelectCategoriesPredefinied.cs" />
-    <Compile Include="ActionObjects\CompetitionLogic\ListPreinscriptionCompetitionLogic.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\SelectAllCategoriesByCompetitionId.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\SelectAllCompetitionsInscripted.cs" />
     <Compile Include="ActionObjects\AthleteLogic\SelectAthleteByDniLogic.cs" />
