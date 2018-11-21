@@ -111,5 +111,18 @@ namespace Logic.Db.Util.Services {
             update.Execute();
         }
 
+        public void UpdateRefund(string dni, long id, double refund)
+        {
+            UpdateEnrollRefund update = new UpdateEnrollRefund(ref _conn, dni, id, refund);
+            update.Execute();
+        }
+
+        public bool IsAthleteInComp(CompetitionDto competition, AthleteDto athlete)
+        {
+            IsAthleteInCompetition isAthlete = new IsAthleteInCompetition(ref _conn, competition, athlete);
+            isAthlete.Execute();
+            return isAthlete.IsEnroll;
+        }
+
     }
 }

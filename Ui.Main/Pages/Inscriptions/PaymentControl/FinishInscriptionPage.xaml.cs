@@ -38,7 +38,7 @@ namespace Ui.Main.Pages.Inscriptions.PaymentControl {
             List<string[]> list = new List<string[]>();
             using (StreamReader readFile = new StreamReader(file)) {
                 string line;
-                string[] row = new string[6];
+                string[] row = new string[4];
 
                 while ((line = readFile.ReadLine()) != null) {
                     row = line.Split(',');
@@ -70,11 +70,9 @@ namespace Ui.Main.Pages.Inscriptions.PaymentControl {
                 try {
                     PaymentDto dto = new PaymentDto() {
                         Dni = s[0],
-                        Name = s[1],
-                        Surname = s[2],
-                        Date = DateTime.Parse(s[3]),
-                        Amount = double.Parse(s[4]),
-                        Id = int.Parse(s[5])
+                        Date = DateTime.Parse(s[1]),
+                        Amount = double.Parse(s[2]),
+                        Id = int.Parse(s[3])
                     };
                     extracto.Add(dto);
                 } catch (Exception) {
@@ -100,12 +98,19 @@ namespace Ui.Main.Pages.Inscriptions.PaymentControl {
                     }
                 }
                 if (pago) {
-                    if (cantidadPagada >= prereg.Amount) {
+                    if (cantidadPagada == prereg.Amount) {
                         _enrollService.UpdateInscriptionStatus(prereg.Dni, prereg.Id, "REGISTERED");
                         stringBuilder.Append("El atleta con dni " + prereg.Dni + " ha sido inscrito en la competición con ID " + prereg.Id + ".\n\n");
+                    } else if (cantidadPagada > prereg.Amount){
+                        _enrollService.UpdateInscriptionStatus(prereg.Dni, prereg.Id, "REGISTERED");
+                        _enrollService.UpdateRefund(prereg.Dni, prereg.Id, prereg.Amount - cantidadPagada);
+                        stringBuilder.Append("El atleta con dni " + prereg.Dni + " ha sido inscrito en la competición con ID " + prereg.Id + 
+                            ". Deben devolversele " + (cantidadPagada - prereg.Amount) + "€.\n\n");
                     } else {
                         _enrollService.UpdateInscriptionStatus(prereg.Dni, prereg.Id, "CANCELED");
-                        stringBuilder.Append("El atleta con dni " + prereg.Dni + " no ha realizado un pago válido para la competición con ID " + prereg.Id + ".\n\n");
+                        _enrollService.UpdateRefund(prereg.Dni, prereg.Id, cantidadPagada);
+                        stringBuilder.Append("El atleta con dni " + prereg.Dni + " no ha realizado un pago válido para la competición con ID " + prereg.Id +
+                            ". Deben devolversele " + cantidadPagada + "€.\n\n");
                     }
                 }
             }

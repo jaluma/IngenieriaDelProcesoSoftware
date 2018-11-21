@@ -26,6 +26,7 @@ namespace Ui.Main.Pages.Inscriptions {
 
         private readonly CompetitionService _competitionService;
         private readonly AthletesService _athletesService;
+        private readonly EnrollService _enrollService;
         private AthleteDto _athlete;
 
         private CompetitionDto _competition;
@@ -35,6 +36,7 @@ namespace Ui.Main.Pages.Inscriptions {
         public CompetitionInscription() {
             _competitionService = new CompetitionService();
             _athletesService = new AthletesService();
+            _enrollService = new EnrollService(null);
             InitializeComponent();
         }
 
@@ -75,15 +77,21 @@ namespace Ui.Main.Pages.Inscriptions {
                 return;
             }
 
-            try {
+            /*try {*/
                 _competition = _competitionService.ListCompetitionsToInscribeObject(_athlete)
                     .ElementAt(CompetitionsToSelect.SelectedIndex);
+
+                if (_enrollService.IsAthleteInComp(_competition, _athlete))
+                {
+                    MessageBox.Show(Properties.Resources.PreviouslyEnrolled);
+                    return;
+                }
                 new DialogPayment(_athlete, _competition).ShowDialog();
                 LoadData(TxDni.Text);
 
-            } catch (ApplicationException) {
+            /*} catch (ApplicationException) {
                 MessageBox.Show(Properties.Resources.PreviouslyEnrolled);
-            }
+            }*/
 
         }
 

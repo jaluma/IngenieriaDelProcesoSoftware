@@ -66,6 +66,7 @@
     <Compile Include="ActionObjects\AthleteLogic\DeleteAthleteLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\GetCategoryLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\InsertAthletesInCompetitionLogic.cs" />
+    <Compile Include="ActionObjects\AthleteLogic\Enroll\IsAthleteInCompetition.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\IsDorsalsByCompetition.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\IsCategoryInCompetitionLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\SelectStatusEnroll.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="ActionObjects\AthleteLogic\Enroll\SelectAthleteHasParticipated.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\SelectDniFromDorsal.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\SelectPreregisteredAthletes.cs" />
+    <Compile Include="ActionObjects\AthleteLogic\Enroll\UpdateEnrollRefund.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\UpdateHasRegisteredTimes.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\UpdateInscriptionStatus.cs" />
     <Compile Include="ActionObjects\AthleteLogic\SelectAtheletesRaffle.cs" />

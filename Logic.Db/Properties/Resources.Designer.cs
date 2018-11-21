@@ -622,7 +622,23 @@ namespace Logic.Db.Properties {
             }
         }
 
+        internal static string SQL_UPDATE_ENROLL_REFUND
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_UPDATE_ENROLL_REFUND", resourceCulture);
+            }
+        }
 
-
+        /// <summary>
+        ///   Busca una cadena traducida similar a select count(*) from enroll where ATHLETE_DNI=@DNI and COMPETITION_ID=@ID.
+        /// </summary>
+        internal static string SQL_IS_ATHLETE_IN_COMPETITION
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_IS_ATHLETE_IN_COMPETITION", resourceCulture);
+            }
+        }
     }
 }
