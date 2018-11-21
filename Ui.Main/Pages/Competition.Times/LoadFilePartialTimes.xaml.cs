@@ -78,7 +78,7 @@ namespace Ui.Main.Pages.Competition.Times {
                             countI++;
 
                         }
-                        if (!status.Equals("REGISTERED")) {
+                        else {
                             string s = $"El atleta {dnis[index]} no esta registrado. \n";
                             if (notes.Contains(s)) {
                                 notes += s;

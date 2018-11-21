@@ -212,7 +212,7 @@ where date('now') not BETWEEN INITIAL_DATE and FINISH_DATE and date('now') &lt; 
       </value>
   </data>
   <data name="SQL_SELECT_COMPETITION_BY_ID" xml:space="preserve">
-    <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, COMPETITION_DATE, COMPETITION_RULES, COMPETITION_STATUS, COMPETITION_NUMBER_MILESTONE, COMPETITION_SLOPE from Competition natural join CompetitionDates natural join DateInscription where COMPETITION_ID=@ID</value>
+    <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, COMPETITION_DATE, COMPETITION_RULES, COMPETITION_STATUS, COMPETITION_NUMBER_MILESTONE, COMPETITION_SLOPE, COMPETITION_NUMBER_PLACES, COMPETITION_PREINSCRIPTION, COMPETITION_DAYS_PREINSCRIPTION from Competition natural join CompetitionDates natural join DateInscription where COMPETITION_ID=@ID</value>
   </data>
   <data name="SQL_SELECT_MAX_DORSAL" xml:space="preserve">
     <value>select max(dorsal) from enroll where COMPETITION_ID=@COMPETITION_ID</value>
@@ -274,7 +274,7 @@ WHERE CATEGORY_ID = @ID</value>
     <value>..\Resources\DefaultCategories.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="SQL_SELECT_PARTIAL_TIMES" xml:space="preserve">
-    <value>select ATHLETE_DNI, NUMBER_MILESTONE, TIME from HasParticipated natural join TimesCompetition
+    <value>select ATHLETE_DNI, NUMBER_MILESTONE, TIME, INITIAL_TIME, FINISH_TIME from HasParticipated natural join TimesCompetition
 where ATHLETE_DNI = @DNI and COMPETITION_ID = @COMPETITION_ID</value>
   </data>
   <data name="SQL_SELECT_ATHLETES_HAS_PARTICIPATED" xml:space="preserve">

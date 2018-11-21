@@ -31,6 +31,8 @@ namespace Logic.Db.ActionObjects.TimesLogic {
                         int count = 0;
                         while (reader.Read() && count < _competition.NumberMilestone) {
                             PartialTimes.Time[count] = reader.GetInt64(2);
+                            PartialTimes.InitialTime = reader.GetInt32(3);
+                            PartialTimes.FinishTime = reader.GetInt32(4);
                             count++;
                         }
                     }

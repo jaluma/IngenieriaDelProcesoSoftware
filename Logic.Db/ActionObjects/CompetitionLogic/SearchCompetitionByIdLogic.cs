@@ -46,6 +46,9 @@ namespace Logic.Db.ActionObjects.CompetitionLogic {
                             Competition.Status = reader.GetString(7);
                             Competition.NumberMilestone = reader.GetInt32(8);
                             Competition.Slope = reader.IsDBNull(9) ? 0 : reader.GetDouble(9);
+                            Competition.NumberPlaces = reader.GetInt32(10);
+                            Competition.Preinscription = reader.GetBoolean(11);
+                            Competition.DaysPreinscription = reader.GetInt32(12);
                             Enum.TryParse<TypeCompetition>(reader.GetString(2), out Competition.Type);
                         }
                     }

@@ -120,15 +120,18 @@ namespace Ui.Main.Pages.Competition.Times {
         private void GenerateTable(IEnumerable<PartialTimesDto> lista) {
             _table = new DataTable();
             _table.Columns.Add(Properties.Resources.AthleteDni);
+            _table.Columns.Add(Properties.Resources.InitialTime);
             for (int i = 1; i <= Competition.NumberMilestone; i++) {
                 _table.Columns.Add(Properties.Resources.MilestoneNumber + " " + i);
             }
+            _table.Columns.Add(Properties.Resources.FinishTime);
 
             foreach (var partialTime in lista) {
-                object[] row = new object[Competition.NumberMilestone + 1];
+                object[] row = new object[Competition.NumberMilestone + 1 + 2]; // +1 por tener el dni // +2 por los tiempos
                 row[0] = partialTime.Athlete.Dni;
+                row[1] = PartialTimeString(partialTime.InitialTime, false);
                 GeneratePartialTimes(partialTime, row);
-                GeneratePartialTimes(partialTime, row);
+                row[Competition.NumberMilestone + 2] = PartialTimeString(partialTime.FinishTime);
 
                 if (Athlete == null || Athlete.Dni.Equals(row[0] as string)) {
                     _table.Rows.Add(row);
@@ -139,13 +142,13 @@ namespace Ui.Main.Pages.Competition.Times {
         }
 
         private static void GeneratePartialTimes(PartialTimesDto partialTime, object[] row) {
-            for (int i = 1; i <= Competition.NumberMilestone; i++) {
-                row[i] = PartialTimeString(partialTime.Time[i - 1]);
+            for (int i = 2; i <= Competition.NumberMilestone + 1; i++) {
+                row[i] = PartialTimeString(partialTime.Time[i - 2]);
             }
         }
 
-        private static object PartialTimeString(long time) {
-            if (time == 0) {
+        private static object PartialTimeString(long time, bool format = true) {
+            if (time == 0 && format) {
                 return "---";
             } else {
                 var seconds = time;

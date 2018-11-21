@@ -10,5 +10,7 @@ namespace Logic.Db.Dto {
         public AthleteDto Athlete;
         public CompetitionDto CompetitionDto;
         public long[] Time;
+        public long InitialTime;
+        public long FinishTime;
     }
 }
