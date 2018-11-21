@@ -21,6 +21,7 @@ using Logic.Db.Dto;
 using Logic.Db.Util.Services;
 using Button = System.Windows.Controls.Button;
 using DataGrid = System.Windows.Controls.DataGrid;
+using HorizontalAlignment = System.Windows.HorizontalAlignment;
 using Label = System.Windows.Controls.Label;
 using PrintDialog = System.Windows.Controls.PrintDialog;
 
@@ -47,9 +48,9 @@ namespace Ui.Main.Pages.Competition.Times
             InitializeComponent();
 
             //botones
-            Button customButton = new Button() { Content = Properties.Resources.Close };
+            Button customButton = new Button() { Content = Properties.Resources.Close, Margin = new Thickness(4) };
             customButton.Click += (ss, ee) => { this.Close(); };
-            Button printButton = new Button() { Content = Properties.Resources.Print };
+            Button printButton = new Button() { Content = Properties.Resources.Print, Margin = new Thickness(4) };
             printButton.Click += ButtonBase_OnClick;
             Buttons = new Button[] { printButton, customButton };
 
@@ -72,6 +73,7 @@ namespace Ui.Main.Pages.Competition.Times
             for (int i = 0; i < _categories.Count(); i++) {
                 for (int j = 0; j < 2; j++) {
                     DataGrid dataGrid = new DataGrid();
+                    dataGrid.Margin = new Thickness(10);
                     GenerateDatagrid(i, j);
 
                     if (_tables[i, j] != null) {
@@ -91,11 +93,13 @@ namespace Ui.Main.Pages.Competition.Times
 
         private void getLabel(int i, int j) {
             Label label = new Label() {
-                FontSize = 14,
+                FontSize = 12,
                 FontWeight = FontWeights.Bold
             };
             Grid.SetColumn(label, i);
             Grid.SetRow(label, j*2);
+
+            label.HorizontalContentAlignment = HorizontalAlignment.Center;
 
             label.Content = j == 0 ? _categories.ElementAt(i).CategoryM.Name.Replace('_', ' ') : _categories.ElementAt(i).CategoryF.Name.Replace('_', ' ');
 

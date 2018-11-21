@@ -14,7 +14,7 @@
 
 
     <ScrollViewer Name="Panel"  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Height="Auto">
-        <Grid Name="Layout" Margin="10" Style="{StaticResource ContentRoot}">
+        <Grid Name="Layout" Margin="10" Style="{StaticResource ContentRoot}" >
             <Grid.Resources >
                 <Style TargetType="Border" >
                     <Setter Property="Padding" Value="10,10,10,10" />

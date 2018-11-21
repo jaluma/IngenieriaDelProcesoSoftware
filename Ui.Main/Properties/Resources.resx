@@ -452,7 +452,7 @@
     <value>Sorteo plazas</value>
   </data>
   <data name="GetCompetitionsTimes" xml:space="preserve">
-    <value>Ver todas las clasificaciones</value>
+    <value>Todas las clasificaciones</value>
   </data>
   <data name="Print" xml:space="preserve">
     <value>Imprimir</value>
