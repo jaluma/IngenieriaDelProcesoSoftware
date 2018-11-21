@@ -228,8 +228,10 @@ namespace Ui.Main.Pages.Competition.Times {
 
                 foreach (DataRow row in _table.Rows) {
                     object[] dr = row.ItemArray as object[];
-                    if (dr[6] is DBNull || dr[7] is DBNull || (long) dr[7] == 0) {
-                        dr[6] = "---";
+                    if (dr[6] is DBNull) {
+                        dr[6] = "DNS";
+                    } else if (dr[7] is DBNull || (long) dr[7] == 0) {
+                        dr[6] = "DNF";
                     } else {
                         var seconds = (long) dr[7] - (long) dr[6];
                         var timespan = TimeSpan.FromSeconds(seconds);
