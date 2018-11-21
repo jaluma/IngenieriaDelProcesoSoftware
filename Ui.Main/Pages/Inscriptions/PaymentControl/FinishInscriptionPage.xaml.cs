@@ -100,12 +100,19 @@ namespace Ui.Main.Pages.Inscriptions.PaymentControl {
                     }
                 }
                 if (pago) {
-                    if (cantidadPagada >= prereg.Amount) {
+                    if (cantidadPagada == prereg.Amount) {
                         _enrollService.UpdateInscriptionStatus(prereg.Dni, prereg.Id, "REGISTERED");
                         stringBuilder.Append("El atleta con dni " + prereg.Dni + " ha sido inscrito en la competición con ID " + prereg.Id + ".\n\n");
+                    } else if (cantidadPagada > prereg.Amount){
+                        _enrollService.UpdateInscriptionStatus(prereg.Dni, prereg.Id, "REGISTERED");
+                        _enrollService.UpdateRefund(prereg.Dni, prereg.Id, prereg.Amount - cantidadPagada);
+                        stringBuilder.Append("El atleta con dni " + prereg.Dni + " ha sido inscrito en la competición con ID " + prereg.Id + 
+                            ". Deben devolversele " + (prereg.Amount - cantidadPagada) + "€.\n\n");
                     } else {
                         _enrollService.UpdateInscriptionStatus(prereg.Dni, prereg.Id, "CANCELED");
-                        stringBuilder.Append("El atleta con dni " + prereg.Dni + " no ha realizado un pago válido para la competición con ID " + prereg.Id + ".\n\n");
+                        _enrollService.UpdateRefund(prereg.Dni, prereg.Id, cantidadPagada);
+                        stringBuilder.Append("El atleta con dni " + prereg.Dni + " no ha realizado un pago válido para la competición con ID " + prereg.Id +
+                            ". Deben devolversele " + cantidadPagada + "€.\n\n");
                     }
                 }
             }

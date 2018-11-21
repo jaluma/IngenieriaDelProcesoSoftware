@@ -354,4 +354,7 @@ where competition_id=@ID and athlete_dni=@DNI and date_inscription between initi
   <data name="SQL_SELECT_ATHLETE_PREINSCRIPTION" xml:space="preserve">
     <value>select Athlete_dni from enroll join competition where enroll.competition_id =@COMPETITION_ID and competition.competition_id= enroll.competition_id and competition_preinscription=1 and enroll.status = 'PRE-REGISTERED'</value>
   </data>
+  <data name="SQL_UPDATE_ENROLL_REFUND" xml:space="preserve">
+    <value>update Enroll set refund=@REFUND where competition_id=@COMPETITION_ID and athlete_dni=@DNI</value>
+  </data>
 </root>

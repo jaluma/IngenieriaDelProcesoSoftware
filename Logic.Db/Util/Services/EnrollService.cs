@@ -111,5 +111,11 @@ namespace Logic.Db.Util.Services {
             update.Execute();
         }
 
+        public void UpdateRefund(string dni, long id, double refund)
+        {
+            UpdateEnrollRefund update = new UpdateEnrollRefund(ref _conn, dni, id, refund);
+            update.Execute();
+        }
+
     }
 }

@@ -73,6 +73,7 @@
     <Compile Include="ActionObjects\AthleteLogic\Enroll\SelectAthleteHasParticipated.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\SelectDniFromDorsal.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\SelectPreregisteredAthletes.cs" />
+    <Compile Include="ActionObjects\AthleteLogic\Enroll\UpdateEnrollRefund.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\UpdateHasRegisteredTimes.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\UpdateInscriptionStatus.cs" />
     <Compile Include="ActionObjects\AthleteLogic\SelectAtheletesRaffle.cs" />

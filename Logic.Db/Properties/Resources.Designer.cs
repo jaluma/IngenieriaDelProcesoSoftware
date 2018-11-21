@@ -622,7 +622,13 @@ namespace Logic.Db.Properties {
             }
         }
 
-
+        internal static string SQL_UPDATE_ENROLL_REFUND
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_UPDATE_ENROLL_REFUND", resourceCulture);
+            }
+        }
 
     }
 }
