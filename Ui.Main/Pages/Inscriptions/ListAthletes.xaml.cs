@@ -48,8 +48,8 @@ namespace Ui.Main.Pages.Inscriptions {
             _table.Columns[0].ColumnName = Properties.Resources.AthleteDni;
             _table.Columns[1].ColumnName = Properties.Resources.Competition_Id;
             _table.Columns[2].ColumnName = Properties.Resources.Competition_Status;
-            _table.Columns[3].ColumnName = Properties.Resources.Competition_Date;
-            _table.Columns[4].ColumnName = Properties.Resources.AthleteDorsal;
+            //_table.Columns[3].ColumnName = Properties.Resources.Competition_Date;
+            _table.Columns[3].ColumnName = Properties.Resources.AthleteDorsal;
 
             _table.Columns.Remove(Properties.Resources.Competition_Id);
 
