@@ -36,9 +36,8 @@ namespace Ui.Main.Pages.Inscriptions {
             _enrollService = new EnrollService(_competition);
 
             string category = _enrollService.GetCategory(_athlete, _competition);
-
-            EnrollService enrollService = new EnrollService(_competition);
-            enrollService.InsertAthleteInCompetition(_athlete, _competition);
+            
+            _enrollService.InsertAthleteInCompetition(_athlete, _competition);
 
             TxJustificante.Text =
                 $"Atleta: {_athlete.Name} {_athlete.Surname}\nCompetición: {_competition.Name}\nCategoría: {category}\nFecha de inscripción: {DateTime.Now.ToShortDateString()}\nPrecio de la inscripción: {_competition.Price} €";

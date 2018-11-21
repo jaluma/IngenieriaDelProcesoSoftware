@@ -66,6 +66,7 @@
     <Compile Include="ActionObjects\AthleteLogic\DeleteAthleteLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\GetCategoryLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\InsertAthletesInCompetitionLogic.cs" />
+    <Compile Include="ActionObjects\AthleteLogic\Enroll\IsAthleteInCompetition.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\IsDorsalsByCompetition.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\IsCategoryInCompetitionLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\SelectStatusEnroll.cs" />
