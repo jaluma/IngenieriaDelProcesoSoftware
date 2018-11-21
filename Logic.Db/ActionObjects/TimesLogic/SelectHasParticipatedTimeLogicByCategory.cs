@@ -15,18 +15,21 @@ namespace Logic.Db.ActionObjects.TimesLogic {
         public readonly DataTable Table;
         private readonly CompetitionDto _competition;
         private readonly AbsoluteCategory _category;
+        private readonly string _gender;
 
-        public SelectHasParticipatedTimeLogicByCategory(ref DBConnection conn, CompetitionDto competition, AbsoluteCategory categorySelected) {
+        public SelectHasParticipatedTimeLogicByCategory(ref DBConnection conn, CompetitionDto competition, AbsoluteCategory categorySelected, string gender) {
             _conn = conn;
             Table = new DataTable();
             _competition = competition;
             _category = categorySelected;
+            _gender = gender;
         }
         public void Execute() {
             try {
-                if (_category.CategoryM == null || _category.CategoryF == null) {
+                if (_category.CategoryM.Id == 0 || _category.CategoryF.Id == 0) {
                     using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_ATHLETES_TIMES, _conn.DbConnection)) {
                         command.Parameters.AddWithValue("@COMPETITION_ID", _competition.ID);
+                        command.Parameters.AddWithValue("@CATEGORY_GENDER", _gender);
 
                         SQLiteDataAdapter da = new SQLiteDataAdapter(command);
                         da.Fill(Table);
@@ -38,6 +41,7 @@ namespace Logic.Db.ActionObjects.TimesLogic {
                         command.Parameters.AddWithValue("@CATEGORY_MAX_AGE_M", _category.CategoryM.MaxAge);
                         command.Parameters.AddWithValue("@CATEGORY_MIN_AGE_F", _category.CategoryF.MinAge);
                         command.Parameters.AddWithValue("@CATEGORY_MAX_AGE_F", _category.CategoryF.MaxAge);
+                        command.Parameters.AddWithValue("@CATEGORY_GENDER", _gender);
 
                         SQLiteDataAdapter da = new SQLiteDataAdapter(command);
                         da.Fill(Table);

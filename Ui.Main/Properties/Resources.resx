@@ -451,4 +451,13 @@
   <data name="Raffle" xml:space="preserve">
     <value>Sorteo plazas</value>
   </data>
+  <data name="GetCompetitionsTimes" xml:space="preserve">
+    <value>Ver todas las clasificaciones</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Imprimir</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Sí</value>
+  </data>
 </root>

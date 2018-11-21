@@ -23,16 +23,16 @@
         </Grid>
 
         <StackPanel Style="{StaticResource ContentRoot}" VerticalAlignment="Top" Width="196" Height="502" Margin="16,27,16,0" >
+            <Button Content="{x:Static properties:Resources.GetCompetitionsTimes}" Click="ButtonAll_OnClick"/>
             <StackPanel Style="{StaticResource ContentRoot}" HorizontalAlignment="Left" Name = "SelectorGender" Height="100" Margin="10,2">
                 <Label FontWeight="Bold" FontSize="16" Content="{x:Static properties:Resources.Category}" HorizontalContentAlignment="Center" Width="180"/>
-                <CheckBox Name="MaleCheckBox" IsChecked="True" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Content="{x:Static properties:Resources.MaleText}" Margin="0,5" Click="CheckBox_OnClick" />
-                <CheckBox Name="FemaleCheckBox" IsChecked="True" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Content="{x:Static properties:Resources.FemaleText}" Margin="0,5" Click="CheckBox_OnClick"/>
+                <RadioButton Name="MaleRadioButton" GroupName="GenderGroup" IsChecked="True" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Content="{x:Static properties:Resources.MaleText}" Margin="0,5" Click="Gender_OnClick" />
+                <RadioButton Name="FemaleRadioButton" GroupName="GenderGroup" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Content="{x:Static properties:Resources.FemaleText}" Margin="0,5" Click="Gender_OnClick"/>
             </StackPanel>
             <StackPanel Style="{StaticResource ContentRoot}" HorizontalAlignment="Left" Name = "SelectorCompetition" Margin="16,28,0,16" Width="169" Height="385">
                 <TextBlock Typography.Capitals="AllPetiteCaps" Name="TextBlock" TextAlignment="Center" FontWeight="Bold"  Text="{x:Static properties:Resources.TileCompetitionFinish}" TextWrapping="WrapWithOverflow" FontSize="16" Width="155" Height="46" Margin="7,0"/>
                 <ListBox Name="CompetitionList" Cursor="Hand" Height="324" HorizontalContentAlignment="Left" SelectionChanged="CompetitionList_SelectionChanged"/>
             </StackPanel>
-
         </StackPanel>
 
     </DockPanel>

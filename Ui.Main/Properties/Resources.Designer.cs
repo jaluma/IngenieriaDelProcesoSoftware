@@ -1088,5 +1088,32 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("InscriptionCanceled", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ver todas las clasificaciones.
+        /// </summary>
+        public static string GetCompetitionsTimes {
+            get {
+                return ResourceManager.GetString("GetCompetitionsTimes", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Imprimir.
+        /// </summary>
+        public static string Print {
+            get {
+                return ResourceManager.GetString("Print", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Sí.
+        /// </summary>
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
+            }
+        }
     }
 }

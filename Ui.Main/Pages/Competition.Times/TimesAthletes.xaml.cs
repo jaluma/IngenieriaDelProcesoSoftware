@@ -79,7 +79,14 @@ namespace Ui.Main.Pages.Competition.Times {
 
             AbsoluteCategory cat = new AbsoluteCategory() {
                 Id = -1,
-                Name = Properties.Resources.Absolute.ToUpper()
+                Name = Properties.Resources.Absolute.ToUpper(),
+                CategoryM = new CategoryDto() {
+                    Name = $"{Properties.Resources.Absolute.ToUpper()}_M"
+                },
+                CategoryF = new CategoryDto()
+                {
+                Name = $"{Properties.Resources.Absolute.ToUpper()}_F"
+            }
             };
 
             but.Content = cat.Name;
@@ -158,13 +165,12 @@ namespace Ui.Main.Pages.Competition.Times {
 
                 CategorySelected = _categories.ElementAt((int) bt.Tag);
 
-                GenerateDataGrid();
-                CheckBox_OnClick(null, null);
+                Gender_OnClick(null, null);
             }
         }
 
-        private void CheckBox_OnClick(object sender, RoutedEventArgs e) {
-            _table.DefaultView.RowFilter = GenerateFilter();
+        private void Gender_OnClick(object sender, RoutedEventArgs e) {
+            GenerateDataGrid();
             DataGridTimes.ItemsSource = _table.DefaultView;
         }
 
@@ -174,22 +180,20 @@ namespace Ui.Main.Pages.Competition.Times {
             if (MaleIsChecked() && FemaleIsChecked()) {
                 filter = null;
             } else if (MaleIsChecked()) {
-                filter = $"{Properties.Resources.AthleteGender} = 'M'";
+                filter = "M";
             } else if (FemaleIsChecked()) {
-                filter = $"{Properties.Resources.AthleteGender} = 'F'";
-            } else {
-                filter = $"{Properties.Resources.AthleteGender} <> 'F' and {Properties.Resources.AthleteGender} <> 'M'";
+                filter = "F";
             }
 
             return filter;
         }
 
         private bool MaleIsChecked() {
-            return (bool) MaleCheckBox.IsChecked;
+            return (bool) MaleRadioButton.IsChecked;
         }
 
         private bool FemaleIsChecked() {
-            return (bool) FemaleCheckBox.IsChecked;
+            return (bool) FemaleRadioButton.IsChecked;
         }
 
         internal void GenerateDataGrid() {
@@ -205,7 +209,7 @@ namespace Ui.Main.Pages.Competition.Times {
                 _table.Columns[Properties.Resources.AthletePosition].AutoIncrementSeed = 1;
                 _table.Columns[Properties.Resources.AthletePosition].AutoIncrementStep = 1;
 
-                _table.Merge(_service.SelectCompetitionTimes(Competition, CategorySelected));
+                _table.Merge(_service.SelectCompetitionTimes(Competition, CategorySelected, GenerateFilter()));
                 _table.Columns[1].ColumnName = Properties.Resources.AthleteDorsal;
                 _table.Columns[2].ColumnName = Properties.Resources.AthleteDni;
                 _table.Columns[3].ColumnName = Properties.Resources.AthleteName;
@@ -235,15 +239,18 @@ namespace Ui.Main.Pages.Competition.Times {
                     dtClone.Rows.Add(desRow);
                 }
 
+                _columnDNI = dtClone.AsEnumerable()
+                    .Select(dr => dr.Field<string>(Properties.Resources.AthleteDni)).ToList();
+
                 //_table.Columns.Remove(Properties.Resources.InitialTime);
                 dtClone.Columns.Remove(Properties.Resources.FinishTime);
+                dtClone.Columns.Remove(Properties.Resources.AthleteDni);
+                dtClone.Columns.Remove(Properties.Resources.Age);
+                dtClone.Columns.Remove(Properties.Resources.AthleteGender);
 
                 _table = dtClone;
 
                 DataGridTimes.ItemsSource = _table.DefaultView;
-
-                _columnDNI = _table.AsEnumerable()
-              .Select(dr => dr.Field<string>(Properties.Resources.AthleteDni)).ToList();
 
                 if (Athlete!=null)
                     DataGridTimes.SelectedIndex = _columnDNI.IndexOf(_columnDNI.First(a => a.Equals(Athlete.Dni)));
@@ -265,5 +272,8 @@ namespace Ui.Main.Pages.Competition.Times {
             } catch (IndexOutOfRangeException) { }
         }
 
+        private void ButtonAll_OnClick(object sender, RoutedEventArgs e) {
+            new AllTimes(Competition, _categories).ShowDialog();
+        }
     }
 }
