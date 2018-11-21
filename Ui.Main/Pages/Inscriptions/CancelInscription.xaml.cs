@@ -123,8 +123,13 @@ namespace Ui.Main.Pages.Inscriptions {
                 return;
             }
 
-            MessageBox.Show(Properties.Resources.InscriptionCanceled + " " + CalcularDevolucion() + "€");
+            double dev = CalcularDevolucion();
+            string message = Properties.Resources.InscriptionCanceled + " " + dev + "€";
+            if (dev == 0)
+                message += "(No se había realizado el pago)";
+            MessageBox.Show(message);
             _enrollService.UpdateInscriptionStatus(_athlete.Dni, _competition.ID, "CANCELED");
+            _enrollService.UpdateRefund(_athlete.Dni, _competition.ID, dev);
 
             //actualizar la tabla
             GetListCompetition();
