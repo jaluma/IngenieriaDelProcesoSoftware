@@ -190,6 +190,10 @@ namespace Ui.Main.Pages.Competition.Times {
             LbTiempoTotal.Content = "";
             CompetitionList_SelectionChanged(null, null);
         }
+
+        private void DataGridTimes_OnPreviewMouseWheel(object sender, MouseWheelEventArgs e) {
+            ScrollViewer.ScrollToVerticalOffset(ScrollViewer.VerticalOffset - e.Delta);
+        }
     }
 
 }

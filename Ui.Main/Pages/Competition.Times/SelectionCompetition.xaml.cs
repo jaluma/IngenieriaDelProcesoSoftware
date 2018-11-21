@@ -70,5 +70,9 @@ namespace Ui.Main.Pages.Competition.Times {
             if (e.PropertyType == typeof(System.DateTime))
                 ((System.Windows.Controls.DataGridTextColumn) e.Column).Binding.StringFormat = "dd/MM/yyyy";
         }
+
+        private void DataGridCompetition_OnPreviewMouseWheel(object sender, MouseWheelEventArgs e) {
+            ScrollViewer.ScrollToVerticalOffset(ScrollViewer.VerticalOffset - e.Delta);
+        }
     }
 }

@@ -6,6 +6,7 @@
       xmlns:properties="clr-namespace:Ui.Main.Properties"
       xmlns:local="clr-namespace:Ui.Main.Pages.Inscriptions"
       xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+      xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
       mc:Ignorable="d" 
       d:DesignHeight="625" d:DesignWidth="1250"
       Title="CancelInscriptionPage" Loaded="CancelInscription_OnLoaded">
@@ -27,8 +28,10 @@
                 </Grid>
             </Border>
         </StackPanel>
-        <DataGrid x:Name="CompetitionsToCancel" MinWidth="800" AutoGeneratingColumn="OnAutoGeneratingColumn" MinHeight="250"  VerticalAlignment="Top" 
-                  ColumnWidth="*" DockPanel.Dock="Top" IsReadOnly="True" SelectionChanged="CompetitionsToCancel_SelectionChanged" Margin="10,2,10,0" Height="428"/>
+        <ScrollViewer Name="ScrollViewer" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Top">
+            <DataGrid x:Name="CompetitionsToCancel" PreviewMouseWheel="CompetitionsToCancel_OnPreviewMouseWheel" mah:ScrollViewerHelper.VerticalScrollBarOnLeftSide="True" MinWidth="800" AutoGeneratingColumn="OnAutoGeneratingColumn" MinHeight="250"  VerticalAlignment="Top" 
+                      ColumnWidth="*" DockPanel.Dock="Top" IsReadOnly="True" SelectionChanged="CompetitionsToCancel_SelectionChanged" Margin="10,2,10,0" Height="428"/>
+        </ScrollViewer>
         <Button  Name="BtCancel" Content="{x:Static properties:Resources.CancelInscription}" Height="35" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="40,10" FontSize="16" Click="BtCancel_Click" Padding="40,3,41,5"/>
     </DockPanel>
 </Page>

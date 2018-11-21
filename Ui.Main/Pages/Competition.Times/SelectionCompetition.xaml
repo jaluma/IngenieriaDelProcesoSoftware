@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:Ui.Main.Pages.Competition.Times"
       xmlns:properties="clr-namespace:Ui.Main.Properties"
       xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+      xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
       mc:Ignorable="d" d:DesignWidth="1250"
       Height="545">
     <DockPanel  Height="545" VerticalAlignment="Bottom">
@@ -13,8 +14,12 @@
                FontWeight="Bold"
                HorizontalAlignment="Center"
                Content="{x:Static properties:Resources.TileCompetitionFinish}" DockPanel.Dock="Top"/>
-        <DataGrid x:Name="DataGridCompetition" AutoGeneratingColumn="OnAutoGeneratingColumn" MouseEnter="DataGridCompetition_OnMouseEnter" MouseLeave="DataGridCompetition_OnMouseLeave" MinWidth="800" MinHeight="450" SelectionChanged="DataGrid_SelectionChanged" VerticalAlignment="Top" ColumnWidth="*" Height="419" DockPanel.Dock="Bottom" IsReadOnly="True"/>
+        <ScrollViewer Name="ScrollViewer" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Top" DockPanel.Dock="Bottom">
+            <DataGrid x:Name="DataGridCompetition" PreviewMouseWheel="DataGridCompetition_OnPreviewMouseWheel" AutoGeneratingColumn="OnAutoGeneratingColumn" MouseEnter="DataGridCompetition_OnMouseEnter" MouseLeave="DataGridCompetition_OnMouseLeave" MinWidth="800" MinHeight="450" SelectionChanged="DataGrid_SelectionChanged"  IsReadOnly="True"/>
+        </ScrollViewer>
     </DockPanel>
 
 
 </mui:ModernFrame>
+
+    

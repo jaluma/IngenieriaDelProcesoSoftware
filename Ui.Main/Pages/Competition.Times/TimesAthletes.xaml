@@ -19,7 +19,7 @@
 
         <Grid Margin="20,27,0,20" Width="935" HorizontalAlignment="Right">
             <StackPanel Orientation="Horizontal" Name="LayoutButtons" Height="50" Margin="0,0,0,450" HorizontalAlignment="Right" Width="925"/>
-            <DataGrid x:Name="DataGridTimes" AutoGenerateColumns="True" ColumnWidth="*" Width="915" IsReadOnly="True" HorizontalAlignment="Right" Height="430" VerticalAlignment="Top" Margin="0,70,10,0" SelectionMode="Single" MouseDoubleClick="DataGridTimes_OnMouseDoubleClick"/>
+            <DataGrid x:Name="DataGridTimes" mah:ScrollViewerHelper.VerticalScrollBarOnLeftSide="True" AutoGenerateColumns="True" ColumnWidth="*" Width="915" IsReadOnly="True" HorizontalAlignment="Right" Height="430" VerticalAlignment="Top" Margin="0,70,10,0" SelectionMode="Single" MouseDoubleClick="DataGridTimes_OnMouseDoubleClick"/>
         </Grid>
 
         <StackPanel Style="{StaticResource ContentRoot}" VerticalAlignment="Top" Width="196" Height="502" Margin="16,27,16,0" >

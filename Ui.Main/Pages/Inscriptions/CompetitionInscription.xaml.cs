@@ -135,5 +135,9 @@ namespace Ui.Main.Pages.Inscriptions {
                 LoadData(Dni);
             }
         }
+
+        private void CompetitionsToSelect_OnPreviewMouseWheel(object sender, MouseWheelEventArgs e) {
+            ScrollViewer.ScrollToVerticalOffset(ScrollViewer.VerticalOffset - e.Delta);
+        }
     }
 }

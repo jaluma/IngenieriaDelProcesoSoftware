@@ -10,7 +10,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="625" d:DesignWidth="1250"
       FocusManager.FocusedElement="{Binding ElementName=CompetitionIdTextBox}"
-      Title="AddDorsalsAndRegisteredInCompetition">
+      Title="AddDorsalsAndRegisteredInCompetition" Loaded="Dorsals_OnLoaded">
 
     <DockPanel  Height="545" VerticalAlignment="Bottom">
 
@@ -27,8 +27,10 @@
 
 
         <StackPanel Orientation="Vertical" Margin="10,30,10,10">
-            <DataGrid x:Name="DataGridCompetition" AutoGeneratingColumn="OnAutoGeneratingColumn" SelectionMode="Single" MinWidth="800" MinHeight="450" VerticalAlignment="Top" ColumnWidth="*" Height="435" IsReadOnly="True"/>
-            <Button x:Name="BtDorsals" MaxWidth="400" IsEnabled="False" Content="{x:Static properties:Resources.BtInsertDorsals}" Height="45" Click="BtDorsals_Click" Margin="0,10,0,0"/>
+            <ScrollViewer Name="ScrollViewer" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" DockPanel.Dock="Right" HorizontalAlignment="Right" Width="995">
+                <DataGrid x:Name="DataGridCompetition" mah:ScrollViewerHelper.VerticalScrollBarOnLeftSide="True" AutoGeneratingColumn="OnAutoGeneratingColumn" SelectionMode="Single" MinWidth="800" MinHeight="450" VerticalAlignment="Top" ColumnWidth="*" Height="435" IsReadOnly="True"/>
+            </ScrollViewer>
+            <Button x:Name="BtDorsals" MaxWidth="400" PreviewMouseWheel="BtDorsals_OnPreviewMouseWheel" IsEnabled="False" Content="{x:Static properties:Resources.BtInsertDorsals}" Height="45" Click="BtDorsals_Click" Margin="0,10,0,0"/>
         </StackPanel>
 
     </DockPanel>

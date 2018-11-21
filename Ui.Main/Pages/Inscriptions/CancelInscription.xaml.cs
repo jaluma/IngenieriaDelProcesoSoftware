@@ -144,5 +144,9 @@ namespace Ui.Main.Pages.Inscriptions {
             double refund = _refunds[index];
             return precio * refund;
         }
+
+        private void CompetitionsToCancel_OnPreviewMouseWheel(object sender, MouseWheelEventArgs e) {
+            ScrollViewer.ScrollToVerticalOffset(ScrollViewer.VerticalOffset - e.Delta);
+        }
     }
 }

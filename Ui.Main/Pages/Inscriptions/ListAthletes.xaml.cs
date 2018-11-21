@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Data;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using Logic.Db.Dto;
 using Logic.Db.Util.Services;
 
@@ -62,6 +64,10 @@ namespace Ui.Main.Pages.Inscriptions {
             };
 
             GenerateTable();
+        }
+
+        private void DataGridCompetition_OnPreviewMouseWheel(object sender, MouseWheelEventArgs e) {
+            ScrollViewer.ScrollToVerticalOffset(ScrollViewer.VerticalOffset - e.Delta);
         }
     }
 }

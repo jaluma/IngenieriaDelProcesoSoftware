@@ -220,5 +220,13 @@ namespace Ui.Main.Pages.Competitions {
             }
 
         }
+
+        private void DataGridCompetition_OnPreviewMouseWheel(object sender, MouseWheelEventArgs e) {
+            ScrollViewer1.ScrollToVerticalOffset(ScrollViewer1.VerticalOffset - e.Delta);
+        }
+
+        private void DataGridCompetition_P_OnPreviewMouseWheel(object sender, MouseWheelEventArgs e) {
+            ScrollViewer2.ScrollToVerticalOffset(ScrollViewer2.VerticalOffset - e.Delta);
+        }
     }
 }

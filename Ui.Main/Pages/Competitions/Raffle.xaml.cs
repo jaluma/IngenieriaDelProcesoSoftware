@@ -96,5 +96,9 @@ namespace Ui.Main.Pages.Competitions
         {
 
         }
+
+        private void DataGridResults_OnPreviewMouseWheel(object sender, MouseWheelEventArgs e) {
+            ScrollViewer.ScrollToVerticalOffset(ScrollViewer.VerticalOffset - e.Delta);
+        }
     }
 }

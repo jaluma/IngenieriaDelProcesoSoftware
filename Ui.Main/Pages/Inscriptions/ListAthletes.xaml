@@ -20,15 +20,15 @@
                HorizontalAlignment="Center"
                Content="{x:Static properties:Resources.TileJoinCompetition}" Width="680" DockPanel.Dock="Top"/>
         <Grid Style="{StaticResource ContentRoot}">
-            <ListView Name="CompetitionList" Cursor="Hand" Width="200" SelectionChanged="CompetitionList_SelectionChanged">
+            <ListView Name="CompetitionList" Cursor="Hand" Width="200" mah:ScrollViewerHelper.VerticalScrollBarOnLeftSide="True" SelectionChanged="CompetitionList_SelectionChanged">
 
             </ListView>
         </Grid>
 
 
-        <StackPanel Orientation="Vertical" Margin="10,30,10,10">
-            <DataGrid x:Name="DataGridCompetition" AutoGeneratingColumn="OnAutoGeneratingColumn" SelectionMode="Single" MinWidth="800" MinHeight="450" VerticalAlignment="Top" ColumnWidth="*" IsReadOnly="True"/>
-        </StackPanel>
+        <ScrollViewer Name="ScrollViewer" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="10,30,10,10">
+            <DataGrid x:Name="DataGridCompetition" PreviewMouseWheel="DataGridCompetition_OnPreviewMouseWheel" AutoGeneratingColumn="OnAutoGeneratingColumn" SelectionMode="Single" MinWidth="800" MinHeight="450" VerticalAlignment="Top" ColumnWidth="*" IsReadOnly="True"/>
+        </ScrollViewer>
 
     </DockPanel>
 </Page>

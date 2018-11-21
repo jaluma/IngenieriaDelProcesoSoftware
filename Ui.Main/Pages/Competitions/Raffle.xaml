@@ -4,13 +4,15 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Ui.Main.Pages.Competitions"
+      xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Raffle">
 
     <Grid>
-        <DataGrid x:Name="DataGridResults" HorizontalAlignment="Left" MaxWidth="200" MinWidth="1" AutoGeneratingColumn="OnAutoGeneratingColumn" MinHeight="1" ColumnWidth="*" IsReadOnly="True" Margin="50,115,0,90"  Width="220"
-                         />
+        <ScrollViewer Name="ScrollViewer" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" DockPanel.Dock="Right" HorizontalAlignment="Right">
+            <DataGrid x:Name="DataGridResults" PreviewMouseWheel="DataGridResults_OnPreviewMouseWheel" HorizontalAlignment="Left" mah:ScrollViewerHelper.VerticalScrollBarOnLeftSide="True" MaxWidth="200" MinWidth="1" AutoGeneratingColumn="OnAutoGeneratingColumn" MinHeight="1" ColumnWidth="*" IsReadOnly="True" Margin="50,115,0,90"  Width="220"/>
+        </ScrollViewer>
         <Border BorderBrush="DarkGray" BorderThickness="1" HorizontalAlignment="Left" Height="335" Margin="20,85,0,0" VerticalAlignment="Top" Width="300">
             <Button Content="Realizar sorteo" HorizontalAlignment="Left" Height="30" Margin="79,284,0,0" VerticalAlignment="Top" Width="125" Click="Button_Click"/>
         </Border>

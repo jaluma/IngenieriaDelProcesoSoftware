@@ -10,6 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Forms;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -106,6 +107,16 @@ namespace Ui.Main.Pages.Inscriptions.HasRegistered {
         private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e) {
             if (e.PropertyType == typeof(System.DateTime))
                 ((System.Windows.Controls.DataGridTextColumn) e.Column).Binding.StringFormat = "dd/MM/yyyy";
+        }
+
+        private void Dorsals_OnLoaded(object sender, RoutedEventArgs e) {
+            if (CompetitionList.HasItems) {
+                CompetitionList.SelectedIndex = 0;
+            }
+        }
+
+        private void BtDorsals_OnPreviewMouseWheel(object sender, MouseWheelEventArgs e) {
+            ScrollViewer.ScrollToVerticalOffset(ScrollViewer.VerticalOffset - e.Delta);
         }
     }
 }
