@@ -184,7 +184,7 @@ set dorsal=@DORSAL
 where COMPETITION_ID=@COMPETITION_ID and ATHLETE_DNI=@DNI and dorsal is null</value>
   </data>
   <data name="SQL_INSERT_ENROLL" xml:space="preserve">
-    <value>insert into enroll values (@DNI, @COMPETITION_ID, @STATUS, date('now'), null, 0)</value>
+    <value>insert into enroll (ATHLETE_DNI,COMPETITION_ID,STATUS,DATE_INSCRIPTION,REFUND) values (@DNI, @COMPETITION_ID, @STATUS, date('now'),0)</value>
   </data>
   <data name="SQL_SELECT_CATEGORY_IN_COMPETITION" xml:space="preserve">
     <value>select CATEGORY_NAME FROM GET_CATEGORY_COMPETITION where athlete_dni =@DNI and COMPETITION_ID=@COMPETITION_ID</value>
@@ -297,7 +297,7 @@ where dorsal = @DORSAL AND COMPETITION_ID = @COMPETITION_ID</value>
     <value>UPDATE TimesCompetition SET TIME=@TIME WHERE COMPETITION_ID = @COMPETITION_ID AND ATHLETE_DNI = @DNI AND NUMBER_MILESTONE = @MILESTONE</value>
   </data>
   <data name="SQL_SELECT_NOT_CANCELED_INSCRIPTIONS" xml:space="preserve">
-    <value>select competition_id, competition_name, status, date_inscription, refund, date_refund 
+    <value>select competition_id, competition_name, status, date_inscription, percentage_refund, date_refund 
 from enroll natural join competition natural join competitionrefund C
 where athlete_dni=@DNI and status&lt;&gt;'CANCELED' 
 and date_refund in (select min(date_refund) from competitionrefund where Date('now') &lt; date_refund and C.COMPETITION_ID=COMPETITION_ID group by competition_id)</value>

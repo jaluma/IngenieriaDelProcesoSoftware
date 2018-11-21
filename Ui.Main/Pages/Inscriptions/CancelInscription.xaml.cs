@@ -125,7 +125,8 @@ namespace Ui.Main.Pages.Inscriptions {
 
             double dev = CalcularDevolucion();
             string message = Properties.Resources.InscriptionCanceled + " " + dev + "€";
-            if (dev == 0)
+            int index = CompetitionsToCancel.SelectedIndex;
+            if (_status[index] != "REGISTERED")
                 message += "(No se había realizado el pago)";
             MessageBox.Show(message);
             _enrollService.UpdateInscriptionStatus(_athlete.Dni, _competition.ID, "CANCELED");
