@@ -460,4 +460,7 @@
   <data name="Yes" xml:space="preserve">
     <value>Sí</value>
   </data>
+  <data name="TimeSeconds" xml:space="preserve">
+    <value>Ritmo (min/km)</value>
+  </data>
 </root>
