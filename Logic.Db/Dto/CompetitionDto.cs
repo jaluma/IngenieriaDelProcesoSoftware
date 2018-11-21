@@ -16,6 +16,8 @@ namespace Logic.Db.Dto {
         public byte[] Rules;
         public int NumberMilestone;
         public double Slope;
+        public Boolean Preinscription;
+        public int days_Preinscription;
     }
 
     public enum TypeCompetition {
