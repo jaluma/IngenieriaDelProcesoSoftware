@@ -61,6 +61,17 @@ namespace Logic.Db.Properties {
         }
 
         /// <summary>
+        ///   Busca una cadena traducida similar a select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, INITIAL_DATE, FINISH_DATE, COMPETITION_DATE, COMPETITION_RULES from Competition natural join CompetitionDates natural join DateInscription where (date(&apos;now&apos;) between INITIAL_DATE and FINISH_DATE) and  Competition.COMPETITION_STATUS=&apos;OPEN&apos; and Competition.COMPETITION_DAYS_PREINSCRIPTION = True.
+        /// </summary>
+        internal static string SQL_SELECT_PREINSCRIPTION_COMPETITION
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_PREINSCRIPTION_COMPETITION", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Busca una cadena traducida similar a bb.
         /// </summary>
         internal static string bb {

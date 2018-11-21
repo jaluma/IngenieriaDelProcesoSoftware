@@ -75,7 +75,6 @@
     <Compile Include="ActionObjects\AthleteLogic\Enroll\SelectPreregisteredAthletes.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\UpdateHasRegisteredTimes.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\UpdateInscriptionStatus.cs" />
-    <Compile Include="ActionObjects\AthleteLogic\SelectAtheletesRaffle.cs" />
     <Compile Include="ActionObjects\AthleteLogic\SelectAthleteByDniObject.cs" />
     <Compile Include="ActionObjects\AthleteLogic\SelectCompParticipatedByAhtlete.cs" />
     <Compile Include="ActionObjects\CategoriesLogic\AddAbsoluteCategory.cs" />

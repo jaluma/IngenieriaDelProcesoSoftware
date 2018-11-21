@@ -59,18 +59,6 @@ namespace Logic.Db.Util.Services {
             return select.Dni;
         }
 
-
-        public List<string> SelectAtheletesRaffle(int dorsal, long competitionId)
-        {
-            SelectAtheletesRaffle select = new SelectAtheletesRaffle(ref _conn, competitionId);
-            select.Execute();
-            return select.dniS;
-        }
-
-
-
-
-        
         //public static void PrintAthletes(IEnumerable<Athlete> list) {
         //    Console.WriteLine(string.Join("\n", list));
         //}
