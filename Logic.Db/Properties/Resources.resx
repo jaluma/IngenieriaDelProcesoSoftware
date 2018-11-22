@@ -274,8 +274,10 @@ WHERE CATEGORY_ID = @ID</value>
     <value>..\Resources\DefaultCategories.json;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="SQL_SELECT_PARTIAL_TIMES" xml:space="preserve">
-    <value>select ATHLETE_DNI, NUMBER_MILESTONE, TIME, INITIAL_TIME, FINISH_TIME from HasParticipated natural join TimesCompetition
-where ATHLETE_DNI = @DNI and COMPETITION_ID = @COMPETITION_ID</value>
+    <value>select ATHLETE_DNI, DORSAL, NUMBER_MILESTONE, TIME, INITIAL_TIME, FINISH_TIME from HasParticipated natural join TimesCompetition natural join enroll
+where ATHLETE_DNI = @DNI and COMPETITION_ID = @COMPETITION_ID
+ORDER BY (CASE WHEN FINISH_TIME - INITIAL_TIME IS NULL THEN 1 ELSE 0 END),  
+            FINISH_TIME - INITIAL_TIME</value>
   </data>
   <data name="SQL_SELECT_ATHLETES_HAS_PARTICIPATED" xml:space="preserve">
     <value>select ATHLETE_DNI, ATHLETE_NAME, ATHLETE_SURNAME, ATHLETE_BIRTH_DATE, ATHLETE_GENDER from Athlete natural join HasParticipated

@@ -263,7 +263,7 @@ namespace Ui.Main.Pages.Competition.Times {
             List<AthleteDto> atleList = new AthletesService().SelectAthleteTable();
 
             try {
-                string dni = _table.Rows[DataGridTimes.SelectedIndex][2] as string;
+                string dni = _columnDNI[DataGridTimes.SelectedIndex];
                 PartialTimesAthletes.Athlete = atleList.First(a => a.Dni.ToUpper().Equals(dni.ToUpper()));
 
                 DataGridTimes.SelectedIndex = -1;
