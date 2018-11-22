@@ -14,12 +14,6 @@
 
 
     <ScrollViewer Name="Panel"  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Height="Auto">
-        <Grid Name="Layout" Margin="10" Style="{StaticResource ContentRoot}" >
-            <Grid.Resources >
-                <Style TargetType="Border" >
-                    <Setter Property="Padding" Value="10,10,10,10" />
-                </Style>
-            </Grid.Resources>
-        </Grid>
+        <StackPanel Name="Layout" Margin="10" Style="{StaticResource ContentRoot}" />
     </ScrollViewer>
 </mui:ModernDialog>

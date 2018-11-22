@@ -55,55 +55,34 @@ namespace Ui.Main.Pages.Competition.Times
             Buttons = new Button[] { printButton, customButton };
 
             for (int i = 0; i < _categories.Count(); i++) {
-                ColumnDefinition columnCategories = new ColumnDefinition()
-                {
-                    Width = GridLength.Auto
-                };
-                Layout.ColumnDefinitions.Add(columnCategories);
-            }
-
-            for (int i = 0; i < 4; i++) {
-                RowDefinition row = new RowDefinition()
-                {
-                    Height = GridLength.Auto
-                };
-                Layout.RowDefinitions.Add(row);
-            }
-
-            for (int i = 0; i < _categories.Count(); i++) {
                 for (int j = 0; j < 2; j++) {
                     DataGrid dataGrid = new DataGrid();
                     dataGrid.Margin = new Thickness(10);
                     GenerateDatagrid(i, j);
 
                     if (_tables[i, j] != null) {
-                        getLabel(i, j);
+                        Layout.Children.Add(getLabel(i, j));
 
                         dataGrid.ItemsSource = _tables[i, j].DefaultView;
                         dataGrid.MinColumnWidth = 10;
-
-                        Grid.SetColumn(dataGrid, i);
-                        Grid.SetRow(dataGrid, j*2+1);
-
                         Layout.Children.Add(dataGrid);
                     }
                 }
+
             }
         }
 
-        private void getLabel(int i, int j) {
+        private Label getLabel(int i, int j) {
             Label label = new Label() {
                 FontSize = 12,
                 FontWeight = FontWeights.Bold
             };
-            Grid.SetColumn(label, i);
-            Grid.SetRow(label, j*2);
 
             label.HorizontalContentAlignment = HorizontalAlignment.Center;
 
             label.Content = j == 0 ? _categories.ElementAt(i).CategoryM.Name.Replace('_', ' ') : _categories.ElementAt(i).CategoryF.Name.Replace('_', ' ');
 
-            Layout.Children.Add(label);
+            return label;
         }
 
         private void GenerateDatagrid(int index, int rowGender) {
@@ -164,8 +143,6 @@ namespace Ui.Main.Pages.Competition.Times
             dtClone.Columns.Remove(Properties.Resources.AthleteDni);
             dtClone.Columns.Remove(Properties.Resources.Age);
             dtClone.Columns.Remove(Properties.Resources.AthleteGender);
-            dtClone.Columns.Remove(Properties.Resources.AthleteName);
-            dtClone.Columns.Remove(Properties.Resources.AthleteSurname);
 
             tableRef = dtClone;
         }
