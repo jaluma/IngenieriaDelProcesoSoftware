@@ -51,6 +51,18 @@ namespace Logic.Db.Util.Services {
             competitions.Execute();
             return competitions.Competitions;
         }
+        public DataTable ListCompetitionsToPreinscribe(AthleteDto athlete)
+        {
+            CompetitionsToPreinscribeLogic competitions = new CompetitionsToPreinscribeLogic(ref _conn, athlete);
+            competitions.Execute();
+            return competitions.Table;
+        }
+        public List<CompetitionDto> ListCompetitionsToPreinscribeObject(AthleteDto athlete)
+        {
+            CompetitionsToPreinscribeLogic competitions = new CompetitionsToPreinscribeLogic(ref _conn, athlete);
+            competitions.Execute();
+            return competitions.Competitions;
+        }
 
         public DataTable SelectAllCompetitions() {
             SelectAllCompetition competitions = new SelectAllCompetition(ref _conn);

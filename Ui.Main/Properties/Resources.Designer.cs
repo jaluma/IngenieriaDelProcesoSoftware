@@ -1142,5 +1142,14 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("Preinscriptions", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Finalizar inscripcion.
+        /// </summary>
+        public static string FinishPreinscription {
+            get {
+                return ResourceManager.GetString("FinishPreinscription", resourceCulture);
+            }
+        }
     }
 }

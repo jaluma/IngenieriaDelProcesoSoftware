@@ -118,6 +118,7 @@ namespace Ui.Main.Pages.Inscriptions.Competitions {
 
         private void TxDni_TextChanged(object sender, TextChangedEventArgs e) {
             LoadData(TxDni.Text);
+            CompetitionInscription.Dni = TxDni.Text;
         }
 
         private void CompetitionSelectionWindow_OnLoaded(object sender, RoutedEventArgs e) {

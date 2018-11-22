@@ -14,6 +14,5 @@ namespace Logic.Db.Dto {
         PreRegistered,
         Outstanding,
         Registered,
-        PendientPayment
     }
 }

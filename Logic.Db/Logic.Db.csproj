@@ -85,6 +85,7 @@
     <Compile Include="ActionObjects\CategoriesLogic\GetAbsoluteCategory.cs" />
     <Compile Include="ActionObjects\CategoriesLogic\SearchCategoryChild.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\AddInscriptionDates.cs" />
+    <Compile Include="ActionObjects\CompetitionLogic\CompetitionsToPreinscribeLogic.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\EnrollAbsoluteCompetition.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\EnrollDatesCompetition.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\EnrollRefundsCompetition.cs" />

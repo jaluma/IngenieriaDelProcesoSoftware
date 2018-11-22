@@ -640,5 +640,15 @@ namespace Logic.Db.Properties {
                 return ResourceManager.GetString("SQL_IS_ATHLETE_IN_COMPETITION", resourceCulture);
             }
         }
+
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a select count(*) from enroll where ATHLETE_DNI=@DNI and COMPETITION_ID=@ID.
+        /// </summary>
+        internal static string SQL_SELECT_COMPETITION_TO_PREINSCRIBE {
+            get {
+                return ResourceManager.GetString("SQL_SELECT_COMPETITION_TO_PREINSCRIBE", resourceCulture);
+            }
+        }
     }
 }

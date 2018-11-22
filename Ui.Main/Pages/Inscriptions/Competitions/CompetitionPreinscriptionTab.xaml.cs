@@ -9,11 +9,13 @@ using Logic.Db.Dto;
 using Logic.Db.Util.Services;
 using Ui.Main.Pages.Inscriptions.Payment;
 
-namespace Ui.Main.Pages.Inscriptions.Competitions {
+namespace Ui.Main.Pages.Inscriptions.Competitions
+{
     /// <summary>
     /// Lógica de interacción para CompetitionSelectionPage.xaml
     /// </summary>
-    public partial class CompetitionPreinscriptionTab : UserControl {
+    public partial class CompetitionPreinscriptionTab : UserControl
+    {
 
         private readonly CompetitionService _competitionService;
         private readonly AthletesService _athletesService;
@@ -24,14 +26,16 @@ namespace Ui.Main.Pages.Inscriptions.Competitions {
 
         private List<long> _columnIds;
 
-        public CompetitionPreinscriptionTab() {
+        public CompetitionPreinscriptionTab()
+        {
             _competitionService = new CompetitionService();
             _athletesService = new AthletesService();
             _enrollService = new EnrollService(null);
             InitializeComponent();
         }
 
-        private void PlaceData() {
+        private void PlaceData()
+        {
             TxDni.Text = _athlete.Dni;
             LbNameSurname.Content = _athlete.Name + " " + _athlete.Surname;
             LbBirthDate.Content = _athlete.BirthDate.ToShortDateString();
@@ -41,9 +45,12 @@ namespace Ui.Main.Pages.Inscriptions.Competitions {
                 LbGender.Content = Properties.Resources.Woman;
         }
 
-        private void LoadData(string dni) {
-            if (dni != null) {
-                try {
+        private void LoadData(string dni)
+        {
+            if (dni != null)
+            {
+                try
+                {
                     List<AthleteDto> atleList = _athletesService.SelectAthleteTable();
 
                     _athlete = atleList.First(a => a.Dni.ToUpper().Equals(dni.ToUpper()));
@@ -52,53 +59,63 @@ namespace Ui.Main.Pages.Inscriptions.Competitions {
 
                     GetListCompetition();
 
-                } catch (InvalidOperationException) { }
+                }
+                catch (InvalidOperationException) { }
             }
 
         }
 
-        private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e) {
+        private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
             if (e.PropertyType == typeof(System.DateTime))
-                ((DataGridTextColumn) e.Column).Binding.StringFormat = "dd/MM/yyyy";
+                ((DataGridTextColumn)e.Column).Binding.StringFormat = "dd/MM/yyyy";
         }
 
-        private void BtFinish_Click(object sender, RoutedEventArgs e) {
-            if (CompetitionsToSelect.SelectedItem == null) {
+        private void BtFinish_Click(object sender, RoutedEventArgs e)
+        {
+            if (CompetitionsToSelect.SelectedItem == null)
+            {
                 MessageBox.Show(Properties.Resources.NothingSelected);
                 return;
             }
 
-            /*try {*/
-                _competition = _competitionService.ListCompetitionsToInscribeObject(_athlete)
-                    .ElementAt(CompetitionsToSelect.SelectedIndex);
+            _competition = _competitionService.ListCompetitionsToPreinscribeObject(_athlete)
+                .ElementAt(CompetitionsToSelect.SelectedIndex);
 
-                if (_enrollService.IsAthleteInComp(_competition, _athlete))
-                {
-                    MessageBox.Show(Properties.Resources.PreviouslyEnrolled);
-                    return;
-                }
-                new DialogPayment(_athlete, _competition).ShowDialog();
-                LoadData(TxDni.Text);
-
-            /*} catch (ApplicationException) {
+            if (_enrollService.IsAthleteInComp(_competition, _athlete))
+            {
                 MessageBox.Show(Properties.Resources.PreviouslyEnrolled);
-            }*/
+                return;
+            }
+            new DialogPreinscripted(_athlete, _competition).ShowDialog();
+
+            CompetitionService competitionService = new CompetitionService();
+            EnrollService enrollService = new EnrollService(_competition);
+
+            string category = _enrollService.GetCategory(_athlete, _competition);
+
+            _enrollService.InsertAthleteInCompetition(_athlete, _competition, TypesStatus.PreRegistered);
+            LoadData(TxDni.Text);
 
         }
 
-        private void CompetitionsToSelect_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+        private void CompetitionsToSelect_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
             int indexSeletected = CompetitionsToSelect.SelectedIndex;
 
-            if (indexSeletected != -1) {
-                _competition = new CompetitionDto() {
-                    ID = (int) _columnIds[indexSeletected]
+            if (indexSeletected != -1)
+            {
+                _competition = new CompetitionDto()
+                {
+                    ID = (int)_columnIds[indexSeletected]
                 };
             }
 
         }
 
-        private void GetListCompetition() {
-            DataTable table = _competitionService.ListCompetitionsToInscribe(_athlete);
+        private void GetListCompetition()
+        {
+            DataTable table = _competitionService.ListCompetitionsToPreinscribe(_athlete);
             table.Columns[0].ColumnName = Properties.Resources.Competition_Id;
             table.Columns[1].ColumnName = Properties.Resources.Competition_Name;
             table.Columns[2].ColumnName = Properties.Resources.Competition_Type;
@@ -117,17 +134,22 @@ namespace Ui.Main.Pages.Inscriptions.Competitions {
                 CompetitionsToSelect.ItemsSource = table.DefaultView;
         }
 
-        private void TxDni_TextChanged(object sender, TextChangedEventArgs e) {
+        private void TxDni_TextChanged(object sender, TextChangedEventArgs e)
+        {
             LoadData(TxDni.Text);
+            CompetitionInscription.Dni = TxDni.Text;
         }
 
-        private void CompetitionSelectionWindow_OnLoaded(object sender, RoutedEventArgs e) {
-            if (_athlete?.Dni == null || CompetitionInscription.Dni == null || !CompetitionInscription.Dni.Equals(_athlete.Dni)) {
+        private void CompetitionSelectionWindow_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            if (_athlete?.Dni == null || CompetitionInscription.Dni == null || !CompetitionInscription.Dni.Equals(_athlete.Dni))
+            {
                 LoadData(CompetitionInscription.Dni);
             }
         }
 
-        private void CompetitionsToSelect_OnPreviewMouseWheel(object sender, MouseWheelEventArgs e) {
+        private void CompetitionsToSelect_OnPreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
             ScrollViewer.ScrollToVerticalOffset(ScrollViewer.VerticalOffset - e.Delta);
         }
     }

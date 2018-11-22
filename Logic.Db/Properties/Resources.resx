@@ -205,10 +205,18 @@ where date('now') not BETWEEN INITIAL_DATE and FINISH_DATE and date('now') &lt; 
     <value>SELECT count(*) FROM Athlete WHERE ATHLETE_DNI=@DNI</value>
   </data>
   <data name="SQL_SELECT_COMPETITION_TO_INSCRIBE" xml:space="preserve">
-    <value>
-          select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_PRICE, INITIAL_DATE, FINISH_DATE, COMPETITION_DATE
-          from Competition natural join CompetitionDates natural join DateInscription
-          where date('now') BETWEEN INITIAL_DATE and FINISH_DATE and COMPETITION_STATUS&lt;&gt;'FINISH' and COMPETITION_NUMBER_PLACES &gt; (select count(*) from enroll group by competition_id) AND COMPETITION_ID not in (SELECT COMPETITION_ID FROM ENROLL WHERE ATHLETE_DNI=@DNI)
+    <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM,COMPETITION_PRICE, INITIAL_DATE, FINISH_DATE, COMPETITION_DATE
+from Competition natural join CompetitionDates natural join DateInscription
+where date('now') BETWEEN INITIAL_DATE and FINISH_DATE AND COMPETITION_PREINSCRIPTION == 0
+                AND COMPETITION_STATUS&lt;&gt;'FINISH'
+                AND COMPETITION_NUMBER_PLACES &gt; 
+                                 (select count(*) 
+                                 from enroll 
+                                 group by competition_id)
+                AND COMPETITION_ID not in 
+                                 (SELECT COMPETITION_ID 
+                                 FROM ENROLL
+                                  WHERE ATHLETE_DNI=@DNI)
       </value>
   </data>
   <data name="SQL_SELECT_COMPETITION_BY_ID" xml:space="preserve">
@@ -365,5 +373,19 @@ where competition_id=@ID and athlete_dni=@DNI and date_inscription between initi
   </data>
   <data name="SQL_IS_ATHLETE_IN_COMPETITION" xml:space="preserve">
     <value>select count(*) from enroll where ATHLETE_DNI=@DNI and COMPETITION_ID=@ID</value>
+  </data>
+  <data name="SQL_SELECT_COMPETITION_TO_PREINSCRIBE" xml:space="preserve">
+    <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM,COMPETITION_PRICE, INITIAL_DATE, FINISH_DATE, COMPETITION_DATE
+from Competition natural join CompetitionDates natural join DateInscription
+where date('now') BETWEEN INITIAL_DATE and FINISH_DATE AND COMPETITION_PREINSCRIPTION == 1
+                AND COMPETITION_STATUS&lt;&gt;'FINISH'
+                AND COMPETITION_NUMBER_PLACES &gt; 
+                                 (select count(*) 
+                                 from enroll 
+                                 group by competition_id)
+                AND COMPETITION_ID not in 
+                                 (SELECT COMPETITION_ID 
+                                 FROM ENROLL
+                                  WHERE ATHLETE_DNI=@DNI)</value>
   </data>
 </root>
