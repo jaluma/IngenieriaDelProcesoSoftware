@@ -86,33 +86,35 @@ namespace Ui.Main.Pages.Inscriptions.PaymentControl {
 
             //comprobaciones
             StringBuilder stringBuilder = new StringBuilder();
-            foreach (PaymentDto prereg in preregistered) {
-                double cantidadPagada = 0;
-                bool pago = false;
-                foreach (PaymentDto payment in extracto) {
+            foreach (PaymentDto payment in extracto) {
+                double cantidadPagada = payment.Amount;
+                bool outstandingInCompetition = false;
+                foreach (PaymentDto prereg in preregistered) {
                     if (prereg.Dni.Equals(payment.Dni) && prereg.Id == payment.Id) {
-                        pago = true;
+                        outstandingInCompetition = true;
                         TimeSpan time = payment.Date.Subtract(prereg.Date);
-                        if (time.Days <= 2)
-                            cantidadPagada += payment.Amount;
-                    }
+                        if (time.Days <= 2 && cantidadPagada >= prereg.Amount)
+                        {
+                            _enrollService.UpdateInscriptionStatus(prereg.Dni, prereg.Id, "REGISTERED");
+                            stringBuilder.Append("El atleta con dni " + prereg.Dni + " ha sido inscrito en la competición con ID " + prereg.Id);
+                            if (cantidadPagada > prereg.Amount)
+                            {
+                                _enrollService.UpdateRefund(prereg.Dni, prereg.Id, prereg.Amount - cantidadPagada);
+                                stringBuilder.Append(". Deben devolversele " + (cantidadPagada - prereg.Amount) + "€ por abonar una cantidad superior al precio");
+                            }
+                            stringBuilder.Append(".\n\n");
+                        }
+                        else
+                        {
+                            _enrollService.UpdateInscriptionStatus(prereg.Dni, prereg.Id, "CANCELED");
+                            _enrollService.UpdateRefund(prereg.Dni, prereg.Id, cantidadPagada);
+                            stringBuilder.Append("El atleta con dni " + prereg.Dni + " no ha realizado un pago válido para la competición con ID " + prereg.Id +
+                                ". Deben devolversele " + cantidadPagada + "€.\n\n");
+                        }
+                    } 
                 }
-                if (pago) {
-                    if (cantidadPagada == prereg.Amount) {
-                        _enrollService.UpdateInscriptionStatus(prereg.Dni, prereg.Id, "REGISTERED");
-                        stringBuilder.Append("El atleta con dni " + prereg.Dni + " ha sido inscrito en la competición con ID " + prereg.Id + ".\n\n");
-                    } else if (cantidadPagada > prereg.Amount){
-                        _enrollService.UpdateInscriptionStatus(prereg.Dni, prereg.Id, "REGISTERED");
-                        _enrollService.UpdateRefund(prereg.Dni, prereg.Id, prereg.Amount - cantidadPagada);
-                        stringBuilder.Append("El atleta con dni " + prereg.Dni + " ha sido inscrito en la competición con ID " + prereg.Id + 
-                            ". Deben devolversele " + (cantidadPagada - prereg.Amount) + "€.\n\n");
-                    } else {
-                        _enrollService.UpdateInscriptionStatus(prereg.Dni, prereg.Id, "CANCELED");
-                        _enrollService.UpdateRefund(prereg.Dni, prereg.Id, cantidadPagada);
-                        stringBuilder.Append("El atleta con dni " + prereg.Dni + " no ha realizado un pago válido para la competición con ID " + prereg.Id +
-                            ". Deben devolversele " + cantidadPagada + "€.\n\n");
-                    }
-                }
+                if (!outstandingInCompetition)
+                    stringBuilder.Append("El atleta con dni " + payment.Dni + " no tenía un pago pendiente en la competición para la que ha realizado el pago. Deben devolversele " + cantidadPagada + "€.\n\n");
             }
 
             TxActualizado.Text = stringBuilder.ToString();
@@ -126,6 +128,11 @@ namespace Ui.Main.Pages.Inscriptions.PaymentControl {
         private void OnMouseLeave(object sender, MouseEventArgs e) {
             if (sender is Control component)
                 component.Cursor = null;
+        }
+
+        private void TxActualizado_PreviewMouseWheel(object sender, System.Windows.Input.MouseWheelEventArgs e)
+        {
+            //ScrollViewer.ScrollToVerticalOffset(ScrollViewer.VerticalOffset - e.Delta);
         }
     }
 }
