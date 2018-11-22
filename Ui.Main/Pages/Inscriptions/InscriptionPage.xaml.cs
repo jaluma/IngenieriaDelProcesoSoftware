@@ -25,7 +25,7 @@ namespace Ui.Main.Pages.Inscriptions {
 
         public InscriptionPage() {
             InitializeComponent();
-
+            DPBirthDate.DisplayDateEnd = new DateTime(DateTime.Now.Year, 12, 31).AddYears(-18);
             _athletesService = new AthletesService();
         }
 
