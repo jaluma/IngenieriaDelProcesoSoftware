@@ -30,10 +30,17 @@ namespace Ui.Main.Pages.Inscriptions.Payment {
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
-            if ((bool) RBWireTransfer.IsChecked) {
+            if ((bool) RBWireTransfer.IsChecked)
+            {
                 Window parentWindow = Window.GetWindow(this);
                 if (parentWindow != null)
                     parentWindow.Content = new WireTransferWindow(_athlete, _competition);
+            }
+            if ((bool) RBCreditCard.IsChecked)
+            {
+                Window parentWindow = Window.GetWindow(this);
+                if (parentWindow != null)
+                    parentWindow.Content = new CreditCardWindow(_athlete, _competition);
             }
         }
 

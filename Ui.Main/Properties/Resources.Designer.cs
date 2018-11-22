@@ -1124,5 +1124,16 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("TimeSeconds", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tarjeta de crédito (Visa, MasterCard, Maestro).
+        /// </summary>
+        public static string CreditCard
+        {
+            get
+            {
+                return ResourceManager.GetString("CreditCard", resourceCulture);
+            }
+        }
     }
 }

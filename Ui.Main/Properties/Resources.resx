@@ -463,4 +463,7 @@
   <data name="TimeSeconds" xml:space="preserve">
     <value>Ritmo (min/km)</value>
   </data>
+  <data name="CreditCard" xml:space="preserve">
+    <value>Tarjeta de crédito</value>
+  </data>
 </root>
