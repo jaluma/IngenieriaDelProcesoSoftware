@@ -7,8 +7,6 @@
       xmlns:properties="clr-namespace:Ui.Main.Properties"
       xmlns:mui="http://firstfloorsoftware.com/ModernUI"
       mc:Ignorable="d"
-      MinHeight="625" MinWidth="1250"
-      Height="625" Width="1250"
       Title="Tiempos"
       ResizeMode="CanResizeWithGrip">
 
