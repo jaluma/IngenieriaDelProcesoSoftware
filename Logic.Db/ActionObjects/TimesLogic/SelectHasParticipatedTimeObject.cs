@@ -33,7 +33,7 @@ namespace Logic.Db.ActionObjects.TimesLogic {
                         try {
                             HasParticipated.Competition = _competition;
                             HasParticipated.Athlete = _athlete;
-                            HasParticipated.InitialTime = reader.GetInt64(2);
+                            HasParticipated.InitialTime = reader.IsDBNull(2) ? 0 : reader.GetInt64(2);
                             HasParticipated.FinishTime = reader.IsDBNull(3) ? 0 : reader.GetInt64(3);
                         } catch (InvalidOperationException) { }
                     }

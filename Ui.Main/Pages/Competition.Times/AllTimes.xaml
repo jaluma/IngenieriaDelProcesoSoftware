@@ -7,19 +7,11 @@
       xmlns:properties="clr-namespace:Ui.Main.Properties"
       xmlns:mui="http://firstfloorsoftware.com/ModernUI"
       mc:Ignorable="d"
-      MinHeight="625" MinWidth="1250"
-      Height="625" Width="1250"
       Title="Tiempos"
       ResizeMode="CanResizeWithGrip">
 
 
     <ScrollViewer Name="Panel"  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Height="Auto">
-        <Grid Name="Layout" Margin="10" Style="{StaticResource ContentRoot}" >
-            <Grid.Resources >
-                <Style TargetType="Border" >
-                    <Setter Property="Padding" Value="10,10,10,10" />
-                </Style>
-            </Grid.Resources>
-        </Grid>
+        <StackPanel Name="Layout" Margin="10" Style="{StaticResource ContentRoot}" />
     </ScrollViewer>
 </mui:ModernDialog>

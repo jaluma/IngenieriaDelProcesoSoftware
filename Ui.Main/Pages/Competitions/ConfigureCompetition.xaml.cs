@@ -324,7 +324,7 @@ namespace Ui.Main.Pages.Competitions {
                 if (PreinscriptionIsChecked())
                 {
                     _competition.Preinscription = true;
-                    _competition.days_Preinscription = Int32.Parse(PrecioInscripcion.Text);
+                    _competition.DaysPreinscription = Int32.Parse(PrecioInscripcion.Text);
                 }
                 else
                     _competition.Preinscription = false;

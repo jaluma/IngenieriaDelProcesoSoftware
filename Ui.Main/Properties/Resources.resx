@@ -188,10 +188,10 @@
     <value>Apellido</value>
   </data>
   <data name="FinishTime" xml:space="preserve">
-    <value>Tiempo final (s)</value>
+    <value>Final</value>
   </data>
   <data name="InitialTime" xml:space="preserve">
-    <value>Tiempo inicial (s)</value>
+    <value>Inicial</value>
   </data>
   <data name="TileJoinCompetition" xml:space="preserve">
     <value>Listar corredores inscritos</value>
