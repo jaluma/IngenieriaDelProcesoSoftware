@@ -1115,5 +1115,14 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Tiempo por minuto.
+        /// </summary>
+        public static string TimeSeconds {
+            get {
+                return ResourceManager.GetString("TimeSeconds", resourceCulture);
+            }
+        }
     }
 }

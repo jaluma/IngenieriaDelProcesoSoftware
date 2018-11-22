@@ -218,20 +218,32 @@ namespace Ui.Main.Pages.Competition.Times {
                 _table.Columns[6].ColumnName = Properties.Resources.InitialTime;
                 _table.Columns[7].ColumnName = Properties.Resources.FinishTime;
                 _table.Columns[8].ColumnName = Properties.Resources.Age;
+                _table.Columns[9].ColumnName = Properties.Resources.TimeSeconds;
 
                 DataTable dtClone = _table.Clone();
                 dtClone.Columns[6].ColumnName = Properties.Resources.Time;
                 dtClone.Columns[Properties.Resources.Time].DataType = typeof(string);
+                dtClone.Columns[Properties.Resources.TimeSeconds].DataType = typeof(string);
 
 
                 foreach (DataRow row in _table.Rows) {
                     object[] dr = row.ItemArray as object[];
-                    if (dr[6] is DBNull || dr[7] is DBNull || (long) dr[7] == 0) {
-                        dr[6] = "---";
+                    if (dr[6] is DBNull) {
+                        dr[6] = "DNS";
+                    } else if (dr[7] is DBNull || (long) dr[7] == 0) {
+                        dr[6] = "DNF";
                     } else {
                         var seconds = (long) dr[7] - (long) dr[6];
                         var timespan = TimeSpan.FromSeconds(seconds);
                         dr[6] = timespan.ToString(@"hh\:mm\:ss");
+                    }
+
+                    if (dr[9] is DBNull) {
+                        dr[9] = "---";
+                    }
+                    else {
+                        var timespan = TimeSpan.FromSeconds((long)dr[9]);
+                        dr[9] = timespan.ToString(@"mm\:ss");
                     }
 
                     var desRow = dtClone.NewRow();
