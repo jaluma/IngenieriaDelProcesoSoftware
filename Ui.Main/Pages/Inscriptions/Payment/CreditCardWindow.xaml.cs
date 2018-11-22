@@ -72,9 +72,6 @@ namespace Ui.Main.Pages.Inscriptions.Payment
         {
             if (cvc.Length != 3)
                 return false;
-            foreach (char c in cvc)
-                if (!Char.IsDigit(c))
-                    return false;
             return true;
         }
 
@@ -82,12 +79,6 @@ namespace Ui.Main.Pages.Inscriptions.Payment
         {
             if (mes.Length != 2 || year.Length != 2)
                 return 1;
-            foreach (char c in mes)
-                if (!Char.IsDigit(c))
-                    return 1;
-            foreach (char c in year)
-                if (!Char.IsDigit(c))
-                    return 1;
             int m = int.Parse(mes);
             int y = int.Parse(year) + 2000;
             if (m < 1 || m > 12 || y < 1)
@@ -141,9 +132,12 @@ namespace Ui.Main.Pages.Inscriptions.Payment
             return (sum % 10) == 0;
         }
 
-        private void OnlyNumber_KeyPress(object sender, TextChangedEventArgs e)
+        private void NumerosTextBox_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.Key >= Key.D0 && e.Key <= Key.D9 || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+                e.Handled = false;
+            else
+                e.Handled = true;
         }
     }
 }

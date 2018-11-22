@@ -11,12 +11,12 @@
     <Grid>
         <DockPanel Height="269" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="292">
             <Label Content="{x:Static properties:Resources.CardNumber}" VerticalAlignment="Top" DockPanel.Dock="Top" FontSize="14" Height="30" VerticalContentAlignment="Center"/>
-            <TextBox Name="TxNumero" TextWrapping="Wrap" VerticalAlignment="Top" DockPanel.Dock="Top" Height="25" VerticalContentAlignment="Center" Margin="10,0" />
+            <TextBox Name="TxNumero" TextWrapping="Wrap" VerticalAlignment="Top" DockPanel.Dock="Top" Height="25" VerticalContentAlignment="Center" Margin="10,0" KeyDown="NumerosTextBox_KeyDown" MaxLength="18"/>
             <Label Content="{x:Static properties:Resources.Expiration}" VerticalAlignment="Top" DockPanel.Dock="Top" FontSize="14" Height="30" VerticalContentAlignment="Center"/>
-            <TextBox Name="TxCaducidadMes" TextWrapping="Wrap" VerticalAlignment="Top" DockPanel.Dock="Top" Height="25" VerticalContentAlignment="Center" Margin="10,0,154,0" MaxLength="2"/>
-            <TextBox Name="TxCaducidadYear" TextWrapping="Wrap" VerticalAlignment="Top" DockPanel.Dock="Top" Height="25" VerticalContentAlignment="Center" Margin="154,-25,10,0" MaxLength="2"/>
+            <TextBox Name="TxCaducidadMes" TextWrapping="Wrap" VerticalAlignment="Top" DockPanel.Dock="Top" Height="25" VerticalContentAlignment="Center" Margin="10,0,154,0" MaxLength="2" KeyDown="NumerosTextBox_KeyDown"/>
+            <TextBox Name="TxCaducidadYear" TextWrapping="Wrap" VerticalAlignment="Top" DockPanel.Dock="Top" Height="25" VerticalContentAlignment="Center" Margin="154,-25,10,0" MaxLength="2" KeyDown="NumerosTextBox_KeyDown"/>
             <Label Content="{x:Static properties:Resources.Cvc}" VerticalAlignment="Top" DockPanel.Dock="Top" FontSize="14" Height="30" VerticalContentAlignment="Center"/>
-            <TextBox Name="TxCvc" TextWrapping="Wrap" VerticalAlignment="Top" DockPanel.Dock="Top" Height="25" VerticalContentAlignment="Center" Margin="10,0,154,0" MaxLength="3"/>
+            <TextBox Name="TxCvc" TextWrapping="Wrap" VerticalAlignment="Top" DockPanel.Dock="Top" Height="25" VerticalContentAlignment="Center" Margin="10,0,154,0" MaxLength="3" KeyDown="NumerosTextBox_KeyDown"/>
 
 
         </DockPanel>
