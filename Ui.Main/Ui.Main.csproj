@@ -144,6 +144,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Inscriptions\Competitions\CompetitionInscription.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Inscriptions\Competitions\CompetitionPreinscriptionTab.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\Competitions\categories\RefundDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -164,7 +172,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Inscriptions\CompetitionInscription.xaml">
+    <Page Include="Pages\Inscriptions\Competitions\CompetitionInscriptionTab.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -223,6 +231,12 @@
     <Compile Include="Pages\Competition.Times\TimesAthletes.xaml.cs">
       <DependentUpon>TimesAthletes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Inscriptions\Competitions\CompetitionInscription.xaml.cs">
+      <DependentUpon>CompetitionInscription.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Inscriptions\Competitions\CompetitionPreinscriptionTab.xaml.cs">
+      <DependentUpon>CompetitionPreinscriptionTab.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Competitions\categories\RefundDialog.xaml.cs">
       <DependentUpon>RefundDialog.xaml</DependentUpon>
     </Compile>
@@ -238,8 +252,8 @@
     <Compile Include="Pages\Inscriptions\CancelInscription.xaml.cs">
       <DependentUpon>CancelInscription.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Inscriptions\CompetitionInscription.xaml.cs">
-      <DependentUpon>CompetitionInscription.xaml</DependentUpon>
+    <Compile Include="Pages\Inscriptions\Competitions\CompetitionInscriptionTab.xaml.cs">
+      <DependentUpon>CompetitionInscriptionTab.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Inscriptions\HasRegistered\Dorsals.xaml.cs">
       <DependentUpon>Dorsals.xaml</DependentUpon>
@@ -358,9 +372,6 @@
     <Resource Include="Resources\dorsalsIco.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ApplicationIco.bmp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ApplicationIco.png" />

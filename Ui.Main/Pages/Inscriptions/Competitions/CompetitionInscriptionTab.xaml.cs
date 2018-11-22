@@ -1,29 +1,19 @@
-﻿using Logic.Db.Dto;
-using Logic.Db.Util.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Logic.Db.Dto;
+using Logic.Db.Util.Services;
 using Ui.Main.Pages.Inscriptions.Payment;
 
-namespace Ui.Main.Pages.Inscriptions {
+namespace Ui.Main.Pages.Inscriptions.Competitions {
     /// <summary>
     /// Lógica de interacción para CompetitionSelectionPage.xaml
     /// </summary>
-    public partial class CompetitionInscription : Page {
-        public static string Dni;
-
+    public partial class CompetitionInscriptionTab : UserControl {
         private readonly CompetitionService _competitionService;
         private readonly AthletesService _athletesService;
         private readonly EnrollService _enrollService;
@@ -33,7 +23,7 @@ namespace Ui.Main.Pages.Inscriptions {
 
         private List<long> _columnIds;
 
-        public CompetitionInscription() {
+        public CompetitionInscriptionTab() {
             _competitionService = new CompetitionService();
             _athletesService = new AthletesService();
             _enrollService = new EnrollService(null);
@@ -131,8 +121,8 @@ namespace Ui.Main.Pages.Inscriptions {
         }
 
         private void CompetitionSelectionWindow_OnLoaded(object sender, RoutedEventArgs e) {
-            if (_athlete?.Dni == null || Dni == null || !Dni.Equals(_athlete.Dni)) {
-                LoadData(Dni);
+            if (_athlete?.Dni == null || CompetitionInscription.Dni == null || !CompetitionInscription.Dni.Equals(_athlete.Dni)) {
+                LoadData(CompetitionInscription.Dni);
             }
         }
 

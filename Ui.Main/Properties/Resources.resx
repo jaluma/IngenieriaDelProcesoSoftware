@@ -463,4 +463,10 @@
   <data name="TimeSeconds" xml:space="preserve">
     <value>Ritmo (min/km)</value>
   </data>
+  <data name="Inscriptions" xml:space="preserve">
+    <value>Inscripción</value>
+  </data>
+  <data name="Preinscriptions" xml:space="preserve">
+    <value>Preinscripción</value>
+  </data>
 </root>

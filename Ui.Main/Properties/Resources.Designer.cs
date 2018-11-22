@@ -1124,5 +1124,23 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("TimeSeconds", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Inscripción.
+        /// </summary>
+        public static string Inscriptions {
+            get {
+                return ResourceManager.GetString("Inscriptions", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Preinscripción.
+        /// </summary>
+        public static string Preinscriptions {
+            get {
+                return ResourceManager.GetString("Preinscriptions", resourceCulture);
+            }
+        }
     }
 }

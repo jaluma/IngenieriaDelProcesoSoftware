@@ -22,7 +22,7 @@
             <mui:LinkGroup.Links>
                 <mui:Link DisplayName="{x:Static properties:Resources.AthleteMenuList}" Source="/Pages/Inscriptions/ListAthletes.xaml" />
                 <mui:Link DisplayName="{x:Static properties:Resources.MenuAthletesInscription}" Source="/Pages/Inscriptions/InscriptionPage.xaml" />
-                <mui:Link DisplayName="{x:Static properties:Resources.TileAthletesInscriptionCompetition}" Source="/Pages/Inscriptions/CompetitionInscription.xaml" />
+                <mui:Link DisplayName="{x:Static properties:Resources.TileAthletesInscriptionCompetition}" Source="/Pages/Inscriptions/Competitions/CompetitionInscription.xaml" />
                 <mui:Link DisplayName="{x:Static properties:Resources.PersonalMenu}" Source="/Pages/PersonalMenuAthlete/PersonalDataMenu.xaml" />
                 <mui:Link DisplayName="{x:Static properties:Resources.CancelInscription}" Source="/Pages/Inscriptions/CancelInscription.xaml" />
             </mui:LinkGroup.Links>
