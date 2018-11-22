@@ -69,33 +69,23 @@ namespace Ui.Main.Pages.Competition.Times {
 
                         };
 
+
                         string status = new EnrollService(_dto.CompetitionDto).SelectStatusEnroll(dnis[index]);
 
-                        if (status.Equals("REGISTERED")) {
+                        if (dnis[index] != null && status.Equals("REGISTERED")) {
                             timesService.InsertPartialTime(dnis[index], _dto);
                             new EnrollService(_dto.CompetitionDto).InsertHasRegisteredTimes(dnis[index],
                                 _dto.Time[_dto.Time.Length - 1]);
                             countI++;
 
-                        }
-                        else {
-                            string s = $"El atleta {dnis[index]} no esta registrado. \n";
+                        } else {
+                            string s = $"El atleta {times.Dorsal} no esta registrado. \n";
                             if (notes.Contains(s)) {
                                 notes += s;
                             } else {
                                 notes += $"Linea {index + 1}: {s}";
                             }
                         }
-                        //if (!_dto.CompetitionDto.Status.Equals("FINISH")) {
-                        //    string s = $"La competicion {_dto.CompetitionDto.Name} no esta finalizada. \n";
-                        //    if (notes.Contains(s)) {
-                        //        notes += s;
-                        //    } else {
-                        //        notes += $"Linea {index+1}: {s}";
-                        //    }
-
-
-                        //}
                     } catch (InvalidOperationException) {
                         if (_dto != null)
                             noInserted.Add(_dto);

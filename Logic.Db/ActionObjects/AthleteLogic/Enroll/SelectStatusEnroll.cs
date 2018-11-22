@@ -20,6 +20,9 @@ namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
 
         public void Execute() {
             try {
+                if (_competition == null || _dni == null) {
+                    return;
+                }
                 using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_STATUS_ENROLL, _conn.DbConnection)) {
                     //command.Parameters.AddWithValue("@STATUS", TypesStatus.Registered.ToString().ToUpper());
                     command.Parameters.AddWithValue("@COMPETITION_ID", _competition.ID);
