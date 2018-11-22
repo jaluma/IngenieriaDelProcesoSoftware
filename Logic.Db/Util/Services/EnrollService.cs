@@ -45,8 +45,8 @@ namespace Logic.Db.Util.Services {
             return isCategory.IsCorrect;
         }
 
-        public void InsertAthleteInCompetition(AthleteDto athlete, CompetitionDto competition) {
-            InsertAthletesInCompetitionLogic insertAthletesInCompetition = new InsertAthletesInCompetitionLogic(ref _conn, athlete, competition);
+        public void InsertAthleteInCompetition(AthleteDto athlete, CompetitionDto competition, string status) {
+            InsertAthletesInCompetitionLogic insertAthletesInCompetition = new InsertAthletesInCompetitionLogic(ref _conn, athlete, competition, status);
             insertAthletesInCompetition.Execute();
         }
 
