@@ -140,5 +140,10 @@ namespace Ui.Main.Pages.Inscriptions.Payment
             }
             return (sum % 10) == 0;
         }
+
+        private void OnlyNumber_KeyPress(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
