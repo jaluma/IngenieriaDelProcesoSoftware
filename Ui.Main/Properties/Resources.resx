@@ -484,4 +484,7 @@
   <data name="InvalidNumber" xml:space="preserve">
     <value>El número de tarjeta no es correcto</value>
   </data>
+  <data name="InvalidDate" xml:space="preserve">
+    <value>El formato de fecha es incorrecto. Debe ser 'mm/yy'</value>
+  </data>
 </root>

@@ -1201,5 +1201,16 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("IncorrectCvc", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a El formato de fecha es incorrecto. Debe ser &apos;mm/yy&apos;.
+        /// </summary>
+        public static string InvalidDate
+        {
+            get
+            {
+                return ResourceManager.GetString("InvalidDate", resourceCulture);
+            }
+        }
     }
 }

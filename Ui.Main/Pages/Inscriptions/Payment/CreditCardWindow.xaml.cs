@@ -34,7 +34,7 @@ namespace Ui.Main.Pages.Inscriptions.Payment
 
         private void BtNext_Click(object sender, RoutedEventArgs e)
         {
-            if (TxNumero.Text == null || TxCaducidadMes.Text == null || TxCaducidadYear.Text == null || TxCvc.Text == null)
+            if (TxNumero.Text.Length == 0 || TxCaducidadMes.Text.Length == 0 || TxCaducidadYear.Text.Length == 0 || TxCvc.Text.Length == 0)
             {
                 MessageBox.Show(Properties.Resources.IncompleteFields);
                 return;
@@ -44,10 +44,18 @@ namespace Ui.Main.Pages.Inscriptions.Payment
                 MessageBox.Show(Properties.Resources.InvalidNumber);
                 return;
             }
-            if (!CheckDate(TxCaducidadMes.Text, TxCaducidadYear.Text))
+            switch (CheckDate(TxCaducidadMes.Text, TxCaducidadYear.Text))
             {
-                MessageBox.Show(Properties.Resources.ExpiredCard);
-                return;
+                case -1:
+                    MessageBox.Show(Properties.Resources.ExpiredCard);
+                    return;
+                case 0:
+                    break;
+                case 1:
+                    MessageBox.Show(Properties.Resources.InvalidDate);
+                    return;
+                default:
+                    break;
             }
             if (!CheckCvc(TxCvc.Text))
             {
@@ -58,6 +66,36 @@ namespace Ui.Main.Pages.Inscriptions.Payment
             Window parentWindow = Window.GetWindow(this);
             if (parentWindow != null)
                 parentWindow.Content = new InscriptionProofWindow(_athlete, _competition, "REGISTERED");
+        }
+
+        private bool CheckCvc(string cvc)
+        {
+            if (cvc.Length != 3)
+                return false;
+            foreach (char c in cvc)
+                if (!Char.IsDigit(c))
+                    return false;
+            return true;
+        }
+
+        private int CheckDate(string mes, string year)
+        {
+            if (mes.Length != 2 || year.Length != 2)
+                return 1;
+            foreach (char c in mes)
+                if (!Char.IsDigit(c))
+                    return 1;
+            foreach (char c in year)
+                if (!Char.IsDigit(c))
+                    return 1;
+            int m = int.Parse(mes);
+            int y = int.Parse(year) + 2000;
+            if (m < 1 || m > 12 || y < 1)
+                return 1;
+            DateTime dt = new DateTime(y, m, DateTime.DaysInMonth(y, m));
+            if (dt.Date > DateTime.Today.Date)
+                return 0;
+            return -1;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
