@@ -1135,5 +1135,71 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("CreditCard", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Número de tarjeta:.
+        /// </summary>
+        public static string CardNumber
+        {
+            get
+            {
+                return ResourceManager.GetString("CardNumber", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cvc:.
+        /// </summary>
+        public static string Cvc
+        {
+            get
+            {
+                return ResourceManager.GetString("Cvc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Caducidad:.
+        /// </summary>
+        public static string Expiration
+        {
+            get
+            {
+                return ResourceManager.GetString("Expiration", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a El número de tarjeta no es correcto.
+        /// </summary>
+        public static string InvalidNumber
+        {
+            get
+            {
+                return ResourceManager.GetString("InvalidNumber", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a La tarjeta ha caducado.
+        /// </summary>
+        public static string ExpiredCard
+        {
+            get
+            {
+                return ResourceManager.GetString("ExpiredCard", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cvc incorrecto.
+        /// </summary>
+        public static string IncorrectCvc
+        {
+            get
+            {
+                return ResourceManager.GetString("IncorrectCvc", resourceCulture);
+            }
+        }
     }
 }

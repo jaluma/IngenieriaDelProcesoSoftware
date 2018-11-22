@@ -466,4 +466,22 @@
   <data name="CreditCard" xml:space="preserve">
     <value>Tarjeta de crédito</value>
   </data>
+  <data name="CardNumber" xml:space="preserve">
+    <value>Número de tarjeta:</value>
+  </data>
+  <data name="Cvc" xml:space="preserve">
+    <value>Cvc:</value>
+  </data>
+  <data name="Expiration" xml:space="preserve">
+    <value>Caducidad:</value>
+  </data>
+  <data name="ExpiredCard" xml:space="preserve">
+    <value>La tarjeta ha caducado</value>
+  </data>
+  <data name="IncorrectCvc" xml:space="preserve">
+    <value>Cvc incorrecto</value>
+  </data>
+  <data name="InvalidNumber" xml:space="preserve">
+    <value>El número de tarjeta no es correcto</value>
+  </data>
 </root>

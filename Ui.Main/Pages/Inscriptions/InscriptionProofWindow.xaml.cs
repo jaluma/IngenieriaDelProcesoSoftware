@@ -26,7 +26,7 @@ namespace Ui.Main.Pages.Inscriptions {
         private readonly CompetitionDto _competition;
 
 
-        public InscriptionProofWindow(AthleteDto athlete, CompetitionDto competition) {
+        public InscriptionProofWindow(AthleteDto athlete, CompetitionDto competition, string status) {
             _athlete = athlete;
             _competition = competition;
 
@@ -37,7 +37,7 @@ namespace Ui.Main.Pages.Inscriptions {
 
             string category = _enrollService.GetCategory(_athlete, _competition);
             
-            _enrollService.InsertAthleteInCompetition(_athlete, _competition);
+            _enrollService.InsertAthleteInCompetition(_athlete, _competition, status);
 
             TxJustificante.Text =
                 $"Atleta: {_athlete.Name} {_athlete.Surname}\nCompetición: {_competition.Name}\nCategoría: {category}\nFecha de inscripción: {DateTime.Now.ToShortDateString()}\nPrecio de la inscripción: {_competition.Price} €";
