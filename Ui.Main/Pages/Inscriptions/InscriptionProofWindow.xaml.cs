@@ -26,7 +26,7 @@ namespace Ui.Main.Pages.Inscriptions {
         private readonly CompetitionDto _competition;
 
 
-        public InscriptionProofWindow(AthleteDto athlete, CompetitionDto competition) {
+        public InscriptionProofWindow(AthleteDto athlete, CompetitionDto competition, string status) {
             _athlete = athlete;
             _competition = competition;
 

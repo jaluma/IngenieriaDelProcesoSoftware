@@ -1126,6 +1126,94 @@ namespace Ui.Main.Properties {
         }
 
         /// <summary>
+        ///   Busca una cadena traducida similar a Tarjeta de crédito (Visa, MasterCard, Maestro).
+        /// </summary>
+        public static string CreditCard
+        {
+            get
+            {
+                return ResourceManager.GetString("CreditCard", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Número de tarjeta:.
+        /// </summary>
+        public static string CardNumber
+        {
+            get
+            {
+                return ResourceManager.GetString("CardNumber", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cvc:.
+        /// </summary>
+        public static string Cvc
+        {
+            get
+            {
+                return ResourceManager.GetString("Cvc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Caducidad:.
+        /// </summary>
+        public static string Expiration
+        {
+            get
+            {
+                return ResourceManager.GetString("Expiration", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a El número de tarjeta no es correcto.
+        /// </summary>
+        public static string InvalidNumber
+        {
+            get
+            {
+                return ResourceManager.GetString("InvalidNumber", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a La tarjeta ha caducado.
+        /// </summary>
+        public static string ExpiredCard
+        {
+            get
+            {
+                return ResourceManager.GetString("ExpiredCard", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cvc incorrecto.
+        /// </summary>
+        public static string IncorrectCvc
+        {
+            get
+            {
+                return ResourceManager.GetString("IncorrectCvc", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a El formato de fecha es incorrecto. Debe ser &apos;mm/yy&apos;.
+        /// </summary>
+        public static string InvalidDate
+        {
+            get
+            {
+                return ResourceManager.GetString("InvalidDate", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Busca una cadena traducida similar a Inscripción.
         /// </summary>
         public static string Inscriptions {

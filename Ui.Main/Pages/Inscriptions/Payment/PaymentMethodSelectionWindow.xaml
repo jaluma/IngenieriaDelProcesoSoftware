@@ -12,6 +12,9 @@
             <RadioButton Name="RBWireTransfer" Content="{x:Static properties:Resources.WireTransfer}" 
                          Height="110" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="14" DockPanel.Dock="Top" 
                          IsChecked="True" GroupName="MethodGroup"/>
+            <RadioButton Name="RBCreditCard" Content="{x:Static properties:Resources.CreditCard}" 
+                         Height="54" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="14" DockPanel.Dock="Top" 
+                         IsChecked="False" GroupName="MethodGroup" Margin="68,0,82,0" Width="142"/>
 
 
         </DockPanel>
