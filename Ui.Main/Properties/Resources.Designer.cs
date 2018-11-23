@@ -1239,5 +1239,60 @@ namespace Ui.Main.Properties {
                 return ResourceManager.GetString("FinishPreinscription", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Inscribir club.
+        /// </summary>
+        public static string ClubInscription
+        {
+            get
+            {
+                return ResourceManager.GetString("ClubInscription", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Inscribir mediante un fichero (.txt).
+        /// </summary>
+        public static string FileSelection
+        {
+            get
+            {
+                return ResourceManager.GetString("FileSelection", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Fichero.
+        /// </summary>
+        public static string File
+        {
+            get
+            {
+                return ResourceManager.GetString("File", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Formulario.
+        /// </summary>
+        public static string Form
+        {
+            get
+            {
+                return ResourceManager.GetString("Form", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a Inscribir mediante un formulario.
+        /// </summary>
+        public static string FormInscription
+        {
+            get
+            {
+                return ResourceManager.GetString("FormInscription", resourceCulture);
+            }
+        }
     }
 }

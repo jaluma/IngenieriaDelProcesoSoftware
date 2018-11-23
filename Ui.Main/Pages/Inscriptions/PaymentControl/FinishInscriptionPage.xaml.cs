@@ -76,8 +76,9 @@ namespace Ui.Main.Pages.Inscriptions.PaymentControl {
                     };
                     extracto.Add(dto);
                 } catch (Exception) {
-                    System.Windows.MessageBox.Show(Properties.Resources.InvalidDocument);
-                    return;
+                    //System.Windows.MessageBox.Show(Properties.Resources.InvalidDocument);
+                    //return;
+                    continue;
                 }
 
             }
@@ -128,11 +129,6 @@ namespace Ui.Main.Pages.Inscriptions.PaymentControl {
         private void OnMouseLeave(object sender, MouseEventArgs e) {
             if (sender is Control component)
                 component.Cursor = null;
-        }
-
-        private void TxActualizado_PreviewMouseWheel(object sender, System.Windows.Input.MouseWheelEventArgs e)
-        {
-            //ScrollViewer.ScrollToVerticalOffset(ScrollViewer.VerticalOffset - e.Delta);
         }
     }
 }

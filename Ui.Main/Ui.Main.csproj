@@ -144,6 +144,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Inscriptions\Clubs\ClubInscription.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Inscriptions\Clubs\ClubInscriptionFileTab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Inscriptions\Clubs\ClubInscriptionFormTab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Inscriptions\Competitions\CompetitionInscription.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -238,6 +250,15 @@
     </Compile>
     <Compile Include="Pages\Competition.Times\TimesAthletes.xaml.cs">
       <DependentUpon>TimesAthletes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Inscriptions\Clubs\ClubInscription.xaml.cs">
+      <DependentUpon>ClubInscription.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Inscriptions\Clubs\ClubInscriptionFileTab.xaml.cs">
+      <DependentUpon>ClubInscriptionFileTab.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Inscriptions\Clubs\ClubInscriptionFormTab.xaml.cs">
+      <DependentUpon>ClubInscriptionFormTab.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Inscriptions\Competitions\CompetitionInscription.xaml.cs">
       <DependentUpon>CompetitionInscription.xaml</DependentUpon>
@@ -414,6 +435,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.109.2\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.109.2\build\net46\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
