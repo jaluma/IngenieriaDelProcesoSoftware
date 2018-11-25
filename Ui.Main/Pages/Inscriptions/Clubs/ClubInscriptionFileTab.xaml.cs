@@ -41,6 +41,8 @@ namespace Ui.Main.Pages.Inscriptions.Clubs
         {
             InitializeComponent();
             _athletesService = new AthletesService();
+            _competitionService = new CompetitionService();
+            _enrollService = new EnrollService(null);
             _athletes = new List<AthleteDto>();
             _validAthletes = new List<AthleteDto>();
             _count = 0;
@@ -194,12 +196,12 @@ namespace Ui.Main.Pages.Inscriptions.Clubs
             foreach (AthleteDto a in _validAthletes)
             {
                 if (_enrollService.IsAthleteInComp(_competition, a))
-                    stringBuilder.Append(a.Dni + "inscrito anteriormente en la competición.\n");
+                    stringBuilder.Append(a.Dni + " inscrito anteriormente en la competición.\n");
                 else
                 {
                     _enrollService.InsertAthleteInCompetition(a, _competition, TypesStatus.Registered);
                     _count++;
-                    stringBuilder.Append(a.Dni + "inscrito correctamente.\n");
+                    stringBuilder.Append(a.Dni + " inscrito correctamente.\n");
                 }
             }
 

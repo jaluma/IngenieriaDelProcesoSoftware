@@ -20,17 +20,15 @@ namespace Ui.Main.Pages.Inscriptions {
     /// Lógica de interacción para InscriptionProofWindow.xaml
     /// </summary>
     public partial class InscriptionProofClubs : Page {
-        private readonly string _athletes;
         private readonly CompetitionDto _competition;
 
 
         public InscriptionProofClubs(CompetitionDto competition, string atletas, int nuevos) {
-            String _athletes = atletas;
             _competition = competition;
 
             InitializeComponent();
 
-            TxJustificante.Text = "\n" + atletas + "Se han inscrito " + nuevos + " atletas.\nPrecio de la inscripción: " + (_competition.Price * nuevos);
+            TxJustificante.Text = "Competición: " + _competition.Name + ".\n\n" + atletas + "Se han inscrito " + nuevos + " atletas.\nPrecio de la inscripción: " + (_competition.Price * nuevos);
             
         }
 
