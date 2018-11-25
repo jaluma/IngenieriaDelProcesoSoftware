@@ -514,4 +514,7 @@
   <data name="FormInscription" xml:space="preserve">
     <value>Inscribir mediante un formulario</value>
   </data>
+  <data name="AddAthlete" xml:space="preserve">
+    <value>Añadir atleta</value>
+  </data>
 </root>

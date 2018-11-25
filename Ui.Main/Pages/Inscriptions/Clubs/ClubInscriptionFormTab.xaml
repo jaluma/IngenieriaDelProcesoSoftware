@@ -3,11 +3,37 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+      xmlns:properties="clr-namespace:Ui.Main.Properties"
       xmlns:local="clr-namespace:Ui.Main.Pages.Inscriptions.Clubs"
       mc:Ignorable="d" 
       d:DesignHeight="625" d:DesignWidth="1250">
 
-    <Grid>
-        
-    </Grid>
+    <DockPanel  Height="525" VerticalAlignment="Bottom">
+        <Label FontSize="18"
+               FontWeight="Bold"
+               HorizontalAlignment="Center"
+               Content="{x:Static properties:Resources.ClubInscription}" DockPanel.Dock="Top" Height="40" VerticalContentAlignment="Center"/>
+        <Label Content="{x:Static properties:Resources.AthleteName}" Height="28" VerticalAlignment="Top" DockPanel.Dock="Top" Margin="23,10,1157,0" FontSize="14" VerticalContentAlignment="Center"/>
+        <TextBox Name="TxName" Height="28" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Margin="-800,-28,10,0" DockPanel.Dock="Top" VerticalContentAlignment="Center"/>
+        <Label Content="{x:Static properties:Resources.AthleteSurname}" Height="28" VerticalAlignment="Top" DockPanel.Dock="Top" Margin="23,10,1157,0" FontSize="14" VerticalContentAlignment="Center"/>
+        <TextBox Name="TxSurname" Height="28" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Margin="-800,-28,10,0" DockPanel.Dock="Top" VerticalContentAlignment="Center"/>
+        <Label Content="{x:Static properties:Resources.AthleteDni}" Height="28" VerticalAlignment="Top" DockPanel.Dock="Top" Margin="23,10,1157,0" FontSize="14" VerticalContentAlignment="Center"/>
+        <TextBox Name="TxDni" Height="28" TextWrapping="Wrap" VerticalAlignment="Top" Width="227" Margin="-800,-28,10,0" DockPanel.Dock="Top" VerticalContentAlignment="Center"/>
+        <Label Content="{x:Static properties:Resources.AthleteBirthDate}" Height="28" VerticalAlignment="Top" DockPanel.Dock="Top" Margin="23,10,1093,0" FontSize="14" VerticalContentAlignment="Center"/>
+        <DatePicker Height="28" VerticalAlignment="Top" Margin="170,-28,10,0" Width="162"/>
+        <Label Content="{x:Static properties:Resources.AthleteGender}" Height="28" VerticalAlignment="Top" DockPanel.Dock="Top" Margin="-320,10,1157,0" FontSize="14" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5"/>
+        <RadioButton Content="{x:Static properties:Resources.Man}" Height="28" VerticalAlignment="Top" FontSize="14" Width="89" GroupName="RbGender" Margin="-220,-28,1050,0" DockPanel.Dock="Top"/>
+        <RadioButton Content="{x:Static properties:Resources.Woman}" Height="28" VerticalAlignment="Top" FontSize="14" Width="89" GroupName="RbGender" Margin="-120,-28,960,0" DockPanel.Dock="Top"/>
+        <Button Content="{x:Static properties:Resources.AddAthlete}" Height="30" VerticalAlignment="Top" DockPanel.Dock="Top" FontSize="14" Margin="-320,10,918,0"/>
+        <ScrollViewer Name="ScrollViewer1" VerticalScrollBarVisibility="Auto" Margin="-320,15,918,0" HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Top" Height="226" DockPanel.Dock="Top">
+            <TextBlock x:Name="TxFormIns" FontSize="14" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" VerticalAlignment="Top" DockPanel.Dock="Top"/>
+        </ScrollViewer>
+        <ScrollViewer Name="ScrollViewer2" Style="{StaticResource ContentRoot}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" VerticalAlignment="Top" Margin="10,-460,16,0" Height="392">
+            <DataGrid x:Name="CompetitionsToSelect" PreviewMouseWheel="CompetitionsToSelect_OnPreviewMouseWheel" mah:ScrollViewerHelper.VerticalScrollBarOnLeftSide="True" mah:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" SelectionMode="Single" MinWidth="800" AutoGeneratingColumn="OnAutoGeneratingColumn" MinHeight="250"  VerticalAlignment="Top" ColumnWidth="*" DockPanel.Dock="Top" IsReadOnly="True" SelectionChanged="CompetitionsToSelect_SelectionChanged" Height="394" Width="895"/>
+        </ScrollViewer>
+        <Button Content="{x:Static properties:Resources.FinishInscriptions}" Height="35" VerticalAlignment="Top" Width="780" Margin="-1700,-40,-800,0" FontSize="14" Click="BtFinish_Click"/>
+
+
+    </DockPanel>
 </UserControl>

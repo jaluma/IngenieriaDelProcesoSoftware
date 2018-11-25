@@ -75,6 +75,16 @@ namespace Ui.Main.Properties {
             }
         }
 
+        /// <summary>
+        ///   Busca una cadena traducida similar a AñadirAtleta.
+        /// </summary>
+        public static string AddAthlete
+        {
+            get
+            {
+                return ResourceManager.GetString("AddAthlete", resourceCulture);
+            }
+        }
 
         /// <summary>
         ///   Busca una cadena traducida similar a Restablecer.
