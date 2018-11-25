@@ -156,6 +156,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Inscriptions\Clubs\InscriptionProofClubs.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\Inscriptions\Competitions\CompetitionInscription.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -259,6 +263,9 @@
     </Compile>
     <Compile Include="Pages\Inscriptions\Clubs\ClubInscriptionFormTab.xaml.cs">
       <DependentUpon>ClubInscriptionFormTab.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Inscriptions\Clubs\InscriptionProofClubs.xaml.cs">
+      <DependentUpon>InscriptionProofClubs.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Inscriptions\Competitions\CompetitionInscription.xaml.cs">
       <DependentUpon>CompetitionInscription.xaml</DependentUpon>

@@ -65,7 +65,7 @@ namespace Ui.Main.Pages.Inscriptions.Payment
 
             Window parentWindow = Window.GetWindow(this);
             if (parentWindow != null)
-                parentWindow.Content = new InscriptionProofWindow(_athlete, _competition, "REGISTERED");
+                parentWindow.Content = new InscriptionProofWindow(_athlete, _competition, TypesStatus.Registered);
         }
 
         private bool CheckCvc(string cvc)

@@ -17,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Ui.Main.Pages.Inscriptions.Payment;
 
 namespace Ui.Main.Pages.Inscriptions.Clubs
 {
@@ -193,18 +194,19 @@ namespace Ui.Main.Pages.Inscriptions.Clubs
             foreach (AthleteDto a in _validAthletes)
             {
                 if (_enrollService.IsAthleteInComp(_competition, a))
-                    stringBuilder.Append(a.Dni + "inscrito anteriormente en la competición.\n\n");
+                    stringBuilder.Append(a.Dni + "inscrito anteriormente en la competición.\n");
                 else
                 {
                     _enrollService.InsertAthleteInCompetition(a, _competition, TypesStatus.Registered);
                     _count++;
+                    stringBuilder.Append(a.Dni + "inscrito correctamente.\n");
                 }
             }
 
-            /*} catch (ApplicationException) {
-                MessageBox.Show(Properties.Resources.PreviouslyEnrolled);
-            }*/
 
+            DialogPayment dialog = new DialogPayment(null, null);
+            dialog.Content = new InscriptionProofClubs(_competition, stringBuilder.ToString(), _count);
+            dialog.Show();
         }
 
         private void GetListCompetition()

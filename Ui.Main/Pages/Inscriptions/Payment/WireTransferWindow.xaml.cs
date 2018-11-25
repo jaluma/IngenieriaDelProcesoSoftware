@@ -36,7 +36,7 @@ namespace Ui.Main.Pages.Inscriptions.Payment {
 
             Window parentWindow = Window.GetWindow(this);
             if (parentWindow != null)
-                parentWindow.Content = new InscriptionProofWindow(_athlete, _competition, "OUTSTANDING");
+                parentWindow.Content = new InscriptionProofWindow(_athlete, _competition, TypesStatus.Outstanding);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
