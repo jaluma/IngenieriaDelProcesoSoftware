@@ -32,6 +32,13 @@ namespace Logic.Db.Properties {
         internal Resources() {
         }
 
+        public static string SQL_SELECT_COMPETITIONS_TO_INSCRIBE_CLUBS {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_COMPETITIONS_TO_INSCRIBE_CLUBS", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
         /// </summary>

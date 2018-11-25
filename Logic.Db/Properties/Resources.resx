@@ -388,4 +388,14 @@ where date('now') BETWEEN INITIAL_DATE and FINISH_DATE AND COMPETITION_PREINSCRI
                                  FROM ENROLL
                                   WHERE ATHLETE_DNI=@DNI)</value>
   </data>
+  <data name="SQL_SELECT_COMPETITIONS_TO_INSCRIBE_CLUBS" xml:space="preserve">
+    <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM,COMPETITION_PRICE, INITIAL_DATE, FINISH_DATE, COMPETITION_DATE
+from Competition natural join CompetitionDates natural join DateInscription
+where date('now') BETWEEN INITIAL_DATE and FINISH_DATE AND COMPETITION_PREINSCRIPTION == 0
+                AND COMPETITION_STATUS&lt;&gt;'FINISH'
+                AND COMPETITION_NUMBER_PLACES &gt; @COUNT + 
+                                 (select count(*) 
+                                 from enroll 
+                                 group by competition_id)</value>
+  </data>
 </root>

@@ -180,5 +180,12 @@ namespace Logic.Db.Util.Services {
             select.Execute();
             return select.Price;
         }
+
+        public DataTable ListCompetitionsToInscribeClubs(int count)
+        {
+            CompetitionToInscribeClubs competitions = new CompetitionToInscribeClubs(ref _conn, count);
+            competitions.Execute();
+            return competitions.Table;
+        }
     }
 }
