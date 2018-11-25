@@ -14,14 +14,14 @@
                FontWeight="Bold"
                HorizontalAlignment="Center"
                Content="{x:Static properties:Resources.ClubInscription}" DockPanel.Dock="Top" Height="40" VerticalContentAlignment="Center"/>
-        <Button Content="{x:Static properties:Resources.FileSelection}" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,20,20,0" FontSize="16" Click="Button_Click" Width="206"/>
-        <ScrollViewer Name="ScrollViewer1" VerticalScrollBarVisibility="Auto" Margin="-236,70,1004,0" HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Top" Height="394" DockPanel.Dock="Top">
+        <Button Content="{x:Static properties:Resources.FileSelection}" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,20,20,0" FontSize="16" Click="Button_Click" Width="262"/>
+        <ScrollViewer Name="ScrollViewer1" VerticalScrollBarVisibility="Auto" Margin="-282,70,938,0" HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Top" Height="394" DockPanel.Dock="Top">
             <TextBlock x:Name="TxFileIns" FontSize="14" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" VerticalAlignment="Top" DockPanel.Dock="Top"/>
         </ScrollViewer>
-        <ScrollViewer Name="ScrollViewer2" Style="{StaticResource ContentRoot}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Top" Margin="10,-440,16,0" Width="908">
-            <DataGrid x:Name="CompetitionsToSelect" PreviewMouseWheel="CompetitionsToSelect_OnPreviewMouseWheel" mah:ScrollViewerHelper.VerticalScrollBarOnLeftSide="True" SelectionMode="Single" MinWidth="800" AutoGeneratingColumn="OnAutoGeneratingColumn" MinHeight="250"  VerticalAlignment="Top" ColumnWidth="*" DockPanel.Dock="Top" IsReadOnly="True" SelectionChanged="CompetitionsToSelect_SelectionChanged" Height="402" Width="982"/>
+        <ScrollViewer Name="ScrollViewer2" Style="{StaticResource ContentRoot}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" VerticalAlignment="Top" Margin="10,-440,16,0">
+            <DataGrid x:Name="CompetitionsToSelect" PreviewMouseWheel="CompetitionsToSelect_OnPreviewMouseWheel" mah:ScrollViewerHelper.VerticalScrollBarOnLeftSide="True" mah:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" SelectionMode="Single" MinWidth="800" AutoGeneratingColumn="OnAutoGeneratingColumn" MinHeight="250"  VerticalAlignment="Top" ColumnWidth="*" DockPanel.Dock="Top" IsReadOnly="True" SelectionChanged="CompetitionsToSelect_SelectionChanged" Height="394" Width="895"/>
         </ScrollViewer>
-        <Button Content="{x:Static properties:Resources.FinishInscriptions}" Height="40" VerticalAlignment="Top" Width="780" Margin="-1700,-30,-800,0" FontSize="14" Click="BtFinish_Click"/>
+        <Button Content="{x:Static properties:Resources.FinishInscriptions}" Height="35" VerticalAlignment="Top" Width="780" Margin="-1700,-20,-800,0" FontSize="14" Click="BtFinish_Click"/>
 
     </DockPanel>
 </UserControl>
