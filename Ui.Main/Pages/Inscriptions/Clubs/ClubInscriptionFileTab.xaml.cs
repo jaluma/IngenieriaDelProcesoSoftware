@@ -185,7 +185,6 @@ namespace Ui.Main.Pages.Inscriptions.Clubs
                 return;
             }
 
-            /*try {*/
             CompetitionDto dto = new CompetitionDto()
             {
                 ID = _columnIds[CompetitionsToSelect.SelectedIndex]
