@@ -39,6 +39,7 @@ namespace Ui.Main.Pages.Inscriptions.Clubs
         public ClubInscriptionFormTab()
         {
             InitializeComponent();
+            DPBirthDate.DisplayDateEnd = new DateTime(DateTime.Now.Year, 12, 31).AddYears(-18);
             _athletesService = new AthletesService();
             _competitionService = new CompetitionService();
             _enrollService = new EnrollService(null);
@@ -95,6 +96,11 @@ namespace Ui.Main.Pages.Inscriptions.Clubs
             }
 
             TxFormIns.Text = _stringBuilder.ToString();
+            TxName.Text = "";
+            TxSurname.Text = "";
+            TxDni.Text = "";
+            DPBirthDate.SelectedDate = null;
+            RbMasc.IsChecked = true;
             GetListCompetition();
         }
 
