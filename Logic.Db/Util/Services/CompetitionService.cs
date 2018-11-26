@@ -6,6 +6,7 @@ using Logic.Db.ActionObjects.CompetitionLogic;
 using Logic.Db.ActionObjects.TimesLogic;
 using Logic.Db.Dto;
 using System;
+using Logic.Db.ActionObjects.AthleteLogic;
 
 namespace Logic.Db.Util.Services {
     public class CompetitionService : ServiceAdapter {
@@ -54,6 +55,13 @@ namespace Logic.Db.Util.Services {
 
         public DataTable SelectAllCompetitions() {
             SelectAllCompetition competitions = new SelectAllCompetition(ref _conn);
+            competitions.Execute();
+            return competitions.Table;
+        }
+
+        public DataTable SelectRaffleCompetitions()
+        {
+            ListCompetitionsForRaffle competitions = new ListCompetitionsForRaffle(ref _conn);
             competitions.Execute();
             return competitions.Table;
         }
@@ -126,6 +134,20 @@ namespace Logic.Db.Util.Services {
         public void AddAbsoluteCategory(AbsoluteCategory category) {
             AddAbsoluteCategory add = new AddAbsoluteCategory(ref _conn, category);
             add.Execute();
+        }
+
+
+        public int SelectNumberRaffle(long competitionId)
+        {
+            SelectAtheletesRaffle select = new SelectAtheletesRaffle(ref _conn, competitionId);
+            select.Execute();
+            return select.numeroPlazas;
+        }
+
+        public void ChangeToClosed(long id)
+        {
+            ChangeToClosed change = new ChangeToClosed(ref _conn, id);
+            change.Execute();
         }
 
         //public void InsertAthletesTable(AthleteDto athleteP) {

@@ -9,15 +9,15 @@
       Title="Raffle">
 
     <Grid>
-        <DataGrid x:Name="DataGridResults" HorizontalAlignment="Left" MaxWidth="200" MinWidth="1" AutoGeneratingColumn="OnAutoGeneratingColumn" MinHeight="1" ColumnWidth="*" IsReadOnly="True" Margin="50,115,0,90"  Width="220"
+        <DataGrid x:Name="DataGridResults" HorizontalAlignment="Left" MaxWidth="200" MinWidth="1" AutoGeneratingColumn="OnAutoGeneratingColumn" MinHeight="1" ColumnWidth="*" IsReadOnly="True" Margin="50,115,0,90"  Width="270" 
                          />
-        <Border BorderBrush="DarkGray" BorderThickness="1" HorizontalAlignment="Left" Height="335" Margin="20,85,0,0" VerticalAlignment="Top" Width="300">
-            <Button Content="Realizar sorteo" HorizontalAlignment="Left" Height="30" Margin="79,284,0,0" VerticalAlignment="Top" Width="125" Click="Button_Click"/>
+        <Border BorderBrush="DarkGray" BorderThickness="1" HorizontalAlignment="Left" Height="335" Margin="20,85,0,0" VerticalAlignment="Top" Width="335">
+            <Button x:Name="sorteo" Content="Realizar sorteo" HorizontalAlignment="Left" Height="30" Margin="79,284,0,0" VerticalAlignment="Top" Width="125" Click="Button_Click" />
         </Border>
         <Label Content="Escoja una competición" HorizontalAlignment="Left" Height="30" Margin="20,50,0,0" VerticalAlignment="Top" Width="160"/>
-        <ListBox x:Name="Resultados" HorizontalAlignment="Left" Height="245" Margin="385,115,0,0" VerticalAlignment="Top" Width="340"/>
+        <ListBox x:Name="Resultados" HorizontalAlignment="Left" Height="245" Margin="410,115,0,0" VerticalAlignment="Top" Width="350"/>
         <Button Content="Imprimir resultado" HorizontalAlignment="Left" Height="30" Margin="495,370,0,0" VerticalAlignment="Top" Width="145" Click="Imprimir_Click"/>
-        <Border BorderBrush="DarkGray" BorderThickness="1" Margin="367,85,35,30"/>
+        <Border BorderBrush="DarkGray" BorderThickness="1" HorizontalAlignment="Left" Height="335" Margin="380,85,0,0" VerticalAlignment="Top" Width="400"/>
 
 
     </Grid>

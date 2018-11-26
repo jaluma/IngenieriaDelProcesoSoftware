@@ -12,6 +12,23 @@ namespace Logic.Db.Dto {
 
         public const char MALE = 'M';
         public const char FEMALE = 'F';
+
+
+
+        public override string ToString()
+        {
+
+            return this.Dni + " - " + this.Name + " " + this.Surname;
+
+        }
+
+
+
+
+
+
+
+
     }
 
 }

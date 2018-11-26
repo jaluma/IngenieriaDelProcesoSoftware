@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionObjects\AthleteLogic\AddAthleteLogic.cs" />
+    <Compile Include="ActionObjects\AthleteLogic\ChangeStatusAthlete.cs" />
     <Compile Include="ActionObjects\AthleteLogic\DeleteAthleteLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\GetCategoryLogic.cs" />
     <Compile Include="ActionObjects\AthleteLogic\Enroll\InsertAthletesInCompetitionLogic.cs" />
@@ -83,12 +84,14 @@
     <Compile Include="ActionObjects\CategoriesLogic\GetAbsoluteCategory.cs" />
     <Compile Include="ActionObjects\CategoriesLogic\SearchCategoryChild.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\AddInscriptionDates.cs" />
+    <Compile Include="ActionObjects\CompetitionLogic\ChangeToClosed.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\EnrollAbsoluteCompetition.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\EnrollDatesCompetition.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\EnrollRefundsCompetition.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\GetIdCompetition.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\GetRulesCompetitionLogic.cs" />
     <Compile Include="ActionObjects\CategoriesLogic\SelectCategoriesPredefinied.cs" />
+    <Compile Include="ActionObjects\CompetitionLogic\ListCompetitionsForRaffle.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\ListPreinscriptionCompetitionLogic.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\SelectAllCategoriesByCompetitionId.cs" />
     <Compile Include="ActionObjects\CompetitionLogic\SelectAllCompetitionsInscripted.cs" />
