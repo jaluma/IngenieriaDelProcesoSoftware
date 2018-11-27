@@ -56,6 +56,7 @@ namespace Ui.Main.Pages.Competition.Times {
 
                 int index = 0;
                 IList<PartialTimesDto> noInserted = new List<PartialTimesDto>();
+                IList<string> noInsertedDni = new List<string>();
                 int countI = 0;
                 int countU = 0;
                 string notes = "";
@@ -66,7 +67,6 @@ namespace Ui.Main.Pages.Competition.Times {
                                 ID = times.CompetitionId
                             }),
                             Time = times.Times
-
                         };
 
 
@@ -87,8 +87,11 @@ namespace Ui.Main.Pages.Competition.Times {
                             }
                         }
                     } catch (InvalidOperationException) {
-                        if (_dto != null)
+                        if (_dto != null) {
                             noInserted.Add(_dto);
+                            noInsertedDni.Add(dnis[index]);
+                        }
+
                     }
                     index++;
                 }
@@ -101,9 +104,7 @@ namespace Ui.Main.Pages.Competition.Times {
                     if (result == MessageBoxResult.Yes) {
                         index = 0;
                         foreach (var noInsert in noInserted) {
-                            timesService.UpdateAthleteRegisteredDorsal(dnis[index++], noInsert);
-                            new EnrollService(_dto.CompetitionDto).InsertHasRegisteredTimes(dnis[index],
-                                _dto.Time[_dto.Time.Length - 1]);
+                            timesService.UpdateAthleteRegisteredDorsal(noInsertedDni[index++], noInsert);
                             countU++;
                         }
 
