@@ -16,10 +16,10 @@
                Content="{x:Static properties:Resources.ClubInscription}" DockPanel.Dock="Top" Height="40" VerticalContentAlignment="Center"/>
         <Button Content="{x:Static properties:Resources.FileSelection}" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,20,20,0" FontSize="16" Click="Button_Click" Width="262"/>
         <ScrollViewer Name="ScrollViewer1" VerticalScrollBarVisibility="Auto" Margin="-282,70,968,0" HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Top" Height="394" DockPanel.Dock="Top">
-            <TextBlock x:Name="TxFileIns" FontSize="14" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" VerticalAlignment="Top" DockPanel.Dock="Top"/>
+            <TextBlock x:Name="TxFileIns" FontSize="14" TextWrapping="Wrap" VerticalAlignment="Top" DockPanel.Dock="Top"/>
         </ScrollViewer>
         <ScrollViewer Name="ScrollViewer2" Style="{StaticResource ContentRoot}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" VerticalAlignment="Top" Margin="10,-440,16,0" Height="394" Width="895">
-            <DataGrid x:Name="CompetitionsToSelect" PreviewMouseWheel="CompetitionsToSelect_OnPreviewMouseWheel" mah:ScrollViewerHelper.VerticalScrollBarOnLeftSide="True" mah:ScrollViewerHelper.IsHorizontalScrollWheelEnabled="True" SelectionMode="Single" AutoGeneratingColumn="OnAutoGeneratingColumn" VerticalAlignment="Top" ColumnWidth="*" DockPanel.Dock="Top" IsReadOnly="True" SelectionChanged="CompetitionsToSelect_SelectionChanged"/>
+            <DataGrid x:Name="CompetitionsToSelect" PreviewMouseWheel="CompetitionsToSelect_OnPreviewMouseWheel" SelectionMode="Single" AutoGeneratingColumn="OnAutoGeneratingColumn" VerticalAlignment="Top" ColumnWidth="*" DockPanel.Dock="Top" IsReadOnly="True" SelectionChanged="CompetitionsToSelect_SelectionChanged"/>
         </ScrollViewer>
         <Button Content="{x:Static properties:Resources.FinishInscriptions}" Height="35" VerticalAlignment="Top" Width="780" Margin="-1700,-20,-800,0" FontSize="14" Click="BtFinish_Click"/>
 
