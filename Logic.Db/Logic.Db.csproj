@@ -80,6 +80,7 @@
     <Compile Include="ActionObjects\AthleteLogic\Enroll\UpdateInscriptionStatus.cs" />
     <Compile Include="ActionObjects\AthleteLogic\SelectAtheletesRaffle.cs" />
     <Compile Include="ActionObjects\AthleteLogic\SelectAthleteByDniObject.cs" />
+    <Compile Include="ActionObjects\CompetitionLogic\ChangeToClosed.cs" />
     <Compile Include="ActionObjects\AthleteLogic\SelectCompParticipatedByAhtlete.cs" />
     <Compile Include="ActionObjects\CategoriesLogic\AddAbsoluteCategory.cs" />
     <Compile Include="ActionObjects\CategoriesLogic\AddCategoryLogic.cs" />
