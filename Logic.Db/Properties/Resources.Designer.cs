@@ -68,6 +68,40 @@ namespace Logic.Db.Properties {
         }
 
         /// <summary>
+        ///   Busca una cadena traducida similar a update competition set status = &quot;CLOSED&quot; where competition_id = @COMPETITION_ID.
+        /// </summary>
+        internal static string SQL_CHANGE_CLOSED_STATUS
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_CHANGE_CLOSED_STATUS", resourceCulture);
+            }
+        }
+
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a select  enroll.Athlete_dni, Athlete_Name, Athlete_surname from Enroll join athlete where enroll.competition_id = @COMPETITION_ID and athlete.athlete_dni = enroll.athlete_dni.
+        /// </summary>
+        internal static string SQL_SELECT_ATHLETES_PREINSCRIPTED
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_ATHLETES_PREINSCRIPTED", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a select COMPETITION_ID, COMPETITION_NAME  from Competition natural join CompetitionDates natural join DateInscription where (date(&apos;now&apos;) &gt; FINISH_DATE) and  Competition.COMPETITION_STATUS=&apos;OPEN&apos; and Competition.COMPETITION_PREINSCRIPTION = 1.
+        /// </summary>
+        internal static string SQL_SELECT_RAFFLE_COMPETITION
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_SELECT_RAFFLE_COMPETITION", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Busca una cadena traducida similar a select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, INITIAL_DATE, FINISH_DATE, COMPETITION_DATE, COMPETITION_RULES from Competition natural join CompetitionDates natural join DateInscription where (date(&apos;now&apos;) between INITIAL_DATE and FINISH_DATE) and  Competition.COMPETITION_STATUS=&apos;OPEN&apos; and Competition.COMPETITION_DAYS_PREINSCRIPTION = True.
         /// </summary>
         internal static string SQL_SELECT_PREINSCRIPTION_COMPETITION
@@ -77,6 +111,18 @@ namespace Logic.Db.Properties {
                 return ResourceManager.GetString("SQL_SELECT_PREINSCRIPTION_COMPETITION", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Busca una cadena traducida similar a update enroll set STATUS=@STATUS where ATHLETE_DNI=@DNI.
+        /// </summary>
+        internal static string SQL_CHANGE_ATHLETE_STATUS
+        {
+            get
+            {
+                return ResourceManager.GetString("SQL_CHANGE_ATHLETE_STATUS", resourceCulture);
+            }
+        }
+
 
         /// <summary>
         ///   Busca una cadena traducida similar a select Athlete_dni from enroll join competition where enroll.competition_id =@COMPETITION_ID and competition.competition_id= enroll.competition_id and competition_preinscription=1 and enroll.status = &apos;PRE-REGISTERED&apos;.

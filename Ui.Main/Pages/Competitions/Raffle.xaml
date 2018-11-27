@@ -17,9 +17,9 @@
             <Button Content="Realizar sorteo" HorizontalAlignment="Left" Height="30" Margin="79,284,0,0" VerticalAlignment="Top" Width="125" Click="Button_Click"/>
         </Border>
         <Label Content="Escoja una competición" HorizontalAlignment="Left" Height="30" Margin="20,50,0,0" VerticalAlignment="Top" Width="160"/>
-        <ListBox x:Name="Resultados" HorizontalAlignment="Left" Height="245" Margin="385,115,0,0" VerticalAlignment="Top" Width="340"/>
+        <ListBox x:Name="Resultados" HorizontalAlignment="Left" Height="245" Margin="410,115,0,0" VerticalAlignment="Top" Width="350"/>
         <Button Content="Imprimir resultado" HorizontalAlignment="Left" Height="30" Margin="495,370,0,0" VerticalAlignment="Top" Width="145" Click="Imprimir_Click"/>
-        <Border BorderBrush="DarkGray" BorderThickness="1" Margin="367,85,35,30"/>
+        <Border BorderBrush="DarkGray" BorderThickness="1" HorizontalAlignment="Left" Height="335" Margin="380,85,0,0" VerticalAlignment="Top" Width="400"/>
 
 
     </Grid>

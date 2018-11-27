@@ -365,8 +365,17 @@ where competition_id=@ID and athlete_dni=@DNI and date_inscription between initi
   <data name="SQL_SELECT_PREINSCRIPTION_COMPETITION" xml:space="preserve">
     <value>select COMPETITION_ID, COMPETITION_NAME, COMPETITION_TYPE, COMPETITION_KM, COMPETITION_SLOPE,INITIAL_DATE, FINISH_DATE, COMPETITION_DATE, COMPETITION_RULES from Competition natural join CompetitionDates natural join DateInscription where (date('now') between INITIAL_DATE and FINISH_DATE) and  Competition.COMPETITION_STATUS='OPEN' and Competition.COMPETITION_PREINSCRIPTION = 1</value>
   </data>
-  <data name="SQL_SELECT_ATHLETE_PREINSCRIPTION" xml:space="preserve">
-    <value>select Athlete_dni from enroll join competition where enroll.competition_id =@COMPETITION_ID and competition.competition_id= enroll.competition_id and competition_preinscription=1 and enroll.status = 'PRE-REGISTERED'</value>
+  <data name="SQL_SELECT_ATHLETES_PREINSCRIPTED" xml:space="preserve">
+    <value>select  enroll.Athlete_dni, Athlete_Name, Athlete_surname, Competition.Competition_number_places  from Enroll join athlete join competition where enroll.competition_id = @COMPETITION_ID and competition.competition_id = @COMPETITION_ID and  athlete.athlete_dni = enroll.athlete_dni ORDER BY RANDOM()</value>
+  </data>
+  <data name="SQL_CHANGE_ATHLETE_STATUS" xml:space="preserve">
+    <value>update enroll set STATUS=@STATUS where ATHLETE_DNI=@DNI and COMPETITION_ID =@COMPETITION_ID</value>
+  </data>
+  <data name="SQL_SELECT_RAFFLE_COMPETITION" xml:space="preserve">
+    <value>select COMPETITION_ID, COMPETITION_NAME  from Competition natural join CompetitionDates natural join DateInscription where (date('now') &gt; FINISH_DATE) and  Competition.COMPETITION_STATUS='OPEN' and Competition.COMPETITION_PREINSCRIPTION = 1</value>
+  </data>
+  <data name="SQL_CHANGE_CLOSED_STATUS" xml:space="preserve">
+    <value>update competition set competition_status = "CLOSED" where competition_id = @COMPETITION_ID</value>
   </data>
   <data name="SQL_UPDATE_ENROLL_REFUND" xml:space="preserve">
     <value>update Enroll set refund=@REFUND where competition_id=@COMPETITION_ID and athlete_dni=@DNI</value>

@@ -25,6 +25,12 @@ namespace Logic.Db.Util.Services {
             delete.Execute();
         }
 
+        public void ChangeStatusAthlete(AthleteDto athleteP, long id)
+        {
+            ChangeStatusAthlete change = new ChangeStatusAthlete(ref _conn, athleteP, id);
+            change.Execute();
+        }
+
         public int CountAthleteByDni(string dni) {
             CountAthleteByDniLogic search = new CountAthleteByDniLogic(ref _conn, dni);
             search.Execute();
@@ -60,11 +66,11 @@ namespace Logic.Db.Util.Services {
         }
 
 
-        public List<string> SelectAtheletesRaffle(int dorsal, long competitionId)
+        public List<AthleteDto> SelectAtheletesRaffle( long competitionId)
         {
             SelectAtheletesRaffle select = new SelectAtheletesRaffle(ref _conn, competitionId);
             select.Execute();
-            return select.dniS;
+            return select.atletas;
         }
 
 

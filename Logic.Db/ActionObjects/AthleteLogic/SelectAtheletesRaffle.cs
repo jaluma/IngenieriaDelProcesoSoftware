@@ -13,14 +13,17 @@ namespace Logic.Db.ActionObjects.AthleteLogic
     {
         private readonly DBConnection _conn;
         private readonly long _competitionID;
-        public readonly List<string> dniS;
+        public readonly List<AthleteDto> atletas;
+        public AthleteDto Athlete;
+        public  int numeroPlazas;
 
 
         public SelectAtheletesRaffle(ref DBConnection conn, long competitionID)
         {
             _conn = conn;
             _competitionID = competitionID;
-            dniS = new List<string>();
+            atletas = new List<AthleteDto>();
+
 
         }
 
@@ -28,15 +31,24 @@ namespace Logic.Db.ActionObjects.AthleteLogic
         {
             try
             {
-                using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_ATHLETE_PREINSCRIPTION, _conn.DbConnection))
+                using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_ATHLETES_PREINSCRIPTED, _conn.DbConnection))
                 {
                     command.Parameters.AddWithValue("@COMPETITION_ID", _competitionID);
 
                     using (SQLiteDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
-                        {                           
-                            dniS.Add(reader.GetString(1));
+                        {
+                            Athlete = new AthleteDto()
+                            {
+                                Dni = reader.GetString(0),
+                                Name = reader.GetString(1),
+                                Surname = reader.GetString(2),
+                               
+                            };
+                            numeroPlazas = reader.GetInt16(3);
+
+                            atletas.Add(Athlete);
                         }
                     }
 
