@@ -31,10 +31,10 @@
                 <TextBlock x:Name="TxFormIns" FontSize="14" TextWrapping="Wrap" VerticalAlignment="Top" DockPanel.Dock="Top"/>
             </ScrollViewer>
         </DockPanel>
-        <ScrollViewer Name="ScrollViewer2" Style="{StaticResource ContentRoot}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" VerticalAlignment="Top" Margin="16,23,16,0" Height="373" Width="882">
-            <DataGrid x:Name="CompetitionsToSelect" PreviewMouseWheel="CompetitionsToSelect_OnPreviewMouseWheel" SelectionMode="Single" MinWidth="800" AutoGeneratingColumn="OnAutoGeneratingColumn" MinHeight="250"  VerticalAlignment="Top" ColumnWidth="*" DockPanel.Dock="Top" IsReadOnly="True" SelectionChanged="CompetitionsToSelect_SelectionChanged"/>
+        <ScrollViewer Name="ScrollViewer2" Style="{StaticResource ContentRoot}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" VerticalAlignment="Top" Margin="16,23,16,0" Height="373" Width="802">
+            <DataGrid x:Name="CompetitionsToSelect" PreviewMouseWheel="CompetitionsToSelect_OnPreviewMouseWheel" SelectionMode="Single" MinWidth="800" AutoGeneratingColumn="OnAutoGeneratingColumn" MinHeight="250"  VerticalAlignment="Top" ColumnWidth="130" DockPanel.Dock="Top" IsReadOnly="True" SelectionChanged="CompetitionsToSelect_SelectionChanged"/>
         </ScrollViewer>
-        <Button Name="BtFinish" Content="{x:Static properties:Resources.FinishInscriptions}" Height="35" VerticalAlignment="Top" Width="771" Margin="-1600,422,-800,0" FontSize="14" Click="BtFinish_Click"/>
+        <Button Name="BtFinish" Content="{x:Static properties:Resources.FinishInscriptions}" Height="35" VerticalAlignment="Top" Width="719" Margin="-1600,422,-800,0" FontSize="14" Click="BtFinish_Click"/>
 
 
     </DockPanel>
