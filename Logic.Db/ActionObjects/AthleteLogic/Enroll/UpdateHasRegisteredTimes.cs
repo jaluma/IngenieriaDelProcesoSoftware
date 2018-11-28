@@ -12,13 +12,15 @@ namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
         private readonly DBConnection _conn;
         private readonly string _dni;
         private readonly long _id;
-        private readonly long _time;
+        private readonly long _finish;
+        private readonly long _initial;
 
-        public UpdateHasRegisteredTimes(ref DBConnection conn, string dni, long id, long time) {
+        public UpdateHasRegisteredTimes(ref DBConnection conn, string dni, long id, long initial, long finish) {
             _conn = conn;
             _dni = dni;
             _id = id;
-            _time = time;
+            _initial = initial;
+            _finish = finish;
         }
 
         public void Execute() {
@@ -31,7 +33,8 @@ namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
                 using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_INSERT_TIMES, _conn.DbConnection)) {
                     command.Parameters.AddWithValue("@DNI", _dni);
                     command.Parameters.AddWithValue("@COMPETITION_ID", _id);
-                    command.Parameters.AddWithValue("@TIME", _time);
+                    command.Parameters.AddWithValue("@INITIAL", _initial);
+                    command.Parameters.AddWithValue("@FINISH", _finish);
                     command.ExecuteNonQuery();
                 }
 
@@ -40,7 +43,8 @@ namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
                     using (SQLiteCommand command = new SQLiteCommand(Properties.Resources.SQL_UPDATE_TIMES, _conn.DbConnection)) {
                         command.Parameters.AddWithValue("@DNI", _dni);
                         command.Parameters.AddWithValue("@COMPETITION_ID", _id);
-                        command.Parameters.AddWithValue("@TIME", _time);
+                        command.Parameters.AddWithValue("@INITIAL", _initial);
+                        command.Parameters.AddWithValue("@FINISH", _finish);
                         command.ExecuteNonQuery();
                     }
                 } else {

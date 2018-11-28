@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SQLite;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,10 +30,10 @@ namespace Logic.Db.ActionObjects.TimesLogic {
                 using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_INSERT_PARTIAL_TIMES, conn)) {
                     command.Parameters.AddWithValue("@DNI", _dni);
                     command.Parameters.AddWithValue("@COMPETITION_ID", _partial.CompetitionDto.ID);
-                    int index = 1;
-                    foreach (var time in _partial.Time) {
-                        command.Parameters.AddWithValue("@MILESTONE", index++);
-                        command.Parameters.AddWithValue("@time", time);
+                    for(int i = 1; i < _partial.Time.Length - 1; i++) {
+                        var time = _partial.Time[i];
+                        command.Parameters.AddWithValue("@MILESTONE", i);
+                        command.Parameters.AddWithValue("@TIME", time);
                         command.ExecuteNonQuery();
                     }
 

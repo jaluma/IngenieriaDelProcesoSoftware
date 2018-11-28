@@ -182,7 +182,8 @@ namespace Ui.Main.Pages.Competition.Times {
                     LbCategory.Content = $"{category.Name.Replace('_', ' ')} ({category.MinAge} - {category.MaxAge})";
 
                     HasParticipatedDto p = _service.SelectCompetitionHasParticipated(Competition, Athlete);
-                    LbTiempoTotal.Content = PartialTimeString(p.FinishTime == 0 ? 0 : p.FinishTime - p.InitialTime);
+                    var time = PartialTimeString(p.FinishTime == 0 ? 0 : p.FinishTime - p.InitialTime);
+                    LbTiempoTotal.Content = $"T. Final: {time}";
 
                     PartialTimesDto partial = _service.SelectPartialTimesByAthlete(Competition, Athlete);
 

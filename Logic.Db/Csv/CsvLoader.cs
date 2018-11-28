@@ -8,6 +8,8 @@ namespace Logic.Db.Csv {
     public abstract class CsvLoader {
 
         private readonly string[] _fileNamesCsv;
+        public IList<string> Errores;
+
 
         public IEnumerable<CsvObject> Returned { get; private set; }
 

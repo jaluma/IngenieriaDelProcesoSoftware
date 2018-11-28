@@ -106,8 +106,8 @@ namespace Logic.Db.Util.Services {
             return status.Return;
         }
 
-        public void InsertHasRegisteredTimes(string dni, long time) {
-            UpdateHasRegisteredTimes update = new UpdateHasRegisteredTimes(ref _conn, dni, _competition.ID, time);
+        public void InsertHasRegisteredTimes(string dni, long initial, long finish) {
+            UpdateHasRegisteredTimes update = new UpdateHasRegisteredTimes(ref _conn, dni, _competition.ID, initial, finish);
             update.Execute();
         }
 

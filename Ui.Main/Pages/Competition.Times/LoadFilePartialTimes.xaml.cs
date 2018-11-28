@@ -59,7 +59,7 @@ namespace Ui.Main.Pages.Competition.Times {
                 IList<string> noInsertedDni = new List<string>();
                 int countI = 0;
                 int countU = 0;
-                string notes = "";
+                string notes = string.Join("\n", loader.Errores);
                 foreach (PartialTimesObjects times in objects) {
                     try {
                         _dto = new PartialTimesDto() {
@@ -73,9 +73,8 @@ namespace Ui.Main.Pages.Competition.Times {
                         string status = new EnrollService(_dto.CompetitionDto).SelectStatusEnroll(dnis[index]);
 
                         if (dnis[index] != null && status.Equals("REGISTERED")) {
+                            new EnrollService(_dto.CompetitionDto).InsertHasRegisteredTimes(dnis[index], _dto.Time[0], _dto.Time[_dto.Time.Length - 1]);
                             timesService.InsertPartialTime(dnis[index], _dto);
-                            new EnrollService(_dto.CompetitionDto).InsertHasRegisteredTimes(dnis[index],
-                                _dto.Time[_dto.Time.Length - 1]);
                             countI++;
 
                         } else {
@@ -130,8 +129,8 @@ namespace Ui.Main.Pages.Competition.Times {
 
             str += "\n" + notes;
 
-            LbUpdate.Content = str;
-            LbUpdate.IsEnabled = true;
+            TxUpdate.Text = str;
+            TxUpdate.IsEnabled = true;
         }
 
         private void OnMouseEnter(object sender, MouseEventArgs e) {
