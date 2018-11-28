@@ -39,8 +39,8 @@
             <Label Content="{x:Static properties:Resources.CardNumber}" VerticalAlignment="Top" DockPanel.Dock="Top" FontSize="14" Height="30" VerticalContentAlignment="Center"/>
             <wpfx:MaskedTextBox Name="TxNumero" Mask="0000 0000 0000 0000" TextWrapping="Wrap" VerticalAlignment="Top" DockPanel.Dock="Top" Height="25" VerticalContentAlignment="Center" Margin="10,0" KeyDown="NumerosTextBox_KeyDown" MaxLength="18"/>
             <Label Content="{x:Static properties:Resources.Expiration}" VerticalAlignment="Top" DockPanel.Dock="Top" FontSize="14" Height="30" VerticalContentAlignment="Center"/>
-            <TextBox Style="{StaticResource MyWaterMarkStyle}" Tag="mm" Name="TxCaducidadMes" TextWrapping="Wrap" VerticalAlignment="Top" DockPanel.Dock="Top" Margin="10,0,154,0" MaxLength="2" KeyDown="NumerosTextBox_KeyDown" GotFocus="TxCaducidad_GotFocus" LostFocus="TxCaducidadMes_LostFocus"/>
-            <TextBox Style="{StaticResource MyWaterMarkStyle}" Tag="aa" Name="TxCaducidadYear" TextWrapping="Wrap" VerticalAlignment="Top" DockPanel.Dock="Top" Margin="154,-25,10,0" MaxLength="2" KeyDown="NumerosTextBox_KeyDown" GotFocus="TxCaducidad_GotFocus" LostFocus="TxCaducidadYear_LostFocus"/>
+            <TextBox Style="{StaticResource MyWaterMarkStyle}" Tag="mm" Name="TxCaducidadMes" TextWrapping="Wrap" VerticalAlignment="Top" DockPanel.Dock="Top" Margin="10,0,154,0" MaxLength="2" KeyDown="NumerosTextBox_KeyDown" GotFocus="TxCaducidad_GotFocus"/>
+            <TextBox Style="{StaticResource MyWaterMarkStyle}" Tag="aa" Name="TxCaducidadYear" TextWrapping="Wrap" VerticalAlignment="Top" DockPanel.Dock="Top" Margin="154,-25,10,0" MaxLength="2" KeyDown="NumerosTextBox_KeyDown" GotFocus="TxCaducidad_GotFocus"/>
             <Label Content="{x:Static properties:Resources.Cvc}" VerticalAlignment="Top" DockPanel.Dock="Top" FontSize="14" Height="30" VerticalContentAlignment="Center"/>
             <TextBox Name="TxCvc" TextWrapping="Wrap" VerticalAlignment="Top" DockPanel.Dock="Top" Height="25" VerticalContentAlignment="Center" Margin="10,0,154,0" MaxLength="3" KeyDown="NumerosTextBox_KeyDown"/>
 

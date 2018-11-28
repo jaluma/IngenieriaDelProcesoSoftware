@@ -145,19 +145,6 @@ namespace Ui.Main.Pages.Inscriptions.Payment
             TextBox t = (TextBox)sender;
             t.Tag = "";
         }
-
-        private void TxCaducidadMes_LostFocus(object sender, RoutedEventArgs e)
-        {
-            TextBox t = (TextBox)sender;
-            if (t.Text.Length == 0)
-                t.Tag = "mm";
-        }
-
-        private void TxCaducidadYear_LostFocus(object sender, RoutedEventArgs e)
-        {
-            TextBox t = (TextBox)sender;
-            if (t.Text.Length == 0)
-                t.Tag = "aa";
-        }
+        
     }
 }
