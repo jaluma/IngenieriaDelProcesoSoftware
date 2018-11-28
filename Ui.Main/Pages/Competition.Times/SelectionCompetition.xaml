@@ -15,7 +15,7 @@
                HorizontalAlignment="Center"
                Content="{x:Static properties:Resources.TileCompetitionFinish}" DockPanel.Dock="Top"/>
         <ScrollViewer Name="ScrollViewer" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Top" DockPanel.Dock="Bottom">
-            <DataGrid x:Name="DataGridCompetition" PreviewMouseWheel="DataGridCompetition_OnPreviewMouseWheel" AutoGeneratingColumn="OnAutoGeneratingColumn" MouseEnter="DataGridCompetition_OnMouseEnter" MouseLeave="DataGridCompetition_OnMouseLeave" MinWidth="800" MinHeight="450" SelectionChanged="DataGrid_SelectionChanged"  IsReadOnly="True"/>
+            <DataGrid x:Name="DataGridCompetition" PreviewMouseWheel="DataGridCompetition_OnPreviewMouseWheel" ColumnWidth="*" AutoGeneratingColumn="OnAutoGeneratingColumn" MouseEnter="DataGridCompetition_OnMouseEnter" MouseLeave="DataGridCompetition_OnMouseLeave" MinWidth="800" MinHeight="450" SelectionChanged="DataGrid_SelectionChanged"  IsReadOnly="True"/>
         </ScrollViewer>
     </DockPanel>
 

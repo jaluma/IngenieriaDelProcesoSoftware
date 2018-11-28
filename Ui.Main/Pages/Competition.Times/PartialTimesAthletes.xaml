@@ -44,8 +44,8 @@
 
         </StackPanel>
 
-        <ScrollViewer Name="ScrollViewer" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" DockPanel.Dock="Right"  Margin="20,27,0,18" Width="725" HorizontalAlignment="Right">
-            <DataGrid x:Name="DataGridTimes" PreviewMouseWheel="DataGridTimes_OnPreviewMouseWheel" SelectionMode="Single" AutoGenerateColumns="True" ColumnWidth="*" Width="700" IsReadOnly="True" HorizontalAlignment="Right" Height="480" VerticalAlignment="Top" Margin="0,10,10,0" />
+        <ScrollViewer Name="ScrollViewer" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" DockPanel.Dock="Right"  Margin="20,27,0,18" Width="725" HorizontalAlignment="Right">
+            <DataGrid x:Name="DataGridTimes" PreviewMouseWheel="DataGridTimes_OnPreviewMouseWheel" MinColumnWidth="80"  SelectionMode="Single" AutoGenerateColumns="True" ColumnWidth="*" Width="700" IsReadOnly="True" HorizontalAlignment="Right" Height="480" VerticalAlignment="Top" Margin="0,10,10,0" />
         </ScrollViewer>
 
     </DockPanel>
