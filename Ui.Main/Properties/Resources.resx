@@ -473,7 +473,7 @@
     <value>Cvc:</value>
   </data>
   <data name="Expiration" xml:space="preserve">
-    <value>Caducidad:</value>
+    <value>Caducidad: (mm/aa)</value>
   </data>
   <data name="ExpiredCard" xml:space="preserve">
     <value>La tarjeta ha caducado</value>
