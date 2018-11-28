@@ -9,38 +9,13 @@
       mc:Ignorable="d" 
       Title="CreditCardWindow" Height="300" Width="300">
 
-    <Page.Resources>
-        <Style x:Key="MyWaterMarkStyle" TargetType="{x:Type TextBox}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type TextBox}">
-                        <Grid>
-                            <TextBox x:Name="WaterMarkLabel" Text="{TemplateBinding Tag}" VerticalAlignment="Center"
-                               Visibility="Collapsed" Foreground="Black" Height="25" VerticalContentAlignment="Center"/>
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <MultiTrigger>
-                                <MultiTrigger.Conditions>
-                                    <Condition Property="Text" Value=""/>
-                                </MultiTrigger.Conditions>
-                                <Setter Property="Visibility" TargetName="WaterMarkLabel" Value="Visible"/>
-                            </MultiTrigger>
-                            <Trigger Property="IsEnabled" Value="False">
-                                <Setter Property="Foreground" Value="DimGray"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Page.Resources>
     <Grid>
         <DockPanel Height="269" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="292">
             <Label Content="{x:Static properties:Resources.CardNumber}" VerticalAlignment="Top" DockPanel.Dock="Top" FontSize="14" Height="30" VerticalContentAlignment="Center"/>
             <wpfx:MaskedTextBox Name="TxNumero" Mask="0000 0000 0000 0000" TextWrapping="Wrap" VerticalAlignment="Top" DockPanel.Dock="Top" Height="25" VerticalContentAlignment="Center" Margin="10,0" KeyDown="NumerosTextBox_KeyDown" MaxLength="18"/>
             <Label Content="{x:Static properties:Resources.Expiration}" VerticalAlignment="Top" DockPanel.Dock="Top" FontSize="14" Height="30" VerticalContentAlignment="Center"/>
-            <TextBox Style="{StaticResource MyWaterMarkStyle}" Tag="mm" Name="TxCaducidadMes" TextWrapping="Wrap" VerticalAlignment="Top" DockPanel.Dock="Top" Margin="10,0,154,0" MaxLength="2" KeyDown="NumerosTextBox_KeyDown" GotFocus="TxCaducidad_GotFocus"/>
-            <TextBox Style="{StaticResource MyWaterMarkStyle}" Tag="aa" Name="TxCaducidadYear" TextWrapping="Wrap" VerticalAlignment="Top" DockPanel.Dock="Top" Margin="154,-25,10,0" MaxLength="2" KeyDown="NumerosTextBox_KeyDown" GotFocus="TxCaducidad_GotFocus"/>
+            <TextBox Name="TxCaducidadMes" TextWrapping="Wrap" VerticalAlignment="Top" DockPanel.Dock="Top" Margin="10,0,154,0" MaxLength="2" KeyDown="NumerosTextBox_KeyDown"/>
+            <TextBox Name="TxCaducidadYear" TextWrapping="Wrap" VerticalAlignment="Top" DockPanel.Dock="Top" Margin="154,-25,10,0" MaxLength="2" KeyDown="NumerosTextBox_KeyDown"/>
             <Label Content="{x:Static properties:Resources.Cvc}" VerticalAlignment="Top" DockPanel.Dock="Top" FontSize="14" Height="30" VerticalContentAlignment="Center"/>
             <TextBox Name="TxCvc" TextWrapping="Wrap" VerticalAlignment="Top" DockPanel.Dock="Top" Height="25" VerticalContentAlignment="Center" Margin="10,0,154,0" MaxLength="3" KeyDown="NumerosTextBox_KeyDown"/>
 

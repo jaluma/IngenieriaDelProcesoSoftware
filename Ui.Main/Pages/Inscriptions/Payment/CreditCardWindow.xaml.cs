@@ -139,12 +139,7 @@ namespace Ui.Main.Pages.Inscriptions.Payment
             else
                 e.Handled = true;
         }
-
-        private void TxCaducidad_GotFocus(object sender, RoutedEventArgs e)
-        {
-            TextBox t = (TextBox)sender;
-            t.Tag = "";
-        }
+        
         
     }
 }
