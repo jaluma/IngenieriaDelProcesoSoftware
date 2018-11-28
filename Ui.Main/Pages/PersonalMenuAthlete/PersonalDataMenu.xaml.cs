@@ -73,9 +73,11 @@ namespace Ui.Main.Pages.PersonalMenuAthlete {
             _tablePersonal.Columns[3].ColumnName = Properties.Resources.Competition;
             _tablePersonal.Columns[4].ColumnName = Properties.Resources.AthleteGender;
 
-
-            for (int i = 1; i < _tablePersonal.Rows.Count; i++) {
-               _tablePersonal.Rows.RemoveAt(i);
+           
+            while (_tablePersonal.Rows.Count > 1) { 
+            
+               _tablePersonal.Rows.RemoveAt(_tablePersonal.Rows.Count-1);
+                
             }
 
             _tablePersonal.Columns.RemoveAt(0);
