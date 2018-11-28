@@ -76,9 +76,8 @@ namespace Ui.Main.Pages.Inscriptions.PaymentControl {
                     };
                     extracto.Add(dto);
                 } catch (Exception) {
-                    //System.Windows.MessageBox.Show(Properties.Resources.InvalidDocument);
-                    //return;
-                    continue;
+                    System.Windows.MessageBox.Show(Properties.Resources.InvalidDocument);
+                    return;
                 }
 
             }
