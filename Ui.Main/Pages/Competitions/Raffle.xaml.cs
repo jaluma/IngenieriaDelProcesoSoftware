@@ -130,21 +130,26 @@ namespace Ui.Main.Pages.Competitions
 
                         }
 
-                       
+
 
                         table.Rows[DataGridResults.SelectedIndex].Delete();
 
+                    }
+                    else
+                    {
+                        MessageBox.Show("Por favor, guarde los resultados del sorteo haciendo click en imprimir");
+                        return;
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Por favor, guarde los resultados del sorteo haciendo click en imprimir");
+                MessageBox.Show("Por favor, seleccione una competición");
                 return;
             }
 
         }
-
+      
 
         private void Imprimir_Click(object sender, RoutedEventArgs e)
         {
