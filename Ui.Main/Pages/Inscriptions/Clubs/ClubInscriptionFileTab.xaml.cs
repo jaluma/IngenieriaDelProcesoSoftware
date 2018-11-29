@@ -56,7 +56,9 @@ namespace Ui.Main.Pages.Inscriptions.Clubs
                 Multiselect = false
             };
             openFile.ShowDialog();
-            ProcesarFichero(openFile.FileName);
+            if (!openFile.FileName.Equals("")) {
+                ProcesarFichero(openFile.FileName);
+            }
         }
 
         private void ProcesarFichero(string file)
@@ -208,6 +210,8 @@ namespace Ui.Main.Pages.Inscriptions.Clubs
             DialogPayment dialog = new DialogPayment(null, null);
             dialog.Content = new InscriptionProofClubs(_competition, stringBuilder.ToString(), _count);
             dialog.Show();
+
+            GetListCompetition();
         }
 
         private void GetListCompetition()

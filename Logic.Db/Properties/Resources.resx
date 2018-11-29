@@ -388,10 +388,6 @@ where competition_id=@ID and athlete_dni=@DNI and date_inscription between initi
 from Competition natural join CompetitionDates natural join DateInscription
 where date('now') BETWEEN INITIAL_DATE and FINISH_DATE AND COMPETITION_PREINSCRIPTION == 1
                 AND COMPETITION_STATUS&lt;&gt;'FINISH'
-                AND COMPETITION_NUMBER_PLACES &gt; 
-                                 (select count(*) 
-                                 from enroll 
-                                 group by competition_id)
                 AND COMPETITION_ID not in 
                                  (SELECT COMPETITION_ID 
                                  FROM ENROLL

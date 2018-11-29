@@ -172,6 +172,8 @@ namespace Ui.Main.Pages.Inscriptions.Clubs
             DialogPayment dialog = new DialogPayment(null, null);
             dialog.Content = new InscriptionProofClubs(_competition, stringBuilder.ToString(), _count);
             dialog.Show();
+
+            GetListCompetition();
         }
 
         private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
