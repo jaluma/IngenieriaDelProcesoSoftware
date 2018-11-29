@@ -46,6 +46,7 @@ namespace Ui.Main.Pages.Competition.Times {
         public TimesAthletes() {
             this.InitializeComponent();
 
+            ChangeGender();
             GenerateList();
 
             if (_list.Count > 0 && Competition==null)
@@ -141,11 +142,23 @@ namespace Ui.Main.Pages.Competition.Times {
         }
 
         private void TimesAthletes_OnLoaded(object sender, RoutedEventArgs e) {
+            ChangeGender();
+
             if (Competition != null) {
                 CompetitionList.SelectedIndex = _ids.IndexOf(Competition.ID);
             }
 
             GenerateList();
+
+        }
+
+        private void ChangeGender() {
+            if (Athlete != null && Athlete.Gender.Equals('F')) {
+                FemaleRadioButton.IsChecked = true;
+            }
+            else {
+                MaleRadioButton.IsChecked = true;
+            }
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e) {
