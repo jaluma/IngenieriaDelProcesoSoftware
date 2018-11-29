@@ -28,7 +28,7 @@ namespace Ui.Main.Pages.Inscriptions {
 
             InitializeComponent();
 
-            TxJustificante.Text = "Competición: " + _competition.Name + ".\n\n" + atletas + "\nSe han inscrito " + nuevos + " atletas.\n\nPrecio de la inscripción: " + (_competition.Price * nuevos);
+            TxJustificante.Text = "Competición: " + _competition.Name + ".\n\n" + atletas + "\nSe han inscrito " + nuevos + " atletas.\n\nPrecio de la inscripción: " + (_competition.Price * nuevos) + "€";
             
         }
 

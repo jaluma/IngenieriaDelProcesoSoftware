@@ -173,6 +173,7 @@ namespace Ui.Main.Pages.Inscriptions.Clubs
             dialog.Content = new InscriptionProofClubs(_competition, stringBuilder.ToString(), _count);
             dialog.Show();
 
+            _count = 0;
             GetListCompetition();
         }
 
