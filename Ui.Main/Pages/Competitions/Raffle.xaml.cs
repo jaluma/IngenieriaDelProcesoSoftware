@@ -56,7 +56,7 @@ namespace Ui.Main.Pages.Competitions
 
 
 
-            table.Columns.RemoveAt(0);
+            table.Columns.Remove(Properties.Resources.Competition_Id);
 
 
 

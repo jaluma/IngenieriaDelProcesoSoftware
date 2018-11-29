@@ -375,6 +375,8 @@ namespace Ui.Main.Pages.Competitions {
 
                 MessageBox.Show("Competicion agregada correctamente.");
 
+                clearAll();
+
             } else
                 MessageBox.Show("Por favor, revise que todos los campos se han introducido correctamente");
             return;
@@ -462,6 +464,32 @@ namespace Ui.Main.Pages.Competitions {
             MessageBox.Show("Todo correcto!");
         }
 
-       
+        private void clearAll()
+        {
+            InitializeComponent();
+            GridMountain.Visibility = Visibility.Collapsed;
+            GridInscription.Visibility = Visibility.Visible;
+            InicioPlazo.IsEnabled = false;
+            FinPlazo.IsEnabled = false;
+            FechaCompeticion.SelectedDate = null;
+            FechaCompeticion.DisplayDateStart = DateTime.Now;
+            Categories.Items.Clear();
+            list = _serviceCompCat.SelectAllCategories();
+
+            _competition = new CompetitionDto();
+            Plazos_list.Items.Clear();
+            Km.Text = "";
+            Hitos.Text = "";
+            NumeroPlazas.Text = "";
+            Nombre.Text = "";
+            DPos.Text = "";
+            DNeg.Text = "";
+            DTotal.Text = "";
+            PrecioInscripcion.Text = "";
+            Reglamento.Text = "";
+
+        }
+
+
     }
 }

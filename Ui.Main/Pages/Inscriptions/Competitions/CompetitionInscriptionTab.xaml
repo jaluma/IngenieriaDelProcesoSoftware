@@ -34,7 +34,7 @@
         </StackPanel>
 
         <ScrollViewer Name="ScrollViewer" Style="{StaticResource ContentRoot}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Top" Margin="50,28,16,0" Width="925">
-            <DataGrid x:Name="CompetitionsToSelect" PreviewMouseWheel="CompetitionsToSelect_OnPreviewMouseWheel" mah:ScrollViewerHelper.VerticalScrollBarOnLeftSide="True" SelectionMode="Single" MinWidth="800" AutoGeneratingColumn="OnAutoGeneratingColumn" MinHeight="250"  VerticalAlignment="Top" ColumnWidth="*" DockPanel.Dock="Top" IsReadOnly="True" SelectionChanged="CompetitionsToSelect_SelectionChanged" Height="402" Width="955"/>
+            <DataGrid x:Name="CompetitionsToSelect" MaxColumnWidth="130" PreviewMouseWheel="CompetitionsToSelect_OnPreviewMouseWheel" mah:ScrollViewerHelper.VerticalScrollBarOnLeftSide="True" SelectionMode="Single" MinWidth="800" AutoGeneratingColumn="OnAutoGeneratingColumn" MinHeight="250"  VerticalAlignment="Top" ColumnWidth="*" DockPanel.Dock="Top" IsReadOnly="True" SelectionChanged="CompetitionsToSelect_SelectionChanged" Height="402" Width="955"/>
         </ScrollViewer>
         <Button  Name="BtFinish" Content="{x:Static properties:Resources.FinishInscription}" Height="35" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="-867,10,25,10" FontSize="16" Click="BtFinish_Click" Padding="40,3,41,5"/>
     </DockPanel>

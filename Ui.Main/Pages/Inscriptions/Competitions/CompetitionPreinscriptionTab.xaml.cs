@@ -129,6 +129,7 @@ namespace Ui.Main.Pages.Inscriptions.Competitions
                 .Select(dr => dr.Field<long>(Properties.Resources.Competition_Id)).ToList();
 
             table.Columns.RemoveAt(0);
+            table.Columns.Remove(Properties.Resources.InscriptionOpen);
 
             if (CompetitionsToSelect != null)
                 CompetitionsToSelect.ItemsSource = table.DefaultView;
