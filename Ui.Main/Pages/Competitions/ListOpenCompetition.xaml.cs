@@ -75,6 +75,7 @@ namespace Ui.Main.Pages.Competitions {
             }
 
             table.Columns.RemoveAt(8);
+            table.Columns.Remove(Properties.Resources.InscriptionOpen);
             DataGridCompetition.ItemsSource = table.DefaultView;
 
 
@@ -115,6 +116,7 @@ namespace Ui.Main.Pages.Competitions {
             }
 
             table.Columns.RemoveAt(7);
+            table.Columns.Remove("Preinscripción desde");
             DataGridCompetition_P.ItemsSource = table.DefaultView;
         }
 
