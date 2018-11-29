@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using Logic.Db.Dto;
+using Logic.Db.Dto.Types;
 
 namespace Ui.Main.Pages.Inscriptions.Payment
 {

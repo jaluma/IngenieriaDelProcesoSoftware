@@ -1,6 +1,7 @@
 ﻿using System.Data.SQLite;
 using Logic.Db.Connection;
 using Logic.Db.Dto;
+using Logic.Db.Dto.Types;
 using Logic.Db.Properties;
 
 namespace Logic.Db.ActionObjects.CompetitionLogic

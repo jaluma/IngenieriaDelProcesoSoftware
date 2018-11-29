@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Logic.Db.Dto;
+using Logic.Db.Dto.Types;
 using Logic.Db.Util.Services;
 
 namespace Ui.Main.Pages.Inscriptions.Competitions

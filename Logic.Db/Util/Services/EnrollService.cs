@@ -4,6 +4,7 @@ using System.Data;
 using Logic.Db.ActionObjects.AthleteLogic.Enroll;
 using Logic.Db.ActionObjects.CompetitionLogic;
 using Logic.Db.Dto;
+using Logic.Db.Dto.Types;
 
 namespace Logic.Db.Util.Services
 {

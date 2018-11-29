@@ -1,4 +1,5 @@
 ﻿using System;
+using Logic.Db.Dto.Types;
 
 namespace Logic.Db.Dto
 {
@@ -17,11 +18,5 @@ namespace Logic.Db.Dto
         public double Slope;
         public string Status; //can be null
         public TypeCompetition Type;
-    }
-
-    public enum TypeCompetition
-    {
-        Mountain = 'M',
-        Asphalt = 'S'
     }
 }

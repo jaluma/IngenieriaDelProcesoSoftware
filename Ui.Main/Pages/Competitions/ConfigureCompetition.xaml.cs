@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using Logic.Db.Dto;
+using Logic.Db.Dto.Types;
 using Logic.Db.Util.Services;
 using Ui.Main.Pages.Competitions.categories;
 using Control = System.Windows.Controls.Control;

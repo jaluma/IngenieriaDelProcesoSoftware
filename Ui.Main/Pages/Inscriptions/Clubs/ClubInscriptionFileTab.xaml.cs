@@ -9,6 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Input;
 using Logic.Db.Dto;
+using Logic.Db.Dto.Types;
 using Logic.Db.Util.Services;
 using Ui.Main.Pages.Inscriptions.Payment;
 using MessageBox = System.Windows.MessageBox;
