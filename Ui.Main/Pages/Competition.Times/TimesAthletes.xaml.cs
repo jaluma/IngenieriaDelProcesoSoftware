@@ -1,55 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Markup;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Xml;
-using FirstFloor.ModernUI.Presentation;
-using FirstFloor.ModernUI.Windows.Controls;
-using Logic.Db;
 using Logic.Db.Dto;
 using Logic.Db.Util.Services;
 using Ui.Main.Pages.MenuInitial;
-using Xceed.Wpf.Toolkit.Core.Converters;
 
-namespace Ui.Main.Pages.Competition.Times {
+namespace Ui.Main.Pages.Competition.Times
+{
     /// <summary>
-    /// Lógica de interacción para TimesAthletes.xaml
+    ///     Lógica de interacción para TimesAthletes.xaml
     /// </summary>
-    public partial class TimesAthletes : Page {
-
-        private DataTable _table;
+    public partial class TimesAthletes : Page
+    {
         public static AthleteDto Athlete;
-        private List<string> _columnDNI;
-        private List<long> _ids;
-        private List<string> _list;
-        private IEnumerable<AbsoluteCategory> _categories;
         public static CompetitionDto Competition;
         public static AbsoluteCategory CategorySelected;
+        private IEnumerable<AbsoluteCategory> _categories;
+        private List<string> _columnDNI;
         private CompetitionService _competitionService;
+        private List<long> _ids;
+        private List<string> _list;
         private TimesService _service;
 
+        private DataTable _table;
+
         public TimesAthletes() {
-            this.InitializeComponent();
+            InitializeComponent();
 
             ChangeGender();
             GenerateList();
 
-            if (_list.Count > 0 && Competition==null)
+            if (_list.Count > 0 && Competition == null)
                 CompetitionList.SelectedIndex = 0;
         }
 
@@ -69,30 +55,27 @@ namespace Ui.Main.Pages.Competition.Times {
             }
 
             CompetitionList.ItemsSource = _list;
-
-
         }
 
 
         private void CompetitionList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             LayoutButtons.Children.Clear();
-            Button but = GenerateButton();
+            var but = GenerateButton();
 
-            AbsoluteCategory cat = new AbsoluteCategory() {
+            var cat = new AbsoluteCategory {
                 Id = -1,
                 Name = Properties.Resources.Absolute.ToUpper(),
-                CategoryM = new CategoryDto() {
+                CategoryM = new CategoryDto {
                     Name = $"{Properties.Resources.Absolute.ToUpper()}_M"
                 },
-                CategoryF = new CategoryDto()
-                {
-                Name = $"{Properties.Resources.Absolute.ToUpper()}_F"
-            }
+                CategoryF = new CategoryDto {
+                    Name = $"{Properties.Resources.Absolute.ToUpper()}_F"
+                }
             };
 
             but.Content = cat.Name;
 
-            Competition = new CompetitionDto() {
+            Competition = new CompetitionDto {
                 ID = _ids[CompetitionList.SelectedIndex]
             };
 
@@ -103,7 +86,7 @@ namespace Ui.Main.Pages.Competition.Times {
 
             CategorySelected = _categories.First();
 
-            int count = 0;
+            var count = 0;
             foreach (var category in _categories) {
                 but = GenerateButton();
                 but.Content = category.Name.Replace('_', ' ').ToUpper();
@@ -116,7 +99,7 @@ namespace Ui.Main.Pages.Competition.Times {
         }
 
         private Button GenerateButton() {
-            Button bt = new Button() {
+            var bt = new Button {
                 VerticalAlignment = VerticalAlignment.Center,
                 BorderThickness = new Thickness(0, 0, 0, 0),
                 Background = Brushes.Transparent,
@@ -144,29 +127,23 @@ namespace Ui.Main.Pages.Competition.Times {
         private void TimesAthletes_OnLoaded(object sender, RoutedEventArgs e) {
             ChangeGender();
 
-            if (Competition != null) {
-                CompetitionList.SelectedIndex = _ids.IndexOf(Competition.ID);
-            }
+            if (Competition != null) CompetitionList.SelectedIndex = _ids.IndexOf(Competition.ID);
 
             GenerateList();
-
         }
 
         private void ChangeGender() {
-            if (Athlete != null && Athlete.Gender.Equals('F')) {
+            if (Athlete != null && Athlete.Gender.Equals('F'))
                 FemaleRadioButton.IsChecked = true;
-            }
-            else {
+            else
                 MaleRadioButton.IsChecked = true;
-            }
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e) {
-            Button bt = (Button) sender;
-            if ((Int32?) bt.Tag != null) {
-
-                int indexOldBut = _categories.ToList().FindIndex(c => c.Name.Equals(CategorySelected.Name));
-                Button old = (Button) LayoutButtons.Children[indexOldBut];
+            var bt = (Button) sender;
+            if ((int?) bt.Tag != null) {
+                var indexOldBut = _categories.ToList().FindIndex(c => c.Name.Equals(CategorySelected.Name));
+                var old = (Button) LayoutButtons.Children[indexOldBut];
                 old.FontWeight = FontWeights.Normal;
                 old.Background = Brushes.Transparent;
 
@@ -188,15 +165,13 @@ namespace Ui.Main.Pages.Competition.Times {
         }
 
         private string GenerateFilter() {
-            string filter = string.Empty;
+            var filter = string.Empty;
 
-            if (MaleIsChecked() && FemaleIsChecked()) {
+            if (MaleIsChecked() && FemaleIsChecked())
                 filter = null;
-            } else if (MaleIsChecked()) {
+            else if (MaleIsChecked())
                 filter = "M";
-            } else if (FemaleIsChecked()) {
-                filter = "F";
-            }
+            else if (FemaleIsChecked()) filter = "F";
 
             return filter;
         }
@@ -210,10 +185,9 @@ namespace Ui.Main.Pages.Competition.Times {
         }
 
         internal void GenerateDataGrid() {
-
             if (Competition != null) {
                 _table = new DataTable();
-                DataColumn column = new DataColumn(Properties.Resources.AthletePosition, typeof(string)) {
+                var column = new DataColumn(Properties.Resources.AthletePosition, typeof(string)) {
                     AllowDBNull = true
                 };
                 _table.Columns.Add(column);
@@ -233,19 +207,21 @@ namespace Ui.Main.Pages.Competition.Times {
                 _table.Columns[8].ColumnName = Properties.Resources.Age;
                 _table.Columns[9].ColumnName = Properties.Resources.TimeSeconds;
 
-                DataTable dtClone = _table.Clone();
+                var dtClone = _table.Clone();
                 dtClone.Columns[6].ColumnName = Properties.Resources.Time;
                 dtClone.Columns[Properties.Resources.Time].DataType = typeof(string);
                 dtClone.Columns[Properties.Resources.TimeSeconds].DataType = typeof(string);
 
 
                 foreach (DataRow row in _table.Rows) {
-                    object[] dr = row.ItemArray as object[];
+                    var dr = row.ItemArray;
                     if (dr[6] is DBNull) {
                         dr[6] = "DNS";
-                    } else if (dr[7] is DBNull || (long) dr[7] == 0) {
+                    }
+                    else if (dr[7] is DBNull || (long) dr[7] == 0) {
                         dr[6] = "DNF";
-                    } else {
+                    }
+                    else {
                         var seconds = (long) dr[7] - (long) dr[6];
                         var timespan = TimeSpan.FromSeconds(seconds);
                         dr[6] = timespan.ToString(@"hh\:mm\:ss");
@@ -255,7 +231,7 @@ namespace Ui.Main.Pages.Competition.Times {
                         dr[9] = "---";
                     }
                     else {
-                        var timespan = TimeSpan.FromSeconds((long)dr[9]);
+                        var timespan = TimeSpan.FromSeconds((long) dr[9]);
                         dr[9] = timespan.ToString(@"mm\:ss");
                     }
 
@@ -277,7 +253,7 @@ namespace Ui.Main.Pages.Competition.Times {
 
                 DataGridTimes.ItemsSource = _table.DefaultView;
 
-                if (Athlete!=null)
+                if (Athlete != null)
                     DataGridTimes.SelectedIndex = _columnDNI.IndexOf(_columnDNI.First(a => a.Equals(Athlete.Dni)));
             }
         }
@@ -285,16 +261,17 @@ namespace Ui.Main.Pages.Competition.Times {
         private void DataGridTimes_OnMouseDoubleClick(object sender, MouseButtonEventArgs e) {
             PartialTimesAthletes.Competition = Competition;
 
-            List<AthleteDto> atleList = new AthletesService().SelectAthleteTable();
+            var atleList = new AthletesService().SelectAthleteTable();
 
             try {
-                string dni = _columnDNI[DataGridTimes.SelectedIndex];
+                var dni = _columnDNI[DataGridTimes.SelectedIndex];
                 PartialTimesAthletes.Athlete = atleList.First(a => a.Dni.ToUpper().Equals(dni.ToUpper()));
 
                 DataGridTimes.SelectedIndex = -1;
 
                 MainMenu.ChangeMenuSelected(Properties.Resources.TileTimes, Properties.Resources.SubMenuPartialTimes);
-            } catch (IndexOutOfRangeException) { }
+            }
+            catch (IndexOutOfRangeException) { }
         }
 
         private void ButtonAll_OnClick(object sender, RoutedEventArgs e) {

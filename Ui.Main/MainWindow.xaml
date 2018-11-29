@@ -1,18 +1,18 @@
 ﻿<!--<Controls:MetroWindow Name="PrincipalWindow" x:Class="Ui.Main.MainWindow"-->
 <mui:ModernWindow Name="PrincipalWindow" x:Class="Ui.Main.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                   xmlns:mui="http://firstfloorsoftware.com/ModernUI"
                   xmlns:menuInitial="clr-namespace:Ui.Main.Pages.MenuInitial"
                   xmlns:properties="clr-namespace:Ui.Main.Properties"
                   mc:Ignorable="d"
-        Title="Competiciones populares"
-        Height="625" Width="1250" MinHeight="450" MinWidth="450" ResizeMode="CanMinimize">
-        <!--Style="{StaticResource BlankWindow}"-->
+                  Title="Competiciones populares"
+                  Height="625" Width="1250" MinHeight="450" MinWidth="450" ResizeMode="CanMinimize">
+    <!--Style="{StaticResource BlankWindow}"-->
 
-    <mui:ModernWindow.MenuLinkGroups >
+    <mui:ModernWindow.MenuLinkGroups>
         <mui:LinkGroup DisplayName="Hola :)">
             <mui:LinkGroup.Links>
                 <mui:Link DisplayName="home" Source="/Pages/MenuInitial/MainMenu.xaml" />
@@ -20,33 +20,47 @@
         </mui:LinkGroup>
         <mui:LinkGroup DisplayName="{x:Static properties:Resources.TileAthletes}">
             <mui:LinkGroup.Links>
-                <mui:Link DisplayName="{x:Static properties:Resources.AthleteMenuList}" Source="/Pages/Inscriptions/ListAthletes.xaml" />
-                <mui:Link DisplayName="{x:Static properties:Resources.MenuAthletesInscription}" Source="/Pages/Inscriptions/InscriptionPage.xaml" />
-                <mui:Link DisplayName="{x:Static properties:Resources.ClubInscription}" Source="/Pages/Inscriptions/Clubs/ClubInscription.xaml" />
-                <mui:Link DisplayName="{x:Static properties:Resources.TileAthletesInscriptionCompetition}" Source="/Pages/Inscriptions/Competitions/CompetitionInscription.xaml" />
-                <mui:Link DisplayName="{x:Static properties:Resources.PersonalMenu}" Source="/Pages/PersonalMenuAthlete/PersonalDataMenu.xaml" />
-                <mui:Link DisplayName="{x:Static properties:Resources.CancelInscription}" Source="/Pages/Inscriptions/CancelInscription.xaml" />
+                <mui:Link DisplayName="{x:Static properties:Resources.AthleteMenuList}"
+                          Source="/Pages/Inscriptions/ListAthletes.xaml" />
+                <mui:Link DisplayName="{x:Static properties:Resources.MenuAthletesInscription}"
+                          Source="/Pages/Inscriptions/InscriptionPage.xaml" />
+                <mui:Link DisplayName="{x:Static properties:Resources.ClubInscription}"
+                          Source="/Pages/Inscriptions/Clubs/ClubInscription.xaml" />
+                <mui:Link DisplayName="{x:Static properties:Resources.TileAthletesInscriptionCompetition}"
+                          Source="/Pages/Inscriptions/Competitions/CompetitionInscription.xaml" />
+                <mui:Link DisplayName="{x:Static properties:Resources.PersonalMenu}"
+                          Source="/Pages/PersonalMenuAthlete/PersonalDataMenu.xaml" />
+                <mui:Link DisplayName="{x:Static properties:Resources.CancelInscription}"
+                          Source="/Pages/Inscriptions/CancelInscription.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
         <mui:LinkGroup DisplayName="{x:Static properties:Resources.TileCompetition}">
             <mui:LinkGroup.Links>
-                <mui:Link DisplayName="{x:Static properties:Resources.TitleConfigureCompetition}" Source="/Pages/Competitions/ConfigureCompetition.xaml" />
-                <mui:Link DisplayName="{x:Static properties:Resources.CategoryMenuActive}" Source="/Pages/Competitions/ListOpenCompetition.xaml" />
-                <mui:Link DisplayName="{x:Static properties:Resources.CategoryMenuFinish}" Source="/Pages/Competition.Times/SelectionCompetition.xaml" />
-                <mui:Link DisplayName="{x:Static properties:Resources.SubmenuAddDorsal}" Source="/Pages/Inscriptions/HasRegistered/Dorsals.xaml" />
+                <mui:Link DisplayName="{x:Static properties:Resources.TitleConfigureCompetition}"
+                          Source="/Pages/Competitions/ConfigureCompetition.xaml" />
+                <mui:Link DisplayName="{x:Static properties:Resources.CategoryMenuActive}"
+                          Source="/Pages/Competitions/ListOpenCompetition.xaml" />
+                <mui:Link DisplayName="{x:Static properties:Resources.CategoryMenuFinish}"
+                          Source="/Pages/Competition.Times/SelectionCompetition.xaml" />
+                <mui:Link DisplayName="{x:Static properties:Resources.SubmenuAddDorsal}"
+                          Source="/Pages/Inscriptions/HasRegistered/Dorsals.xaml" />
                 <mui:Link DisplayName="{x:Static properties:Resources.Raffle}" Source="/Pages/Competitions/Raffle.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
         <mui:LinkGroup DisplayName="{x:Static properties:Resources.TileTimes}">
             <mui:LinkGroup.Links>
-                <mui:Link DisplayName="{x:Static properties:Resources.TitleTimesCompetition}" Source="/Pages/Competition.Times/TimesAthletes.xaml" />
-                <mui:Link DisplayName="{x:Static properties:Resources.TitleAddPartialTimes}" Source="/Pages/Competition.Times/LoadFilePartialTimes.xaml" />
-                <mui:Link DisplayName="{x:Static properties:Resources.SubMenuPartialTimes}" Source="/Pages/Competition.Times/PartialTimesAthletes.xaml" />
+                <mui:Link DisplayName="{x:Static properties:Resources.TitleTimesCompetition}"
+                          Source="/Pages/Competition.Times/TimesAthletes.xaml" />
+                <mui:Link DisplayName="{x:Static properties:Resources.TitleAddPartialTimes}"
+                          Source="/Pages/Competition.Times/LoadFilePartialTimes.xaml" />
+                <mui:Link DisplayName="{x:Static properties:Resources.SubMenuPartialTimes}"
+                          Source="/Pages/Competition.Times/PartialTimesAthletes.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
         <mui:LinkGroup DisplayName="{x:Static properties:Resources.TilePayments}">
             <mui:LinkGroup.Links>
-                <mui:Link DisplayName="{x:Static properties:Resources.TitleFinishPayment}" Source="/Pages/Inscriptions/PaymentControl/FinishInscriptionPage.xaml"/>
+                <mui:Link DisplayName="{x:Static properties:Resources.TitleFinishPayment}"
+                          Source="/Pages/Inscriptions/PaymentControl/FinishInscriptionPage.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
     </mui:ModernWindow.MenuLinkGroups>

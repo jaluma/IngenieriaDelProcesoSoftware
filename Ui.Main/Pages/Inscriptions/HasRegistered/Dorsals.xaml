@@ -1,18 +1,18 @@
 ﻿<Page x:Class="Ui.Main.Pages.Inscriptions.HasRegistered.Dorsals"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Ui.Main.Pages.Inscriptions.HasRegistered"
       xmlns:properties="clr-namespace:Ui.Main.Properties"
       xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
       xmlns:mui="http://firstfloorsoftware.com/ModernUI"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
       d:DesignHeight="625" d:DesignWidth="1250"
       FocusManager.FocusedElement="{Binding ElementName=CompetitionIdTextBox}"
       Title="AddDorsalsAndRegisteredInCompetition" Loaded="Dorsals_OnLoaded">
 
-    <DockPanel  Height="545" VerticalAlignment="Bottom">
+    <DockPanel Height="545" VerticalAlignment="Bottom">
 
         <!--<Label HorizontalContentAlignment="Center"
                FontSize="18"
@@ -20,17 +20,22 @@
                HorizontalAlignment="Center"
                Content="{x:Static properties:Resources.TileJoinCompetition}" Width="680" DockPanel.Dock="Top"/>-->
         <Grid Style="{StaticResource ContentRoot}">
-            <ListView Name="CompetitionList" Cursor="Hand" Width="200" SelectionChanged="CompetitionList_SelectionChanged">
-
-            </ListView>
+            <ListView Name="CompetitionList" Cursor="Hand" Width="200"
+                      SelectionChanged="CompetitionList_SelectionChanged" />
         </Grid>
 
 
         <StackPanel Orientation="Vertical" Margin="10,30,10,10" Width="900">
-            <ScrollViewer Name="ScrollViewer" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" DockPanel.Dock="Right" HorizontalAlignment="Right" Width="850" Height="450">
-                <DataGrid x:Name="DataGridCompetition" mah:ScrollViewerHelper.VerticalScrollBarOnLeftSide="True" AutoGeneratingColumn="OnAutoGeneratingColumn" SelectionMode="Single" VerticalAlignment="Top" ColumnWidth="*" IsReadOnly="True" Height="450" Width="840"/>
+            <ScrollViewer Name="ScrollViewer" VerticalScrollBarVisibility="Auto"
+                          HorizontalScrollBarVisibility="Disabled" DockPanel.Dock="Right" HorizontalAlignment="Right"
+                          Width="850" Height="450">
+                <DataGrid x:Name="DataGridCompetition" mah:ScrollViewerHelper.VerticalScrollBarOnLeftSide="True"
+                          AutoGeneratingColumn="OnAutoGeneratingColumn" SelectionMode="Single" VerticalAlignment="Top"
+                          ColumnWidth="*" IsReadOnly="True" Height="450" Width="840" />
             </ScrollViewer>
-            <Button x:Name="BtDorsals" MaxWidth="400" PreviewMouseWheel="BtDorsals_OnPreviewMouseWheel" IsEnabled="False" Content="{x:Static properties:Resources.BtInsertDorsals}" Height="45" Click="BtDorsals_Click" Margin="0,10,0,0"/>
+            <Button x:Name="BtDorsals" MaxWidth="400" PreviewMouseWheel="BtDorsals_OnPreviewMouseWheel"
+                    IsEnabled="False" Content="{x:Static properties:Resources.BtInsertDorsals}" Height="45"
+                    Click="BtDorsals_Click" Margin="0,10,0,0" />
         </StackPanel>
 
     </DockPanel>

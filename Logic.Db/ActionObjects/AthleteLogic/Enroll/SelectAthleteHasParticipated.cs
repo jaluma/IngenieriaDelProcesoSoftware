@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Logic.Db.Connection;
 using Logic.Db.Dto;
+using Logic.Db.Properties;
 
-namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
-    public class SelectAthleteHasParticipated : IActionObject {
-        private readonly DBConnection _conn;
+namespace Logic.Db.ActionObjects.AthleteLogic.Enroll
+{
+    public class SelectAthleteHasParticipated : IActionObject
+    {
         private readonly CompetitionDto _competition;
+        private readonly DBConnection _conn;
         public readonly List<AthleteDto> List;
 
         public SelectAthleteHasParticipated(ref DBConnection conn, CompetitionDto competition) {
@@ -21,12 +20,13 @@ namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
 
         public void Execute() {
             try {
-                using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_ATHLETES_HAS_PARTICIPATED, _conn.DbConnection)) {
+                using (var command =
+                    new SQLiteCommand(Resources.SQL_SELECT_ATHLETES_HAS_PARTICIPATED, _conn.DbConnection)) {
                     command.Parameters.AddWithValue("@COMPETITION_ID", _competition.ID);
 
-                    using (SQLiteDataReader reader = command.ExecuteReader()) {
+                    using (var reader = command.ExecuteReader()) {
                         while (reader.Read()) {
-                            AthleteDto athlete = new AthleteDto() {
+                            var athlete = new AthleteDto {
                                 Dni = reader.GetString(0),
                                 Name = reader.GetString(1),
                                 Surname = reader.GetString(2),
@@ -37,7 +37,8 @@ namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
                         }
                     }
                 }
-            } catch (SQLiteException) {
+            }
+            catch (SQLiteException) {
                 _conn.DbConnection?.Close();
                 throw;
             }

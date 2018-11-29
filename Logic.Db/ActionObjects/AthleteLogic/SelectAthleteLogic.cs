@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.SQLite;
 using Logic.Db.Connection;
 using Logic.Db.Dto;
-using Logic.Db.Util;
+using Logic.Db.Properties;
 
-namespace Logic.Db.ActionObjects.AthleteLogic {
-    public class SelectAthleteLogic : IActionObject {
+namespace Logic.Db.ActionObjects.AthleteLogic
+{
+    public class SelectAthleteLogic : IActionObject
+    {
         private readonly DBConnection _conn;
         public readonly List<AthleteDto> List;
 
@@ -14,13 +15,13 @@ namespace Logic.Db.ActionObjects.AthleteLogic {
             _conn = conn;
             List = new List<AthleteDto>();
         }
+
         public void Execute() {
             try {
-                using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_ATHLETE, _conn.DbConnection)) {
-                    using (SQLiteDataReader reader = command.ExecuteReader()) {
-
+                using (var command = new SQLiteCommand(Resources.SQL_SELECT_ATHLETE, _conn.DbConnection)) {
+                    using (var reader = command.ExecuteReader()) {
                         while (reader.Read()) {
-                            AthleteDto athlete = new AthleteDto() {
+                            var athlete = new AthleteDto {
                                 Dni = reader.GetString(0),
                                 Name = reader.GetString(1),
                                 Surname = reader.GetString(2),
@@ -31,7 +32,8 @@ namespace Logic.Db.ActionObjects.AthleteLogic {
                         }
                     }
                 }
-            } catch (SQLiteException) {
+            }
+            catch (SQLiteException) {
                 _conn.DbConnection?.Close();
                 throw;
             }

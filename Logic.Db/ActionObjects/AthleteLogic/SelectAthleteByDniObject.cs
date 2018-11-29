@@ -1,11 +1,12 @@
-﻿using System.Data;
-using System.Data.SQLite;
+﻿using System.Data.SQLite;
 using Logic.Db.Connection;
 using Logic.Db.Dto;
+using Logic.Db.Properties;
 
-namespace Logic.Db.ActionObjects.AthleteLogic {
-    public class SelectAthleteByDniLogicObject {
-
+namespace Logic.Db.ActionObjects.AthleteLogic
+{
+    public class SelectAthleteByDniLogicObject
+    {
         private readonly DBConnection _conn;
         private readonly string _dni;
         public AthleteDto Athlete;
@@ -14,35 +15,32 @@ namespace Logic.Db.ActionObjects.AthleteLogic {
         public SelectAthleteByDniLogicObject(ref DBConnection conn, string dni) {
             _conn = conn;
             _dni = dni;
-
         }
 
         public void Execute() {
             try {
-                using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_ATHLETE_BY_DNI, _conn.DbConnection)) {
+                using (var command = new SQLiteCommand(Resources.SQL_SELECT_ATHLETE_BY_DNI, _conn.DbConnection)) {
                     command.Parameters.AddWithValue("@DNI", _dni);
 
-                    using (SQLiteDataReader reader = command.ExecuteReader()) {
+                    using (var reader = command.ExecuteReader()) {
                         reader.Read();
-                        Athlete = new AthleteDto() {
+                        Athlete = new AthleteDto {
                             Dni = reader.GetString(0),
                             Name = reader.GetString(1),
-                            Surname = reader.GetString(2),
+                            Surname = reader.GetString(2)
                             //BirthDate = reader.GetDateTime(3),
                         };
-                        if (reader.GetString(4).ToCharArray()[0].Equals(AthleteDto.MALE)) {
+                        if (reader.GetString(4).ToCharArray()[0].Equals(AthleteDto.MALE))
                             Athlete.Gender = AthleteDto.MALE;
-                        } else {
+                        else
                             Athlete.Gender = AthleteDto.FEMALE;
-                        }
                     }
-
                 }
-            } catch (SQLiteException) {
+            }
+            catch (SQLiteException) {
                 _conn.DbConnection?.Close();
                 throw;
             }
         }
     }
 }
-

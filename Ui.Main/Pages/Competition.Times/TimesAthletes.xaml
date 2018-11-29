@@ -1,8 +1,8 @@
 ﻿<Page x:Class="Ui.Main.Pages.Competition.Times.TimesAthletes"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:properties="clr-namespace:Ui.Main.Properties"
       xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
       xmlns:mui="http://firstfloorsoftware.com/ModernUI"
@@ -15,23 +15,40 @@
         <Label Style="{StaticResource ContentRoot}" FontSize="18"
                FontWeight="Bold"
                HorizontalAlignment="Center"
-               Content="{x:Static properties:Resources.TitleTimesCompetition}" DockPanel.Dock="Top"/>
+               Content="{x:Static properties:Resources.TitleTimesCompetition}" DockPanel.Dock="Top" />
 
         <Grid Margin="20,27,0,20" Width="935" HorizontalAlignment="Right">
-            <StackPanel Orientation="Horizontal" Name="LayoutButtons" Height="50" Margin="0,0,0,450" HorizontalAlignment="Right" Width="925"/>
-            <DataGrid x:Name="DataGridTimes" mah:ScrollViewerHelper.VerticalScrollBarOnLeftSide="True" AutoGenerateColumns="True" ColumnWidth="*" Width="915" IsReadOnly="True" HorizontalAlignment="Right" Height="430" VerticalAlignment="Top" Margin="0,70,10,0" SelectionMode="Single" MouseDoubleClick="DataGridTimes_OnMouseDoubleClick"/>
+            <StackPanel Orientation="Horizontal" Name="LayoutButtons" Height="50" Margin="0,0,0,450"
+                        HorizontalAlignment="Right" Width="925" />
+            <DataGrid x:Name="DataGridTimes" mah:ScrollViewerHelper.VerticalScrollBarOnLeftSide="True"
+                      AutoGenerateColumns="True" ColumnWidth="*" Width="915" IsReadOnly="True"
+                      HorizontalAlignment="Right" Height="430" VerticalAlignment="Top" Margin="0,70,10,0"
+                      SelectionMode="Single" MouseDoubleClick="DataGridTimes_OnMouseDoubleClick" />
         </Grid>
 
-        <StackPanel Style="{StaticResource ContentRoot}" VerticalAlignment="Top" Width="196" Height="502" Margin="16,27,16,0" >
-            <Button Content="{x:Static properties:Resources.GetCompetitionsTimes}" Margin="10" Click="ButtonAll_OnClick" Height="30"/>
-            <StackPanel Style="{StaticResource ContentRoot}" HorizontalAlignment="Left" Name = "SelectorGender" Height="78" Margin="10,2,0,2">
-                <Label FontWeight="Bold" FontSize="16" Content="{x:Static properties:Resources.Category}" HorizontalContentAlignment="Center" Width="180"/>
-                <RadioButton Name="MaleRadioButton" GroupName="GenderGroup" IsChecked="True" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Content="{x:Static properties:Resources.MaleText}" Margin="0,5" Click="Gender_OnClick" />
-                <RadioButton Name="FemaleRadioButton" GroupName="GenderGroup" MouseEnter="OnMouseEnter" MouseLeave="OnMouseLeave" Content="{x:Static properties:Resources.FemaleText}" Margin="0,5" Click="Gender_OnClick"/>
+        <StackPanel Style="{StaticResource ContentRoot}" VerticalAlignment="Top" Width="196" Height="502"
+                    Margin="16,27,16,0">
+            <Button Content="{x:Static properties:Resources.GetCompetitionsTimes}" Margin="10"
+                    Click="ButtonAll_OnClick" Height="30" />
+            <StackPanel Style="{StaticResource ContentRoot}" HorizontalAlignment="Left" Name="SelectorGender"
+                        Height="78" Margin="10,2,0,2">
+                <Label FontWeight="Bold" FontSize="16" Content="{x:Static properties:Resources.Category}"
+                       HorizontalContentAlignment="Center" Width="180" />
+                <RadioButton Name="MaleRadioButton" GroupName="GenderGroup" IsChecked="True" MouseEnter="OnMouseEnter"
+                             MouseLeave="OnMouseLeave" Content="{x:Static properties:Resources.MaleText}" Margin="0,5"
+                             Click="Gender_OnClick" />
+                <RadioButton Name="FemaleRadioButton" GroupName="GenderGroup" MouseEnter="OnMouseEnter"
+                             MouseLeave="OnMouseLeave" Content="{x:Static properties:Resources.FemaleText}"
+                             Margin="0,5" Click="Gender_OnClick" />
             </StackPanel>
-            <StackPanel Style="{StaticResource ContentRoot}" HorizontalAlignment="Left" Name = "SelectorCompetition" Margin="10,28,0,16" Width="176" Height="330">
-                <TextBlock Typography.Capitals="AllPetiteCaps" Name="TextBlock" TextAlignment="Center" FontWeight="Bold"  Text="{x:Static properties:Resources.TileCompetitionFinish}" TextWrapping="WrapWithOverflow" FontSize="16" Width="155" Height="46" Margin="7,0"/>
-                <ListBox Name="CompetitionList" Cursor="Hand" Height="274" mah:ScrollViewerHelper.VerticalScrollBarOnLeftSide="True" HorizontalContentAlignment="Left" SelectionChanged="CompetitionList_SelectionChanged"/>
+            <StackPanel Style="{StaticResource ContentRoot}" HorizontalAlignment="Left" Name="SelectorCompetition"
+                        Margin="10,28,0,16" Width="176" Height="330">
+                <TextBlock Typography.Capitals="AllPetiteCaps" Name="TextBlock" TextAlignment="Center"
+                           FontWeight="Bold" Text="{x:Static properties:Resources.TileCompetitionFinish}"
+                           TextWrapping="WrapWithOverflow" FontSize="16" Width="155" Height="46" Margin="7,0" />
+                <ListBox Name="CompetitionList" Cursor="Hand" Height="274"
+                         mah:ScrollViewerHelper.VerticalScrollBarOnLeftSide="True" HorizontalContentAlignment="Left"
+                         SelectionChanged="CompetitionList_SelectionChanged" />
             </StackPanel>
         </StackPanel>
 

@@ -1,26 +1,26 @@
-﻿using System;
-using System.Data.SQLite;
+﻿using System.Data.SQLite;
 using Logic.Db.Connection;
 using Logic.Db.Dto;
+using Logic.Db.Properties;
 
-namespace Logic.Db.ActionObjects.CompetitionLogic {
-    public class AddCompetitionLogic : IActionObject {
+namespace Logic.Db.ActionObjects.CompetitionLogic
+{
+    public class AddCompetitionLogic : IActionObject
+    {
+        private readonly CompetitionDto _competition;
 
 
         private readonly DBConnection _conn;
-        private readonly CompetitionDto _competition;
 
 
         public AddCompetitionLogic(ref DBConnection conn, CompetitionDto competitionP) {
             _competition = competitionP;
             _conn = conn;
-
         }
 
         public void Execute() {
             try {
-                using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_INSERT_COMPETITION, _conn.DbConnection)) {
-
+                using (var command = new SQLiteCommand(Resources.SQL_INSERT_COMPETITION, _conn.DbConnection)) {
                     command.Parameters.AddWithValue("@COMPETITION_NAME", _competition.Name);
                     command.Parameters.AddWithValue("@COMPETITION_KM", _competition.Km);
                     //command.Parameters.AddWithValue("@COMPETITION_PRICE", _competition.Price);
@@ -48,15 +48,16 @@ namespace Logic.Db.ActionObjects.CompetitionLogic {
                     command.Parameters.AddWithValue("@COMPETITION_SLOPE", _competition.Slope);
                     command.Parameters.AddWithValue("@COMPETITION_MILESTONES", _competition.NumberMilestone);
                     command.Parameters.AddWithValue("@COMPETITION_PREINSCRIPTION", _competition.Preinscription);
-                    command.Parameters.AddWithValue("@COMPETITION_DAYS_PREINSCRIPTION", _competition.DaysPreinscription);
+                    command.Parameters.AddWithValue("@COMPETITION_DAYS_PREINSCRIPTION",
+                        _competition.DaysPreinscription);
 
                     command.ExecuteNonQuery();
                 }
-            } catch (SQLiteException) {
+            }
+            catch (SQLiteException) {
                 _conn.DbConnection?.Close();
                 throw;
             }
         }
-
     }
 }

@@ -1,22 +1,29 @@
 ﻿<mui:ModernDialog
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:mui="http://firstfloorsoftware.com/ModernUI"
-      xmlns:local="clr-namespace:Ui.Main.Pages.Competitions.categories"
-      xmlns:Properties="clr-namespace:Ui.Main.Properties" x:Class="Ui.Main.Pages.Competitions.categories.RefundDialog"
-      mc:Ignorable="d" 
-      Title="Políticas de cancelación / reembolso" Height="395" Width="480">
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+    xmlns:local="clr-namespace:Ui.Main.Pages.Competitions.categories"
+    xmlns:Properties="clr-namespace:Ui.Main.Properties" x:Class="Ui.Main.Pages.Competitions.categories.RefundDialog"
+    mc:Ignorable="d"
+    Title="Políticas de cancelación / reembolso" Height="395" Width="480">
 
     <Grid>
-        <DatePicker x:Name="Limite" HorizontalAlignment="Left" Margin="30,53,0,0" VerticalAlignment="Top" Height="32" Width="185" RenderTransformOrigin="0.486,0.531"/>
-        <ComboBox x:Name="Refund"  HorizontalAlignment="Left" Height="32" Margin="245,53,0,0" VerticalAlignment="Top" Width="180" Initialized="Devolucion_Initialized"/>
-        <ListBox x:Name="Plazos_list" HorizontalAlignment="Left" Height="127" Margin="41,125,0,0" VerticalAlignment="Top" Width="249" />
-        <Button x:Name="BtPlazo" Content="Añadir" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="23" FontSize="9" Click="BtPlazo_Click"  RenderTransformOrigin="0.478,0.435" Margin="310,155,0,0"/>
-        <Button x:Name="BtModificar" Content="{x:Static Properties:Resources.Reset}" Click="BtModificar_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="23" FontSize="9"
-                 RenderTransformOrigin="0.19,0.667" Margin="310,202,0,0"/>
-        <Button x:Name="BtAceptar" Content="Aceptar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="23" FontSize="9" Click="BtAceptar_Click"  RenderTransformOrigin="0.478,0.435" Margin="80,300,0,0"/>
+        <DatePicker x:Name="Limite" HorizontalAlignment="Left" Margin="30,53,0,0" VerticalAlignment="Top" Height="32"
+                    Width="185" RenderTransformOrigin="0.486,0.531" />
+        <ComboBox x:Name="Refund" HorizontalAlignment="Left" Height="32" Margin="245,53,0,0" VerticalAlignment="Top"
+                  Width="180" Initialized="Devolucion_Initialized" />
+        <ListBox x:Name="Plazos_list" HorizontalAlignment="Left" Height="127" Margin="41,125,0,0"
+                 VerticalAlignment="Top" Width="249" />
+        <Button x:Name="BtPlazo" Content="Añadir" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115"
+                Height="23" FontSize="9" Click="BtPlazo_Click" RenderTransformOrigin="0.478,0.435" Margin="310,155,0,0" />
+        <Button x:Name="BtModificar" Content="{x:Static Properties:Resources.Reset}" Click="BtModificar_Click"
+                HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="23" FontSize="9"
+                RenderTransformOrigin="0.19,0.667" Margin="310,202,0,0" />
+        <Button x:Name="BtAceptar" Content="Aceptar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115"
+                Height="23" FontSize="9" Click="BtAceptar_Click" RenderTransformOrigin="0.478,0.435"
+                Margin="80,300,0,0" />
 
     </Grid>
 </mui:ModernDialog>

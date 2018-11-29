@@ -1,41 +1,58 @@
 ﻿<UserControl x:Class="Ui.Main.Pages.Inscriptions.Competitions.CompetitionInscriptionTab"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Ui.Main.Pages.Inscriptions"
-      xmlns:properties="clr-namespace:Ui.Main.Properties"
-      xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
-      xmlns:adorners="http://gu.se/Adorners"
-      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-      mc:Ignorable="d" 
-      d:DesignHeight="625" d:DesignWidth="1250"
-      Loaded="CompetitionSelectionWindow_OnLoaded">
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Ui.Main.Pages.Inscriptions"
+             xmlns:properties="clr-namespace:Ui.Main.Properties"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:adorners="http://gu.se/Adorners"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             mc:Ignorable="d"
+             d:DesignHeight="625" d:DesignWidth="1250"
+             Loaded="CompetitionSelectionWindow_OnLoaded">
 
     <DockPanel Height="525" VerticalAlignment="Bottom">
         <Label FontSize="18"
-           FontWeight="Bold"
-           HorizontalAlignment="Center"
+               FontWeight="Bold"
+               HorizontalAlignment="Center"
                VerticalContentAlignment="Center"
-           Content="{x:Static properties:Resources.TitleSelectCompetition}" DockPanel.Dock="Top" Height="40"/>
+               Content="{x:Static properties:Resources.TitleSelectCompetition}" DockPanel.Dock="Top" Height="40" />
         <StackPanel HorizontalAlignment="Left" Margin="10,2,0,10" Width="240">
-            <Image HorizontalAlignment="Center"  Source="/Resources/default_profile.png" VerticalAlignment="Top" Width="180" Margin="0,10,0,0"/>
-            <Label FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" Content="{x:Static properties:Resources.PersonalInfo}" Margin="0,15" />
+            <Image HorizontalAlignment="Center" Source="/Resources/default_profile.png" VerticalAlignment="Top"
+                   Width="180" Margin="0,10,0,0" />
+            <Label FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"
+                   Content="{x:Static properties:Resources.PersonalInfo}" Margin="0,15" />
             <Border BorderThickness="2" BorderBrush="DarkGray" Height="205" Margin="5,0">
                 <Grid Margin="8,5,5,5">
-                    <xctk:WatermarkTextBox Name="TxDni" x:FieldModifier="public" Watermark="{x:Static properties:Resources.AthleteDni}" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" FontSize="18" FontWeight="Bold" Width="181" Margin="10,0,0,0" TextChanged="TxDni_TextChanged"/>
-                    <Label Name="LbNameSurname" HorizontalAlignment="Left" FontSize="18" FontWeight="Bold" Width="181" Margin="10,40,0,122"/>
-                    <Label Name="LbBirthDate" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" FontSize="18" FontWeight="Bold" Width="181" Margin="10,94,0,0"/>
-                    <Label Name="LbGender" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" FontSize="18" FontWeight="Bold" Width="181" Margin="10,151,0,0"/>
+                    <xctk:WatermarkTextBox Name="TxDni" x:FieldModifier="public"
+                                           Watermark="{x:Static properties:Resources.AthleteDni}"
+                                           HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" FontSize="18"
+                                           FontWeight="Bold" Width="181" Margin="10,0,0,0"
+                                           TextChanged="TxDni_TextChanged" />
+                    <Label Name="LbNameSurname" HorizontalAlignment="Left" FontSize="18" FontWeight="Bold" Width="181"
+                           Margin="10,40,0,122" />
+                    <Label Name="LbBirthDate" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30"
+                           FontSize="18" FontWeight="Bold" Width="181" Margin="10,94,0,0" />
+                    <Label Name="LbGender" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" FontSize="18"
+                           FontWeight="Bold" Width="181" Margin="10,151,0,0" />
                 </Grid>
             </Border>
 
 
         </StackPanel>
 
-        <ScrollViewer Name="ScrollViewer" Style="{StaticResource ContentRoot}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Top" Margin="50,28,16,0" Width="925">
-            <DataGrid x:Name="CompetitionsToSelect" MaxColumnWidth="130" PreviewMouseWheel="CompetitionsToSelect_OnPreviewMouseWheel" mah:ScrollViewerHelper.VerticalScrollBarOnLeftSide="True" SelectionMode="Single" MinWidth="800" AutoGeneratingColumn="OnAutoGeneratingColumn" MinHeight="250"  VerticalAlignment="Top" ColumnWidth="*" DockPanel.Dock="Top" IsReadOnly="True" SelectionChanged="CompetitionsToSelect_SelectionChanged" Height="402" Width="955"/>
+        <ScrollViewer Name="ScrollViewer" Style="{StaticResource ContentRoot}" VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Top" Margin="50,28,16,0" Width="925">
+            <DataGrid x:Name="CompetitionsToSelect" MaxColumnWidth="130"
+                      PreviewMouseWheel="CompetitionsToSelect_OnPreviewMouseWheel"
+                      mah:ScrollViewerHelper.VerticalScrollBarOnLeftSide="True" SelectionMode="Single" MinWidth="800"
+                      AutoGeneratingColumn="OnAutoGeneratingColumn" MinHeight="250" VerticalAlignment="Top"
+                      ColumnWidth="*" DockPanel.Dock="Top" IsReadOnly="True"
+                      SelectionChanged="CompetitionsToSelect_SelectionChanged" Height="402" Width="955" />
         </ScrollViewer>
-        <Button  Name="BtFinish" Content="{x:Static properties:Resources.FinishInscription}" Height="35" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="-867,10,25,10" FontSize="16" Click="BtFinish_Click" Padding="40,3,41,5"/>
+        <Button Name="BtFinish" Content="{x:Static properties:Resources.FinishInscription}" Height="35"
+                VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="-867,10,25,10" FontSize="16"
+                Click="BtFinish_Click" Padding="40,3,41,5" />
     </DockPanel>
 </UserControl>

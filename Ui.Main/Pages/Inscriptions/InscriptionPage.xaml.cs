@@ -1,26 +1,18 @@
-﻿using Logic.Db.Dto;
-using Logic.Db.Util.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Logic.Db.Dto;
+using Logic.Db.Util.Services;
+using Ui.Main.Pages.Inscriptions.Competitions;
 using Ui.Main.Pages.MenuInitial;
 
-namespace Ui.Main.Pages.Inscriptions {
+namespace Ui.Main.Pages.Inscriptions
+{
     /// <summary>
-    /// Lógica de interacción para InscriptionPage.xaml
+    ///     Lógica de interacción para InscriptionPage.xaml
     /// </summary>
-    public partial class InscriptionPage : Page {
+    public partial class InscriptionPage : Page
+    {
         private readonly AthletesService _athletesService;
 
         public InscriptionPage() {
@@ -30,7 +22,8 @@ namespace Ui.Main.Pages.Inscriptions {
         }
 
         private void BtNext_Click(object sender, RoutedEventArgs e) {
-            if (TxName.Text == null || TxSurname.Text == null || TxDNI.Text == null || DPBirthDate.SelectedDate == null) {
+            if (TxName.Text == null || TxSurname.Text == null || TxDNI.Text == null ||
+                DPBirthDate.SelectedDate == null) {
                 MessageBox.Show(Properties.Resources.IncompleteFields);
                 return;
             }
@@ -40,14 +33,14 @@ namespace Ui.Main.Pages.Inscriptions {
                 return;
             }
 
-            DateTime date = (DateTime) DPBirthDate.SelectedDate;
+            var date = (DateTime) DPBirthDate.SelectedDate;
 
             if (DateTime.Now.Year - date.Year < 18 || DateTime.Now.Year - date.Year > 100) {
                 MessageBox.Show(Properties.Resources.InvalidAge);
                 return;
             }
 
-            AthleteDto athlete = new AthleteDto {
+            var athlete = new AthleteDto {
                 Name = TxName.Text,
                 Surname = TxSurname.Text,
                 Dni = TxDNI.Text.ToUpper(),
@@ -61,19 +54,20 @@ namespace Ui.Main.Pages.Inscriptions {
             if (_athletesService.CountAthleteByDni(athlete.Dni) == 0)
                 _athletesService.InsertAthletesTable(athlete);
 
-            Competitions.CompetitionInscription.Dni = athlete.Dni;
-            MainMenu.ChangeMenuSelected(Properties.Resources.TileAthletes, Properties.Resources.TileAthletesInscriptionCompetition);
+            CompetitionInscription.Dni = athlete.Dni;
+            MainMenu.ChangeMenuSelected(Properties.Resources.TileAthletes,
+                Properties.Resources.TileAthletesInscriptionCompetition);
         }
 
         private bool ComprobarDNI(string dni) {
             if (!(dni.Length == 9))
                 return false;
 
-            for (int i = 0; i < 8; i++)
-                if (!Char.IsDigit(dni[i]))
+            for (var i = 0; i < 8; i++)
+                if (!char.IsDigit(dni[i]))
                     return false;
 
-            if (!Char.IsLetter(dni[8]))
+            if (!char.IsLetter(dni[8]))
                 return false;
 
             return true;

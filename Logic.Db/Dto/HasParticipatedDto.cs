@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Logic.Db.Dto {
-
-    public class HasParticipatedDto {
-        public CompetitionDto Competition;
+﻿namespace Logic.Db.Dto
+{
+    public class HasParticipatedDto
+    {
         public AthleteDto Athlete;
-        public long InitialTime;
+        public CompetitionDto Competition;
         public long FinishTime;
+        public long InitialTime;
     }
 }

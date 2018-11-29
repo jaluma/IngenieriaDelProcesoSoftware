@@ -1,25 +1,24 @@
-﻿using Logic.Db.Connection;
+﻿using System.Data.SQLite;
+using Logic.Db.Connection;
 using Logic.Db.Dto;
-using System;
-using System.Collections.Generic;
-using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Logic.Db.Properties;
 
-namespace Logic.Db.ActionObjects.CompetitionLogic {
-    class GetIdCompetition : IActionObject {
-        private readonly DBConnection _conn;
+namespace Logic.Db.ActionObjects.CompetitionLogic
+{
+    internal class GetIdCompetition : IActionObject
+    {
         private readonly CompetitionDto _competitionDto;
+        private readonly DBConnection _conn;
         public int id;
 
         public GetIdCompetition(ref DBConnection conn, CompetitionDto comp) {
             _conn = conn;
             _competitionDto = comp;
         }
+
         public void Execute() {
             try {
-                using (SQLiteCommand command = new SQLiteCommand(Properties.Resources.SQL_GET_COMPETITION_ID, _conn.DbConnection)) {
+                using (var command = new SQLiteCommand(Resources.SQL_GET_COMPETITION_ID, _conn.DbConnection)) {
                     command.Parameters.AddWithValue("@COMPETITION_NAME", _competitionDto.Name);
                     //command.Parameters.AddWithValue("@COMPETITION_TYPE", _competitionDto.Type);
                     //command.Parameters.AddWithValue("@COMPETITION_KM", _competitionDto.Km);
@@ -29,13 +28,12 @@ namespace Logic.Db.ActionObjects.CompetitionLogic {
                     //command.Parameters.AddWithValue("@COMPETITION_RULES", _competitionDto.Rules);
                     //command.Parameters.AddWithValue("@COMPETITION_SLOPE", _competitionDto.Slope);
                     //command.Parameters.AddWithValue("@COMPETITION_NUMBER_MILESTONE", _competitionDto.Milestone);
-                    using (SQLiteDataReader reader = command.ExecuteReader()) {
-                        if (reader.Read()) {
-                            id = reader.GetInt32(0);
-                        }
+                    using (var reader = command.ExecuteReader()) {
+                        if (reader.Read()) id = reader.GetInt32(0);
                     }
                 }
-            } catch (SQLiteException) {
+            }
+            catch (SQLiteException) {
                 _conn.DbConnection?.Close();
                 throw;
             }

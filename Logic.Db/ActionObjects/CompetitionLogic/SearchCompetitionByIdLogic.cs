@@ -1,27 +1,27 @@
-﻿using Logic.Db.Connection;
-using Logic.Db.Dto;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Logic.Db.Connection;
+using Logic.Db.Dto;
+using Logic.Db.Properties;
 
-namespace Logic.Db.ActionObjects.CompetitionLogic {
-    public class SearchCompetitionByIdLogic : IActionObject {
-        private DBConnection _conn;
+namespace Logic.Db.ActionObjects.CompetitionLogic
+{
+    public class SearchCompetitionByIdLogic : IActionObject
+    {
         private readonly CompetitionDto _competitionDto;
+        private DBConnection _conn;
         public CompetitionDto Competition;
 
         public SearchCompetitionByIdLogic(ref DBConnection conn, CompetitionDto comp) {
             _conn = conn;
             _competitionDto = comp;
         }
+
         public void Execute() {
             try {
-                using (SQLiteCommand command = new SQLiteCommand(Properties.Resources.SQL_SELECT_COMPETITION_BY_ID, _conn.DbConnection)) {
+                using (var command = new SQLiteCommand(Resources.SQL_SELECT_COMPETITION_BY_ID, _conn.DbConnection)) {
                     command.Parameters.AddWithValue("@ID", _competitionDto.ID);
-                    using (SQLiteDataReader reader = command.ExecuteReader()) {
+                    using (var reader = command.ExecuteReader()) {
                         if (reader.Read()) {
                             //Competition = new CompetitionDto()
                             //{
@@ -49,11 +49,12 @@ namespace Logic.Db.ActionObjects.CompetitionLogic {
                             Competition.NumberPlaces = reader.GetInt32(10);
                             Competition.Preinscription = reader.GetBoolean(11);
                             Competition.DaysPreinscription = reader.GetInt32(12);
-                            Enum.TryParse<TypeCompetition>(reader.GetString(2), out Competition.Type);
+                            Enum.TryParse(reader.GetString(2), out Competition.Type);
                         }
                     }
                 }
-            } catch (SQLiteException) {
+            }
+            catch (SQLiteException) {
                 _conn.DbConnection?.Close();
                 throw;
             }

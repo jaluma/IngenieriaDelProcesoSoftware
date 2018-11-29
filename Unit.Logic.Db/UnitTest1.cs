@@ -1,18 +1,16 @@
 ﻿using System;
-using Logic.Db.ActionObjects;
-using Logic.Db.Connection;
 using Logic.Db.Dto;
-using Logic.Db.Util;
 using Logic.Db.Util.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Unit.Logic.Db {
+namespace Unit.Logic.Db
+{
     [TestClass]
-    public class UnitTest1 {
+    public class UnitTest1
+    {
         [TestMethod]
         public void TestAddAthletes() {
-
-            AthleteDto athlete = new AthleteDto {
+            var athlete = new AthleteDto {
                 Dni = "55555554D",
                 Name = "Alejandro",
                 Surname = "Perez",
@@ -20,7 +18,7 @@ namespace Unit.Logic.Db {
                 Gender = AthleteDto.MALE
             };
 
-            AthletesService service = new AthletesService();
+            var service = new AthletesService();
             AthletesService.PrintAthletes(service.SelectAthleteTable());
         }
     }

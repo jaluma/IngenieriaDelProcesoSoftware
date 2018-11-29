@@ -1,37 +1,24 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Forms;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Logic.Db.ActionObjects.AthleteLogic;
 using Logic.Db.Dto;
 using Logic.Db.Util.Services;
-using Cursors = System.Windows.Input.Cursors;
-using MessageBox = System.Windows.MessageBox;
-using MouseEventArgs = System.Windows.Input.MouseEventArgs;
 
-namespace Ui.Main.Pages.Inscriptions.HasRegistered {
+namespace Ui.Main.Pages.Inscriptions.HasRegistered
+{
     /// <summary>
-    /// Lógica de interacción para AddDorsalsAndRegisteredInCompetition.xaml
+    ///     Lógica de interacción para AddDorsalsAndRegisteredInCompetition.xaml
     /// </summary>
-    public partial class Dorsals : Page {
-        private EnrollService _enroll;
-        private CompetitionService _competitionService;
+    public partial class Dorsals : Page
+    {
         private CompetitionDto _competition;
+        private readonly CompetitionService _competitionService;
+        private EnrollService _enroll;
+        private readonly List<int> _ids;
         private DataTable _table;
-        private List<int> _ids;
 
         public Dorsals() {
             InitializeComponent();
@@ -39,8 +26,8 @@ namespace Ui.Main.Pages.Inscriptions.HasRegistered {
             _competitionService = new CompetitionService();
             _table = _competitionService.ListNotRealizedCompetitions();
 
-            int index = _table.Columns.IndexOf("Competition_Name");
-            List<string> list = new List<string>();
+            var index = _table.Columns.IndexOf("Competition_Name");
+            var list = new List<string>();
             _ids = new List<int>();
 
             foreach (DataRow row in _table.Rows) {
@@ -65,41 +52,38 @@ namespace Ui.Main.Pages.Inscriptions.HasRegistered {
 
             DataGridCompetition.ItemsSource = _table.DefaultView;
 
-            if (_table.Rows.Count > 0) {
+            if (_table.Rows.Count > 0)
                 BtDorsals.IsEnabled = true;
-            } else {
+            else
                 BtDorsals.IsEnabled = false;
-            }
         }
 
         private void BtDorsals_Click(object sender, RoutedEventArgs e) {
             try {
-                bool dorsals = _enroll.IsDorsalsInCompetition(_competition);
+                var dorsals = _enroll.IsDorsalsInCompetition(_competition);
 
-                MessageBoxResult result = MessageBoxResult.None;
+                var result = MessageBoxResult.None;
                 if (dorsals) {
-                    string message = "¿Quiere sobreescribir los dorsales?";
+                    var message = "¿Quiere sobreescribir los dorsales?";
                     result = MessageBox.Show(message, "Error", MessageBoxButton.YesNo);
-                    if (result == MessageBoxResult.Yes) {
-                        _enroll.UpdateAthleteRegisteredDorsal(_competition);
-                    }
-                } else {
+                    if (result == MessageBoxResult.Yes) _enroll.UpdateAthleteRegisteredDorsal(_competition);
+                }
+                else {
                     _enroll.UpdateAthleteRegisteredDorsal(_competition);
                 }
-
 
 
                 GenerateTable();
 
                 BtDorsals.IsEnabled = false;
-            } catch (NullReferenceException) {
+            }
+            catch (NullReferenceException) {
                 MessageBox.Show("Escoja primero la competición");
-                return;
             }
         }
 
         private void CompetitionList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            _competition = new CompetitionDto() {
+            _competition = new CompetitionDto {
                 ID = _ids[CompetitionList.SelectedIndex]
             };
 
@@ -107,14 +91,12 @@ namespace Ui.Main.Pages.Inscriptions.HasRegistered {
         }
 
         private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e) {
-            if (e.PropertyType == typeof(System.DateTime))
-                ((System.Windows.Controls.DataGridTextColumn) e.Column).Binding.StringFormat = "dd/MM/yyyy";
+            if (e.PropertyType == typeof(DateTime))
+                ((DataGridTextColumn) e.Column).Binding.StringFormat = "dd/MM/yyyy";
         }
 
         private void Dorsals_OnLoaded(object sender, RoutedEventArgs e) {
-            if (CompetitionList.HasItems) {
-                CompetitionList.SelectedIndex = 0;
-            }
+            if (CompetitionList.HasItems) CompetitionList.SelectedIndex = 0;
         }
 
         private void BtDorsals_OnPreviewMouseWheel(object sender, MouseWheelEventArgs e) {

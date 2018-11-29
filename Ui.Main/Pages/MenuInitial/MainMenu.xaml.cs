@@ -1,26 +1,24 @@
 ﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using Ui.Main.Pages.Competition.Times;
-using Ui.Main.Pages.Inscriptions.HasRegistered;
-using Ui.Main.Pages.Competitions;
 
-namespace Ui.Main.Pages.MenuInitial {
+namespace Ui.Main.Pages.MenuInitial
+{
     /// <summary>
-    /// Lógica de interacción para MainMenu.xaml
+    ///     Lógica de interacción para MainMenu.xaml
     /// </summary>
-    public partial class MainMenu : Page {
+    public partial class MainMenu : Page
+    {
         public MainMenu() {
             InitializeComponent();
         }
 
-        private void TileAthletes_Click(object sender, System.Windows.RoutedEventArgs e) {
-
+        private void TileAthletes_Click(object sender, RoutedEventArgs e) {
             //NavigationService?.Navigate(new ...);
             ChangeMenuSelected(Properties.Resources.TileAthletes, Properties.Resources.AthleteMenuList);
         }
 
-        private void TileCompetition_Click(object sender, System.Windows.RoutedEventArgs e) {
+        private void TileCompetition_Click(object sender, RoutedEventArgs e) {
             //Content = new Frame()
             //{
             //    Content = new ListOpenCompetition()
@@ -28,14 +26,14 @@ namespace Ui.Main.Pages.MenuInitial {
             ChangeMenuSelected(Properties.Resources.TileCompetition, Properties.Resources.CategoryMenuActive);
         }
 
-        private void TileCompetitionFinish_Click(object sender, System.Windows.RoutedEventArgs e) {
+        private void TileCompetitionFinish_Click(object sender, RoutedEventArgs e) {
             //Content = new Frame() {
             //    Content = new SelectionCompetition()
             //};
             ChangeMenuSelected(Properties.Resources.TileCompetition, Properties.Resources.CategoryMenuFinish);
         }
 
-        private void TileInscriptionDorsal_Click(object sender, System.Windows.RoutedEventArgs e) {
+        private void TileInscriptionDorsal_Click(object sender, RoutedEventArgs e) {
             //Content = new Frame() {
             //    Content = new AddDorsalsAndRegisteredInCompetition()
             //};
@@ -43,7 +41,8 @@ namespace Ui.Main.Pages.MenuInitial {
         }
 
         public static void ChangeMenuSelected(string menuName, string subMenuName) {
-            if (Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive) is MainWindow mainWindow) {
+            if (Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive) is MainWindow mainWindow
+            ) {
                 var linkMenu = mainWindow.PrincipalWindow.MenuLinkGroups
                     .First(m => m.DisplayName.Equals(menuName)).Links;
                 var linkSubMenu = linkMenu.First(l => l.DisplayName.Equals(subMenuName));

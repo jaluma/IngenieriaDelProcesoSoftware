@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using Logic.Db.Connection;
+﻿using Logic.Db.Connection;
 
-namespace Logic.Db.Util {
-    public class ServiceAdapter {
+namespace Logic.Db.Util
+{
+    public class ServiceAdapter
+    {
         protected DBConnection _conn;
 
         public ServiceAdapter() {

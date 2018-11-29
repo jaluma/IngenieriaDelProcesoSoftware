@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SQLite;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SQLite;
 using Logic.Db.Connection;
 using Logic.Db.Dto;
+using Logic.Db.Properties;
 
-namespace Logic.Db.ActionObjects.AthleteLogic {
-    public class DeleteAthleteLogic : IActionObject {
-        private readonly DBConnection _conn;
+namespace Logic.Db.ActionObjects.AthleteLogic
+{
+    public class DeleteAthleteLogic : IActionObject
+    {
         private readonly AthleteDto _athlete;
+        private readonly DBConnection _conn;
+
         public DeleteAthleteLogic(ref DBConnection conn, AthleteDto athleteP) {
             _conn = conn;
             _athlete = athleteP;
@@ -17,11 +17,12 @@ namespace Logic.Db.ActionObjects.AthleteLogic {
 
         public void Execute() {
             try {
-                using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_DELETE_ATHLETE, _conn.DbConnection)) {
+                using (var command = new SQLiteCommand(Resources.SQL_DELETE_ATHLETE, _conn.DbConnection)) {
                     command.Parameters.AddWithValue("@DNI", _athlete.Dni);
                     command.ExecuteNonQuery();
                 }
-            } catch (SQLiteException) {
+            }
+            catch (SQLiteException) {
                 _conn.DbConnection?.Close();
                 throw;
             }

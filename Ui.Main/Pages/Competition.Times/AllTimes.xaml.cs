@@ -1,46 +1,27 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data;
-using System.IO;
 using System.Linq;
-using System.Printing;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Forms;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using FirstFloor.ModernUI.Windows.Controls;
 using Logic.Db.Dto;
 using Logic.Db.Util.Services;
-using Button = System.Windows.Controls.Button;
-using Cursors = System.Windows.Input.Cursors;
-using DataGrid = System.Windows.Controls.DataGrid;
-using HorizontalAlignment = System.Windows.HorizontalAlignment;
-using Label = System.Windows.Controls.Label;
-using PrintDialog = System.Windows.Controls.PrintDialog;
 
 namespace Ui.Main.Pages.Competition.Times
 {
     /// <summary>
-    /// Lógica de interacción para AllTimes.xaml
+    ///     Lógica de interacción para AllTimes.xaml
     /// </summary>
     public partial class AllTimes : ModernDialog
     {
+        private static readonly string[] Genders = new string[2] {"M", "F"};
+        private readonly IEnumerable<AbsoluteCategory> _categories;
+        private readonly CompetitionDto _competition;
+        private readonly TimesService _service;
 
-        private DataTable[,] _tables;
-        private IEnumerable<AbsoluteCategory> _categories;
-        private CompetitionDto _competition;
-        private TimesService _service;
-
-        private static string[] Genders = new string[2] {"M", "F"};
+        private readonly DataTable[,] _tables;
 
         public AllTimes(CompetitionDto competition, IEnumerable<AbsoluteCategory> categories) {
             _competition = competition;
@@ -50,29 +31,27 @@ namespace Ui.Main.Pages.Competition.Times
             InitializeComponent();
 
             //botones
-            Button customButton = new Button() {Content = Properties.Resources.Close, Margin = new Thickness(4)};
-            customButton.Click += (ss, ee) => { this.Close(); };
-            Button printButton = new Button() {Content = Properties.Resources.Print, Margin = new Thickness(4)};
+            var customButton = new Button {Content = Properties.Resources.Close, Margin = new Thickness(4)};
+            customButton.Click += (ss, ee) => { Close(); };
+            var printButton = new Button {Content = Properties.Resources.Print, Margin = new Thickness(4)};
             printButton.Click += ButtonBase_OnClick;
-            Buttons = new Button[] {printButton, customButton};
+            Buttons = new[] {printButton, customButton};
 
-            for (int i = 0; i < _categories.Count(); i++) {
-                for (int j = 0; j < 2; j++) {
-                    DataGrid dataGrid = new DataGrid();
-                    dataGrid.Margin = new Thickness(10);
-                    dataGrid.HorizontalAlignment = HorizontalAlignment.Stretch;
-                    dataGrid.PreviewMouseWheel += DataGridOnPreviewMouseWheel;
-                    GenerateDatagrid(i, j);
+            for (var i = 0; i < _categories.Count(); i++)
+            for (var j = 0; j < 2; j++) {
+                var dataGrid = new DataGrid();
+                dataGrid.Margin = new Thickness(10);
+                dataGrid.HorizontalAlignment = HorizontalAlignment.Stretch;
+                dataGrid.PreviewMouseWheel += DataGridOnPreviewMouseWheel;
+                GenerateDatagrid(i, j);
 
-                    if (_tables[i, j] != null) {
-                        Layout.Children.Add(getLabel(i, j));
+                if (_tables[i, j] != null) {
+                    Layout.Children.Add(getLabel(i, j));
 
-                        dataGrid.ItemsSource = _tables[i, j].DefaultView;
-                        dataGrid.MinColumnWidth = 10;
-                        Layout.Children.Add(dataGrid);
-                    }
+                    dataGrid.ItemsSource = _tables[i, j].DefaultView;
+                    dataGrid.MinColumnWidth = 10;
+                    Layout.Children.Add(dataGrid);
                 }
-
             }
         }
 
@@ -81,7 +60,7 @@ namespace Ui.Main.Pages.Competition.Times
         }
 
         private Label getLabel(int i, int j) {
-            Label label = new Label() {
+            var label = new Label {
                 FontSize = 12,
                 FontWeight = FontWeights.Bold
             };
@@ -96,11 +75,11 @@ namespace Ui.Main.Pages.Competition.Times
         }
 
         private void GenerateDatagrid(int index, int rowGender) {
-            DataColumn column = new DataColumn(Properties.Resources.AthletePosition, typeof(string)) {
+            var column = new DataColumn(Properties.Resources.AthletePosition, typeof(string)) {
                 AllowDBNull = true
             };
 
-            ref DataTable tableRef = ref _tables[index, rowGender];
+            ref var tableRef = ref _tables[index, rowGender];
             tableRef = new DataTable();
             tableRef.Columns.Add(column);
 
@@ -125,36 +104,31 @@ namespace Ui.Main.Pages.Competition.Times
             tableRef.Columns[8].ColumnName = Properties.Resources.Age;
             tableRef.Columns[9].ColumnName = Properties.Resources.TimeSeconds;
 
-            DataTable dtClone = tableRef.Clone();
+            var dtClone = tableRef.Clone();
             dtClone.Columns[6].ColumnName = Properties.Resources.Time;
             dtClone.Columns[Properties.Resources.Time].DataType = typeof(string);
             dtClone.Columns[Properties.Resources.TimeSeconds].DataType = typeof(string);
 
 
             foreach (DataRow row in tableRef.Rows) {
-                object[] dr = row.ItemArray as object[];
-                if (dr[6] is DBNull)
-                {
+                var dr = row.ItemArray;
+                if (dr[6] is DBNull) {
                     dr[6] = "DNS";
                 }
-                else if (dr[7] is DBNull || (long)dr[7] == 0)
-                {
+                else if (dr[7] is DBNull || (long) dr[7] == 0) {
                     dr[6] = "DNF";
                 }
-                else
-                {
-                    var seconds = (long)dr[7] - (long)dr[6];
+                else {
+                    var seconds = (long) dr[7] - (long) dr[6];
                     var timespan = TimeSpan.FromSeconds(seconds);
                     dr[6] = timespan.ToString(@"hh\:mm\:ss");
                 }
 
-                if (dr[9] is DBNull)
-                {
+                if (dr[9] is DBNull) {
                     dr[9] = "---";
                 }
-                else
-                {
-                    var timespan = TimeSpan.FromSeconds((long)dr[9]);
+                else {
+                    var timespan = TimeSpan.FromSeconds((long) dr[9]);
                     dr[9] = timespan.ToString(@"mm\:ss");
                 }
 
@@ -177,17 +151,14 @@ namespace Ui.Main.Pages.Competition.Times
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e) {
             Panel.ScrollToTop();
 
-            PrintDialog printDialog = new PrintDialog();
+            var printDialog = new PrintDialog();
             //printDlg.PrintTicket.PageOrientation = System.Printing.PageOrientation.Landscape;
             printDialog.PageRangeSelection = PageRangeSelection.AllPages;
             printDialog.UserPageRangeEnabled = true;
 
             var result = printDialog.ShowDialog();
 
-            if ((bool) result) {
-                //Size pageSize = new Size { Height = printDlg.PrintableAreaHeight, Width = printDlg.PrintableAreaWidth };
-                printDialog.PrintVisual(Layout, "Tiempos");
-            }
+            if ((bool) result) printDialog.PrintVisual(Layout, "Tiempos");
         }
     }
 }

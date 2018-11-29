@@ -1,37 +1,27 @@
-﻿using FirstFloor.ModernUI.Windows.Controls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Collections.Generic;
 using System.Windows;
+using FirstFloor.ModernUI.Windows.Controls;
 using Logic.Db.Dto;
 
-namespace Ui.Main.Pages.Competitions.categories {
+namespace Ui.Main.Pages.Competitions.categories
+{
     /// <summary>
-    /// Lógica de interacción para NewCategoriesDialog.xaml
+    ///     Lógica de interacción para NewCategoriesDialog.xaml
     /// </summary>
-    public partial class CategoriesDialog : ModernDialog {
+    public partial class CategoriesDialog : ModernDialog
+    {
+        public List<AbsoluteCategory> absolutes;
 
         public AbsoluteCategory cat = new AbsoluteCategory();
         public CategoryDto femenino = new CategoryDto();
         public CategoryDto masculino = new CategoryDto();
-        public List<AbsoluteCategory> absolutes;
-        public int nuevoM;
         public int nuevoF;
+        public int nuevoM;
 
 
         public CategoriesDialog(AbsoluteCategory category, List<AbsoluteCategory> absolutes) {
             InitializeComponent();
-            this.cat = category;
+            cat = category;
             this.absolutes = absolutes;
             Nombre.Text = category.Name;
 
@@ -39,9 +29,6 @@ namespace Ui.Main.Pages.Competitions.categories {
             HastaF.Text = category.CategoryF.MaxAge.ToString();
             DesdeM.Text = category.CategoryM.MinAge.ToString();
             HastaM.Text = category.CategoryM.MaxAge.ToString();
-
-
-
         }
 
         private void BtNueva_Click(object sender, RoutedEventArgs e) {
@@ -49,6 +36,7 @@ namespace Ui.Main.Pages.Competitions.categories {
                 MessageBox.Show("Edades incoherentes");
                 return;
             }
+
             cat.Name = Nombre.Text;
 
             femenino.MinAge = int.Parse(DesdeF.Text);
@@ -67,7 +55,6 @@ namespace Ui.Main.Pages.Competitions.categories {
             absolutes.Add(cat);
 
             Close();
-
         }
 
         private void HastaF_LostFocus(object sender, RoutedEventArgs e) {
@@ -82,4 +69,3 @@ namespace Ui.Main.Pages.Competitions.categories {
         }
     }
 }
-

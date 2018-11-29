@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Controls;
@@ -7,14 +8,17 @@ using FirstFloor.ModernUI.Windows.Controls;
 using Logic.Db.Dto;
 using Logic.Db.Util.Services;
 using Ui.Main.Pages.MenuInitial;
+using DataGridTextColumn = System.Windows.Controls.DataGridTextColumn;
 
-namespace Ui.Main.Pages.Competition.Times {
+namespace Ui.Main.Pages.Competition.Times
+{
     /// <summary>
-    /// Lógica de interacción para SelectionCompetition.xaml
+    ///     Lógica de interacción para SelectionCompetition.xaml
     /// </summary>
-    public partial class SelectionCompetition : ModernFrame {
+    public partial class SelectionCompetition : ModernFrame
+    {
         private readonly CompetitionService _service;
-        private List<long> _columnIds;
+        private readonly List<long> _columnIds;
 
         public SelectionCompetition() {
             InitializeComponent();
@@ -22,7 +26,7 @@ namespace Ui.Main.Pages.Competition.Times {
 
             // inicialize data table
             _service = new CompetitionService();
-            DataTable table = _service.SelectCompetitionFinish();
+            var table = _service.SelectCompetitionFinish();
             table.Columns[0].ColumnName = Properties.Resources.Competition_Id;
             table.Columns[1].ColumnName = Properties.Resources.Competition_Name;
             table.Columns[2].ColumnName = Properties.Resources.Competition_Type;
@@ -43,13 +47,12 @@ namespace Ui.Main.Pages.Competition.Times {
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            var indexSeletected = DataGridCompetition.SelectedIndex;
 
-            int indexSeletected = DataGridCompetition.SelectedIndex;
-
-            int id = (int) _columnIds[indexSeletected];
+            var id = (int) _columnIds[indexSeletected];
 
 
-            CompetitionDto competition = new CompetitionDto() {
+            var competition = new CompetitionDto {
                 ID = id
             };
 
@@ -67,8 +70,8 @@ namespace Ui.Main.Pages.Competition.Times {
         }
 
         private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e) {
-            if (e.PropertyType == typeof(System.DateTime))
-                ((System.Windows.Controls.DataGridTextColumn) e.Column).Binding.StringFormat = "dd/MM/yyyy";
+            if (e.PropertyType == typeof(DateTime))
+                ((DataGridTextColumn) e.Column).Binding.StringFormat = "dd/MM/yyyy";
         }
 
         private void DataGridCompetition_OnPreviewMouseWheel(object sender, MouseWheelEventArgs e) {

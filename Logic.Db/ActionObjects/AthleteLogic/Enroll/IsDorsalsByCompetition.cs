@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SQLite;
 using Logic.Db.Connection;
 using Logic.Db.Dto;
+using Logic.Db.Properties;
 
-namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
-    public class IsDorsalsByCompetition : IActionObject {
+namespace Logic.Db.ActionObjects.AthleteLogic.Enroll
+{
+    public class IsDorsalsByCompetition : IActionObject
+    {
+        private readonly CompetitionDto _competition;
 
         private readonly DBConnection _conn;
-        private readonly CompetitionDto _competition;
         public bool IsDorsals;
 
         public IsDorsalsByCompetition(ref DBConnection conn, CompetitionDto competitionP) {
@@ -23,23 +20,21 @@ namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
 
         public void Execute() {
             try {
-                using (SQLiteCommand command = new SQLiteCommand(Properties.Resources.SQL_SELECT_COUNT_DORSALS_BY_COMPETITION, _conn.DbConnection)) {
+                using (var command =
+                    new SQLiteCommand(Resources.SQL_SELECT_COUNT_DORSALS_BY_COMPETITION, _conn.DbConnection)) {
                     command.Parameters.AddWithValue("@COMPETITION_ID", _competition.ID);
-                    using (SQLiteDataReader reader = command.ExecuteReader()) {
-                        if (!reader.HasRows) {
-                            throw new SQLiteException();
-                        }
+                    using (var reader = command.ExecuteReader()) {
+                        if (!reader.HasRows) throw new SQLiteException();
 
                         reader.Read();
                         IsDorsals = reader.GetInt32(0) != 0;
                     }
                 }
-
-            } catch (SQLiteException) {
+            }
+            catch (SQLiteException) {
                 _conn.DbConnection?.Close();
                 throw;
             }
-
         }
     }
 }

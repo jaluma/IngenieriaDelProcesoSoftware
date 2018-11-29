@@ -1,43 +1,35 @@
-﻿using Logic.Db.Dto;
-using Logic.Db.Util.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Logic.Db.Dto;
+using Logic.Db.Util.Services;
 using Ui.Main.Pages.Inscriptions.Payment;
 
 namespace Ui.Main.Pages.Inscriptions.Clubs
 {
     /// <summary>
-    /// Lógica de interacción para ClubInscriptionFormTab.xaml
+    ///     Lógica de interacción para ClubInscriptionFormTab.xaml
     /// </summary>
-    public partial class ClubInscriptionFormTab : System.Windows.Controls.UserControl
+    public partial class ClubInscriptionFormTab : UserControl
     {
-        private readonly CompetitionService _competitionService;
         private readonly AthletesService _athletesService;
+        private readonly CompetitionService _competitionService;
         private readonly EnrollService _enrollService;
 
-        private List<long> _columnIds;
+        private readonly List<AthleteDto> _athletes;
 
-        private List<AthleteDto> _athletes;
+        private List<long> _columnIds;
         private CompetitionDto _competition;
         private int _count;
 
-        private StringBuilder _stringBuilder;
+        private readonly StringBuilder _stringBuilder;
 
-        public ClubInscriptionFormTab()
-        {
+        public ClubInscriptionFormTab() {
             InitializeComponent();
             DPBirthDate.DisplayDateEnd = new DateTime(DateTime.Now.Year, 12, 31).AddYears(-18);
             _athletesService = new AthletesService();
@@ -48,48 +40,42 @@ namespace Ui.Main.Pages.Inscriptions.Clubs
             _stringBuilder = new StringBuilder();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (TxName.Text == null || TxSurname.Text == null || TxDni.Text == null || DPBirthDate.SelectedDate == null)
-            {
+        private void Button_Click(object sender, RoutedEventArgs e) {
+            if (TxName.Text == null || TxSurname.Text == null || TxDni.Text == null ||
+                DPBirthDate.SelectedDate == null) {
                 MessageBox.Show(Properties.Resources.IncompleteFields);
                 return;
             }
 
-            if (!ComprobarDNI(TxDni.Text))
-            {
+            if (!ComprobarDNI(TxDni.Text)) {
                 MessageBox.Show(Properties.Resources.InvalidDNI);
                 return;
             }
 
-            DateTime date = (DateTime)DPBirthDate.SelectedDate;
+            var date = (DateTime) DPBirthDate.SelectedDate;
 
-            if (DateTime.Now.Year - date.Year < 18 || DateTime.Now.Year - date.Year > 100)
-            {
+            if (DateTime.Now.Year - date.Year < 18 || DateTime.Now.Year - date.Year > 100) {
                 MessageBox.Show(Properties.Resources.InvalidAge);
                 return;
             }
 
-            AthleteDto athlete = new AthleteDto
-            {
+            var athlete = new AthleteDto {
                 Name = TxName.Text,
                 Surname = TxSurname.Text,
                 Dni = TxDni.Text.ToUpper(),
                 BirthDate = date
             };
 
-            if ((bool)RbMasc.IsChecked)
+            if ((bool) RbMasc.IsChecked)
                 athlete.Gender = AthleteDto.MALE;
             else
                 athlete.Gender = AthleteDto.FEMALE;
 
-            if (_athletesService.CountAthleteByDni(athlete.Dni) != 0)
-            {
+            if (_athletesService.CountAthleteByDni(athlete.Dni) != 0) {
                 _stringBuilder.Append(athlete.Dni + " registrado anteriormente.\n\n");
                 _athletes.Add(athlete);
             }
-            else
-            {
+            else {
                 _stringBuilder.Append(athlete.Dni + " registrado correctamente.\n\n");
                 _athletes.Add(athlete);
                 _athletesService.InsertAthletesTable(athlete);
@@ -104,24 +90,22 @@ namespace Ui.Main.Pages.Inscriptions.Clubs
             GetListCompetition();
         }
 
-        private bool ComprobarDNI(string dni)
-        {
+        private bool ComprobarDNI(string dni) {
             if (!(dni.Length == 9))
                 return false;
 
-            for (int i = 0; i < 8; i++)
-                if (!Char.IsDigit(dni[i]))
+            for (var i = 0; i < 8; i++)
+                if (!char.IsDigit(dni[i]))
                     return false;
 
-            if (!Char.IsLetter(dni[8]))
+            if (!char.IsLetter(dni[8]))
                 return false;
 
             return true;
         }
 
-        private void GetListCompetition()
-        {
-            DataTable table = _competitionService.ListCompetitionsToInscribeClubs(_athletes.Count);
+        private void GetListCompetition() {
+            var table = _competitionService.ListCompetitionsToInscribeClubs(_athletes.Count);
             table.Columns[0].ColumnName = Properties.Resources.Competition_Id;
             table.Columns[1].ColumnName = Properties.Resources.Competition_Name;
             table.Columns[2].ColumnName = Properties.Resources.Competition_Type;
@@ -141,35 +125,30 @@ namespace Ui.Main.Pages.Inscriptions.Clubs
                 CompetitionsToSelect.ItemsSource = table.DefaultView;
         }
 
-        private void BtFinish_Click(object sender, RoutedEventArgs e)
-        {
-            if (CompetitionsToSelect.SelectedItem == null)
-            {
-                System.Windows.MessageBox.Show(Properties.Resources.NothingSelected);
+        private void BtFinish_Click(object sender, RoutedEventArgs e) {
+            if (CompetitionsToSelect.SelectedItem == null) {
+                MessageBox.Show(Properties.Resources.NothingSelected);
                 return;
             }
 
-            CompetitionDto dto = new CompetitionDto()
-            {
+            var dto = new CompetitionDto {
                 ID = _columnIds[CompetitionsToSelect.SelectedIndex]
             };
             _competition = _competitionService.SearchCompetitionById(dto);
 
-            StringBuilder stringBuilder = new StringBuilder();
-            foreach (AthleteDto a in _athletes)
-            {
-                if (_enrollService.IsAthleteInComp(_competition, a))
+            var stringBuilder = new StringBuilder();
+            foreach (var a in _athletes)
+                if (_enrollService.IsAthleteInComp(_competition, a)) {
                     stringBuilder.Append(a.Dni + " inscrito anteriormente en la competición.\n");
-                else
-                {
+                }
+                else {
                     _enrollService.InsertAthleteInCompetition(a, _competition, TypesStatus.Registered);
                     _count++;
                     stringBuilder.Append(a.Dni + " inscrito correctamente.\n");
                 }
-            }
 
 
-            DialogPayment dialog = new DialogPayment(null, null);
+            var dialog = new DialogPayment(null, null);
             dialog.Content = new InscriptionProofClubs(_competition, stringBuilder.ToString(), _count);
             dialog.Show();
 
@@ -177,30 +156,23 @@ namespace Ui.Main.Pages.Inscriptions.Clubs
             GetListCompetition();
         }
 
-        private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
-        {
-            if (e.PropertyType == typeof(System.DateTime))
-                ((DataGridTextColumn)e.Column).Binding.StringFormat = "dd/MM/yyyy";
+        private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e) {
+            if (e.PropertyType == typeof(DateTime))
+                ((DataGridTextColumn) e.Column).Binding.StringFormat = "dd/MM/yyyy";
         }
 
 
-        private void CompetitionsToSelect_OnPreviewMouseWheel(object sender, MouseWheelEventArgs e)
-        {
+        private void CompetitionsToSelect_OnPreviewMouseWheel(object sender, MouseWheelEventArgs e) {
             ScrollViewer2.ScrollToVerticalOffset(ScrollViewer2.VerticalOffset - e.Delta);
         }
 
-        private void CompetitionsToSelect_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            int indexSeletected = CompetitionsToSelect.SelectedIndex;
+        private void CompetitionsToSelect_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            var indexSeletected = CompetitionsToSelect.SelectedIndex;
 
             if (indexSeletected != -1)
-            {
-                _competition = new CompetitionDto()
-                {
-                    ID = (int)_columnIds[indexSeletected]
+                _competition = new CompetitionDto {
+                    ID = (int) _columnIds[indexSeletected]
                 };
-            }
-
         }
     }
 }

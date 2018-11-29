@@ -1,21 +1,23 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Logic.Db.Dto;
 using Logic.Db.Util.Services;
 
-namespace Ui.Main.Pages.Inscriptions {
+namespace Ui.Main.Pages.Inscriptions
+{
     /// <summary>
-    /// Lógica de interacción para ListAthletes.xaml
+    ///     Lógica de interacción para ListAthletes.xaml
     /// </summary>
-    public partial class ListAthletes : Page {
-        private EnrollService _enroll;
-        private CompetitionService _competitionService;
+    public partial class ListAthletes : Page
+    {
         private CompetitionDto _competition;
+        private readonly CompetitionService _competitionService;
+        private EnrollService _enroll;
+        private readonly List<int> _ids;
         private DataTable _table;
-        private List<int> _ids;
 
         public ListAthletes() {
             InitializeComponent();
@@ -23,8 +25,8 @@ namespace Ui.Main.Pages.Inscriptions {
             _competitionService = new CompetitionService();
             _table = _competitionService.SelectAllCompetitions();
 
-            int index = _table.Columns.IndexOf("Competition_Name");
-            List<string> list = new List<string>();
+            var index = _table.Columns.IndexOf("Competition_Name");
+            var list = new List<string>();
             _ids = new List<int>();
 
             foreach (DataRow row in _table.Rows) {
@@ -39,7 +41,7 @@ namespace Ui.Main.Pages.Inscriptions {
         }
 
         private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e) {
-            if (e.PropertyType == typeof(System.DateTime))
+            if (e.PropertyType == typeof(DateTime))
                 ((DataGridTextColumn) e.Column).Binding.StringFormat = "dd/MM/yyyy";
         }
 
@@ -59,7 +61,7 @@ namespace Ui.Main.Pages.Inscriptions {
         }
 
         private void CompetitionList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            _competition = new CompetitionDto() {
+            _competition = new CompetitionDto {
                 ID = _ids[CompetitionList.SelectedIndex]
             };
 

@@ -1,26 +1,24 @@
-﻿using Logic.Db.Connection;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using Logic.Db.Dto;
+﻿using System.Collections.Generic;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Logic.Db.Connection;
+using Logic.Db.Dto;
 using Logic.Db.Json;
 
-namespace Logic.Db.ActionObjects.CompetitionLogic {
-
-    class SelectCategoriesPredefinied : IActionObject {
+namespace Logic.Db.ActionObjects.CompetitionLogic
+{
+    internal class SelectCategoriesPredefinied : IActionObject
+    {
         private readonly DBConnection _conn;
         public IEnumerable<AbsoluteCategory> List;
 
         public SelectCategoriesPredefinied(ref DBConnection conn) {
             _conn = conn;
         }
+
         public void Execute() {
             try {
-                Json.JsonDeserialize<AbsoluteCategory> defaultDeserialize = new JsonDeserialize<AbsoluteCategory>(JsonDeserialize<AbsoluteCategory>.DefaultCategoriesFilename);
+                var defaultDeserialize =
+                    new JsonDeserialize<AbsoluteCategory>(JsonDeserialize<AbsoluteCategory>.DefaultCategoriesFilename);
                 List = defaultDeserialize.ListJson();
                 //using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_ALL_CATEGORIES, _conn.DbConnection))
 
@@ -40,11 +38,11 @@ namespace Logic.Db.ActionObjects.CompetitionLogic {
                 //        list.Add(cat);
                 //    }
                 //}
-            } catch (SQLiteException) {
+            }
+            catch (SQLiteException) {
                 _conn.DbConnection?.Close();
                 throw;
             }
         }
     }
 }
-

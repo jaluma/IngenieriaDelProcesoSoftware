@@ -1,20 +1,22 @@
 ﻿<Page x:Class="Ui.Main.Pages.Inscriptions.Competitions.CompetitionInscription"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Ui.Main.Pages"
       xmlns:mui="http://firstfloorsoftware.com/ModernUI"
       xmlns:properties="clr-namespace:Ui.Main.Properties"
-      mc:Ignorable="d" 
+      mc:Ignorable="d"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CompetitionInscription">
 
     <Grid Style="{StaticResource ContentRoot}">
         <mui:ModernTab SelectedSource="/Pages/Inscriptions/Competitions/CompetitionInscriptionTab.xaml" Layout="Tab">
             <mui:ModernTab.Links>
-                <mui:Link DisplayName="{x:Static properties:Resources.Inscriptions}" Source="/Pages/Inscriptions/Competitions/CompetitionInscriptionTab.xaml" />
-                <mui:Link DisplayName="{x:Static properties:Resources.Preinscriptions}" Source="/Pages/Inscriptions/Competitions/CompetitionPreinscriptionTab.xaml" />
+                <mui:Link DisplayName="{x:Static properties:Resources.Inscriptions}"
+                          Source="/Pages/Inscriptions/Competitions/CompetitionInscriptionTab.xaml" />
+                <mui:Link DisplayName="{x:Static properties:Resources.Preinscriptions}"
+                          Source="/Pages/Inscriptions/Competitions/CompetitionPreinscriptionTab.xaml" />
             </mui:ModernTab.Links>
         </mui:ModernTab>
     </Grid>

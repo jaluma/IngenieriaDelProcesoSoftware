@@ -9,19 +9,21 @@ using Logic.Db.Dto;
 using Logic.Db.Util.Services;
 using Ui.Main.Pages.Inscriptions.Payment;
 
-namespace Ui.Main.Pages.Inscriptions.Competitions {
+namespace Ui.Main.Pages.Inscriptions.Competitions
+{
     /// <summary>
-    /// Lógica de interacción para CompetitionSelectionPage.xaml
+    ///     Lógica de interacción para CompetitionSelectionPage.xaml
     /// </summary>
-    public partial class CompetitionInscriptionTab : UserControl {
-        private readonly CompetitionService _competitionService;
+    public partial class CompetitionInscriptionTab : UserControl
+    {
         private readonly AthletesService _athletesService;
+        private readonly CompetitionService _competitionService;
         private readonly EnrollService _enrollService;
         private AthleteDto _athlete;
 
-        private CompetitionDto _competition;
-
         private List<long> _columnIds;
+
+        private CompetitionDto _competition;
 
         public CompetitionInscriptionTab() {
             _competitionService = new CompetitionService();
@@ -41,23 +43,21 @@ namespace Ui.Main.Pages.Inscriptions.Competitions {
         }
 
         private void LoadData(string dni) {
-            if (dni != null) {
+            if (dni != null)
                 try {
-                    List<AthleteDto> atleList = _athletesService.SelectAthleteTable();
+                    var atleList = _athletesService.SelectAthleteTable();
 
                     _athlete = atleList.First(a => a.Dni.ToUpper().Equals(dni.ToUpper()));
 
                     PlaceData();
 
                     GetListCompetition();
-
-                } catch (InvalidOperationException) { }
-            }
-
+                }
+                catch (InvalidOperationException) { }
         }
 
         private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e) {
-            if (e.PropertyType == typeof(System.DateTime))
+            if (e.PropertyType == typeof(DateTime))
                 ((DataGridTextColumn) e.Column).Binding.StringFormat = "dd/MM/yyyy";
         }
 
@@ -68,36 +68,33 @@ namespace Ui.Main.Pages.Inscriptions.Competitions {
             }
 
             /*try {*/
-                _competition = _competitionService.ListCompetitionsToInscribeObject(_athlete)
-                    .ElementAt(CompetitionsToSelect.SelectedIndex);
+            _competition = _competitionService.ListCompetitionsToInscribeObject(_athlete)
+                .ElementAt(CompetitionsToSelect.SelectedIndex);
 
-                if (_enrollService.IsAthleteInComp(_competition, _athlete))
-                {
-                    MessageBox.Show(Properties.Resources.PreviouslyEnrolled);
-                    return;
-                }
-                new DialogPayment(_athlete, _competition).ShowDialog();
-                LoadData(TxDni.Text);
+            if (_enrollService.IsAthleteInComp(_competition, _athlete)) {
+                MessageBox.Show(Properties.Resources.PreviouslyEnrolled);
+                return;
+            }
+
+            new DialogPayment(_athlete, _competition).ShowDialog();
+            LoadData(TxDni.Text);
 
             /*} catch (ApplicationException) {
                 MessageBox.Show(Properties.Resources.PreviouslyEnrolled);
             }*/
-
         }
 
         private void CompetitionsToSelect_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            int indexSeletected = CompetitionsToSelect.SelectedIndex;
+            var indexSeletected = CompetitionsToSelect.SelectedIndex;
 
-            if (indexSeletected != -1) {
-                _competition = new CompetitionDto() {
+            if (indexSeletected != -1)
+                _competition = new CompetitionDto {
                     ID = (int) _columnIds[indexSeletected]
                 };
-            }
-
         }
 
         private void GetListCompetition() {
-            DataTable table = _competitionService.ListCompetitionsToInscribe(_athlete);
+            var table = _competitionService.ListCompetitionsToInscribe(_athlete);
             table.Columns[0].ColumnName = Properties.Resources.Competition_Id;
             table.Columns[1].ColumnName = Properties.Resources.Competition_Name;
             table.Columns[2].ColumnName = Properties.Resources.Competition_Type;
@@ -123,9 +120,8 @@ namespace Ui.Main.Pages.Inscriptions.Competitions {
         }
 
         private void CompetitionSelectionWindow_OnLoaded(object sender, RoutedEventArgs e) {
-            if (_athlete?.Dni == null || CompetitionInscription.Dni == null || !CompetitionInscription.Dni.Equals(_athlete.Dni)) {
-                LoadData(CompetitionInscription.Dni);
-            }
+            if (_athlete?.Dni == null || CompetitionInscription.Dni == null ||
+                !CompetitionInscription.Dni.Equals(_athlete.Dni)) LoadData(CompetitionInscription.Dni);
         }
 
         private void CompetitionsToSelect_OnPreviewMouseWheel(object sender, MouseWheelEventArgs e) {

@@ -1,15 +1,13 @@
-﻿using Logic.Db.Connection;
-using Logic.Db.Dto;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Logic.Db.Connection;
+using Logic.Db.Dto;
+using Logic.Db.Properties;
 
-namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
-    public class SelectOutstandingAthletes : IActionObject {
-
+namespace Logic.Db.ActionObjects.AthleteLogic.Enroll
+{
+    public class SelectOutstandingAthletes : IActionObject
+    {
         private readonly DBConnection _conn;
         public readonly List<PaymentDto> Preregistered;
 
@@ -20,11 +18,11 @@ namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
 
         public void Execute() {
             try {
-                using (SQLiteCommand command =
-                    new SQLiteCommand(Properties.Resources.SQL_SELECT_OUTSTANDING, _conn.DbConnection)) {
-                    using (SQLiteDataReader reader = command.ExecuteReader()) {
+                using (var command =
+                    new SQLiteCommand(Resources.SQL_SELECT_OUTSTANDING, _conn.DbConnection)) {
+                    using (var reader = command.ExecuteReader()) {
                         while (reader.Read()) {
-                            PaymentDto payment = new PaymentDto() {
+                            var payment = new PaymentDto {
                                 Dni = reader.GetString(0),
                                 Id = reader.GetInt32(1),
                                 Amount = reader.GetDouble(2),
@@ -34,7 +32,8 @@ namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
                         }
                     }
                 }
-            } catch (SQLiteException) {
+            }
+            catch (SQLiteException) {
                 _conn.DbConnection?.Close();
                 throw;
             }

@@ -1,38 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using Logic.Db.Dto;
-using Logic.Db.Util.Services;
-using Ui.Main.Pages.MenuInitial;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Logic.Db.Util;
-using Logic.Db.Properties;
-using System.IO;
 using System.Windows.Forms;
 using System.Windows.Input;
-using Button = System.Windows.Forms.Button;
-using DataGridTextColumn = FirstFloor.ModernUI.Windows.Controls.DataGridTextColumn;
+using Logic.Db.Dto;
+using Logic.Db.Util.Services;
+using Cursors = System.Windows.Input.Cursors;
 using MouseEventArgs = System.Windows.Forms.MouseEventArgs;
 
-namespace Ui.Main.Pages.Competitions {
+namespace Ui.Main.Pages.Competitions
+{
     /// <summary>
-    /// Lógica de interacción para ListOpenCompetition.xaml
+    ///     Lógica de interacción para ListOpenCompetition.xaml
     /// </summary>
-    public partial class ListOpenCompetition : Page {
-        private CompetitionService _service;
+    public partial class ListOpenCompetition : Page
+    {
         private List<long> _columnIds;
         private List<long> _columnIds2;
-        byte[] bytes;
+        private CompetitionService _service;
+        private byte[] bytes;
 
 
         public ListOpenCompetition() {
@@ -45,7 +36,7 @@ namespace Ui.Main.Pages.Competitions {
 
         private void GenerateTable() {
             _service = new CompetitionService();
-            DataTable table = _service.ListOpenCompetitions();
+            var table = _service.ListOpenCompetitions();
             table.Columns[0].ColumnName = Properties.Resources.Competition_Id;
             table.Columns[1].ColumnName = Properties.Resources.Competition_Name;
             table.Columns[2].ColumnName = Properties.Resources.Competition_Type;
@@ -62,30 +53,22 @@ namespace Ui.Main.Pages.Competitions {
 
             table.Columns.RemoveAt(0);
 
-            DataColumn column = new DataColumn(Properties.Resources.Rules, typeof(string));
+            var column = new DataColumn(Properties.Resources.Rules, typeof(string));
             table.Columns.Add(column);
 
-            foreach (DataRow row in table.Rows) {
+            foreach (DataRow row in table.Rows)
                 if (row.Field<byte[]>("b") != null)
-                    row.SetField<string>(column, "Descargar");
-                else if (row.Field<byte[]>("b") == null) {
-                    row.SetField<string>(column, "No adjunto");
-                }           
-
-            }
+                    row.SetField(column, "Descargar");
+                else if (row.Field<byte[]>("b") == null) row.SetField(column, "No adjunto");
 
             table.Columns.RemoveAt(8);
             table.Columns.Remove(Properties.Resources.InscriptionOpen);
             DataGridCompetition.ItemsSource = table.DefaultView;
-
-
-           
         }
 
-        private void GenerateTable2()
-        {
+        private void GenerateTable2() {
             _service = new CompetitionService();
-            DataTable table = _service.ListPreInscriptionCompetitions();
+            var table = _service.ListPreInscriptionCompetitions();
             table.Columns[0].ColumnName = Properties.Resources.Competition_Id;
             table.Columns[1].ColumnName = Properties.Resources.Competition_Name;
             table.Columns[2].ColumnName = Properties.Resources.Competition_Type;
@@ -100,20 +83,15 @@ namespace Ui.Main.Pages.Competitions {
                 .Select(dr => dr.Field<long>(Properties.Resources.Competition_Id)).ToList();
 
             table.Columns.RemoveAt(0);
-            
 
-            DataColumn column = new DataColumn(Properties.Resources.Rules, typeof(string));
+
+            var column = new DataColumn(Properties.Resources.Rules, typeof(string));
             table.Columns.Add(column);
 
             foreach (DataRow row in table.Rows)
-            {
                 if (row.Field<byte[]>("b") != null)
-                    row.SetField<string>(column, "Descargar");
-                else if (row.Field<byte[]>("b") == null)
-                {
-                    row.SetField<string>(column, "No adjunto");
-                }
-            }
+                    row.SetField(column, "Descargar");
+                else if (row.Field<byte[]>("b") == null) row.SetField(column, "No adjunto");
 
             table.Columns.RemoveAt(7);
             table.Columns.Remove("Preinscripción desde");
@@ -121,53 +99,49 @@ namespace Ui.Main.Pages.Competitions {
         }
 
         private void DataGridCompetition_OnMouseDoubleClick(object sender, MouseButtonEventArgs e) {
+            var indexSeletected = DataGridCompetition.SelectedIndex;
 
+            var id = (int) _columnIds[indexSeletected];
 
-            int indexSeletected = DataGridCompetition.SelectedIndex;
+            var competition = new CompetitionDto {ID = id};
 
-            int id = (int) _columnIds[indexSeletected];
-
-            CompetitionDto competition = new CompetitionDto() { ID = id };
-
-            CompetitionService service = new CompetitionService();
+            var service = new CompetitionService();
             bytes = service.GetRules(competition);
 
-            if (bytes != null) {
+            if (bytes != null)
                 using (var fbd = new FolderBrowserDialog()) {
-                    DialogResult result = fbd.ShowDialog();
+                    var result = fbd.ShowDialog();
 
                     if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath)) {
-                        string path = fbd.SelectedPath;
-                        CompetitionService service1 = new CompetitionService();
-                        string nombre = service1.SearchCompetitionById(competition).Name;
-                        string filename = $"Reglamento de {nombre}.pdf";
+                        var path = fbd.SelectedPath;
+                        var service1 = new CompetitionService();
+                        var nombre = service1.SearchCompetitionById(competition).Name;
+                        var filename = $"Reglamento de {nombre}.pdf";
 
-                        string absolutePath = System.IO.Path.Combine(path, filename);
-                        for (int count = 1; File.Exists(absolutePath); count++) {
+                        var absolutePath = Path.Combine(path, filename);
+                        for (var count = 1; File.Exists(absolutePath); count++) {
                             filename = $"Reglamento de {nombre} (Copia {count}).pdf";
-                            absolutePath = System.IO.Path.Combine(path, filename);
+                            absolutePath = Path.Combine(path, filename);
                         }
 
-                        BinaryWriter writer = new BinaryWriter(File.Open(absolutePath, FileMode.CreateNew));
+                        var writer = new BinaryWriter(File.Open(absolutePath, FileMode.CreateNew));
 
                         writer.Write(bytes);
 
                         writer.Close();
 
-                        System.Diagnostics.Process.Start(absolutePath);
+                        Process.Start(absolutePath);
                     }
                 }
-            }
-
-
         }
 
         private void OnAutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e) {
-            if (e.PropertyType == typeof(System.DateTime))
-                ((System.Windows.Controls.DataGridTextColumn) e.Column).Binding.StringFormat = "dd/MM/yyyy";
+            if (e.PropertyType == typeof(DateTime))
+                ((DataGridTextColumn) e.Column).Binding.StringFormat = "dd/MM/yyyy";
         }
+
         private void DataGridCompetition_OnMouseEnter(object sender, MouseEventArgs e) {
-            DataGridCompetition.Cursor = System.Windows.Input.Cursors.Hand;
+            DataGridCompetition.Cursor = Cursors.Hand;
         }
 
         private void DataGridCompetition_OnMouseLeave(object sender, MouseEventArgs e) {
@@ -178,49 +152,41 @@ namespace Ui.Main.Pages.Competitions {
             GenerateTable();
         }
 
-        private void DataGridCompetition_P_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
+        private void DataGridCompetition_P_MouseDoubleClick(object sender, MouseButtonEventArgs e) {
+            var indexSeletected = DataGridCompetition_P.SelectedIndex;
 
-            int indexSeletected = DataGridCompetition_P.SelectedIndex;
+            var id = (int) _columnIds2[indexSeletected];
 
-            int id = (int)_columnIds2[indexSeletected];
+            var competition = new CompetitionDto {ID = id};
 
-            CompetitionDto competition = new CompetitionDto() { ID = id };
-
-            CompetitionService service = new CompetitionService();
+            var service = new CompetitionService();
             bytes = service.GetRules(competition);
 
             if (bytes != null)
-            {
-                using (var fbd = new FolderBrowserDialog())
-                {
-                    DialogResult result = fbd.ShowDialog();
+                using (var fbd = new FolderBrowserDialog()) {
+                    var result = fbd.ShowDialog();
 
-                    if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-                    {
-                        string path = fbd.SelectedPath;
-                        CompetitionService service1 = new CompetitionService();
-                        string nombre = service1.SearchCompetitionById(competition).Name;
-                        string filename = $"Reglamento de {nombre}.pdf";
+                    if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath)) {
+                        var path = fbd.SelectedPath;
+                        var service1 = new CompetitionService();
+                        var nombre = service1.SearchCompetitionById(competition).Name;
+                        var filename = $"Reglamento de {nombre}.pdf";
 
-                        string absolutePath = System.IO.Path.Combine(path, filename);
-                        for (int count = 1; File.Exists(absolutePath); count++)
-                        {
+                        var absolutePath = Path.Combine(path, filename);
+                        for (var count = 1; File.Exists(absolutePath); count++) {
                             filename = $"Reglamento de {nombre} (Copia {count}).pdf";
-                            absolutePath = System.IO.Path.Combine(path, filename);
+                            absolutePath = Path.Combine(path, filename);
                         }
 
-                        BinaryWriter writer = new BinaryWriter(File.Open(absolutePath, FileMode.CreateNew));
+                        var writer = new BinaryWriter(File.Open(absolutePath, FileMode.CreateNew));
 
                         writer.Write(bytes);
 
                         writer.Close();
 
-                        System.Diagnostics.Process.Start(absolutePath);
+                        Process.Start(absolutePath);
                     }
                 }
-            }
-
         }
 
         private void DataGridCompetition_OnPreviewMouseWheel(object sender, MouseWheelEventArgs e) {

@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SQLite;
 using Logic.Db.Connection;
-using Logic.Db.Dto;
+using Logic.Db.Properties;
 
-namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
-
-    public class SelectDniFromDorsal : IActionObject {
-        private readonly DBConnection _conn;
+namespace Logic.Db.ActionObjects.AthleteLogic.Enroll
+{
+    public class SelectDniFromDorsal : IActionObject
+    {
         private readonly long _competitionId;
+        private readonly DBConnection _conn;
         private readonly int _dorsal;
         public string Dni;
 
@@ -23,18 +19,16 @@ namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
 
         public void Execute() {
             try {
-                using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_DNI_FROM_DORSAL, _conn.DbConnection)) {
+                using (var command = new SQLiteCommand(Resources.SQL_SELECT_DNI_FROM_DORSAL, _conn.DbConnection)) {
                     command.Parameters.AddWithValue("@DORSAL", _dorsal);
                     command.Parameters.AddWithValue("@COMPETITION_ID", _competitionId);
 
-                    using (SQLiteDataReader reader = command.ExecuteReader()) {
-
-                        while (reader.Read()) {
-                            Dni = reader.GetString(0);
-                        }
+                    using (var reader = command.ExecuteReader()) {
+                        while (reader.Read()) Dni = reader.GetString(0);
                     }
                 }
-            } catch (SQLiteException) {
+            }
+            catch (SQLiteException) {
                 _conn.DbConnection?.Close();
                 throw;
             }

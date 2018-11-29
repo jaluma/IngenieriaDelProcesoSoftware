@@ -1,17 +1,17 @@
 ﻿<mui:ModernDialog x:Class="Ui.Main.Pages.Competition.Times.AllTimes"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Ui.Main.Pages.Competition.Times"
-      xmlns:properties="clr-namespace:Ui.Main.Properties"
-      xmlns:mui="http://firstfloorsoftware.com/ModernUI"
-      mc:Ignorable="d"
-      Title="Tiempos"
-      ResizeMode="CanResizeWithGrip">
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:local="clr-namespace:Ui.Main.Pages.Competition.Times"
+                  xmlns:properties="clr-namespace:Ui.Main.Properties"
+                  xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+                  mc:Ignorable="d"
+                  Title="Tiempos"
+                  ResizeMode="CanResizeWithGrip">
 
 
-    <ScrollViewer Name="Panel"  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Height="Auto">
+    <ScrollViewer Name="Panel" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Height="Auto">
         <StackPanel Name="Layout" Margin="10" Style="{StaticResource ContentRoot}" />
     </ScrollViewer>
 </mui:ModernDialog>

@@ -1,33 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SQLite;
-using System.Text;
-using System.Threading.Tasks;
 using Logic.Db.Connection;
 using Logic.Db.Dto;
+using Logic.Db.Properties;
 
-namespace Logic.Db.ActionObjects.TimesLogic {
-
-    public class SelectHasParticipatedTimeLogic : IActionObject {
+namespace Logic.Db.ActionObjects.TimesLogic
+{
+    public class SelectHasParticipatedTimeLogic : IActionObject
+    {
+        private readonly CompetitionDto _competition;
         private readonly DBConnection _conn;
         public readonly DataTable Table;
-        private readonly CompetitionDto _competition;
 
         public SelectHasParticipatedTimeLogic(ref DBConnection conn, CompetitionDto competition) {
             _conn = conn;
             Table = new DataTable();
             _competition = competition;
         }
+
         public void Execute() {
             try {
-                using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_ATHLETES_TIMES, _conn.DbConnection)) {
+                using (var command = new SQLiteCommand(Resources.SQL_SELECT_ATHLETES_TIMES, _conn.DbConnection)) {
                     command.Parameters.AddWithValue("@COMPETITION_ID", _competition.ID);
 
-                    SQLiteDataAdapter da = new SQLiteDataAdapter(command);
+                    var da = new SQLiteDataAdapter(command);
                     da.Fill(Table);
                 }
-            } catch (SQLiteException) {
+            }
+            catch (SQLiteException) {
                 _conn.DbConnection?.Close();
                 throw;
             }

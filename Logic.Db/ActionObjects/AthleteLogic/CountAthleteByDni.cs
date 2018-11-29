@@ -1,14 +1,11 @@
-﻿using Logic.Db.Connection;
-using Logic.Db.Dto;
-using System;
-using System.Collections.Generic;
-using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SQLite;
+using Logic.Db.Connection;
+using Logic.Db.Properties;
 
-namespace Logic.Db.ActionObjects.AthleteLogic {
-    public class CountAthleteByDniLogic : IActionObject {
+namespace Logic.Db.ActionObjects.AthleteLogic
+{
+    public class CountAthleteByDniLogic : IActionObject
+    {
         private readonly DBConnection _conn;
         private readonly string _dni;
 
@@ -21,15 +18,14 @@ namespace Logic.Db.ActionObjects.AthleteLogic {
 
         public void Execute() {
             try {
-                using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_COUNT_ATHLETE_BY_DNI, _conn.DbConnection)) {
+                using (var command = new SQLiteCommand(Resources.SQL_COUNT_ATHLETE_BY_DNI, _conn.DbConnection)) {
                     command.Parameters.AddWithValue("@DNI", _dni);
-                    using (SQLiteDataReader reader = command.ExecuteReader()) {
-                        if (reader.Read()) {
-                            Contador = reader.GetInt32(0);
-                        }
+                    using (var reader = command.ExecuteReader()) {
+                        if (reader.Read()) Contador = reader.GetInt32(0);
                     }
                 }
-            } catch (SQLiteException) {
+            }
+            catch (SQLiteException) {
                 _conn.DbConnection?.Close();
                 throw;
             }

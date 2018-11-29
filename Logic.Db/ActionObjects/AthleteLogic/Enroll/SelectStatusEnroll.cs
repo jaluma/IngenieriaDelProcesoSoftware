@@ -1,14 +1,15 @@
-﻿using System.Data;
-using System.Data.SQLite;
+﻿using System.Data.SQLite;
 using Logic.Db.Connection;
 using Logic.Db.Dto;
+using Logic.Db.Properties;
 
-namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
-
-    public class SelectStatusEnroll : IActionObject {
+namespace Logic.Db.ActionObjects.AthleteLogic.Enroll
+{
+    public class SelectStatusEnroll : IActionObject
+    {
+        private readonly CompetitionDto _competition;
 
         private readonly DBConnection _conn;
-        private readonly CompetitionDto _competition;
         private readonly string _dni;
         public string Return;
 
@@ -20,20 +21,17 @@ namespace Logic.Db.ActionObjects.AthleteLogic.Enroll {
 
         public void Execute() {
             try {
-                if (_competition == null || _dni == null) {
-                    return;
-                }
-                using (SQLiteCommand command = new SQLiteCommand(Logic.Db.Properties.Resources.SQL_SELECT_STATUS_ENROLL, _conn.DbConnection)) {
+                if (_competition == null || _dni == null) return;
+                using (var command = new SQLiteCommand(Resources.SQL_SELECT_STATUS_ENROLL, _conn.DbConnection)) {
                     //command.Parameters.AddWithValue("@STATUS", TypesStatus.Registered.ToString().ToUpper());
                     command.Parameters.AddWithValue("@COMPETITION_ID", _competition.ID);
                     command.Parameters.AddWithValue("@DNI", _dni);
-                    using (SQLiteDataReader reader = command.ExecuteReader()) {
-                        if (reader.Read()) {
-                            Return = reader.GetString(0);
-                        }
+                    using (var reader = command.ExecuteReader()) {
+                        if (reader.Read()) Return = reader.GetString(0);
                     }
                 }
-            } catch (SQLiteException) {
+            }
+            catch (SQLiteException) {
                 _conn.DbConnection?.Close();
                 throw;
             }

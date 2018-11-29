@@ -1,27 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Logic.Db.Csv.Object;
 
-namespace Logic.Db.Csv {
-    public abstract class CsvLoader {
-
+namespace Logic.Db.Csv
+{
+    public abstract class CsvLoader
+    {
         private readonly string[] _fileNamesCsv;
         public IList<string> Errores;
-
-
-        public IEnumerable<CsvObject> Returned { get; private set; }
 
         protected CsvLoader(string[] fileNames) {
             _fileNamesCsv = fileNames;
             LoadFiles();
         }
 
+
+        public IEnumerable<CsvObject> Returned { get; private set; }
+
         private void LoadFiles() {
-            foreach (var csv in _fileNamesCsv) {
-                LoadData(csv);
-            }
+            foreach (var csv in _fileNamesCsv) LoadData(csv);
         }
 
         private void LoadData(string filename) {
@@ -33,10 +31,8 @@ namespace Logic.Db.Csv {
 
                 Returned = CreateObjects(query);
             }
-
         }
 
-        protected abstract IEnumerable<CsvObject> CreateObjects(IEnumerable<String[]> lines);
-
+        protected abstract IEnumerable<CsvObject> CreateObjects(IEnumerable<string[]> lines);
     }
 }
