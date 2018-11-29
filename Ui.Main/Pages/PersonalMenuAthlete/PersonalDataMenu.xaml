@@ -26,8 +26,6 @@
             <Label FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"
                    Content="{x:Static properties:Resources.InscriptionsRegistered}" Margin="335,121,104,379"
                    Width="201" RenderTransformOrigin="0.473,1.057" />
-            <Label FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"
-                   Content="{x:Static properties:Resources.InsertDni}" Margin="65,221,439,264" Width="136" />
             <DataGrid x:Name="DataGridDataPersonal" MinWidth="1" AutoGeneratingColumn="OnAutoGeneratingColumn"
                       MinHeight="10" ColumnWidth="*" IsReadOnly="True" Margin="0,46,110,419" Height="Auto"
                       HorizontalAlignment="Right" Width="795" SelectionChanged="DataGridDataPersonal_SelectionChanged"
