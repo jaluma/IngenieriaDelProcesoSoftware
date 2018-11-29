@@ -58,7 +58,6 @@
       <HintPath>..\packages\System.Data.SQLite.Linq.1.0.109.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
     </Reference>
     <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -140,9 +139,14 @@
     <Compile Include="Dto\PaymentDto.cs" />
     <Compile Include="Dto\InscriptionDatesDto.cs" />
     <Compile Include="Dto\RefundDto.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Json\JsonDeserialize.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs" />
+    <Compile Include="Properties\Resources1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Util\IService.cs" />
     <Compile Include="Util\ServiceAdapter.cs" />
     <Compile Include="Util\Services\AthletesService.cs" />

@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using Logic.Db.Dto;
 
-namespace Ui.Main.Pages.Inscriptions
+namespace Ui.Main.Pages.Inscriptions.Clubs
 {
     /// <summary>
     ///     Lógica de interacción para InscriptionProofWindow.xaml

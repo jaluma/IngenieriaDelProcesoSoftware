@@ -517,4 +517,7 @@
   <data name="AddAthlete" xml:space="preserve">
     <value>Añadir atleta</value>
   </data>
+  <data name="InsertDni" xml:space="preserve">
+    <value>DNI</value>
+  </data>
 </root>

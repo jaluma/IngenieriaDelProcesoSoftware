@@ -4,7 +4,7 @@ using Logic.Db.Connection;
 using Logic.Db.Dto;
 using Logic.Db.Json;
 
-namespace Logic.Db.ActionObjects.CompetitionLogic
+namespace Logic.Db.ActionObjects.CategoriesLogic
 {
     internal class SelectCategoriesPredefinied : IActionObject
     {
