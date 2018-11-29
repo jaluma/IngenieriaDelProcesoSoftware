@@ -487,6 +487,7 @@ namespace Ui.Main.Pages.Competitions {
             DTotal.Text = "";
             PrecioInscripcion.Text = "";
             Reglamento.Text = "";
+            BtReset_Click(null, null);
 
         }
 
