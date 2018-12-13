@@ -25,4 +25,4 @@ https://docs.microsoft.com/es-es/dotnet/csharp/programming-guide/inside-a-progra
 
 ## Licencia
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
