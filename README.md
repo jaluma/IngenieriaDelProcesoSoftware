@@ -20,7 +20,7 @@ https://docs.microsoft.com/es-es/dotnet/csharp/programming-guide/inside-a-progra
 ## Autores
 
 * **Javier Martínez** - [jaluma](https://github.com/jaluma)
-* **Gema Rico** - [Niobe93](https://github.com/Niobe93)
+* **Gema Rico** - [Niobe93](https://github.com/gemarico)
 * **Isabel Fernandez** - [isafdezpe](https://github.com/isafdezpe)
 
 ## Licencia
